@@ -2,7 +2,7 @@
 	Name "The Sims 2 Starter Pack (Web installer by osab)"
 		OutFile "TS2 Starter Pack WebInstall (osab).exe"
 			RequestExecutionLevel admin
-			$INSTDIR "$PROGRAMFILES32/The Sims 2 Starter Pack/" 
+			InstallDir "$PROGRAMFILES32/The Sims 2 Starter Pack/" 
   		PageEx Directory
   			DirVar $INSTDIR
   		PageExEnd
