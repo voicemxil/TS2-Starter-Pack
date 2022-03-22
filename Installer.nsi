@@ -5,7 +5,7 @@ OutFile "TS2 Starter Pack WebInstall (osab).exe"
 # Administrator Privileges 
 RequestExecutionLevel admin
 # Default Installation Directory
-InstallDir "$PROGRAMFILES32/The Sims 2 Starter Pack"
+InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
 # Regkey for reinstalling purposes
 InstallDirRegKey HKLM "Software\WOW6432Node\EA GAMES\The Sims 2" "InstallDir" 
 
@@ -37,5 +37,5 @@ Section TS2_Starter_Pack
 		NSIS7z::ExtractWithDetails "$INSTDIR\osab_Sims 2 Starter Pack.7z" "Extracting game archive %s..."
 			 Pop $1 # return value = exit code, "OK" means OK
 		Delete "$INSTDIR\osab_Sims 2 Starter Pack.7z"
-	Exec '"$INSTDIR/Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
+	Exec '"$INSTDIR\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
 	SectionEnd
