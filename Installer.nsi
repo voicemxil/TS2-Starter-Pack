@@ -1,7 +1,7 @@
 # Names the built installer
-Name "The Sims 2 Starter Pack by osab"
+Name "osab's Sims 2 Starter Pack"
 # Building to:
-OutFile "TS2 Starter Pack WebInstall (osab).exe"
+OutFile "TS2 Starter Pack WebInstall.exe"
 # Administrator Privileges 
 RequestExecutionLevel admin
 # Default Installation Directory
@@ -14,6 +14,13 @@ Function .OnInit
 ; plug-in auto-recognizes 'no parent dlg' in onInit and works accordingly
 ;    inetc::head /RESUME "Network error. Retry?" "http://ineum.narod.ru/spr_2003.htm" "$EXEDIR\spr3.txt"
 ;    Pop $4
+FunctionEnd
+Function dl
+IfFileExists "$INSTDIR\osab_Sims 2 Starter Pack.7z" Exists
+		inetc::get /BANNER "Downloading archive..." "https://download2347.mediafire.com/86cbr7or049g/ejbhtnu8itob4t0/osab_Sims+2+Starter+Pack.7z" "osab_Sims 2 Starter Pack.7z"
+		Pop $0 # return value = exit code, "OK" means OK
+	    MessageBox MB_OK "Download Status: $0"
+    Exists:
 FunctionEnd
 ###########################
 Page directory 
@@ -30,12 +37,12 @@ Section TS2_Starter_Pack
 	InitPluginsDir
 	
 	SetOverwrite ifnewer
+	
+Call dl
 
-	inetc::get /POPUP "Downloading archive..." "https://download2347.mediafire.com/86cbr7or049g/ejbhtnu8itob4t0/osab_Sims+2+Starter+Pack.7z" "osab_Sims 2 Starter Pack.7z"
-	 Pop $0 # return value = exit code, "OK" means OK
-	    MessageBox MB_OK "Download Status: $0"
-		NSIS7z::ExtractWithDetails "$INSTDIR\osab_Sims 2 Starter Pack.7z" "Extracting game archive %s..."
+		NSIS7z::ExtractWithDetails "osab_Sims 2 Starter Pack.7z" "Extracting game archive %s..."
 			 Pop $1 # return value = exit code, "OK" means OK
-		Delete "$INSTDIR\osab_Sims 2 Starter Pack.7z"
+			 	    MessageBox MB_OK "Extraction Status: $1"
+		##Delete "$INSTDIR\osab_Sims 2 Starter Pack.7z"
 	Exec '"$INSTDIR\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
 	SectionEnd
