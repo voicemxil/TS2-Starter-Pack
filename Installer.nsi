@@ -1,3 +1,6 @@
+!include "MUI2.nsh"
+Icon "C:\Program Files (x86)\NSIS\Contrib\Graphics\Icons\modern-install.ico"
+
 # Names the built installer
 Name "osab's Sims 2 Starter Pack"
 # Building to:
@@ -24,9 +27,24 @@ IfFileExists "$INSTDIR\osab_Sims 2 Starter Pack.7z" Exists
     Exists:
 FunctionEnd
 ###########################
-Page directory
-Page components 
-Page instfiles 
+!define MUI_ABORTWARNING
+!define MUI_PAGE_HEADER_TEXT "TS2: UC - Starter Pack"
+!define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install"
+!define MUI_LICENSEPAGE_TEXT_TOP "Please ensure you have read and agreed to the attached license terms before proceeding:"
+!define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer."
+!define MUI_FINISHPAGE_LINK_LOCATION "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\user\Pictures\Untitled.bmp"
+!define MUI_FINISHPAGE_SHOWREADME https://github.com/voicemxil/osab-TS2-web-installer/blob/main/README.md
+
+!insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_LICENSE "C:\Users\user\Documents\GitHub\osab-TS2-web-installer\license.txt"
+!insertmacro MUI_PAGE_COMPONENTS
+!insertmacro MUI_PAGE_DIRECTORY
+!insertmacro MUI_PAGE_INSTFILES
+!insertmacro MUI_PAGE_FINISH
+!insertmacro MUI_LANGUAGE "English"
+
 
 Section "TS2 Starter Pack"
 	
@@ -68,14 +86,17 @@ SectionEnd
 
 Section "DXVK"
 
-inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v1.10/dxvk-1.10.tar.gz" dxvk-1.10.tar.gz
-Pop $4
+inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v1.10/dxvk-1.10.tar.gz" "$INSTDIR\dxvk-1.10.tar.gz"
+Pop $4 # return value = exit code, "OK" means OK
+MessageBox MB_OK "DXVK Download Status: $4"
 
-untgz::extract -j -d -h -z "dxvk-1.10.tar.gz"
-
-MessageBox MB_OK "Extract Status: $6"
+untgz::extract -h -u -d $INSTDIR -zgz "$INSTDIR\dxvk-1.10.tar.gz"
+Pop $5 # return value = exit code, "OK" means OK
+MessageBox MB_OK "DXVK Extraction Status: $5"
+#Delete archive.
+Delete "$INSTDIR\dxvk-1.10.tar.gz"
 
 Rename "$INSTDIR\dxvk-1.10\x32\d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll"
-
+#Delete DXVK folder
+RMDir "$INSTDIR\dxvk-1.10"
 SectionEnd
-
