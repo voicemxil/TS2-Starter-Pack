@@ -36,6 +36,8 @@ FunctionEnd
 !define MUI_FINISHPAGE_LINK_LOCATION "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\user\Pictures\Untitled.bmp"
 !define MUI_FINISHPAGE_SHOWREADME https://github.com/voicemxil/osab-TS2-web-installer/blob/main/README.md
+!define MUI_FINISHPAGE_RUN "$PROGRAMFILES\Graphics Rules Maker\bin\GraphicsRulesMakerUi.exe"
+!define MUI_FINISHPAGE_RUN_TEXT "Graphics Rules Maker"
 
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "C:\Users\user\Documents\GitHub\osab-TS2-web-installer\license.txt"
