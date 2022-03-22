@@ -11,6 +11,7 @@ Section "Install"
 SectionEnd
 PageEx InstFiles
 Section "Download" 
+	AddSize 25000000
 	InitPluginsDir
 		SetOutPath $PLUGINSDIR
   			SetOverwrite ifnewer
