@@ -67,10 +67,8 @@ Call dl
 			 	    MessageBox MB_OK "Extraction Status: $1"
 		##Delete "$INSTDIR\osab_Sims 2 Starter Pack.7z"
 	Execwait '"$INSTDIR\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
-SectionEnd
-
-Section "Graphics Rules Maker"
-!include x64.nsh
+	
+	!include x64.nsh
 ${If} ${RunningX64}
     inetc::get /BANNER "Downloading GRM Setup..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" graphicsrulesmaker-2.0.0-64bit.exe
 		Pop $2 # return value = exit code, "OK" means OK
@@ -85,6 +83,7 @@ ${Else}
 	Delete "graphicsrulesmaker-2.0.0-32bit.exe"
 ${EndIf}
 SectionEnd
+
 
 Section "DXVK"
 
