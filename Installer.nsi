@@ -37,5 +37,5 @@ Section TS2_Starter_Pack
 		NSIS7z::ExtractWithDetails "$INSTDIR\osab_Sims 2 Starter Pack.7z" "Extracting game archive %s..."
 			 Pop $1 # return value = exit code, "OK" means OK
 		Delete "$INSTDIR\osab_Sims 2 Starter Pack.7z"
-	Exec '"$INSTDIR/Touchup.exe" install -locale en_US -installPath $INSTDIR -autologging'
+	Exec '"$INSTDIR/Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
 	SectionEnd
