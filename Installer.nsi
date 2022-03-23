@@ -1,5 +1,23 @@
 !include "MUI2.nsh"
 Icon "C:\Program Files (x86)\NSIS\Contrib\Graphics\Icons\modern-install.ico"
+var Installer
+var AL
+var BoB
+var BV
+var DD
+var FT
+var FwP
+var GLS
+var SS
+var UNI
+
+StrCpy $Installer "https://www.googleapis.com/drive/v3/files/1O4AX9szeOkRf1riEhexMPRIVgB7cdKmI?alt=media&key=AIzaSyB6xawrCnxzBORJWcZTrZ5EEazml2SlWLE"
+
+StrCpy $AL "https://www.googleapis.com/drive/v3/files/1TYoWn4CatgeV1o7a26p0VMafoGQ7nnIF?alt=media&key=AIzaSyB6xawrCnxzBORJWcZTrZ5EEazml2SlWLE"
+
+StrCpy $BoB
+
+StrCpy $BV "https://www.googleapis.com/drive/v3/files/1MK1Rvftf7ITZK5u7tYxxvi3uoagwGrwG?alt=media&key=AIzaSyB6xawrCnxzBORJWcZTrZ5EEazml2SlWLE"
 
 # Names the built installer
 Name "osab's Sims 2 Starter Pack"
