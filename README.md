@@ -1,4 +1,4 @@
-Downloader can't grab the link without paid Mediafire (of course), so I am uploading the files to another platform. To fix this in the meantime, you will have to manually download the Standalone .7z Starter Pack and place it in the game install directory.
+# Downloader can't grab the link without paid Mediafire (of course), so I am uploading the files to another platform. To fix this in the meantime, you will have to manually download the Standalone .7z Starter Pack and place it in the game install directory.
 
 
 ![Discord Banner 2](https://discordapp.com/api/guilds/912700195249197086/widget.png?style=banner2)
