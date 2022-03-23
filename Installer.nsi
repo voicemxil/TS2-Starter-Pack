@@ -32,7 +32,7 @@ FunctionEnd
 !define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install"
 !define MUI_LICENSEPAGE_TEXT_TOP "Please ensure you have read and agreed to the attached license terms before proceeding:"
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer."
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer. THIS IS THE TEMPORARY DOWNLOAD FIX VERSION. YOU MUST HAVE 'osab_Sims 2 Starter Pack.7z' PRESENT IN THE GAME'S INSTALLDIR TO CONTINUE!"
 !define MUI_FINISHPAGE_LINK_LOCATION "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\user\Pictures\Untitled.bmp"
 !define MUI_FINISHPAGE_SHOWREADME https://github.com/voicemxil/osab-TS2-web-installer/blob/main/README.md
@@ -60,7 +60,7 @@ Section "TS2 Starter Pack"
 	
 	SetOverwrite ifnewer
 	
-Call dl
+
 
 		NSIS7z::ExtractWithDetails "osab_Sims 2 Starter Pack.7z" "Extracting game archive %s..."
 			 Pop $1 # return value = exit code, "OK" means OK
