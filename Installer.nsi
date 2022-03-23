@@ -2,9 +2,9 @@
 Icon "C:\Program Files (x86)\NSIS\Contrib\Graphics\Icons\modern-install.ico"
 
 # Names the built installer
-Name "osab's Sims 2 Starter Pack"
+Name "osab's Sims 2 Starter Pack (NoDownload)"
 # Building to:
-OutFile "TS2 Starter Pack WebInstall.exe"
+OutFile "TS2_Starter Pack_NoDownload_Temporary.exe"
 # Administrator Privileges 
 RequestExecutionLevel admin
 # Default Installation Directory
