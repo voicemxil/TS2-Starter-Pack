@@ -12,6 +12,8 @@ I recommend installing to the default directories (especially for GRM - that one
 - Automatically gets and installs the latest Starter Pack files from osab, featuring Sims2RPC. 
 - Featuring automated Touchup process with a graphical installer.
 - Downloads and installs Graphics Rules Maker from SimNetwork.
-- Option to automatically download and install DXVK.
+- Option to automatically download and install DXVK. ***(Your system MUST be Vulkan compatible in order to install the DXVK component.)***
 
 Sims 2 should not be installed beforehand. Users will need around 25gb of free space to install the game.
+
+If you don't like any of this for some reason, stick with the <a href="https://www.mediafire.com/file/ejbhtnu8itob4t0/TS2Store_Ultimate_Collection.7z/file">standalone download</a>.
