@@ -19,13 +19,6 @@ Function .OnInit
 ;    Pop $4
 FunctionEnd
 
-Function dl
-IfFileExists "$INSTDIR\osab_Sims 2 Starter Pack.7z" Exists
-		inetc::get /BANNER "Downloading archive..." "https://download2347.mediafire.com/86cbr7or049g/ejbhtnu8itob4t0/osab_Sims+2+Starter+Pack.7z" "osab_Sims 2 Starter Pack.7z"
-		Pop $0 # return value = exit code, "OK" means OK
-	    MessageBox MB_OK "Download Status: $0"
-    Exists:
-FunctionEnd
 ###########################
 !define MUI_ABORTWARNING
 !define MUI_PAGE_HEADER_TEXT "TS2: UC - Starter Pack"
@@ -60,28 +53,72 @@ Section "TS2 Starter Pack"
 	
 	SetOverwrite ifnewer
 	
-Call dl
-
-		NSIS7z::ExtractWithDetails "osab_Sims 2 Starter Pack.7z" "Extracting game archive %s..."
-			 Pop $1 # return value = exit code, "OK" means OK
-			 	    MessageBox MB_OK "Extraction Status: $1"
-		##Delete "$INSTDIR\osab_Sims 2 Starter Pack.7z"
-	Execwait '"$INSTDIR\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
-	
-	!include x64.nsh
+inetc::get /BANNER "Downloading __Installer..." "" "AutoExtract__Installer.exe"
+	Pop $0 # return value = exit code, "OK" means OK
+	MessageBox MB_OK "Installer Download Status: $0"
+	Exec '"AutoExtract__Installer.exe" -y -o ".\"'
+inetc::get /BANNER "Downloading Apartment Life..." "" "AutoExtract__Apartment Life.exe"
+	Pop $1 # return value = exit code, "OK" means OK
+	MessageBox MB_OK "AL Download Status: $1"
+	Exec '"AutoExtract_Apartment Life.exe" -y -o ".\"'
+inetc::get /BANNER "Downloading Best of Business..." "" "AutoExtract_Best of Business.exe"
+	Pop $2 # return value = exit code, "OK" means OK
+	MessageBox MB_OK "BoB Download Status: $2"
+	Exec '"AutoExtract_Best of Business.exe" -y -o ".\"'
+inetc::get /BANNER "Downloading Bon Voyage..." "" "AutoExtract_Bon Voyage.exe"
+	Pop $3 # return value = exit code, "OK" means OK
+	MessageBox MB_OK "BV Download Status: $3"
+	Exec '"AutoExtract_Bon Voyage.exe" -y -o ".\"'
+inetc::get /BANNER "Downloading Double Deluxe..." "" "AutoExtract_Double Deluxe.exe"
+	Pop $4 # return value = exit code, "OK" means OK
+	MessageBox MB_OK "DD Download Status: $4"
+	Exec '"AutoExtract_Double Deluxe.exe" -y -o ".\"'
+inetc::get /BANNER "Downloading FreeTime..." "" "AutoExtract_FreeTime.exe"
+	Pop $5 # return value = exit code, "OK" means OK
+	MessageBox MB_OK "FT Download Status: $5"
+	Exec '"AutoExtract_FreeTime.exe" -y -o ".\"'
+inetc::get /BANNER "Downloading Fun with Pets..." "" "AutoExtract_Fun with Pets.exe"
+	Pop $6 # return value = exit code, "OK" means OK
+	MessageBox MB_OK "FwP Download Status: $6"
+	Exec '"AutoExtract_Fun with Pets.exe" -y -o ".\"'
+inetc::get /BANNER "Downloading Glamour Life Stuff..." "" "AutoExtract_Glamour Life Stuff.exe"
+	Pop $7 # return value = exit code, "OK" means OK
+	MessageBox MB_OK "GLS Download Status: $7"
+	Exec '"AutoExtract_Glamour Life Stuff.exe" -y -o ".\"'
+inetc::get /BANNER "Downloading Seasons..." "" "AutoExtract_Seasons.exe"
+	Pop $8 # return value = exit code, "OK" means OK
+	MessageBox MB_OK "SS Download Status: $8"
+	Exec '"AutoExtract_Seasons.exe" -y -o ".\"'
+inetc::get /BANNER "Downloading University..." "" "AutoExtract_University Life.exe"
+	Pop $9 # return value = exit code, "OK" means OK
+	MessageBox MB_OK "U Download Status: $9"
+	Execwait '"AutoExtract_University Life.exe" -y -o ".\"'
+Execwait '"$INSTDIR\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
+!include x64.nsh
 ${If} ${RunningX64}
-    inetc::get /BANNER "Downloading GRM Setup..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" graphicsrulesmaker-2.0.0-64bit.exe
+	inetc::get /BANNER "Downloading GRM Setup..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" graphicsrulesmaker-2.0.0-64bit.exe
 		Pop $2 # return value = exit code, "OK" means OK
 	    	MessageBox MB_OK "Download Status: $2"
 	Execwait "graphicsrulesmaker-2.0.0-64bit.exe"
-	Delete "graphicsrulesmaker-2.0.0-64bit.exe"
+		Delete "graphicsrulesmaker-2.0.0-64bit.exe"
 ${Else}
-    inetc::get /BANNER "Downloading GRM Setup..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" graphicsrulesmaker-2.0.0-32bit.exe
+	inetc::get /BANNER "Downloading GRM Setup..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" graphicsrulesmaker-2.0.0-32bit.exe
 		Pop $3 # return value = exit code, "OK" means OK
 	    	MessageBox MB_OK "Download Status: $3"
 	Execwait "graphicsrulesmaker-2.0.0-32bit.exe"
-	Delete "graphicsrulesmaker-2.0.0-32bit.exe"
+		Delete "graphicsrulesmaker-2.0.0-32bit.exe"
 ${EndIf}
+	
+Delete "AutoExtract__Installer.exe"
+Delete "AutoExtract__Apartment Life.exe"
+Delete "AutoExtract__Best of Business.exe"
+Delete "AutoExtract__Bon Voyage.exe"
+Delete "AutoExtract__Double Deluxe.exe"
+Delete "AutoExtract__FreeTime.exe"
+Delete "AutoExtract__Fun with Pets.exe"
+Delete "AutoExtract__Glamour Life Stuff.exe"
+Delete "AutoExtract__Seasons.exe"
+Delete "AutoExtract__University Life.exe"
 SectionEnd
 
 
