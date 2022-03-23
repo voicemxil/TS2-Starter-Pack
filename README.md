@@ -1,4 +1,4 @@
-# Downloader can't grab the link without paid Mediafire (of course), so I am uploading the files to another platform. To fix this in the meantime, you will have to manually download the Standalone .7z Starter Pack and place it in the game install directory.
+# Downloader can't grab the link without paid Mediafire (of course) due to some URL scrambling. While I transfer the files to another service, download the latest installer from the “nodownload” branch https://github.com/voicemxil/TS2-Starter-Pack-webinstall/blob/nodownload/TS2_Starter%20Pack_NoDownload_Temporary.exe. Then, you must manually download osab_Sims 2 Starter Pack.7z via browser and move it into the game install directory. The installer will still extract the files.
 
 
 ![Discord Banner 2](https://discordapp.com/api/guilds/912700195249197086/widget.png?style=banner2)
