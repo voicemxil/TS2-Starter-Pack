@@ -85,7 +85,7 @@ ${EndIf}
 SectionEnd
 
 
-Section "DXVK"
+Section "DXVK - REQUIRES VULKAN SUPPORT. Run Vulkan-Test."
 
 inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v1.10/dxvk-1.10.tar.gz" "$INSTDIR\dxvk-1.10.tar.gz"
 Pop $4 # return value = exit code, "OK" means OK
