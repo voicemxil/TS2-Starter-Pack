@@ -45,7 +45,7 @@ FunctionEnd
 
 
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v1.0). Please ensure you have downloaded the latest version from GitHub."
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v1.0). Please ensure you have downloaded the latest version from GitHub. DO NOT CLICK THE X if you see a progress bar, or you will interrupt the download!"
 
 !define MUI_LICENSEPAGE_TEXT_TOP "Please ensure you have read and agreed to the attached license terms before proceeding:"
 
@@ -90,48 +90,39 @@ StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/relea
 	
 inetc::get /BANNER "Downloading __Installer..." "$Installer" "AutoExtract__Installer.exe"
 	Pop $0 # return value = exit code, "OK" means OK
-	MessageBox MB_OK "Installer Download Status: $0"
 	Exec '"AutoExtract__Installer.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading Apartment Life..." "$AL" "AutoExtract__Apartment Life.exe"
 	Pop $1 # return value = exit code, "OK" means OK
-	MessageBox MB_OK "AL Download Status: $1"
 	Exec '"AutoExtract_ApartmentLife.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading Best of Business..." "$BoB" "AutoExtract_Best of Business.exe"
 	Pop $2 # return value = exit code, "OK" means OK
-	MessageBox MB_OK "BoB Download Status: $2"
 	Exec '"AutoExtract_BestofBusiness.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading Bon Voyage..." "" "AutoExtract_Bon Voyage.exe"
 	Pop $3 # return value = exit code, "OK" means OK
-	MessageBox MB_OK "BV Download Status: $3"
 	Exec '"AutoExtract_BonVoyage.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading Double Deluxe (Base)..." "$DDBase" "AutoExtract_DoubleDeluxeBase.exe"
 	Pop $4 # return value = exit code, "OK" means OK
-	MessageBox MB_OK "DD Download Status: $4"
 	Exec '"AutoExtract_DoubleDeluxeBase.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading Double Deluxe (Packs)..." "$DD" "AutoExtract_DoubleDeluxe.exe"
 	Pop $4 # return value = exit code, "OK" means OK
-	MessageBox MB_OK "DD Download Status: $4"
 	Exec '"AutoExtract_DoubleDeluxe.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading FreeTime..." "$FT" "AutoExtract_FreeTime.exe"
 	Pop $5 # return value = exit code, "OK" means OK
-	MessageBox MB_OK "FT Download Status: $5"
 	Exec '"AutoExtract_FreeTime.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading Fun with Pets..." "$FwP" "AutoExtract_FunwithPets.exe"
 	Pop $6 # return value = exit code, "OK" means OK
-	MessageBox MB_OK "FwP Download Status: $6"
 	Exec '"AutoExtract_FunwithPets.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading Glamour Life Stuff..." "$GLS" "AutoExtract_GlamourLifeStuff.exe"
 	Pop $7 # return value = exit code, "OK" means OK
-	MessageBox MB_OK "GLS Download Status: $7"
 	Exec '"AutoExtract_GlamourLifeStuff.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading Seasons..." "$SS" "AutoExtract_Seasons.exe"
 	Pop $8 # return value = exit code, "OK" means OK
-	MessageBox MB_OK "SS Download Status: $8"
 	Exec '"AutoExtract_Seasons.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading University..." "$UNI" "AutoExtract_UniversityLife.exe"
 	Pop $9 # return value = exit code, "OK" means OK
-	MessageBox MB_OK "U Download Status: $9"
 	Execwait '"AutoExtract_UniversityLife.exe" -y -o ".\"'
+	
+	MessageBox MB_OK "Download Status: $0 $1 $2 $3 $4 $5 $6 $7 $8 $9"	
 	
 MessageBox MB_OK "Touching Up..."
 Execwait '"$INSTDIR\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
