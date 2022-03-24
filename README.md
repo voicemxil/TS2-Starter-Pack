@@ -1,9 +1,6 @@
-### Downloader can't grab the link without paid Mediafire (of course) due to some URL scrambling. While I transfer the files to another service, download the latest installer from the “nodownload” branch https://github.com/voicemxil/TS2-Starter-Pack-webinstall/blob/nodownload/TS2_Starter%20Pack_NoDownload_Temporary.exe. Then, you must manually download osab_Sims 2 Starter Pack.7z via browser and move it into the game install directory. The installer will still extract the files.
-
-
 ![Discord Banner 2](https://discordapp.com/api/guilds/912700195249197086/widget.png?style=banner2)
 
-<a rel="guide" href="https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#">Full Installation Guide</a>
+<a rel="guide" href="https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.go5uggiu16vc">Installation Directions</a>
 
 # osab's Sims 2 Starter Pack (Web Installer)
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />This installer and Sims2RPC (included with the Starter Pack) are licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>. DXVK is downloaded directly from Github and is subject to a <a rel="license" href="https://github.com/doitsujin/dxvk/blob/master/LICENSE">zlib license</a>. Graphics Rules Maker is downloaded directly from SimsNetwork for private usage.
