@@ -90,39 +90,39 @@ StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/relea
 	
 inetc::get /BANNER "Downloading __Installer..." "$Installer" "AutoExtract__Installer.exe"
 	Pop $0 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract__Installer.exe" -y -o ".\"'
-inetc::get /BANNER "Downloading Apartment Life..." "$AL" "AutoExtract__Apartment Life.exe"
+	Exec '"AutoExtract__Installer.exe" -y -gm2 -InstallPath=".\"' -o".\"
+inetc::get /BANNER "Downloading Apartment Life..." "$AL" "AutoExtract_ApartmentLife.exe"
 	Pop $1 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract_ApartmentLife.exe" -y -o ".\"'
-inetc::get /BANNER "Downloading Best of Business..." "$BoB" "AutoExtract_Best of Business.exe"
+	Exec '"AutoExtract_ApartmentLife.exe" -y -gm2 -InstallPath=".\"' -o".\"
+inetc::get /BANNER "Downloading Best of Business..." "$BoB" "AutoExtract_BestofBusiness.exe"
 	Pop $2 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract_BestofBusiness.exe" -y -o ".\"'
-inetc::get /BANNER "Downloading Bon Voyage..." "" "AutoExtract_Bon Voyage.exe"
+	Exec '"AutoExtract_BestofBusiness.exe" -y -gm2 -InstallPath=".\"' -o".\"
+inetc::get /BANNER "Downloading Bon Voyage..." "$BV" "AutoExtract_BonVoyage.exe"
 	Pop $3 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract_BonVoyage.exe" -y -o ".\"'
+	Exec '"AutoExtract_BonVoyage.exe" -y -gm2 -InstallPath=".\"' -o".\"
 inetc::get /BANNER "Downloading Double Deluxe (Base)..." "$DDBase" "AutoExtract_DoubleDeluxeBase.exe"
 	Pop $4 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract_DoubleDeluxeBase.exe" -y -o ".\"'
+	Exec '"AutoExtract_DoubleDeluxeBase.exe" -y -gm2 -InstallPath=".\"' -o".\"
 inetc::get /BANNER "Downloading Double Deluxe (Packs)..." "$DD" "AutoExtract_DoubleDeluxe.exe"
-	Pop $4 # return value = exit code, "OK" means OK
+	Pop $5 # return value = exit code, "OK" means OK
 	Exec '"AutoExtract_DoubleDeluxe.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading FreeTime..." "$FT" "AutoExtract_FreeTime.exe"
-	Pop $5 # return value = exit code, "OK" means OK
+	Pop $6 # return value = exit code, "OK" means OK
 	Exec '"AutoExtract_FreeTime.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading Fun with Pets..." "$FwP" "AutoExtract_FunwithPets.exe"
-	Pop $6 # return value = exit code, "OK" means OK
+	Pop $7 # return value = exit code, "OK" means OK
 	Exec '"AutoExtract_FunwithPets.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading Glamour Life Stuff..." "$GLS" "AutoExtract_GlamourLifeStuff.exe"
-	Pop $7 # return value = exit code, "OK" means OK
+	Pop $8 # return value = exit code, "OK" means OK
 	Exec '"AutoExtract_GlamourLifeStuff.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading Seasons..." "$SS" "AutoExtract_Seasons.exe"
-	Pop $8 # return value = exit code, "OK" means OK
+	Pop $9 # return value = exit code, "OK" means OK
 	Exec '"AutoExtract_Seasons.exe" -y -o ".\"'
 inetc::get /BANNER "Downloading University..." "$UNI" "AutoExtract_UniversityLife.exe"
-	Pop $9 # return value = exit code, "OK" means OK
+	Pop $R0 # return value = exit code, "OK" means OK
 	Execwait '"AutoExtract_UniversityLife.exe" -y -o ".\"'
 	
-	MessageBox MB_OK "Download Status: $0 $1 $2 $3 $4 $5 $6 $7 $8 $9"	
+	MessageBox MB_OK "Download Status: $0 $1 $2 $3 $4 $5 $6 $7 $8 $9 $R0"	
 	
 MessageBox MB_OK "Touching Up..."
 Execwait '"$INSTDIR\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
