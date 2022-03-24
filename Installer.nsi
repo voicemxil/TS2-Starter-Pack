@@ -80,7 +80,7 @@ StrCpy $Installer "https://github.com/mintalien/The-Puppets-2-Definitive-Edition
 StrCpy $AL "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_ApartmentLife.exe"
 StrCpy $BoB "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_BestofBusiness.exe"
 StrCpy $BV "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_BonVoyage.exe"
-StrCpy $DDBase "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/v1/AutoExtract_DoubleDeluxeBase.exe"
+StrCpy $DDBase "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_DoubleDeluxeBase.exe"
 StrCpy $DD "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_DoubleDeluxe.exe"
 StrCpy $FT "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_FreeTime.exe"
 StrCpy $FwP "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_FunwithPets.exe"
