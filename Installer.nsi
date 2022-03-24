@@ -100,7 +100,7 @@ inetc::get /BANNER "Downloading Best of Business..." "$BoB" "AutoExtract_BestofB
 inetc::get /BANNER "Downloading Bon Voyage..." "$BV" "AutoExtract_BonVoyage.exe"
 	Pop $3 # return value = exit code, "OK" means OK
 	Exec '"AutoExtract_BonVoyage.exe" -y -gm2 -InstallPath=".\" -o".\"'
-inetc::get /BANNER "Downloading Double Deluxe (Base)..." "$DDBase" "AutoExtract_DoubleDeluxeBase.exe"
+inetc::get /BANNER "Downloading Double Deluxe Base..." "$DDBase" "AutoExtract_DoubleDeluxeBase.exe"
 	Pop $4 # return value = exit code, "OK" means OK
 	Exec '"AutoExtract_DoubleDeluxeBase.exe" -y -gm2 -InstallPath=".\" -o".\"'
 inetc::get /BANNER "Downloading Double Deluxe (Packs)..." "$DD" "AutoExtract_DoubleDeluxe.exe"
