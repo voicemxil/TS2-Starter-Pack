@@ -21,8 +21,6 @@ OutFile "TS2 Starter Pack WebInstall.exe"
 RequestExecutionLevel admin
 # Default Installation Directory
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
-# Regkey for reinstalling purposes
-InstallDirRegKey HKLM "Software\WOW6432Node\EA GAMES\The Sims 2" "InstallDir" 
 
 Function StoreDXVKVersion
 	StrCpy $DXVKVER "1.10"
