@@ -41,11 +41,11 @@ FunctionEnd
 ###########################
 !define MUI_ABORTWARNING
 !define MUI_PAGE_HEADER_TEXT "TS2: UC - Starter Pack"
-!define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v1.0"
+!define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v1.1.5"
 
 
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v1.0). Please ensure you have downloaded the latest version from GitHub. DO NOT CLICK THE X if you see a progress bar, or you will interrupt the download!"
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v1.1.5). Please ensure you have downloaded the latest version from GitHub. DO NOT CLICK THE X if you see a progress bar, or you will interrupt the download!"
 
 !define MUI_LICENSEPAGE_TEXT_TOP "Please ensure you have read and agreed to the attached license terms before proceeding:"
 
@@ -100,7 +100,7 @@ inetc::get /BANNER "Downloading Best of Business..." "$BoB" "AutoExtract_BestofB
 inetc::get /BANNER "Downloading Bon Voyage..." "$BV" "AutoExtract_BonVoyage.exe"
 	Pop $3 # return value = exit code, "OK" means OK
 	Exec '"AutoExtract_BonVoyage.exe" -y -gm2 -InstallPath=".\" -o".\"'
-inetc::get /BANNER "Downloading Double Deluxe (Base)..." "$DDBase" "AutoExtract_DoubleDeluxeBase.exe"
+inetc::get /BANNER "Downloading Double Deluxe Base..." "$DDBase" "AutoExtract_DoubleDeluxeBase.exe"
 	Pop $4 # return value = exit code, "OK" means OK
 	Exec '"AutoExtract_DoubleDeluxeBase.exe" -y -gm2 -InstallPath=".\" -o".\"'
 inetc::get /BANNER "Downloading Double Deluxe (Packs)..." "$DD" "AutoExtract_DoubleDeluxe.exe"
