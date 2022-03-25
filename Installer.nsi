@@ -50,8 +50,6 @@ FunctionEnd
 !define MUI_FINISHPAGE_LINK_LOCATION "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\user\Pictures\Untitled.bmp"
 !define MUI_FINISHPAGE_SHOWREADME https://github.com/voicemxil/osab-TS2-web-installer/blob/main/README.md
-!define MUI_FINISHPAGE_RUN "$PROGRAMFILES\Graphics Rules Maker\bin\GraphicsRulesMakerUi.exe"
-!define MUI_FINISHPAGE_RUN_TEXT "Graphics Rules Maker"
 
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "C:\Users\user\Documents\GitHub\osab-TS2-web-installer\license.txt"
@@ -68,11 +66,11 @@ Section "TS2 Starter Pack" Section1
 	
 	SetOutPath $INSTDIR
 
-	AddSize 25000000
-	
 	InitPluginsDir
 	
 	SetOverwrite ifnewer
+	
+	AddSize 15000000
 	
 StrCpy $Installer "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract__Installer.exe"
 StrCpy $AL "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_ApartmentLife.exe"
@@ -88,88 +86,105 @@ StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/relea
 	
 inetc::get /BANNER "Downloading __Installer..." "$Installer" "AutoExtract__Installer.exe"
 	Pop $0 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract__Installer.exe" -y -gm2 -InstallPath=".\" -o".\"'
+	DetailPrint "$0" 
+	Exec '"AutoExtract__Installer.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /BANNER "Downloading Apartment Life..." "$AL" "AutoExtract_ApartmentLife.exe"
-	Pop $1 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract_ApartmentLife.exe" -y -gm2 -InstallPath=".\" -o".\"'
+	Pop $0 # return value = exit code, "OK" means OK
+	DetailPrint "$0" 
+Delete "AutoExtract__Installer.exe"
+	Exec '"AutoExtract_ApartmentLife.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /BANNER "Downloading Best of Business..." "$BoB" "AutoExtract_BestofBusiness.exe"
-	Pop $2 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract_BestofBusiness.exe" -y -gm2 -InstallPath=".\" -o".\"'
+	Pop $0 # return value = exit code, "OK" means OK
+	DetailPrint "$0" 
+Delete "AutoExtract_ApartmentLife.exe"
+	Exec '"AutoExtract_BestofBusiness.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /BANNER "Downloading Bon Voyage..." "$BV" "AutoExtract_BonVoyage.exe"
-	Pop $3 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract_BonVoyage.exe" -y -gm2 -InstallPath=".\" -o".\"'
+	Pop $0 # return value = exit code, "OK" means OK
+	DetailPrint "$0" 
+Delete "AutoExtract_BestofBusiness.exe"
+	Exec '"AutoExtract_BonVoyage.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /BANNER "Downloading Double Deluxe (Base)..." "$DDBase" "AutoExtract_DoubleDeluxeBase.exe"
-	Pop $4 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract_DoubleDeluxeBase.exe" -y -gm2 -InstallPath=".\" -o".\"'
+	Pop $0 # return value = exit code, "OK" means OK
+	DetailPrint "$0" 
+Delete "AutoExtract_BonVoyage.exe"
+	Exec '"AutoExtract_DoubleDeluxeBase.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /BANNER "Downloading Double Deluxe (Packs)..." "$DD" "AutoExtract_DoubleDeluxe.exe"
-	Pop $5 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract_DoubleDeluxe.exe" -y -gm2 -InstallPath=".\" -o".\"'
+	Pop $0 # return value = exit code, "OK" means OK
+	DetailPrint "$0" 
+Delete "AutoExtract_DoubleDeluxeBase.exe"
+	Exec '"AutoExtract_DoubleDeluxe.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /BANNER "Downloading FreeTime..." "$FT" "AutoExtract_FreeTime.exe"
-	Pop $6 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract_FreeTime.exe" -y -gm2 -InstallPath=".\" -o".\"'
+	Pop $0 # return value = exit code, "OK" means OK
+	DetailPrint "$0" 
+Delete "AutoExtract_DoubleDeluxe.exe"
+	Exec '"AutoExtract_FreeTime.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /BANNER "Downloading Fun with Pets..." "$FwP" "AutoExtract_FunwithPets.exe"
-	Pop $7 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract_FunwithPets.exe" -y -gm2 -InstallPath=".\" -o".\"'
+	Pop $0 # return value = exit code, "OK" means OK
+	DetailPrint "$0" 
+Delete "AutoExtract_FreeTime.exe"
+	Exec '"AutoExtract_FunwithPets.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /BANNER "Downloading Glamour Life Stuff..." "$GLS" "AutoExtract_GlamourLifeStuff.exe"
-	Pop $8 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract_GlamourLifeStuff.exe" -y -gm2 -InstallPath=".\" -o".\"'
+	Pop $0 # return value = exit code, "OK" means OK
+	DetailPrint "$0" 
+Delete "AutoExtract_FunwithPets.exe"
+	Exec '"AutoExtract_GlamourLifeStuff.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /BANNER "Downloading Seasons..." "$SS" "AutoExtract_Seasons.exe"
-	Pop $9 # return value = exit code, "OK" means OK
-	Exec '"AutoExtract_Seasons.exe" -y -gm2 -InstallPath=".\" -o".\"'
+	Pop $0 # return value = exit code, "OK" means OK
+	DetailPrint "$0" 
+Delete "AutoExtract_GlamourLifeStuff.exe"
+	Exec '"AutoExtract_Seasons.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /BANNER "Downloading University..." "$UNI" "AutoExtract_UniversityLife.exe"
-	Pop $R0 # return value = exit code, "OK" means OK
-	Execwait '"AutoExtract_UniversityLife.exe" -y -gm2 -InstallPath=".\" -o".\"'
-	
-	MessageBox MB_OK "Download Status: $0 $1 $2 $3 $4 $5 $6 $7 $8 $9 $R0"	
-	
+	Pop $0 # return value = exit code, "OK" means OK
+	DetailPrint "$0" 
+Delete "AutoExtract_Seasons.exe"
+	Execwait '"AutoExtract_UniversityLife.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+Delete "AutoExtract_UniversityLife.exe"
+
 MessageBox MB_OK "Touching Up..."
 Execwait '"$INSTDIR\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
 
 !include x64.nsh
 ${If} ${RunningX64}
 	inetc::get /BANNER "Downloading GRM Setup..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" graphicsrulesmaker-2.0.0-64bit.exe
-		Pop $2 # return value = exit code, "OK" means OK
-	    	MessageBox MB_OK "Download Status: $2"
+		Pop $0 # return value = exit code, "OK" means OK
+		DetailPrint "$0" 
 	Execwait "graphicsrulesmaker-2.0.0-64bit.exe"
 		Delete "graphicsrulesmaker-2.0.0-64bit.exe"
 ${Else}
 	inetc::get /BANNER "Downloading GRM Setup..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" graphicsrulesmaker-2.0.0-32bit.exe
-		Pop $3 # return value = exit code, "OK" means OK
-	    	MessageBox MB_OK "Download Status: $3"
+		Pop $0 # return value = exit code, "OK" means OK
+		DetailPrint "$0" 
 	Execwait "graphicsrulesmaker-2.0.0-32bit.exe"
 		Delete "graphicsrulesmaker-2.0.0-32bit.exe"
 ${EndIf}
-	
-Delete "AutoExtract__Installer.exe"
-Delete "AutoExtract_ApartmentLife.exe"
-Delete "AutoExtract_BestofBusiness.exe"
-Delete "AutoExtract_BonVoyage.exe"
-Delete "AutoExtract_DoubleDeluxeBase.exe"
-Delete "AutoExtract_DoubleDeluxe.exe"
-Delete "AutoExtract_FreeTime.exe"
-Delete "AutoExtract_FunWithPets.exe"
-Delete "AutoExtract_GlamourLifeStuff.exe"
-Delete "AutoExtract_Seasons.exe"
-Delete "AutoExtract_UniversityLife.exe"
 
+inetc::get /BANNER "Downloading Sims2RPC..." "https://cdn.simfileshare.net/download/2745478/?dl" "Sims2RPC Web Installer.zip"
+
+nsisunz::UnzipToLog "Sims2RPC Web Installer.zip" "$INSTDIR"
+Pop $0
+DetailPrint "$0" ;print error message to log
+Delete "Sims2RPC Web Installer.zip"
+ExecWait '"Sims2RPCInstaller.exe"'
+Delete "Sims2RPCInstaller.exe"
+		
 SectionEnd
 
 
 Section "DXVK - REQUIRES VULKAN SUPPORT. Run Vulkan-Test." Section2
 
 inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v1.10/dxvk-1.10.tar.gz" "$INSTDIR\dxvk-1.10.tar.gz"
-Pop $4 # return value = exit code, "OK" means OK
-MessageBox MB_OK "DXVK Download Status: $4"
+	Pop $0 # return value = exit code, "OK" means OK
+	DetailPrint "$0" 
 
 untgz::extract -h -u -d $INSTDIR -zgz "$INSTDIR\dxvk-1.10.tar.gz"
-Pop $5 # return value = exit code, "OK" means OK
-MessageBox MB_OK "DXVK Extraction Status: $5"
+	Pop $0 # return value = exit code, "OK" means OK
+	DetailPrint "$0" 
 #Delete archive.
 Delete "$INSTDIR\dxvk-1.10.tar.gz"
 
 Rename "$INSTDIR\dxvk-$DXVKVER\x32\d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll"
 #Delete DXVK folder
-RMDir "$INSTDIR\dxvk-1.10"
+RMDir /r $INSTDIR\dxvk-1.10
 SectionEnd
 
 LangString DESC_Section1 ${LANG_ENGLISH} "Installs TS2:UC, Sims2RPC, and Graphics Rules Maker."
