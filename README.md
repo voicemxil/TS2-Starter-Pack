@@ -1,4 +1,4 @@
-# osab's Sims 2 Starter Pack (Web Installer)
+# osab's Sims 2 Starter Pack Web Installer
 
 
 - Automatically downloads and installs the latest Starter Pack (UC) files with efficient cleanup 
