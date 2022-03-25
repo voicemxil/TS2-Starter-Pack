@@ -13,6 +13,6 @@ I recommend installing to the default directory. The game installs in English bu
 
 Sims 2 should not be installed beforehand. 15 GB of free space are required to install the game.
 
-![Discord Banner 2](https://discordapp.com/api/guilds/912700195249197086/widget.png?style=banner2)
+![discord.com/invite/zzjHj2jxHV](https://discordapp.com/api/guilds/912700195249197086/widget.png?style=banner2)
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />
