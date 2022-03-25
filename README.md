@@ -4,7 +4,8 @@
 - Automatically downloads and installs the latest Starter Pack (UC) files with efficient cleanup 
 - Automates Touchup
 - Downloads and installs Sims2RPC by Lazy Duchess and Graphics Rules Maker from SimNetwork (Requires <a href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472">.NET Framework 4.7.2</a> support).
-- Option to automatically download and install DXVK. <a href="https://github.com/skeeto/vulkan-test/releases/latest">***(Your system MUST be Vulkan compatible in order to install the DXVK component.)***</a>
+- Option to automatically download and install DXVK. Read: <a href="https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.njuveoipg82w">Should I use DXVK?</a> 
+-- <a href="https://github.com/skeeto/vulkan-test/releases/latest">***(Your system MUST be Vulkan compatible in order to install the DXVK component.)***</a>
 
 ## <a href="https://github.com/voicemxil/TS2-Starter-Pack-webinstall/releases">>>Latest Release<<</a>
 
