@@ -10,7 +10,7 @@
 ## <a href="https://github.com/voicemxil/TS2-Starter-Pack-webinstall/releases">>>Latest Release<<</a>
 
 ### <a rel="guide" href="https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.go5uggiu16vc">Installation Directions</a><br>
-I recommend installing to the default directory. The game installs in English but the locale can be changed by editing the language code in the game's Registry files
+I recommend installing to the default directory. The game installs in English but the locale can be changed by editing the language code in the game's Registry files.
 
 Sims 2 should not be installed beforehand. 15 GB of free space are required to install the game.
 
