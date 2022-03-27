@@ -141,7 +141,7 @@ Delete "AutoExtract_Seasons.exe"
 Delete "AutoExtract_UniversityLife.exe"
 
 MessageBox MB_OK "Touching Up..."
-Execwait '"$INSTDIR\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
+Execwait '"$INSTDIR\__Installer\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
 
 !include x64.nsh
 ${If} ${RunningX64}
