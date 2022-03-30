@@ -187,14 +187,16 @@ Rename "$INSTDIR\dxvk-$DXVKVER\x32\d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d
 RMDir /r $INSTDIR\dxvk-1.10
 SectionEnd
 	
-Section NoErrorVisualization by Lazy Duchess
+Section "NoErrorVisualization by Lazy Duchess" Section3
 inetc::get /Banner "Downloading NoErrorVisualization by Lazy Duchess" "https://cdn.simfileshare.net/download/2990151/?dl" "$INSTDIR/Fun with Pets/SP9/TSBin/mods"
 SectionEnd	
 	
 LangString DESC_Section1 ${LANG_ENGLISH} "Installs TS2:UC, Sims2RPC, and Graphics Rules Maker."
 LangString DESC_Section2 ${LANG_ENGLISH} "Installs DXVK $DXVKVER."
+LangString DESC_Section3 ${LANG_ENGLISH} "Installs NoErrorVisualization by Lazy Duchess to eliminate pink flashing issues."
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${Section1} $(DESC_Section1)
   !insertmacro MUI_DESCRIPTION_TEXT ${Section2} $(DESC_Section2)
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section3} $(DESC_Section3)
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
