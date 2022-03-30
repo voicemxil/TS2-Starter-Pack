@@ -39,11 +39,11 @@ FunctionEnd
 ###########################
 !define MUI_ABORTWARNING
 !define MUI_PAGE_HEADER_TEXT "TS2: UC - Starter Pack"
-!define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v2"
+!define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v3"
 
 
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v2). Please ensure you have downloaded the latest version from GitHub. DO NOT CLICK THE X if you see a progress bar, or you will interrupt the download!"
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v3). Please ensure you have downloaded the latest version from GitHub. DO NOT CLICK THE X if you see a progress bar, or you will interrupt the download!"
 
 !define MUI_LICENSEPAGE_TEXT_TOP "Please ensure you have read and agreed to the attached license terms before proceeding:"
 
@@ -169,7 +169,6 @@ Delete "Sims2RPCInstaller.exe"
 		
 SectionEnd
 
-
 Section "DXVK - REQUIRES VULKAN SUPPORT. Run Vulkan-Test." Section2
 
 inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v1.10/dxvk-1.10.tar.gz" "$INSTDIR\dxvk-1.10.tar.gz"
@@ -189,14 +188,20 @@ SectionEnd
 	
 Section "NoErrorVisualization by Lazy Duchess" Section3
 inetc::get /Banner "Downloading NoErrorVisualization by Lazy Duchess" "https://cdn.simfileshare.net/download/2990151/?dl" "$INSTDIR/Fun with Pets/SP9/TSBin/mods"
-SectionEnd	
+SectionEnd
+
+Section "Sim Shadow Fix" Section4
+ ExecShell "open" "https://simnopke.tumblr.com/post/136184612377/sim-shadow-fix" SW_SHOWNORMAL
+SectionEnd
+
 	
 LangString DESC_Section1 ${LANG_ENGLISH} "Installs TS2:UC, Sims2RPC, and Graphics Rules Maker."
 LangString DESC_Section2 ${LANG_ENGLISH} "Installs DXVK $DXVKVER."
-LangString DESC_Section3 ${LANG_ENGLISH} "Installs NoErrorVisualization by Lazy Duchess to eliminate pink flashing issues."
-
+LangString DESC_Section3 ${LANG_ENGLISH} "Installs NoErrorVisualization by Lazy Duchess - makes your game immune to pink flashing issues."
+LangString DESC_Section4 ${LANG_ENGLISH} "Links you to SimNopke's Shadow Fix. Please manually install to your 'Documents\EA Games\The Sims 2 Ultimate Collection\Downloads' folder."
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${Section1} $(DESC_Section1)
   !insertmacro MUI_DESCRIPTION_TEXT ${Section2} $(DESC_Section2)
   !insertmacro MUI_DESCRIPTION_TEXT ${Section3} $(DESC_Section3)
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section4} $(DESC_Section4)
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
