@@ -1,7 +1,7 @@
 # osab's Sims 2 Starter Pack Web Installer
 [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20Sims%202%20Discord&logo=Discord&logoColor=white)](https://discord.gg/zzjHj2jxHV) ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/TS2%20Starter%20Pack%20WebInstall.exe?label=Installer%20Size)
 
-- Automatically downloads and installs the latest Starter Pack (UC) files with efficient cleanup 
+- Automatically downloads and installs TS2: UC with efficient cleanup 
 - Automates Touchup
 - Downloads and installs Sims2RPC by Lazy Duchess and Graphics Rules Maker from SimNetwork (Requires <a href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472">.NET Framework 4.7.2</a> support).
 - Option to automatically download and install DXVK. Read: <a href="https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.njuveoipg82w">Should I use DXVK?</a> 
