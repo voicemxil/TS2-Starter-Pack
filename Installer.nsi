@@ -186,7 +186,11 @@ Rename "$INSTDIR\dxvk-$DXVKVER\x32\d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d
 #Delete DXVK folder
 RMDir /r $INSTDIR\dxvk-1.10
 SectionEnd
-
+	
+Section NoErrorVisualization by Lazy Duchess
+inetc::get /Banner "Downloading NoErrorVisualization by Lazy Duchess" "https://cdn.simfileshare.net/download/2990151/?dl" "$INSTDIR/Fun with Pets/SP9/TSBin/mods"
+SectionEnd	
+	
 LangString DESC_Section1 ${LANG_ENGLISH} "Installs TS2:UC, Sims2RPC, and Graphics Rules Maker."
 LangString DESC_Section2 ${LANG_ENGLISH} "Installs DXVK $DXVKVER."
 
