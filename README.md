@@ -1,5 +1,5 @@
 # osab's Sims 2 Starter Pack Web Installer
-![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20Sims%202%20Discord&logo=Discord&logoColor=white) ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/TS2%20Starter%20Pack%20WebInstall.exe?label=Installer%20Size)
+[![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20Sims%202%20Discord&logo=Discord&logoColor=white)](https://discord.gg/zzjHj2jxHV) ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/TS2%20Starter%20Pack%20WebInstall.exe?label=Installer%20Size)
 
 - Automatically downloads and installs the latest Starter Pack (UC) files with efficient cleanup 
 - Automates Touchup
