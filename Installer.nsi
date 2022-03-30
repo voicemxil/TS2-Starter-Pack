@@ -23,7 +23,7 @@ RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
 
 Function StoreDXVKVersion
-	StrCpy $DXVKVER "1.10"
+	StrCpy $DXVKVER "1.10.1"
 FunctionEnd
 
 Function .OnInit
@@ -39,11 +39,11 @@ FunctionEnd
 ###########################
 !define MUI_ABORTWARNING
 !define MUI_PAGE_HEADER_TEXT "TS2: UC - Starter Pack"
-!define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v3"
+!define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v4"
 
 
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v3). Please ensure you have downloaded the latest version from GitHub. DO NOT CLICK THE X if you see a progress bar, or you will interrupt the download!"
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v4). Please ensure you have downloaded the latest version from GitHub. DO NOT CLICK THE X if you see a progress bar, or you will interrupt the download!"
 
 !define MUI_LICENSEPAGE_TEXT_TOP "Please ensure you have read and agreed to the attached license terms before proceeding:"
 
@@ -70,7 +70,7 @@ Section "TS2 Starter Pack" Section1
 	
 	SetOverwrite ifnewer
 	
-	AddSize 15000000
+	AddSize 13600000
 	
 StrCpy $Installer "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract__Installer.exe"
 StrCpy $AL "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_ApartmentLife.exe"
@@ -171,19 +171,19 @@ SectionEnd
 
 Section "DXVK - REQUIRES VULKAN SUPPORT. Run Vulkan-Test." Section2
 
-inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v1.10/dxvk-1.10.tar.gz" "$INSTDIR\dxvk-1.10.tar.gz"
+inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v1.10.1/dxvk-1.10.1.tar.gz" "$INSTDIR\dxvk.tar.gz"
 	Pop $0 # return value = exit code, "OK" means OK
 	DetailPrint "$0" 
 
-untgz::extract -h -u -d $INSTDIR -zgz "$INSTDIR\dxvk-1.10.tar.gz"
+untgz::extract -h -u -d $INSTDIR -zgz "$INSTDIR\dxvk.tar.gz"
 	Pop $0 # return value = exit code, "OK" means OK
 	DetailPrint "$0" 
 #Delete archive.
-Delete "$INSTDIR\dxvk-1.10.tar.gz"
+Delete "$INSTDIR\dxvk.tar.gz"
 
 Rename "$INSTDIR\dxvk-$DXVKVER\x32\d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll"
 #Delete DXVK folder
-RMDir /r $INSTDIR\dxvk-1.10
+RMDir /r $INSTDIR\dxvk-1.10.1
 SectionEnd
 	
 Section "NoErrorVisualization by Lazy Duchess" Section3
