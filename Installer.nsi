@@ -28,9 +28,6 @@ FunctionEnd
 
 Function .OnInit
 	Dialer::AttemptConnect
-; plug-in auto-recognizes 'no parent dlg' in onInit and works accordingly
-;    inetc::head /RESUME "Network error. Retry?" "http://ineum.narod.ru/spr_2003.htm" "$EXEDIR\spr3.txt"
-;    Pop $4
 	Call StoreDXVKVersion
 FunctionEnd
 
@@ -47,7 +44,7 @@ FunctionEnd
 
 
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v5). Please ensure you have downloaded the latest version from GitHub. DO NOT CLICK THE X if you see a progress bar, or you will interrupt the download!"
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v5). Please ensure you have downloaded the latest version from GitHub. Helpful log messages will be shown in the 'More Details' box."
 
 !define MUI_LICENSEPAGE_TEXT_TOP ""
 
@@ -92,110 +89,142 @@ StrCpy $GLS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/relea
 StrCpy $SS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_Seasons.exe"
 StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_UniversityLife.exe"
 	
-inetc::get /BANNER "Downloading __Installer..." "$Installer" "AutoExtract__Installer.exe"
+inetc::get "Downloading __Installer..." "$Installer" "AutoExtract__Installer.exe"
+	DetailPrint "Downloading __Installer from $Installer. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "$0" 
+	DetailPrint "__Installer download status: $0" 
 	Exec '"AutoExtract__Installer.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /BANNER "Downloading Apartment Life..." "$AL" "AutoExtract_ApartmentLife.exe"
+inetc::get /POPUP "Downloading Apartment Life..." "$AL" "AutoExtract_ApartmentLife.exe"
+	DetailPrint "Downloading Apartment Life from $AL. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "$0" 
-Delete "AutoExtract__Installer.exe"
+	DetailPrint "AL download status: $0" 
+		Delete "AutoExtract__Installer.exe"
+		DetailPrint "Deleted AutoExtract."
 	Exec '"AutoExtract_ApartmentLife.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /BANNER "Downloading Best of Business..." "$BoB" "AutoExtract_BestofBusiness.exe"
+inetc::get /POPUP "Downloading Best of Business..." "$BoB" "AutoExtract_BestofBusiness.exe"
+	DetailPrint "Downloading Best of Business from $BoB. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "$0" 
-Delete "AutoExtract_ApartmentLife.exe"
+	DetailPrint "BoB download status: $0" 
+		Delete "AutoExtract_ApartmentLife.exe"
+		DetailPrint "Deleted AutoExtract."
 	Exec '"AutoExtract_BestofBusiness.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /BANNER "Downloading Bon Voyage..." "$BV" "AutoExtract_BonVoyage.exe"
+inetc::get /POPUP "Downloading Bon Voyage..." "$BV" "AutoExtract_BonVoyage.exe"
+	DetailPrint "Downloading Bon Voyage from $BV. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "$0" 
-Delete "AutoExtract_BestofBusiness.exe"
+	DetailPrint "BV download status: $0" 
+		Delete "AutoExtract_BestofBusiness.exe"
+		DetailPrint "Deleted AutoExtract."
 	Exec '"AutoExtract_BonVoyage.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /BANNER "Downloading Double Deluxe (Base)..." "$DDBase" "AutoExtract_DoubleDeluxeBase.exe"
+inetc::get /POPUP "Downloading Double Deluxe (Base)..." "$DDBase" "AutoExtract_DoubleDeluxeBase.exe"
+	DetailPrint "Downloading Base Game from $DDBase. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "$0" 
-Delete "AutoExtract_BonVoyage.exe"
+	DetailPrint "BG download status: $0" 
+		Delete "AutoExtract_BonVoyage.exe"
+		DetailPrint "Deleted AutoExtract."
 	Exec '"AutoExtract_DoubleDeluxeBase.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /BANNER "Downloading Double Deluxe (Packs)..." "$DD" "AutoExtract_DoubleDeluxe.exe"
+inetc::get /POPUP "Downloading Double Deluxe (Packs)..." "$DD" "AutoExtract_DoubleDeluxe.exe"
+	DetailPrint "Downloading Double Deluxe Packs from $DD. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "$0" 
-Delete "AutoExtract_DoubleDeluxeBase.exe"
+	DetailPrint "DD Packs download status: $0" 
+		Delete "AutoExtract_DoubleDeluxeBase.exe"
+		DetailPrint "Deleted AutoExtract."
 	Exec '"AutoExtract_DoubleDeluxe.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /BANNER "Downloading FreeTime..." "$FT" "AutoExtract_FreeTime.exe"
+inetc::get /POPUP "Downloading FreeTime..." "$FT" "AutoExtract_FreeTime.exe"
+	DetailPrint "Downloading FreeTime from $FT. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "$0" 
-Delete "AutoExtract_DoubleDeluxe.exe"
+	DetailPrint "FT download status: $0" 
+		Delete "AutoExtract_DoubleDeluxe.exe"
+		DetailPrint "Deleted AutoExtract."
 	Exec '"AutoExtract_FreeTime.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /BANNER "Downloading Fun with Pets..." "$FwP" "AutoExtract_FunwithPets.exe"
+inetc::get /POPUP "Downloading Fun with Pets..." "$FwP" "AutoExtract_FunwithPets.exe"
+	DetailPrint "Downloading Fun with Pets from $FwP. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "$0" 
-Delete "AutoExtract_FreeTime.exe"
+	DetailPrint "FwP download status: $0" 
+		Delete "AutoExtract_FreeTime.exe"
+		DetailPrint "Deleted AutoExtract."
 	Exec '"AutoExtract_FunwithPets.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /BANNER "Downloading Glamour Life Stuff..." "$GLS" "AutoExtract_GlamourLifeStuff.exe"
+inetc::get /POPUP "Downloading Glamour Life Stuff..." "$GLS" "AutoExtract_GlamourLifeStuff.exe"
+	DetailPrint "Downloading Glamour Life Stuff from $GLS. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "$0" 
-Delete "AutoExtract_FunwithPets.exe"
+	DetailPrint "GLS download status: $0" 
+		Delete "AutoExtract_FunwithPets.exe"
+		DetailPrint "Deleted AutoExtract."
 	Exec '"AutoExtract_GlamourLifeStuff.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /BANNER "Downloading Seasons..." "$SS" "AutoExtract_Seasons.exe"
+inetc::get /POPUP "Downloading Seasons..." "$SS" "AutoExtract_Seasons.exe"
+	DetailPrint "Downloading Seasons from $SS. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "$0" 
-Delete "AutoExtract_GlamourLifeStuff.exe"
+	DetailPrint "SS download status: $0" 
+		Delete "AutoExtract_GlamourLifeStuff.exe"
+		DetailPrint "Deleted AutoExtract."
 	Exec '"AutoExtract_Seasons.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /BANNER "Downloading University..." "$UNI" "AutoExtract_UniversityLife.exe"
+inetc::get /POPUP "Downloading University..." "$UNI" "AutoExtract_UniversityLife.exe"
+	DetailPrint "Downloading University from $UNI. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "$0" 
-Delete "AutoExtract_Seasons.exe"
+	DetailPrint "UNI download status: $0" 
+		Delete "AutoExtract_Seasons.exe"
+		DetailPrint "Deleted AutoExtract."
 	Execwait '"AutoExtract_UniversityLife.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-Delete "AutoExtract_UniversityLife.exe"
+		Delete "AutoExtract_UniversityLife.exe"
+		DetailPrint "Deleted AutoExtract."
 
-MessageBox MB_OK "Touching Up..."
+DetailPrint "Touching Up..."
 Execwait '"$INSTDIR\__Installer\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
 
 !include x64.nsh
 ${If} ${RunningX64}
-	inetc::get /BANNER "Downloading GRM Setup..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" graphicsrulesmaker-2.0.0-64bit.exe
+	inetc::get /BANNER "Downloading GRM Setup (64-bit detected)..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" graphicsrulesmaker-2.0.0-64bit.exe
 		Pop $0 # return value = exit code, "OK" means OK
-		DetailPrint "$0" 
+		DetailPrint "GRM download status: $0. Attempting to execute..." 
 	Execwait "graphicsrulesmaker-2.0.0-64bit.exe"
+		DetailPrint "Cleaning up GRM installer..."
 		Delete "graphicsrulesmaker-2.0.0-64bit.exe"
 ${Else}
-	inetc::get /BANNER "Downloading GRM Setup..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" graphicsrulesmaker-2.0.0-32bit.exe
+	inetc::get /BANNER "Downloading GRM Setup (32-bit detected)..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" graphicsrulesmaker-2.0.0-32bit.exe
 		Pop $0 # return value = exit code, "OK" means OK
-		DetailPrint "$0" 
+		DetailPrint "GRM download status: $0. Attempting to execute..." 
 	Execwait "graphicsrulesmaker-2.0.0-32bit.exe"
+		DetailPrint "Cleaning up GRM installer..."
 		Delete "graphicsrulesmaker-2.0.0-32bit.exe"
 ${EndIf}
-
-inetc::get /BANNER "Downloading Sims2RPC..." "https://cdn.simfileshare.net/download/2745478/?dl" "Sims2RPC Web Installer.zip"
-
+	DetailPrint "Downloading RPC installer..."
+inetc::get /BANNER "Downloading Sims2RPC Web Installer... Choose Install/Repair when it pops up." "https://cdn.simfileshare.net/download/2745478/?dl" "Sims2RPC Web Installer.zip"
+	Pop $0
+	DetailPrint "RPC download status: $0"
 nsisunz::UnzipToLog "Sims2RPC Web Installer.zip" "$INSTDIR"
 Pop $0
-DetailPrint "$0" ;print error message to log
+DetailPrint "RPC extraction status: $0. Cleaning up zip file..." ;print error message to log
 Delete "Sims2RPC Web Installer.zip"
+DetailPrint "Attempting to execute RPC Installer... Please click 'Install/Repair.'"
 ExecWait '"Sims2RPCInstaller.exe"'
 Delete "Sims2RPCInstaller.exe"
 		
 SectionEnd
 
 Section "DXVK - REQUIRES VULKAN SUPPORT. Run Vulkan-Test." Section2
-
+DetailPrint "Downloading DXVK $DXVKVER..."
 inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v1.10.1/dxvk-1.10.1.tar.gz" "$INSTDIR\dxvk.tar.gz"
 	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "$0" 
+	DetailPrint "DXVK download status: $0. Extracting..." 
 
 untgz::extract -h -u -d $INSTDIR -zgz "$INSTDIR\dxvk.tar.gz"
 	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "$0" 
+	DetailPrint "DXVK extraction status: $0. Deleting archive..." 
 #Delete archive.
 Delete "$INSTDIR\dxvk.tar.gz"
-
+DetailPrint "Placing x32 d3d9.dll in TSBin..."
 Rename "$INSTDIR\dxvk-$DXVKVER\x32\d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll"
+DetailPrint "Done."
 #Delete DXVK folder
+DetailPrint "Deleting temporary DXVK folder."
 RMDir /r $INSTDIR\dxvk-1.10.1
+DetailPrint "Done."
 SectionEnd
 	
 Section "NoErrorVisualization by Lazy Duchess" Section3
+DetailPrint "Downloading NoErrorVisualization to TSBin\mods..."
 inetc::get /Banner "Downloading NoErrorVisualization by Lazy Duchess" "https://cdn.simfileshare.net/download/2990151/?dl" "$INSTDIR/Fun with Pets/SP9/TSBin/mods"
+Pop $0
+DetailPrint "$0"
 SectionEnd
 
 Section "Sim Shadow Fix" Section4
