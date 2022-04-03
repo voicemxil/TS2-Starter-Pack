@@ -1,6 +1,8 @@
 # osab's Sims 2 Starter Pack Web Installer
 [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20Sims%202%20Discord&logo=Discord&logoColor=white)](https://discord.gg/zzjHj2jxHV) ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/TS2%20Starter%20Pack%20WebInstall.exe?label=Installer%20Size)
 
+Note - This installs the game in English. To change the game language after installation, follow this guide: https://answers.ea.com/t5/EA-General-Questions/The-Sims-2-Ultimate-Collection-How-to-Change-the-Game-Language/td-p/4558106.
+
 - Automatically downloads and installs TS2: UC  
 - Automates Touchup
 - Downloads and installs Sims2RPC by Lazy Duchess and Graphics Rules Maker from SimNetwork (Requires <a href="https://dotnet.microsoft.com/en-us/download/dotnet-framework/net472">.NET Framework 4.7.2</a> support).
