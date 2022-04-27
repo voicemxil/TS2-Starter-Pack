@@ -37,27 +37,27 @@ FunctionEnd
 !define MUI_ABORTWARNING
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
-!define MUI_HEADERIMAGE_BITMAP "C:\Users\user\Pictures\banner.bmp"
-!define MUI_ICON "C:\Users\user\Downloads\simmm.ico"
+!define MUI_HEADERIMAGE_BITMAP "B:\Pictures\banner.bmp"
+!define MUI_ICON "B:\Pictures\simmm.ico"
 !define MUI_PAGE_HEADER_TEXT "TS2: UC - Starter Pack"
-!define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v5"
+!define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v6"
 
 
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v5). Please ensure you have downloaded the latest version from GitHub. Helpful log messages will be shown in the 'More Details' box."
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v6). Please ensure you have downloaded the latest version from GitHub. Helpful log messages will be shown in the 'More Details' box."
 
 !define MUI_LICENSEPAGE_TEXT_TOP ""
 
 !define MUI_FINISHPAGE_LINK_LOCATION "discord.gg/zzjHj2jxHV"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\user\Pictures\orange.bmp"
-!define MUI_FINISHPAGE_SHOWREADME https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx
+!define MUI_WELCOMEFINISHPAGE_BITMAP "B:\Pictures\orange.bmp"
+!define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the next step of the guide"
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
 !define MUI_FINISHPAGE_LINK "Discord Server!"
 
 !insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_LICENSE "C:\Users\user\Documents\GitHub\osab-TS2-web-installer\license.txt"
+!insertmacro MUI_PAGE_LICENSE "B:\Documents\GitHub\osab-TS2-web-installer\license.txt"
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
@@ -78,16 +78,16 @@ Section "TS2 Starter Pack" Section1
 	AddSize 13600000
 	
 StrCpy $Installer "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract__Installer.exe"
-StrCpy $AL "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_ApartmentLife.exe"
-StrCpy $BoB "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_BestofBusiness.exe"
-StrCpy $BV "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_BonVoyage.exe"
-StrCpy $DDBase "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_DoubleDeluxeBase.exe"
-StrCpy $DD "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_DoubleDeluxe.exe"
-StrCpy $FT "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_FreeTime.exe"
-StrCpy $FwP "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_FunwithPets.exe"
-StrCpy $GLS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_GlamourLifeStuff.exe"
-StrCpy $SS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_Seasons.exe"
-StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_UniversityLife.exe"
+StrCpy $AL "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v2/AutoExtract_ApartmentLife.exe"
+StrCpy $BoB "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v2/AutoExtract_BestofBusiness.exe"
+StrCpy $BV "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v2/AutoExtract_BonVoyage.exe"
+StrCpy $DDBase "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v2/AutoExtract_DoubleDeluxeBase.exe"
+StrCpy $DD "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v2/AutoExtract_DoubleDeluxe.exe"
+StrCpy $FT "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v2/AutoExtract_FreeTime.exe"
+StrCpy $FwP "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v2/AutoExtract_FunwithPets.exe"
+StrCpy $GLS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v2/AutoExtract_GlamourLifeStuff.exe"
+StrCpy $SS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v2/AutoExtract_Seasons.exe"
+StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v2/AutoExtract_UniversityLife.exe"
 	
 inetc::get "Downloading __Installer..." "$Installer" "AutoExtract__Installer.exe"
 	DetailPrint "Downloading __Installer from $Installer. Closing the download window will interrupt the download."
@@ -174,14 +174,14 @@ Execwait '"$INSTDIR\__Installer\Touchup.exe" install -locale en_US -installPath 
 ${If} ${RunningX64}
 	inetc::get /BANNER "Downloading GRM Setup (64-bit detected)..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" graphicsrulesmaker-2.0.0-64bit.exe
 		Pop $0 # return value = exit code, "OK" means OK
-		DetailPrint "GRM download status: $0. Attempting to execute..." 
+		DetailPrint "GRM download status: $0. Executing installer..." 
 	Execwait "graphicsrulesmaker-2.0.0-64bit.exe"
 		DetailPrint "Cleaning up GRM installer..."
 		Delete "graphicsrulesmaker-2.0.0-64bit.exe"
 ${Else}
 	inetc::get /BANNER "Downloading GRM Setup (32-bit detected)..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" graphicsrulesmaker-2.0.0-32bit.exe
 		Pop $0 # return value = exit code, "OK" means OK
-		DetailPrint "GRM download status: $0. Attempting to execute..." 
+		DetailPrint "GRM download status: $0. Executing installer..." 
 	Execwait "graphicsrulesmaker-2.0.0-32bit.exe"
 		DetailPrint "Cleaning up GRM installer..."
 		Delete "graphicsrulesmaker-2.0.0-32bit.exe"
@@ -200,7 +200,7 @@ Delete "Sims2RPCInstaller.exe"
 		
 SectionEnd
 
-Section "DXVK - REQUIRES VULKAN SUPPORT. Run Vulkan-Test." Section2
+Section /o "DXVK - REQUIRES VULKAN SUPPORT. Run Vulkan-Test." Section2
 DetailPrint "Downloading DXVK $DXVKVER..."
 inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v1.10.1/dxvk-1.10.1.tar.gz" "$INSTDIR\dxvk.tar.gz"
 	Pop $0 # return value = exit code, "OK" means OK
@@ -219,26 +219,32 @@ DetailPrint "Deleting temporary DXVK folder."
 RMDir /r $INSTDIR\dxvk-1.10.1
 DetailPrint "Done."
 SectionEnd
-	
-Section "NoErrorVisualization by Lazy Duchess" Section3
-DetailPrint "Downloading NoErrorVisualization to TSBin\mods..."
-inetc::get /Banner "Downloading NoErrorVisualization by Lazy Duchess" "https://cdn.simfileshare.net/download/2990151/?dl" "$INSTDIR/Fun with Pets/SP9/TSBin/mods"
-Pop $0
-DetailPrint "$0"
-SectionEnd
 
-Section "Sim Shadow Fix" Section4
+Section "Sim Shadow Fix" Section3
  ExecShell "open" "https://simnopke.tumblr.com/post/136184612377/sim-shadow-fix" SW_SHOWNORMAL
 SectionEnd
 
-	
+Section "Start Menu Shortcut" Section4
+	SetShellVarContext current
+	CreateDirectory '$SMPROGRAMS\The Sims 2 Starter Pack\'
+	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Launch Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
+SectionEnd
+
+Section "Desktop Shortcut" Section5
+	SetShellVarContext current
+    CreateShortCut '$DESKTOP\Launch Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe'
+SectionEnd
+
 LangString DESC_Section1 ${LANG_ENGLISH} "Installs TS2:UC, Sims2RPC, and Graphics Rules Maker."
 LangString DESC_Section2 ${LANG_ENGLISH} "Installs DXVK $DXVKVER."
-LangString DESC_Section3 ${LANG_ENGLISH} "Installs NoErrorVisualization by Lazy Duchess - makes your game immune to pink flashing issues."
-LangString DESC_Section4 ${LANG_ENGLISH} "Links you to SimNopke's Shadow Fix. Please manually install to your 'Documents\EA Games\The Sims 2 Ultimate Collection\Downloads' folder."
+LangString DESC_Section3 ${LANG_ENGLISH} "Links you to SimNopke's Shadow Fix. Please install to your 'Documents\EA Games\The Sims 2 Ultimate Collection\Downloads' folder. DXVK/Intel users choose Not Misty version."
+LangString DESC_Section4 ${LANG_ENGLISH} "Create a shortuct to launch the game in your Start menu."
+LangString DESC_Section5 ${LANG_ENGLISH} "Create a shortcut to launch the game on your desktop."
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${Section1} $(DESC_Section1)
   !insertmacro MUI_DESCRIPTION_TEXT ${Section2} $(DESC_Section2)
   !insertmacro MUI_DESCRIPTION_TEXT ${Section3} $(DESC_Section3)
   !insertmacro MUI_DESCRIPTION_TEXT ${Section4} $(DESC_Section4)
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section5} $(DESC_Section5)
+
 !insertmacro MUI_FUNCTION_DESCRIPTION_END

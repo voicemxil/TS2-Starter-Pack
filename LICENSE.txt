@@ -2,6 +2,11 @@ https://discord.gg/zzjHj2jxHV
 
 ######
 
+Please follow along with the guide while using the installer.
+Guide: https://github.com/voicemxil/TS2-Starter-Pack/wiki
+
+######
+
 This installer, Sims2RPC by Lazy Duchess, and the osab Sims 2 guide are released with the following Creative Commons license: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 DXVK, if selected, will be downloaded directly from the DXVK GitHub. DXVK is licensed for sharing under the zlib License: https://github.com/doitsujin/dxvk/blob/master/LICENSE
