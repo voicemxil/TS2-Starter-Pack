@@ -1,4 +1,5 @@
 # osab's Sims 2 Starter Pack
+# The game files are currently being updated and reuploaded. Please wait a few hours before using the Web Installer, then check back.
 [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20Sims%202%20Discord&logo=Discord&logoColor=white)](https://discord.gg/zzjHj2jxHV) ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/TS2%20Starter%20Pack%20WebInstall.exe?label=Installer%20Size)
 
 ## [Full installation guide](https://github.com/voicemxil/TS2-Starter-Pack/wiki)
