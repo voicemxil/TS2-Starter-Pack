@@ -50,7 +50,7 @@ FunctionEnd
 
 !define MUI_FINISHPAGE_LINK_LOCATION "discord.gg/zzjHj2jxHV"
 !define MUI_WELCOMEFINISHPAGE_BITMAP "B:\Pictures\orange.bmp"
-!define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
+!define MUI_FINISHPAGE_SHOWREADME "https://github.com/voicemxil/TS2-Starter-Pack/wiki/Step-III:-Graphics-Setup"
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the next step of the guide"
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
