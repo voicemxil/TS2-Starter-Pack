@@ -12,6 +12,7 @@ Var GLS
 Var SS
 Var UNI
 Var DXVKVER
+Var EP9EXE
 
 # Names the built installer
 Name "osab's Sims 2 Starter Pack"
@@ -88,6 +89,7 @@ StrCpy $FwP "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/relea
 StrCpy $GLS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_GlamourLifeStuff.exe"
 StrCpy $SS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_Seasons.exe"
 StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_UniversityLife.exe"
+StrCpy $EP9EXE "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/Sims2EP9.exe"
 	
 inetc::get "Downloading __Installer..." "$Installer" "AutoExtract__Installer.exe"
 	DetailPrint "Downloading __Installer from $Installer. Closing the download window will interrupt the download."
@@ -121,7 +123,7 @@ inetc::get /POPUP "Downloading Double Deluxe (Base)..." "$DDBase" "AutoExtract_D
 	DetailPrint "BG download status: $0" 
 		Delete "AutoExtract_BonVoyage.exe"
 		DetailPrint "Deleted AutoExtract."
-	Exec '"AutoExtract_DoubleDeluxeBase.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+	Exec '"AutoExtract_DoubleDeluxeBase.exe" -InstallPath=".\Double Deluxe\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /POPUP "Downloading Double Deluxe (Packs)..." "$DD" "AutoExtract_DoubleDeluxe.exe"
 	DetailPrint "Downloading Double Deluxe Packs from $DD. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
@@ -149,6 +151,10 @@ inetc::get /POPUP "Downloading Glamour Life Stuff..." "$GLS" "AutoExtract_Glamou
 	DetailPrint "GLS download status: $0" 
 		Delete "AutoExtract_FunwithPets.exe"
 		DetailPrint "Deleted AutoExtract."
+inetc::get /POPUP "Downloading Sims2EP9.exe..." "$EP9EXE" ".\Fun with Pets\SP9\TSBin\Sims2EP9.exe"
+DetailPrint "Downloading Sims2EP9.exe from $EP9EXE. Closing the download window will interrupt the download."
+	Pop $0 # return value = exit code, "OK" means OK
+	DetailPrint "Sims2EP9.exe download status: $0" 
 	Exec '"AutoExtract_GlamourLifeStuff.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /POPUP "Downloading Seasons..." "$SS" "AutoExtract_Seasons.exe"
 	DetailPrint "Downloading Seasons from $SS. Closing the download window will interrupt the download."
@@ -166,6 +172,7 @@ inetc::get /POPUP "Downloading University..." "$UNI" "AutoExtract_UniversityLife
 	Execwait '"AutoExtract_UniversityLife.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 		Delete "AutoExtract_UniversityLife.exe"
 		DetailPrint "Deleted AutoExtract."
+
 
 DetailPrint "Touching Up..."
 Execwait '"$INSTDIR\__Installer\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
