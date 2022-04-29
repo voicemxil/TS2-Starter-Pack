@@ -74,8 +74,6 @@ Section "TS2 Starter Pack" Section1
 
 	InitPluginsDir
 	
-	SetOverwrite ifnewer
-	
 	AddSize 13600000
 	
 StrCpy $Installer "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract__Installer.exe"
@@ -91,7 +89,7 @@ StrCpy $SS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releas
 StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_UniversityLife.exe"
 StrCpy $EP9EXE "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/Sims2EP9.exe"
 	
-inetc::get "Downloading __Installer..." "$Installer" "AutoExtract__Installer.exe"
+inetc::get /POPUP "Downloading Installer..." "$Installer" "AutoExtract__Installer.exe"
 	DetailPrint "Downloading __Installer from $Installer. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
 	DetailPrint "__Installer download status: $0" 
