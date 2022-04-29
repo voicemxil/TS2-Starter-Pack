@@ -121,7 +121,7 @@ inetc::get /POPUP "Downloading Double Deluxe (Base)..." "$DDBase" "AutoExtract_D
 	DetailPrint "BG download status: $0" 
 		Delete "AutoExtract_BonVoyage.exe"
 		DetailPrint "Deleted AutoExtract."
-	Exec '"AutoExtract_DoubleDeluxeBase.exe" -InstallPath=".\Double Deluxe\" -o".\" -y -gm1 -SelfDelete="1"'
+	Exec '"AutoExtract_DoubleDeluxeBase.exe" -InstallPath=".\Double Deluxe\" -o".\Double Deluxe\" -y -gm1 -SelfDelete="1"'
 inetc::get /POPUP "Downloading Double Deluxe (Packs)..." "$DD" "AutoExtract_DoubleDeluxe.exe"
 	DetailPrint "Downloading Double Deluxe Packs from $DD. Closing the download window will interrupt the download."
 	Pop $0 # return value = exit code, "OK" means OK
