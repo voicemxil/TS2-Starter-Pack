@@ -4,7 +4,7 @@ Var Installer
 Var AL
 Var BoB
 Var BV
-Var DDBase
+Var Base
 Var DD
 Var FT
 Var FwP
@@ -12,12 +12,11 @@ Var GLS
 Var SS
 Var UNI
 Var DXVKVER
-Var EP9EXE
 
 # Names the built installer
-Name "osab's Sims 2 Starter Pack"
+Name "The Sims 2 Starter Pack by osab"
 # Building to:
-OutFile "TS2 Starter Pack WebInstall.exe"
+OutFile "TS2StarterPack.WebInstaller-v7.exe"
 # Administrator Privileges 
 RequestExecutionLevel admin
 # Default Installation Directory
@@ -41,11 +40,11 @@ FunctionEnd
 !define MUI_HEADERIMAGE_BITMAP "B:\Pictures\banner.bmp"
 !define MUI_ICON "B:\Pictures\simmm.ico"
 !define MUI_PAGE_HEADER_TEXT "TS2: UC - Starter Pack"
-!define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v6"
+!define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v7"
 
 
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v6). Please ensure you have downloaded the latest version from GitHub. Helpful log messages will be shown in the 'More Details' box."
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the osab Starter Pack Web Installer (v7). Please ensure you have downloaded the latest version from GitHub. Helpful log messages will be shown in the 'More Details' box."
 
 !define MUI_LICENSEPAGE_TEXT_TOP ""
 
@@ -76,100 +75,117 @@ Section "TS2 Starter Pack" Section1
 	
 	AddSize 13600000
 	
-StrCpy $Installer "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract__Installer.exe"
-StrCpy $AL "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_ApartmentLife.exe"
-StrCpy $BoB "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_BestofBusiness.exe"
-StrCpy $BV "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_BonVoyage.exe"
-StrCpy $DDBase "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_Base.exe"
-StrCpy $DD "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_DoubleDeluxe.exe"
-StrCpy $FT "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_FreeTime.exe"
-StrCpy $FwP "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_FunwithPets.exe"
-StrCpy $GLS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_GlamourLifeStuff.exe"
-StrCpy $SS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_Seasons.exe"
-StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/AutoExtract_UniversityLife.exe"
-StrCpy $EP9EXE "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v1/Sims2EP9.exe"
+StrCpy $Installer "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v7/SFX_Installer-v7.exe"
+StrCpy $AL "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v7/SFX_ApartmentLife-v7.exe"
+StrCpy $BoB "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v7/SFX_BestofBusiness-v7.exe"
+StrCpy $BV "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v7/SFX_BonVoyage-v7.exe"
+StrCpy $Base "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v7/SFX_Base-v7.exe"
+StrCpy $DD "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v7/SFX_DoubleDeluxe-v7.exe"
+StrCpy $FT "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v7/SFX_FreeTime-v7.exe"
+StrCpy $FwP "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v7/SFX_FunwithPets-v7.exe"
+StrCpy $GLS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v7/SFX_GlamourLifeStuff-v7.exe"
+StrCpy $SS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v7/SFX_Seasons-v7.exe"
+StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v7/SFX_UniversityLife-v7.exe"
 	
-inetc::get /POPUP "Downloading Installer..." "$Installer" "AutoExtract__Installer.exe"
+inetc::get /POPUP "Downloading Installer..." "$Installer" "SFX_Installer-v7.exe"
 	DetailPrint "Downloading __Installer from $Installer. Closing the download window will interrupt the download."
-	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "__Installer download status: $0" 
-	Exec '"AutoExtract__Installer.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /POPUP "Downloading Apartment Life..." "$AL" "AutoExtract_ApartmentLife.exe"
+		Pop $0 # return value = exit code, "OK" means OK
+			DetailPrint "__Installer download status: $0" 
+	Exec '"SFX_Installer-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+
+inetc::get /POPUP "Downloading Apartment Life..." "$AL" "SFX_ApartmentLife-v7.exe"
 	DetailPrint "Downloading Apartment Life from $AL. Closing the download window will interrupt the download."
-	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "AL download status: $0" 
-		Delete "AutoExtract__Installer.exe"
-		DetailPrint "Deleted AutoExtract."
-	Exec '"AutoExtract_ApartmentLife.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /POPUP "Downloading Best of Business..." "$BoB" "AutoExtract_BestofBusiness.exe"
+		Pop $0 # return value = exit code, "OK" means OK
+			DetailPrint "AL download status: $0" 
+
+		Delete "SFX_Installer-v7.exe"
+			DetailPrint "Deleted AutoExtract."
+
+	Exec '"SFX_ApartmentLife-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+inetc::get /POPUP "Downloading Best of Business..." "$BoB" "SFX_BestofBusiness-v7.exe"
 	DetailPrint "Downloading Best of Business from $BoB. Closing the download window will interrupt the download."
-	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "BoB download status: $0" 
-		Delete "AutoExtract_ApartmentLife.exe"
-		DetailPrint "Deleted AutoExtract."
-	Exec '"AutoExtract_BestofBusiness.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /POPUP "Downloading Bon Voyage..." "$BV" "AutoExtract_BonVoyage.exe"
+		Pop $0 # return value = exit code, "OK" means OK
+			DetailPrint "BoB download status: $0" 
+
+		Delete "SFX_ApartmentLife-v7.exe"
+			DetailPrint "Deleted AutoExtract."
+
+	Exec '"SFX_BestofBusiness-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+inetc::get /POPUP "Downloading Bon Voyage..." "$BV" "SFX_BonVoyage-v7.exe"
 	DetailPrint "Downloading Bon Voyage from $BV. Closing the download window will interrupt the download."
-	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "BV download status: $0" 
-		Delete "AutoExtract_BestofBusiness.exe"
-		DetailPrint "Deleted AutoExtract."
-	Exec '"AutoExtract_BonVoyage.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /POPUP "Downloading Double Deluxe (Base)..." "$DDBase" "AutoExtract_DoubleDeluxeBase.exe"
-	DetailPrint "Downloading Base Game from $DDBase. Closing the download window will interrupt the download."
-	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "BG download status: $0" 
-		Delete "AutoExtract_BonVoyage.exe"
-		DetailPrint "Deleted AutoExtract."
-	Exec '"AutoExtract_DoubleDeluxeBase.exe" -InstallPath=".\Double Deluxe\" -o".\Double Deluxe\" -y -gm1 -SelfDelete="1"'
-inetc::get /POPUP "Downloading Double Deluxe (Packs)..." "$DD" "AutoExtract_DoubleDeluxe.exe"
+		Pop $0 # return value = exit code, "OK" means OK
+			DetailPrint "BV download status: $0" 
+
+		Delete "SFX_BestofBusiness-v7.exe"
+			DetailPrint "Deleted AutoExtract."
+
+	Exec '"SFX_BonVoyage-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+inetc::get /POPUP "Downloading Base Game..." "$Base" "SFX_Base-v7.exe"
+	DetailPrint "Downloading Base Game from $Base. Closing the download window will interrupt the download."
+		Pop $0 # return value = exit code, "OK" means OK
+			DetailPrint "BG download status: $0" 
+
+		Delete "SFX_BonVoyage-v7.exe"
+			DetailPrint "Deleted AutoExtract."
+
+	Exec '"SFX_Base-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+inetc::get /POPUP "Downloading Double Deluxe (Packs)..." "$DD" "SFX_DoubleDeluxe-v7.exe"
 	DetailPrint "Downloading Double Deluxe Packs from $DD. Closing the download window will interrupt the download."
-	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "DD Packs download status: $0" 
-		Delete "AutoExtract_DoubleDeluxeBase.exe"
-		DetailPrint "Deleted AutoExtract."
-	Exec '"AutoExtract_DoubleDeluxe.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /POPUP "Downloading FreeTime..." "$FT" "AutoExtract_FreeTime.exe"
+		Pop $0 # return value = exit code, "OK" means OK
+			DetailPrint "DD Packs download status: $0" 
+
+		Delete "SFX_Base-v7.exe"
+			DetailPrint "Deleted AutoExtract."
+
+	Exec '"SFX_DoubleDeluxe-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+inetc::get /POPUP "Downloading FreeTime..." "$FT" "SFX_FreeTime-v7.exe"
 	DetailPrint "Downloading FreeTime from $FT. Closing the download window will interrupt the download."
-	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "FT download status: $0" 
-		Delete "AutoExtract_DoubleDeluxe.exe"
-		DetailPrint "Deleted AutoExtract."
-	Exec '"AutoExtract_FreeTime.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /POPUP "Downloading Fun with Pets..." "$FwP" "AutoExtract_FunwithPets.exe"
+		Pop $0 # return value = exit code, "OK" means OK
+			DetailPrint "FT download status: $0" 
+
+		Delete "SFX_DoubleDeluxe-v7.exe"
+			DetailPrint "Deleted AutoExtract."
+
+	Exec '"SFX_FreeTime-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+inetc::get /POPUP "Downloading Fun with Pets..." "$FwP" "SFX_FunwithPets-v7.exe"
 	DetailPrint "Downloading Fun with Pets from $FwP. Closing the download window will interrupt the download."
-	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "FwP download status: $0" 
-		Delete "AutoExtract_FreeTime.exe"
-		DetailPrint "Deleted AutoExtract."
-	Exec '"AutoExtract_FunwithPets.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /POPUP "Downloading Glamour Life Stuff..." "$GLS" "AutoExtract_GlamourLifeStuff.exe"
+		Pop $0 # return value = exit code, "OK" means OK
+			DetailPrint "FwP download status: $0" 
+
+		Delete "SFX_FreeTime-v7.exe"
+			DetailPrint "Deleted AutoExtract."
+
+	Exec '"SFX_FunwithPets-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+inetc::get /POPUP "Downloading Glamour Life Stuff..." "$GLS" "SFX_GlamourLifeStuff-v7.exe"
 	DetailPrint "Downloading Glamour Life Stuff from $GLS. Closing the download window will interrupt the download."
-	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "GLS download status: $0" 
-		Delete "AutoExtract_FunwithPets.exe"
-		DetailPrint "Deleted AutoExtract."
-inetc::get /POPUP "Downloading Sims2EP9.exe..." "$EP9EXE" ".\Fun with Pets\SP9\TSBin\Sims2EP9.exe"
-DetailPrint "Downloading Sims2EP9.exe from $EP9EXE. Closing the download window will interrupt the download."
-	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "Sims2EP9.exe download status: $0" 
-	Exec '"AutoExtract_GlamourLifeStuff.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /POPUP "Downloading Seasons..." "$SS" "AutoExtract_Seasons.exe"
+		Pop $0 # return value = exit code, "OK" means OK
+			DetailPrint "GLS download status: $0" 
+
+		Delete "SFX_FunwithPets-v7.exe"
+			DetailPrint "Deleted AutoExtract."
+
+	Exec '"SFX_GlamourLifeStuff-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+inetc::get /POPUP "Downloading Seasons..." "$SS" "SFX_Seasons-v7.exe"
 	DetailPrint "Downloading Seasons from $SS. Closing the download window will interrupt the download."
-	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "SS download status: $0" 
-		Delete "AutoExtract_GlamourLifeStuff.exe"
-		DetailPrint "Deleted AutoExtract."
-	Exec '"AutoExtract_Seasons.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-inetc::get /POPUP "Downloading University..." "$UNI" "AutoExtract_UniversityLife.exe"
+		Pop $0 # return value = exit code, "OK" means OK
+			DetailPrint "SS download status: $0" 
+
+		Delete "SFX_GlamourLifeStuff-v7.exe"
+			DetailPrint "Deleted AutoExtract."
+
+	Exec '"SFX_Seasons-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+inetc::get /POPUP "Downloading University..." "$UNI" "SFX_UniversityLife-v7.exe"
 	DetailPrint "Downloading University from $UNI. Closing the download window will interrupt the download."
-	Pop $0 # return value = exit code, "OK" means OK
-	DetailPrint "UNI download status: $0" 
-		Delete "AutoExtract_Seasons.exe"
-		DetailPrint "Deleted AutoExtract."
-	Execwait '"AutoExtract_UniversityLife.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-		Delete "AutoExtract_UniversityLife.exe"
-		DetailPrint "Deleted AutoExtract."
+		Pop $0 # return value = exit code, "OK" means OK
+			DetailPrint "UNI download status: $0" 
+
+		Delete "SFX_Seasons-v7.exe"
+			DetailPrint "Deleted AutoExtract."
+
+	Execwait '"SFX_UniversityLife-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+
+		Delete "SFX_UniversityLife-v7.exe"
+			DetailPrint "Deleted AutoExtract."
 
 
 DetailPrint "Touching Up..."
@@ -207,7 +223,7 @@ SectionEnd
 
 Section /o "DXVK - REQUIRES VULKAN SUPPORT. Run Vulkan-Test." Section2
 DetailPrint "Downloading DXVK $DXVKVER..."
-inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v1.10.1/dxvk-1.10.1.tar.gz" "$INSTDIR\dxvk.tar.gz"
+inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v7.10.1/dxvk-1.10.1.tar.gz" "$INSTDIR\dxvk.tar.gz"
 	Pop $0 # return value = exit code, "OK" means OK
 	DetailPrint "DXVK download status: $0. Extracting..." 
 
@@ -235,21 +251,17 @@ Section "Start Menu Shortcut" Section4
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Launch Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 SectionEnd
 
-Section "Desktop Shortcut" Section5
-	SetShellVarContext current
-    CreateShortCut '$DESKTOP\Launch Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe'
-SectionEnd
 
 LangString DESC_Section1 ${LANG_ENGLISH} "Installs TS2:UC, Sims2RPC, and Graphics Rules Maker."
 LangString DESC_Section2 ${LANG_ENGLISH} "Installs DXVK $DXVKVER."
 LangString DESC_Section3 ${LANG_ENGLISH} "Links you to SimNopke's Shadow Fix. Please install to your 'Documents\EA Games\The Sims 2 Ultimate Collection\Downloads' folder. DXVK/Intel users choose Not Misty version."
 LangString DESC_Section4 ${LANG_ENGLISH} "Create a shortuct to launch the game in your Start menu."
-LangString DESC_Section5 ${LANG_ENGLISH} "Create a shortcut to launch the game on your desktop."
+
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${Section1} $(DESC_Section1)
   !insertmacro MUI_DESCRIPTION_TEXT ${Section2} $(DESC_Section2)
   !insertmacro MUI_DESCRIPTION_TEXT ${Section3} $(DESC_Section3)
   !insertmacro MUI_DESCRIPTION_TEXT ${Section4} $(DESC_Section4)
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section5} $(DESC_Section5)
+
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
