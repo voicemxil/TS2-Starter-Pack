@@ -1,4 +1,4 @@
-!include "MUI2.nsh"
+﻿!include "MUI2.nsh"
 
 Var Installer
 Var AL
@@ -14,13 +14,14 @@ Var UNI
 Var DXVKVER
 
 # Names the built installer
-Name "The Sims 2 Starter Pack by osab"
+Name "The Sims 2 Starter Pack"
 # Building to:
 OutFile "TS2StarterPack.WebInstaller-v7.exe"
 # Administrator Privileges 
 RequestExecutionLevel admin
 # Default Installation Directory
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
+Unicode true
 
 Function StoreDXVKVersion
 	StrCpy $DXVKVER "1.10.1"
@@ -217,11 +218,32 @@ DetailPrint "RPC extraction status: $0. Cleaning up zip file..." ;print error me
 Delete "Sims2RPC Web Installer.zip"
 DetailPrint "Attempting to execute RPC Installer... Please click 'Install/Repair.'"
 ExecWait '"Sims2RPCInstaller.exe"'
+
+
+inetc::get /BANNER "Downloading VC Redist..." "https://aka.ms/vs/17/release/vc_redist.x86.exe" "vc_redist.x86.exe"
+	Pop $0
+	DetailPrint "VC Redist download status: $0"
+ExecWait "vc_redist.x86.exe"
+
+
+inetc::get /BANNER "Downloading .NET Framework..." "https://go.microsoft.com/fwlink/?LinkId=2085155" "ndp48_web.exe"
+	Pop $0
+	DetailPrint ".NET Framework download status: $0"
+ExecWait "ndp48_web.exe"
+
 Delete "Sims2RPCInstaller.exe"
+Delete "vc_redist.x86.exe"
+Delete "ndp48_web.exe"
 		
 SectionEnd
 
-Section /o "DXVK - REQUIRES VULKAN SUPPORT. Run Vulkan-Test." Section2
+Section "DXVK" Section2
+inetc::get /BANNER "Preparing Vulkan Test..." "https://github.com/skeeto/vulkan-test/releases/download/1.0.2/vulkan_test.exe" "vulkan_test.exe"
+ExecWait "vulkan_test.exe"
+Delete "vulkan_test.exe"
+MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
+
+true: 
 DetailPrint "Downloading DXVK $DXVKVER..."
 inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v7.10.1/dxvk-1.10.1.tar.gz" "$INSTDIR\dxvk.tar.gz"
 	Pop $0 # return value = exit code, "OK" means OK
@@ -239,10 +261,18 @@ DetailPrint "Done."
 DetailPrint "Deleting temporary DXVK folder."
 RMDir /r $INSTDIR\dxvk-1.10.1
 DetailPrint "Done."
+
+false:
+DetailPrint "Skipping DXVK."
+next:
+DetailPrint "DXVK section complete."
 SectionEnd
 
 Section "Sim Shadow Fix" Section3
- ExecShell "open" "https://simnopke.tumblr.com/post/136184612377/sim-shadow-fix" SW_SHOWNORMAL
+MessageBox MB_OK "The shadow fix download will open in your browser, then the Downloads folder will open to put it in."
+ExecShell "open" "https://simnopke.tumblr.com/post/136184612377/sim-shadow-fix" SW_SHOWNORMAL
+CreateDirectory "$Documents\EA Games\The Sims™ 2 Ultimate Collection\Downloads"
+ExecShell "open" "$Documents\EA Games\The Sims™ 2 Ultimate Collection\Downloads"
 SectionEnd
 
 Section "Start Menu Shortcut" Section4
