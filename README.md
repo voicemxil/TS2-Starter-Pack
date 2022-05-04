@@ -1,4 +1,4 @@
-# The Sims 2 Starter Pack by osab
+<h1 align="center">The Sims 2 Starter Pack by osab</h1>
 
 [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20Sims%202%20Discord&logo=Discord&logoColor=white)](https://discord.gg/zzjHj2jxHV) ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/Web%20Installer%5CTS2StarterPack.WebInstaller-v7.exe)
 
