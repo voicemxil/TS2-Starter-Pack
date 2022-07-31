@@ -4,20 +4,20 @@
 
 The Starter Pack is the easiest way to install TS2 on modern systems. It utilizes Sims2RPC as its launcher & includes documentation for setting up the game.
 
-### Check out the [Full Installation Guide](https://github.com/voicemxil/TS2-Starter-Pack/wiki) on our wiki for info to install the game!
+### Check out the [Full Installation Guide](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) to install the game!
 
 
 
 # Starter Pack Flavors:
 ## Web Installer (Recommended, v7)
 
-- Downloads TS2: UC and automatically installs via Touchup
+- Downloads TS2:UC and automatically installs via Touchup
 - Installs dependencies - VC Redist & .NET Framework
 - Includes: Sims2RPC by Lazy Duchess and Graphics Rules Maker from SimNetwork.
 - Optional installation: DXVK and SimNopke's shadow fix + desktop/start menu shortcuts.  
 
 ## Standalone 
 - Includes TS2:UC and Sims2RPC
-- New [Touchup launcher](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v6/Standalone-TS2TouchupLauncher.exe) can be used in place of manual setup.
+- New [Touchup launcher](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v6/Standalone-TS2TouchupLauncher.exe).
 
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a><br />
