@@ -217,7 +217,7 @@ Pop $0
 DetailPrint "RPC extraction status: $0. Cleaning up zip file..." ;print error message to log
 Delete "Sims2RPC Web Installer.zip"
 DetailPrint "Attempting to execute RPC Installer... Please click 'Install/Repair.'"
-ExecWait '"Sims2RPCInstaller.exe"'
+ExecWait "Sims2RPCInstaller.exe"
 
 
 inetc::get /BANNER "Downloading VC Redist..." "https://aka.ms/vs/17/release/vc_redist.x86.exe" "vc_redist.x86.exe"
@@ -235,6 +235,29 @@ Delete "Sims2RPCInstaller.exe"
 Delete "vc_redist.x86.exe"
 Delete "ndp48_web.exe"
 		
+	
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Chinese_Simplified.reg" "After_Install_Language_Selection\Chinese_Simplified.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Chinese_Traditional.reg" "After_Install_Language_Selection\Chinese_Traditional.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Czech.reg" "After_Install_Language_Selection\Czech.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Dutch.reg" "After_Install_Language_Selection\Dutch.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/English_UK.reg" "After_Install_Language_Selection\English_UK.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Finnish.reg" "After_Install_Language_Selection\Finnish.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/French.reg" "After_Install_Language_Selection\French.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/German.reg" "After_Install_Language_Selection\German.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Greek.reg" "After_Install_Language_Selection\Greek.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Hebrew.reg" "After_Install_Language_Selection\Hebrew.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Hungarian.reg" "After_Install_Language_Selection\Hungarian.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Italian.reg" "After_Install_Language_Selection\Italian.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Japanese.reg" "After_Install_Language_Selection\Japanese.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Korean.reg" "After_Install_Language_Selection\Korean.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Norwegian.reg" "After_Install_Language_Selection\Norwegian.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Polish.reg" "After_Install_Language_Selection\Polish.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Portuguese_Brazil.reg" "After_Install_Language_Selection\Portuguese_Brazil.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Russian.reg" "After_Install_Language_Selection\Russian.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Spanish.reg" "After_Install_Language_Selection\Spanish.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Swedish.reg" "After_Install_Language_Selection\Swedish.reg"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Thai.reg" "After_Install_Language_Selection\Thai.reg"
+	
 SectionEnd
 
 Section "DXVK" Section2
@@ -244,8 +267,8 @@ Delete "vulkan_test.exe"
 MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
 
 true: 
-DetailPrint "Downloading DXVK $DXVKVER..."
-inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v7.10.1/dxvk-1.10.1.tar.gz" "$INSTDIR\dxvk.tar.gz"
+DetailPrint "Downloading DXVK 1.10.3..."
+inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v1.10.3/dxvk-1.10.3.tar.gz" "$INSTDIR\dxvk.tar.gz"
 	Pop $0 # return value = exit code, "OK" means OK
 	DetailPrint "DXVK download status: $0. Extracting..." 
 
@@ -255,11 +278,11 @@ untgz::extract -h -u -d $INSTDIR -zgz "$INSTDIR\dxvk.tar.gz"
 #Delete archive.
 Delete "$INSTDIR\dxvk.tar.gz"
 DetailPrint "Placing x32 d3d9.dll in TSBin..."
-Rename "$INSTDIR\dxvk-$DXVKVER\x32\d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll"
+Rename "$INSTDIR\dxvk-1.10.3\x32\d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll"
 DetailPrint "Done."
 #Delete DXVK folder
 DetailPrint "Deleting temporary DXVK folder."
-RMDir /r $INSTDIR\dxvk-1.10.1
+RMDir /r $INSTDIR\dxvk-1.10.3
 DetailPrint "Done."
 
 false:
