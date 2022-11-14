@@ -96,99 +96,89 @@ inetc::get /POPUP "Downloading Installer..." "$Installer" "SFX_Installer-v7.exe"
 	Exec '"SFX_Installer-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 
 inetc::get /POPUP "Downloading Apartment Life..." "$AL" "SFX_ApartmentLife-v7.exe"
-	DetailPrint "Downloading Apartment Life from $AL. Closing the download window will interrupt the download."
-		Pop $0 # return value = exit code, "OK" means OK
-			DetailPrint "AL download status: $0" 
-
-		Delete "SFX_Installer-v7.exe"
-			DetailPrint "Deleted AutoExtract."
-
-	ExecWait '"SFX_ApartmentLife-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+DetailPrint "Downloading Apartment Life from $AL. Closing the download window will interrupt the download."
+Pop $0 # return value = exit code, "OK" means OK
+DetailPrint "AL download status: $0" 
+	
+Delete "SFX_Installer-v7.exe"
+DetailPrint "Deleted AutoExtract.
+	
+ExecWait '"SFX_ApartmentLife-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+Delete "SFX_ApartmentLife-v7.exe"
+DetailPrint "Deleted AutoExtract."
+	
 inetc::get /POPUP "Downloading Best of Business..." "$BoB" "SFX_BestofBusiness-v7.exe"
-	DetailPrint "Downloading Best of Business from $BoB. Closing the download window will interrupt the download."
-		Pop $0 # return value = exit code, "OK" means OK
-			DetailPrint "BoB download status: $0" 
-
-		Delete "SFX_ApartmentLife-v7.exe"
-			DetailPrint "Deleted AutoExtract."
-
-	ExecWait '"SFX_BestofBusiness-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+DetailPrint "Downloading Best of Business from $BoB. Closing the download window will interrupt the download."
+Pop $0 # return value = exit code, "OK" means OK
+DetailPrint "BoB download status: $0" 
+ExecWait '"SFX_BestofBusiness-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+Delete "SFX_BestofBusiness-v7.exe"
+DetailPrint "Deleted AutoExtract."
+	
 inetc::get /POPUP "Downloading Bon Voyage..." "$BV" "SFX_BonVoyage-v7.exe"
-	DetailPrint "Downloading Bon Voyage from $BV. Closing the download window will interrupt the download."
-		Pop $0 # return value = exit code, "OK" means OK
-			DetailPrint "BV download status: $0" 
+DetailPrint "Downloading Bon Voyage from $BV. Closing the download window will interrupt the download."
+Pop $0 # return value = exit code, "OK" means OK
+DetailPrint "BV download status: $0" 
+ExecWait '"SFX_BonVoyage-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+Delete "SFX_BonVoyage-v7.exe"
+DetailPrint "Deleted AutoExtract."
 
-		Delete "SFX_BestofBusiness-v7.exe"
-			DetailPrint "Deleted AutoExtract."
-
-	ExecWait '"SFX_BonVoyage-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /POPUP "Downloading Base Game..." "$Base" "SFX_Base-v7.exe"
-	DetailPrint "Downloading Base Game from $Base. Closing the download window will interrupt the download."
-		Pop $0 # return value = exit code, "OK" means OK
-			DetailPrint "BG download status: $0" 
+DetailPrint "Downloading Base Game from $Base. Closing the download window will interrupt the download."
+Pop $0 # return value = exit code, "OK" means OK
+DetailPrint "BG download status: $0" 
+ExecWait '"SFX_Base-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+Delete "SFX_Base-v7.exe"
+DetailPrint "Deleted AutoExtract."
 
-		Delete "SFX_BonVoyage-v7.exe"
-			DetailPrint "Deleted AutoExtract."
-
-	ExecWait '"SFX_Base-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 inetc::get /POPUP "Downloading Double Deluxe (Packs)..." "$DD" "SFX_DoubleDeluxe-v7.exe"
-	DetailPrint "Downloading Double Deluxe Packs from $DD. Closing the download window will interrupt the download."
-		Pop $0 # return value = exit code, "OK" means OK
-			DetailPrint "DD Packs download status: $0" 
-
-		Delete "SFX_Base-v7.exe"
-			DetailPrint "Deleted AutoExtract."
-
-	ExecWait '"SFX_DoubleDeluxe-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+DetailPrint "Downloading Double Deluxe Packs from $DD. Closing the download window will interrupt the download."
+Pop $0 # return value = exit code, "OK" means OK
+DetailPrint "DD Packs download status: $0" 
+ExecWait '"SFX_DoubleDeluxe-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+Delete "SFX_DoubleDeluxe-v7.exe"
+DetailPrint "Deleted AutoExtract."
+	
 inetc::get /POPUP "Downloading FreeTime..." "$FT" "SFX_FreeTime-v7.exe"
-	DetailPrint "Downloading FreeTime from $FT. Closing the download window will interrupt the download."
-		Pop $0 # return value = exit code, "OK" means OK
-			DetailPrint "FT download status: $0" 
+DetailPrint "Downloading FreeTime from $FT. Closing the download window will interrupt the download."
+Pop $0 # return value = exit code, "OK" means OK
+DetailPrint "FT download status: $0" 
+ExecWait '"SFX_FreeTime-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+Delete "SFX_FreeTime-v7.exe"
+DetailPrint "Deleted AutoExtract."
 
-		Delete "SFX_DoubleDeluxe-v7.exe"
-			DetailPrint "Deleted AutoExtract."
-
-	ExecWait '"SFX_FreeTime-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+	
 inetc::get /POPUP "Downloading Fun with Pets..." "$FwP" "SFX_FunwithPets-v8-norpc.exe"
-	DetailPrint "Downloading Fun with Pets from $FwP. Closing the download window will interrupt the download."
-		Pop $0 # return value = exit code, "OK" means OK
-			DetailPrint "FwP download status: $0" 
-
-		Delete "SFX_FreeTime-v7.exe"
-			DetailPrint "Deleted AutoExtract."
-
-	ExecWait '"SFX_FunwithPets-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+DetailPrint "Downloading Fun with Pets from $FwP. Closing the download window will interrupt the download."
+Pop $0 # return value = exit code, "OK" means OK
+DetailPrint "FwP download status: $0" 
+ExecWait '"SFX_FunwithPets-v8-norpc.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+Delete "SFX_FunwithPets-v8-norpc.exe"
+DetailPrint "Deleted AutoExtract."
+		
 inetc::get /POPUP "Downloading Glamour Life Stuff..." "$GLS" "SFX_GlamourLifeStuff-v7.exe"
-	DetailPrint "Downloading Glamour Life Stuff from $GLS. Closing the download window will interrupt the download."
-		Pop $0 # return value = exit code, "OK" means OK
-			DetailPrint "GLS download status: $0" 
-
-		Delete "SFX_FunwithPets-v8-norpc.exe"
-			DetailPrint "Deleted AutoExtract."
-
-	Exec '"SFX_GlamourLifeStuff-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+DetailPrint "Downloading Glamour Life Stuff from $GLS. Closing the download window will interrupt the download."
+Pop $0 # return value = exit code, "OK" means OK
+DetailPrint "GLS download status: $0" 
+Exec '"SFX_GlamourLifeStuff-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+	
 inetc::get /POPUP "Downloading Seasons..." "$SS" "SFX_Seasons-v7.exe"
-	DetailPrint "Downloading Seasons from $SS. Closing the download window will interrupt the download."
-		Pop $0 # return value = exit code, "OK" means OK
-			DetailPrint "SS download status: $0" 
-
-		Delete "SFX_GlamourLifeStuff-v7.exe"
-			DetailPrint "Deleted AutoExtract."
-
-	ExecWait '"SFX_Seasons-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+DetailPrint "Downloading Seasons from $SS. Closing the download window will interrupt the download."
+Pop $0 # return value = exit code, "OK" means OK
+DetailPrint "SS download status: $0" 
+ExecWait '"SFX_Seasons-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+Delete "SFX_GlamourLifeStuff-v7.exe"
+DetailPrint "Deleted AutoExtract."
+Delete "SFX_Seasons-v7.exe"
+DetailPrint "Deleted AutoExtract."
+	
 inetc::get /POPUP "Downloading University..." "$UNI" "SFX_UniversityLife-v7.exe"
-	DetailPrint "Downloading University from $UNI. Closing the download window will interrupt the download."
-		Pop $0 # return value = exit code, "OK" means OK
-			DetailPrint "UNI download status: $0" 
-
-		Delete "SFX_Seasons-v7.exe"
-			DetailPrint "Deleted AutoExtract."
-
-	Execwait '"SFX_UniversityLife-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
-
-		Delete "SFX_UniversityLife-v7.exe"
-			DetailPrint "Deleted AutoExtract."
-
+DetailPrint "Downloading University from $UNI. Closing the download window will interrupt the download."
+Pop $0 # return value = exit code, "OK" means OK
+DetailPrint "UNI download status: $0" 
+ExecWait '"SFX_UniversityLife-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+Delete "SFX_UniversityLife-v7.exe"
+DetailPrint "Deleted AutoExtract."
 
 DetailPrint "Touching Up..."
 ExecWait '"$INSTDIR\__Installer\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
