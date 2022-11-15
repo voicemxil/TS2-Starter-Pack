@@ -39,8 +39,8 @@ FunctionEnd
 !define MUI_ABORTWARNING
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
-!define MUI_HEADERIMAGE_BITMAP "B:\Pictures\banner.bmp"
-!define MUI_ICON "B:\Pictures\simmm.ico"
+!define MUI_HEADERIMAGE_BITMAP "F:\home\c\Pictures\banner.bmp"
+!define MUI_ICON "F:\home\c\Pictures\simmm.ico"
 !define MUI_PAGE_HEADER_TEXT "TS2: UC - Starter Pack"
 !define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v8"
 
@@ -51,15 +51,15 @@ FunctionEnd
 !define MUI_LICENSEPAGE_TEXT_TOP ""
 
 !define MUI_FINISHPAGE_LINK_LOCATION "https://discord.gg/invite/ts2-community-912700195249197086"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "B:\Pictures\orange.bmp"
-!define MUI_FINISHPAGE_SHOWREADME "https://github.com/voicemxil/TS2-Starter-Pack/wiki/Step-III:-Graphics-Setup"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\c\Pictures\Wizard.bmp"
+!define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the next step of the guide?"
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
 !define MUI_FINISHPAGE_LINK "TS2 Community Discord Server!"
 
 !insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_LICENSE "B:\Documents\GitHub\osab-TS2-web-installer\license.txt"
+!insertmacro MUI_PAGE_LICENSE "C:\Users\c\Documents\GitHub\TS2-Starter-Pack\LICENSE.txt"
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
@@ -101,9 +101,9 @@ Pop $0 # return value = exit code, "OK" means OK
 DetailPrint "AL download status: $0" 
 	
 Delete "SFX_Installer-v7.exe"
-DetailPrint "Deleted AutoExtract.
+DetailPrint "Deleted AutoExtract."
 	
-ExecWait '"SFX_ApartmentLife-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+ExecWait '"SFX_ApartmentLife-v7.exe" -InstallPath=".\" -o".\" -y -gm1'
 Delete "SFX_ApartmentLife-v7.exe"
 DetailPrint "Deleted AutoExtract."
 	
@@ -111,7 +111,7 @@ inetc::get /POPUP "Downloading Best of Business..." "$BoB" "SFX_BestofBusiness-v
 DetailPrint "Downloading Best of Business from $BoB. Closing the download window will interrupt the download."
 Pop $0 # return value = exit code, "OK" means OK
 DetailPrint "BoB download status: $0" 
-ExecWait '"SFX_BestofBusiness-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+ExecWait '"SFX_BestofBusiness-v7.exe" -InstallPath=".\" -o".\" -y -gm1'
 Delete "SFX_BestofBusiness-v7.exe"
 DetailPrint "Deleted AutoExtract."
 	
@@ -119,7 +119,7 @@ inetc::get /POPUP "Downloading Bon Voyage..." "$BV" "SFX_BonVoyage-v7.exe"
 DetailPrint "Downloading Bon Voyage from $BV. Closing the download window will interrupt the download."
 Pop $0 # return value = exit code, "OK" means OK
 DetailPrint "BV download status: $0" 
-ExecWait '"SFX_BonVoyage-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+ExecWait '"SFX_BonVoyage-v7.exe" -InstallPath=".\" -o".\" -y -gm1'
 Delete "SFX_BonVoyage-v7.exe"
 DetailPrint "Deleted AutoExtract."
 
@@ -127,7 +127,7 @@ inetc::get /POPUP "Downloading Base Game..." "$Base" "SFX_Base-v7.exe"
 DetailPrint "Downloading Base Game from $Base. Closing the download window will interrupt the download."
 Pop $0 # return value = exit code, "OK" means OK
 DetailPrint "BG download status: $0" 
-ExecWait '"SFX_Base-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+ExecWait '"SFX_Base-v7.exe" -InstallPath=".\" -o".\" -y -gm1'
 Delete "SFX_Base-v7.exe"
 DetailPrint "Deleted AutoExtract."
 
@@ -135,7 +135,7 @@ inetc::get /POPUP "Downloading Double Deluxe (Packs)..." "$DD" "SFX_DoubleDeluxe
 DetailPrint "Downloading Double Deluxe Packs from $DD. Closing the download window will interrupt the download."
 Pop $0 # return value = exit code, "OK" means OK
 DetailPrint "DD Packs download status: $0" 
-ExecWait '"SFX_DoubleDeluxe-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+ExecWait '"SFX_DoubleDeluxe-v7.exe" -InstallPath=".\" -o".\" -y -gm1'
 Delete "SFX_DoubleDeluxe-v7.exe"
 DetailPrint "Deleted AutoExtract."
 	
@@ -143,7 +143,7 @@ inetc::get /POPUP "Downloading FreeTime..." "$FT" "SFX_FreeTime-v7.exe"
 DetailPrint "Downloading FreeTime from $FT. Closing the download window will interrupt the download."
 Pop $0 # return value = exit code, "OK" means OK
 DetailPrint "FT download status: $0" 
-ExecWait '"SFX_FreeTime-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+ExecWait '"SFX_FreeTime-v7.exe" -InstallPath=".\" -o".\" -y -gm1'
 Delete "SFX_FreeTime-v7.exe"
 DetailPrint "Deleted AutoExtract."
 
@@ -152,7 +152,7 @@ inetc::get /POPUP "Downloading Fun with Pets..." "$FwP" "SFX_FunwithPets-v8-norp
 DetailPrint "Downloading Fun with Pets from $FwP. Closing the download window will interrupt the download."
 Pop $0 # return value = exit code, "OK" means OK
 DetailPrint "FwP download status: $0" 
-ExecWait '"SFX_FunwithPets-v8-norpc.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+ExecWait '"SFX_FunwithPets-v8-norpc.exe" -InstallPath=".\" -o".\" -y -gm1'
 Delete "SFX_FunwithPets-v8-norpc.exe"
 DetailPrint "Deleted AutoExtract."
 		
@@ -160,13 +160,13 @@ inetc::get /POPUP "Downloading Glamour Life Stuff..." "$GLS" "SFX_GlamourLifeStu
 DetailPrint "Downloading Glamour Life Stuff from $GLS. Closing the download window will interrupt the download."
 Pop $0 # return value = exit code, "OK" means OK
 DetailPrint "GLS download status: $0" 
-Exec '"SFX_GlamourLifeStuff-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+Exec '"SFX_GlamourLifeStuff-v7.exe" -InstallPath=".\" -o".\" -y -gm1'
 	
 inetc::get /POPUP "Downloading Seasons..." "$SS" "SFX_Seasons-v7.exe"
 DetailPrint "Downloading Seasons from $SS. Closing the download window will interrupt the download."
 Pop $0 # return value = exit code, "OK" means OK
 DetailPrint "SS download status: $0" 
-ExecWait '"SFX_Seasons-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+ExecWait '"SFX_Seasons-v7.exe" -InstallPath=".\" -o".\" -y -gm1'
 Delete "SFX_GlamourLifeStuff-v7.exe"
 DetailPrint "Deleted AutoExtract."
 Delete "SFX_Seasons-v7.exe"
@@ -176,7 +176,7 @@ inetc::get /POPUP "Downloading University..." "$UNI" "SFX_UniversityLife-v7.exe"
 DetailPrint "Downloading University from $UNI. Closing the download window will interrupt the download."
 Pop $0 # return value = exit code, "OK" means OK
 DetailPrint "UNI download status: $0" 
-ExecWait '"SFX_UniversityLife-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+ExecWait '"SFX_UniversityLife-v7.exe" -InstallPath=".\" -o".\" -y -gm1'
 Delete "SFX_UniversityLife-v7.exe"
 DetailPrint "Deleted AutoExtract."
 
