@@ -1,4 +1,5 @@
-﻿!include "MUI2.nsh"
+﻿Unicode True
+!include "MUI2.nsh"
 !include x64.nsh
 
 Var Installer
@@ -39,7 +40,7 @@ FunctionEnd
 !define MUI_ABORTWARNING
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
-!define MUI_HEADERIMAGE_BITMAP "F:\home\c\Pictures\banner.bmp"
+!define MUI_HEADERIMAGE_BITMAP "C:\Users\c\Pictures\banner.bmp"
 !define MUI_ICON "F:\home\c\Pictures\simmm.ico"
 !define MUI_PAGE_HEADER_TEXT "TS2: UC - Starter Pack"
 !define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v8"
@@ -184,13 +185,13 @@ DetailPrint "Touching Up..."
 ExecWait '"$INSTDIR\__Installer\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
 
 	DetailPrint "Downloading RPC..."
-inetc::get /BANNER "Downloading Sims2RPC..." "https://chii.modthesims.info/getfile.php?file=1962601&v=1633131568" "Sims2RPC.zip"
+inetc::get /BANNER "Downloading Sims2RPC..." "https://cdn.simfileshare.net/download/2119116/?dl" "$INSTDIR\Sims2RPC.zip"
 	Pop $0
 	DetailPrint "RPC download status: $0"
-nsisunz::UnzipToLog "Sims2RPC.zip" "$INSTDIR\Fun with Pets\SP9\TSBin"
+nsisunz::Unzip "$INSTDIR\Sims2RPC.zip" "$INSTDIR\Fun with Pets\SP9\TSBin"
 Pop $0
 DetailPrint "RPC extraction status: $0. Cleaning up zip file..." ;print error message to log
-Delete "Sims2RPC.zip"
+
 
 
 inetc::get /BANNER "Downloading VC Redist..." "https://aka.ms/vs/17/release/vc_redist.x86.exe" "vc_redist.x86.exe"
@@ -204,6 +205,7 @@ inetc::get /BANNER "Downloading .NET Framework..." "https://go.microsoft.com/fwl
 	DetailPrint ".NET Framework download status: $0"
 ExecWait "ndp48_web.exe /q /norestart"
 
+Delete "Sims2RPC.zip"
 Delete "vc_redist.x86.exe"
 Delete "ndp48_web.exe"
 		
