@@ -9,7 +9,7 @@ The Starter Pack is the easiest way to install TS2 on modern systems. It utilize
 
 
 # Starter Pack Flavors:
-## Web Installer (Recommended, v7)
+## Web Installer (Recommended, v8)
 
 - Downloads TS2:UC and automatically installs via Touchup
 - Installs dependencies - VC Redist & .NET Framework
