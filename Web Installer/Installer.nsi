@@ -1,6 +1,6 @@
 ﻿Unicode True
 !include "MUI2.nsh"
-!include x64.nsh
+!include "x64.nsh"
 
 Var Installer
 Var AL
@@ -16,13 +16,13 @@ Var UNI
 Var DXVKVER
 
 # Names the built installer
-Name "The Sims 2 Starter Pack"
+Name "The Sims 2 Starter Pack - v8"
 # Building to:
 OutFile "TS2StarterPack.WebInstaller-v8.exe"
 # Administrator Privileges 
 RequestExecutionLevel admin
 # Default Installation Directory
-InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
+InstallDir "$PROGRAMFILES32\EA Games\The Sims 2 Starter Pack"
 Unicode true
 
 Function StoreDXVKVersion
@@ -73,6 +73,8 @@ Section "TS2 Starter Pack" Section1
 	SectionIn RO 
 	
 	SetOutPath $INSTDIR
+	
+	SetOverwrite on
 
 	InitPluginsDir
 	
@@ -91,10 +93,10 @@ StrCpy $SS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releas
 StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v7/SFX_UniversityLife-v7.exe"
 	
 inetc::get /POPUP "Downloading Installer..." "$Installer" "SFX_Installer-v7.exe"
-	DetailPrint "Downloading __Installer from $Installer. Closing the download window will interrupt the download."
-		Pop $0 # return value = exit code, "OK" means OK
-			DetailPrint "__Installer download status: $0" 
-	Exec '"SFX_Installer-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+DetailPrint "Downloading __Installer from $Installer. Closing the download window will interrupt the download."
+Pop $0 # return value = exit code, "OK" means OK
+DetailPrint "__Installer download status: $0" 
+Exec '"SFX_Installer-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
 
 inetc::get /POPUP "Downloading Apartment Life..." "$AL" "SFX_ApartmentLife-v7.exe"
 DetailPrint "Downloading Apartment Life from $AL. Closing the download window will interrupt the download."
@@ -184,30 +186,22 @@ DetailPrint "Deleted AutoExtract."
 DetailPrint "Touching Up..."
 ExecWait '"$INSTDIR\__Installer\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
 
-	DetailPrint "Downloading RPC..."
+DetailPrint "Downloading RPC..."
 inetc::get /BANNER "Downloading Sims2RPC..." "https://cdn.simfileshare.net/download/2119116/?dl" "$INSTDIR\Sims2RPC.zip"
-	Pop $0
-	DetailPrint "RPC download status: $0"
+Pop $0
+DetailPrint "RPC download status: $0"
 nsisunz::UnzipToLog "$INSTDIR\Sims2RPC.zip" "$INSTDIR\Fun with Pets\SP9\TSBin"
 Pop $0
 DetailPrint "RPC extraction status: $0. Cleaning up zip file..." ;print error message to log
 
 
 
-inetc::get /BANNER "Downloading VC Redist..." "https://aka.ms/vs/17/release/vc_redist.x86.exe" "vc_redist.x86.exe"
-	Pop $0
-	DetailPrint "VC Redist download status: $0"
-ExecWait "vc_redist.x86.exe /q /norestart"
 
 
-inetc::get /BANNER "Downloading .NET Framework..." "https://go.microsoft.com/fwlink/?LinkId=2085155" "ndp48_web.exe"
-	Pop $0
-	DetailPrint ".NET Framework download status: $0"
-ExecWait "ndp48_web.exe /q /norestart"
+
 
 Delete "Sims2RPC.zip"
-Delete "vc_redist.x86.exe"
-Delete "ndp48_web.exe"
+
 		
 	
 inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Chinese_Simplified.reg" "Language_Selection\Chinese_Simplified.reg"
@@ -284,13 +278,30 @@ DetailPrint "DXVK section complete."
 SectionEnd
 
 Section "Sim Shadow Fix" Section4
-MessageBox MB_OK "The shadow fix link will open in your browser. The installer is now creating a Downloads folder for your cc/mods."
-ExecShell "open" "https://simnopke.tumblr.com/post/136184612377/sim-shadow-fix" SW_SHOWNORMAL
-CreateDirectory "$Documents\EA Games\The Sims™ 2 Ultimate Collection\Downloads"
-ExecShell "open" "$Documents\EA Games\The Sims™ 2 Ultimate Collection\Downloads"
-SectionEnd
+	MessageBox MB_OK "The shadow fix link will open in your browser. The installer is now creating a Downloads folder for your cc/mods."
+	ExecShell "open" "https://simnopke.tumblr.com/post/136184612377/sim-shadow-fix" SW_SHOWNORMAL
+	CreateDirectory "$Documents\EA Games\The Sims™ 2 Ultimate Collection\Downloads"
+	ExecShell "open" "$Documents\EA Games\The Sims™ 2 Ultimate Collection\Downloads"
+	SectionEnd
+	
+Section "Visual C++ Framework" Section5
+	inetc::get /BANNER "Downloading VC Redist..." "https://aka.ms/vs/17/release/vc_redist.x86.exe" "vc_redist.x86.exe"
+	Pop $0
+	DetailPrint "VC Redist download status: $0"
+	ExecWait "vc_redist.x86.exe /q /norestart"
+	Delete "vc_redist.x86.exe"
+	SectionEnd
+	
+Section ".NET Framework" Section6
+	inetc::get /BANNER "Downloading .NET Framework..." "https://go.microsoft.com/fwlink/?LinkId=2085155" "ndp48_web.exe"
+	Pop $0
+	DetailPrint ".NET Framework download status: $0"
+	ExecWait "ndp48_web.exe /q /norestart"
+	Delete "ndp48_web.exe"
+	SectionEnd
+	
 
-Section "Start Menu/Desktop Shortcut" Section5
+Section "Start Menu/Desktop Shortcut" Section7
 	SetShellVarContext current
 	CreateDirectory '$SMPROGRAMS\The Sims 2 Starter Pack\'
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Launch Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
@@ -301,8 +312,10 @@ Section "Start Menu/Desktop Shortcut" Section5
 LangString DESC_Section1 ${LANG_ENGLISH} "Installs The Sims 2 Ultimate Collection and Sims2RPC. Compatible Visual C++ and .NET Framework are installed if needed."
 LangString DESC_Section2 ${LANG_ENGLISH} "Installs Graphics Rules Maker 2.0.0."
 LangString DESC_Section3 ${LANG_ENGLISH} "Installs DXVK $DXVKVER."
-LangString DESC_Section4 ${LANG_ENGLISH} "Links you to SimNopke's Shadow Fix. Install to TS2 Downloads folder. Intel users choose Not Misty version - Do not use with DXVK."
-LangString DESC_Section5 ${LANG_ENGLISH} "Create a shortuct to launch the game in your Start menu."
+LangString DESC_Section4 ${LANG_ENGLISH} "Installs Visual C++ Framework (x86) if not already installed."
+LangString DESC_Section5 ${LANG_ENGLISH} "Installs .NET Framework if not already installed."
+LangString DESC_Section6 ${LANG_ENGLISH} "Links you to SimNopke's Shadow Fix. Install to TS2 Downloads folder. Intel users choose Not Misty version - Do not use with DXVK."
+LangString DESC_Section7 ${LANG_ENGLISH} "Create a shortuct to launch the game in your Start menu."
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${Section1} $(DESC_Section1)
@@ -310,6 +323,7 @@ LangString DESC_Section5 ${LANG_ENGLISH} "Create a shortuct to launch the game i
   !insertmacro MUI_DESCRIPTION_TEXT ${Section3} $(DESC_Section3)
   !insertmacro MUI_DESCRIPTION_TEXT ${Section4} $(DESC_Section4)
   !insertmacro MUI_DESCRIPTION_TEXT ${Section5} $(DESC_Section5)
-
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section6} $(DESC_Section6)	
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section7} $(DESC_Section7)
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
