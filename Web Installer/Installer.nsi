@@ -188,7 +188,7 @@ ExecWait '"$INSTDIR\__Installer\Touchup.exe" install -locale en_US -installPath 
 inetc::get /BANNER "Downloading Sims2RPC..." "https://cdn.simfileshare.net/download/2119116/?dl" "$INSTDIR\Sims2RPC.zip"
 	Pop $0
 	DetailPrint "RPC download status: $0"
-nsisunz::Unzip "$INSTDIR\Sims2RPC.zip" "$INSTDIR\Fun with Pets\SP9\TSBin"
+nsisunz::UnzipToLog "$INSTDIR\Sims2RPC.zip" "$INSTDIR\Fun with Pets\SP9\TSBin"
 Pop $0
 DetailPrint "RPC extraction status: $0. Cleaning up zip file..." ;print error message to log
 
