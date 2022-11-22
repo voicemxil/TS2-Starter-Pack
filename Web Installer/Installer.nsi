@@ -40,11 +40,10 @@ FunctionEnd
 !define MUI_ABORTWARNING
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
-!define MUI_HEADERIMAGE_BITMAP "C:\Users\c\Pictures\banner.bmp"
+!define MUI_HEADERIMAGE_BITMAP "C:\Users\c\Pictures\modern-header.bmp"
 !define MUI_ICON "F:\home\c\Pictures\simmm.ico"
 !define MUI_PAGE_HEADER_TEXT "TS2: UC - Starter Pack"
 !define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v8"
-
 
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
 !define MUI_WELCOMEPAGE_TEXT "Welcome to the Sims 2 Starter Pack Web Installer (v8). Please ensure you have downloaded the latest version from GitHub. Helpful log messages will be shown in the 'More Details' box."
@@ -52,7 +51,7 @@ FunctionEnd
 !define MUI_LICENSEPAGE_TEXT_TOP ""
 
 !define MUI_FINISHPAGE_LINK_LOCATION "https://discord.gg/invite/ts2-community-912700195249197086"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\c\Pictures\Wizard.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\c\Pictures\modern-wizard.bmp"
 !define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the next step of the guide?"
@@ -76,6 +75,8 @@ Section "TS2 Starter Pack" Section1
 	
 	SetOverwrite on
 
+	SetOverwrite on
+
 	InitPluginsDir
 	
 	AddSize 13600000
@@ -96,7 +97,8 @@ inetc::get /POPUP "Downloading Installer..." "$Installer" "SFX_Installer-v7.exe"
 DetailPrint "Downloading __Installer from $Installer. Closing the download window will interrupt the download."
 Pop $0 # return value = exit code, "OK" means OK
 DetailPrint "__Installer download status: $0" 
-Exec '"SFX_Installer-v7.exe" -InstallPath=".\" -o".\" -y -gm1 -SelfDelete="1"'
+
+Exec '"SFX_Installer-v7.exe" -InstallPath=".\" -o".\" -y -gm1'
 
 inetc::get /POPUP "Downloading Apartment Life..." "$AL" "SFX_ApartmentLife-v7.exe"
 DetailPrint "Downloading Apartment Life from $AL. Closing the download window will interrupt the download."
@@ -193,17 +195,9 @@ DetailPrint "RPC download status: $0"
 nsisunz::UnzipToLog "$INSTDIR\Sims2RPC.zip" "$INSTDIR\Fun with Pets\SP9\TSBin"
 Pop $0
 DetailPrint "RPC extraction status: $0. Cleaning up zip file..." ;print error message to log
-
-
-
-
-
-
-
 Delete "Sims2RPC.zip"
 
-		
-	
+DetailPrint "Adding Language Selection files."
 inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Chinese_Simplified.reg" "Language_Selection\Chinese_Simplified.reg"
 inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Chinese_Traditional.reg" "Language_Selection\Chinese_Traditional.reg"
 inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Czech.reg" "Language_Selection\Czech.reg"
@@ -226,6 +220,8 @@ inetc::get /BANNER "Adding language selection files to game folder..." "https://
 inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Swedish.reg" "Language_Selection\Swedish.reg"
 inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Thai.reg" "Language_Selection\Thai.reg"
 	
+DetailPrint "Creating Downloads folder..."
+CreateDirectory "$Documents\EA Games\The Sims™ 2 Ultimate Collection\Downloads"
 SectionEnd
 	
 Section "Graphics Rules Maker" Section2
@@ -246,33 +242,32 @@ ${Else}
 ${EndIf}
 	SectionEnd
 
-Section "DXVK" Section3
+Section /o "DXVK" Section3
 inetc::get /BANNER "Preparing Vulkan Test..." "https://github.com/skeeto/vulkan-test/releases/download/1.0.2/vulkan_test.exe" "vulkan_test.exe"
 ExecWait "vulkan_test.exe"
 Delete "vulkan_test.exe"
 MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
 
 true: 
-DetailPrint "Downloading DXVK 1.10.3..."
-inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v1.10.3/dxvk-1.10.3.tar.gz" "$INSTDIR\dxvk.tar.gz"
+DetailPrint "Downloading DXVK 2.0..."
+inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v2.0/dxvk-2.0.tar.gz" "$INSTDIR\dxvk.tar.gz"
 	Pop $0 # return value = exit code, "OK" means OK
 	DetailPrint "DXVK download status: $0. Extracting..." 
 
 untgz::extract -h -u -d $INSTDIR -zgz "$INSTDIR\dxvk.tar.gz"
 	Pop $0 # return value = exit code, "OK" means OK
 	DetailPrint "DXVK extraction status: $0. Deleting archive..." 
-#Delete archive.
 Delete "$INSTDIR\dxvk.tar.gz"
 DetailPrint "Placing x32 d3d9.dll in TSBin..."
-Rename "$INSTDIR\dxvk-1.10.3\x32\d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll"
+Rename "$INSTDIR\dxvk-2.0\x32\d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll"
 DetailPrint "Done."
 #Delete DXVK folder
 DetailPrint "Deleting temporary DXVK folder."
-RMDir /r $INSTDIR\dxvk-1.10.3
+RMDir /r $INSTDIR\dxvk-2.0
 DetailPrint "Done."
 
 false:
-DetailPrint "Skipping DXVK."
+DetailPrint "Vulkan is unsupported, DXVK will be skipped."
 next:
 DetailPrint "DXVK section complete."
 SectionEnd
@@ -308,8 +303,7 @@ Section "Start Menu/Desktop Shortcut" Section7
 	CreateShortCut '$Desktop\The Sims 2 Starter Pack\Launch Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	SectionEnd
 
-
-LangString DESC_Section1 ${LANG_ENGLISH} "Installs The Sims 2 Ultimate Collection and Sims2RPC. Compatible Visual C++ and .NET Framework are installed if needed."
+LangString DESC_Section1 ${LANG_ENGLISH} "Installs The Sims 2 Ultimate Collection and Sims2RPC (minimal install). Compatible Visual C++ and .NET Framework are installed if needed."
 LangString DESC_Section2 ${LANG_ENGLISH} "Installs Graphics Rules Maker 2.0.0."
 LangString DESC_Section3 ${LANG_ENGLISH} "Installs DXVK $DXVKVER."
 LangString DESC_Section4 ${LANG_ENGLISH} "Installs Visual C++ Framework (x86) if not already installed."
