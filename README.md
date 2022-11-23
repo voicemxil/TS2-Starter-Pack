@@ -6,7 +6,7 @@
 
 The Starter Pack is the easiest all-in-one way to install and optimize TS2 on modern systems. It utilizes Sims2RPC as its launcher & includes documentation for setting up the game.
 
-### Check out the [Full Installation Guide](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) to begin!
+### Check out the [Full Installation Guide](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) on Google Docs to begin!
 
 
 
