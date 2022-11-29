@@ -16,14 +16,13 @@ Var UNI
 Var DXVKVER
 
 # Names the built installer
-Name "The Sims 2 Starter Pack - v8"
+Name "The Sims 2 Starter Pack"
 # Building to:
-OutFile "TS2StarterPack.WebInstaller-v8.exe"
+OutFile "TS2StarterPack.WebInstaller-v9.exe"
 # Administrator Privileges 
 RequestExecutionLevel admin
 # Default Installation Directory
-InstallDir "$PROGRAMFILES32\EA Games\The Sims 2 Starter Pack"
-Unicode true
+InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
 
 Function StoreDXVKVersion
 	StrCpy $DXVKVER "2.0"
@@ -34,24 +33,23 @@ Function .OnInit
 	Call StoreDXVKVersion
 FunctionEnd
 
-
-
 ###########################
+brandingText "osab Web Installer v9"
 !define MUI_ABORTWARNING
-!define MUI_HEADERIMAGE
+!define MUI_HEADERIMAGE_RIGHT
 !define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
 !define MUI_HEADERIMAGE_BITMAP "C:\Users\c\Pictures\modern-header.bmp"
 !define MUI_ICON "F:\home\c\Pictures\simmm.ico"
 !define MUI_PAGE_HEADER_TEXT "TS2: UC - Starter Pack"
-!define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v8"
+!define MUI_PAGE_HEADER_SUBTEXT "Packed by osab - Web Install v9"
 
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the Sims 2 Starter Pack Web Installer (v8). Please ensure you have downloaded the latest version from GitHub. Helpful log messages will be shown in the 'More Details' box."
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the Sims 2 Starter Pack Web Installer (v9). Please ensure you have downloaded the latest version from GitHub. Helpful log messages will be shown in the 'More Details' box."
 
-!define MUI_LICENSEPAGE_TEXT_TOP ""
+!define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
 
 !define MUI_FINISHPAGE_LINK_LOCATION "https://discord.gg/invite/ts2-community-912700195249197086"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\c\Pictures\modern-wizard.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "C:\Users\c\Pictures\modern-wizard-v9.bmp"
 !define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
 !define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the next step of the guide?"
@@ -153,12 +151,12 @@ Delete "SFX_FreeTime-v7.exe"
 DetailPrint "Deleted AutoExtract."
 
 	
-inetc::get /POPUP "Downloading Fun with Pets..." "$FwP" "SFX_FunwithPets-v8-norpc.exe"
+inetc::get /POPUP "Downloading Fun with Pets..." "$FwP" "SFX_FunwithPets-v9-norpc.exe"
 DetailPrint "Downloading Fun with Pets from $FwP. Closing the download window will interrupt the download."
 Pop $0 # return value = exit code, "OK" means OK
 DetailPrint "FwP download status: $0" 
-ExecWait '"SFX_FunwithPets-v8-norpc.exe" -InstallPath=".\" -o".\" -y -gm1'
-Delete "SFX_FunwithPets-v8-norpc.exe"
+ExecWait '"SFX_FunwithPets-v9-norpc.exe" -InstallPath=".\" -o".\" -y -gm1'
+Delete "SFX_FunwithPets-v9-norpc.exe"
 DetailPrint "Deleted AutoExtract."
 		
 inetc::get /POPUP "Downloading Glamour Life Stuff..." "$GLS" "SFX_GlamourLifeStuff-v7.exe"
@@ -189,7 +187,7 @@ DetailPrint "Touching Up..."
 ExecWait '"$INSTDIR\__Installer\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
 
 DetailPrint "Downloading RPC..."
-inetc::get /BANNER "Downloading Sims2RPC..." "https://cdn.simfileshare.net/download/2119116/?dl" "$INSTDIR\Sims2RPC.zip"
+inetc::get /BANNER "Downloading Sims2RPC..." "https://chii.modthesims.info/getfile.php?file=1962601&v=1633131568" "$INSTDIR\Sims2RPC.zip"
 Pop $0
 DetailPrint "RPC download status: $0"
 nsisunz::UnzipToLog "$INSTDIR\Sims2RPC.zip" "$INSTDIR\Fun with Pets\SP9\TSBin"
@@ -271,15 +269,8 @@ DetailPrint "Vulkan is unsupported, DXVK will be skipped."
 next:
 DetailPrint "DXVK section complete."
 SectionEnd
-
-Section "Sim Shadow Fix" Section4
-	MessageBox MB_OK "The shadow fix link will open in your browser. The installer is now creating a Downloads folder for your cc/mods."
-	ExecShell "open" "https://simnopke.tumblr.com/post/136184612377/sim-shadow-fix" SW_SHOWNORMAL
-	CreateDirectory "$Documents\EA Games\The Sims™ 2 Ultimate Collection\Downloads"
-	ExecShell "open" "$Documents\EA Games\The Sims™ 2 Ultimate Collection\Downloads"
-	SectionEnd
 	
-Section "Visual C++ Framework" Section5
+Section "Visual C++ Redist" Section4
 	inetc::get /BANNER "Downloading VC Redist..." "https://aka.ms/vs/17/release/vc_redist.x86.exe" "vc_redist.x86.exe"
 	Pop $0
 	DetailPrint "VC Redist download status: $0"
@@ -287,7 +278,7 @@ Section "Visual C++ Framework" Section5
 	Delete "vc_redist.x86.exe"
 	SectionEnd
 	
-Section ".NET Framework" Section6
+Section ".NET Framework" Section5
 	inetc::get /BANNER "Downloading .NET Framework..." "https://go.microsoft.com/fwlink/?LinkId=2085155" "ndp48_web.exe"
 	Pop $0
 	DetailPrint ".NET Framework download status: $0"
@@ -295,6 +286,12 @@ Section ".NET Framework" Section6
 	Delete "ndp48_web.exe"
 	SectionEnd
 	
+Section "Sim Shadow Fix" Section6
+	MessageBox MB_OK "The shadow fix link will open in your browser. The installer is now creating a Downloads folder for your cc/mods."
+	ExecShell "open" "https://simnopke.tumblr.com/post/136184612377/sim-shadow-fix" SW_SHOWNORMAL
+	CreateDirectory "$Documents\EA Games\The Sims™ 2 Ultimate Collection\Downloads"
+	ExecShell "open" "$Documents\EA Games\The Sims™ 2 Ultimate Collection\Downloads"
+	SectionEnd
 
 Section "Start Menu/Desktop Shortcut" Section7
 	SetShellVarContext current
@@ -303,13 +300,13 @@ Section "Start Menu/Desktop Shortcut" Section7
 	CreateShortCut '$Desktop\The Sims 2 Starter Pack\Launch Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	SectionEnd
 
-LangString DESC_Section1 ${LANG_ENGLISH} "Installs The Sims 2 Ultimate Collection and Sims2RPC (minimal install). Compatible Visual C++ and .NET Framework are installed if needed."
+LangString DESC_Section1 ${LANG_ENGLISH} "Installs The Sims 2 Ultimate Collection and Sims2RPC (minimal install)."
 LangString DESC_Section2 ${LANG_ENGLISH} "Installs Graphics Rules Maker 2.0.0."
-LangString DESC_Section3 ${LANG_ENGLISH} "Installs DXVK $DXVKVER."
-LangString DESC_Section4 ${LANG_ENGLISH} "Installs Visual C++ Framework (x86) if not already installed."
+LangString DESC_Section3 ${LANG_ENGLISH} "Installs DXVK $DXVKVER. (Not recommended for beginners.)"
+LangString DESC_Section4 ${LANG_ENGLISH} "Installs Visual C++ Redist (x86) if not already installed."
 LangString DESC_Section5 ${LANG_ENGLISH} "Installs .NET Framework if not already installed."
 LangString DESC_Section6 ${LANG_ENGLISH} "Links you to SimNopke's Shadow Fix. Install to TS2 Downloads folder. Intel users choose Not Misty version - Do not use with DXVK."
-LangString DESC_Section7 ${LANG_ENGLISH} "Create a shortuct to launch the game in your Start menu."
+LangString DESC_Section7 ${LANG_ENGLISH} "Create a shortuct to launch the game in your Start Menu/Desktop."
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${Section1} $(DESC_Section1)
