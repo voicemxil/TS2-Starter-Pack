@@ -187,13 +187,13 @@ DetailPrint "Touching Up..."
 ExecWait '"$INSTDIR\__Installer\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
 
 DetailPrint "Downloading RPC..."
-inetc::get /BANNER "Downloading Sims2RPC..." "https://chii.modthesims.info/getfile.php?file=1962601&v=1633131568" "$INSTDIR\Sims2RPC.zip"
+inetc::get /BANNER "Downloading Sims2RPC..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/SFX_Sims2RPC_1.15.exe" "$INSTDIR\SFX_Sims2RPC.exe"
 Pop $0
 DetailPrint "RPC download status: $0"
-nsisunz::UnzipToLog "$INSTDIR\Sims2RPC.zip" "$INSTDIR\Fun with Pets\SP9\TSBin"
+ExecWait '"SFX_Sims2RPC.exe" -InstallPath=".\" -o".\" -y -gm1'
 Pop $0
 DetailPrint "RPC extraction status: $0. Cleaning up zip file..." ;print error message to log
-Delete "Sims2RPC.zip"
+Delete "SFX_Sims2RPC.exe"
 
 DetailPrint "Adding Language Selection files."
 inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/language-selection/Chinese_Simplified.reg" "Language_Selection\Chinese_Simplified.reg"
