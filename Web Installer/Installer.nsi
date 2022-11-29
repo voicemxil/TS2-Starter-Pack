@@ -151,12 +151,12 @@ Delete "SFX_FreeTime-v7.exe"
 DetailPrint "Deleted AutoExtract."
 
 	
-inetc::get /POPUP "Downloading Fun with Pets..." "$FwP" "SFX_FunwithPets-v9-norpc.exe"
+inetc::get /POPUP "Downloading Fun with Pets..." "$FwP" "SFX_FunwithPets-v8-norpc.exe"
 DetailPrint "Downloading Fun with Pets from $FwP. Closing the download window will interrupt the download."
 Pop $0 # return value = exit code, "OK" means OK
 DetailPrint "FwP download status: $0" 
-ExecWait '"SFX_FunwithPets-v9-norpc.exe" -InstallPath=".\" -o".\" -y -gm1'
-Delete "SFX_FunwithPets-v9-norpc.exe"
+ExecWait '"SFX_FunwithPets-v8-norpc.exe" -InstallPath=".\" -o".\" -y -gm1'
+Delete "SFX_FunwithPets-v8-norpc.exe"
 DetailPrint "Deleted AutoExtract."
 		
 inetc::get /POPUP "Downloading Glamour Life Stuff..." "$GLS" "SFX_GlamourLifeStuff-v7.exe"
