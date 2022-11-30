@@ -187,7 +187,7 @@ DetailPrint "Touching Up..."
 ExecWait '"$INSTDIR\__Installer\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
 
 DetailPrint "Downloading RPC..."
-inetc::get /BANNER "Downloading Sims2RPC..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/main/SFX_Sims2RPC_1.15.exe" "$INSTDIR\SFX_Sims2RPC.exe"
+inetc::get /POPUP "Downloading Sims2RPC..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/SFX_Sims2RPC_1.15.exe" "$INSTDIR\SFX_Sims2RPC.exe"
 Pop $0
 DetailPrint "RPC download status: $0"
 ExecWait '"SFX_Sims2RPC.exe" -InstallPath=".\" -o".\" -y -gm1'
@@ -196,42 +196,85 @@ DetailPrint "RPC extraction status: $0. Cleaning up zip file..." ;print error me
 Delete "SFX_Sims2RPC.exe"
 
 DetailPrint "Adding Language Selection files."
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Chinese_Simplified.reg" "__Language_Selection\Chinese_Simplified.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Chinese_Traditional.reg" "__Language_Selection\Chinese_Traditional.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Czech.reg" "__Language_Selection\Czech.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Dutch.reg" "__Language_Selection\Dutch.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/English_UK.reg" "__Language_Selection\English_UK.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Finnish.reg" "__Language_Selection\Finnish.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/French.reg" "__Language_Selection\French.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/German.reg" "__Language_Selection\German.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Greek.reg" "__Language_Selection\Greek.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Hebrew.reg" "__Language_Selection\Hebrew.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Hungarian.reg" "__Language_Selection\Hungarian.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Italian.reg" "__Language_Selection\Italian.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Japanese.reg" "__Language_Selection\Japanese.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Korean.reg" "__Language_Selection\Korean.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Norwegian.reg" "__Language_Selection\Norwegian.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Polish.reg" "__Language_Selection\Polish.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Portuguese_Brazil.reg" "__Language_Selection\Portuguese_Brazil.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Russian.reg" "__Language_Selection\Russian.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Spanish.reg" "__Language_Selection\Spanish.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Swedish.reg" "__Language_Selection\Swedish.reg"
-inetc::get /BANNER "Adding language selection files to game folder..." "https://github.com/voicemxil/TS2-Starter-Pack/raw/v9/language-selection/Thai.reg" "__Language_Selection\Thai.reg"
-	
+CreateDirectory "$INSTDIR\__Language_Selection"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Chinese_Simplified.reg" "$INSTDIR\__Language_Selection\Chinese_Simplified.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Chinese_Traditional.reg" "$INSTDIR\__Language_Selection\Chinese_Traditional.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Czech.reg" "$INSTDIR\__Language_Selection\Czech.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Dutch.reg" "$INSTDIR\__Language_Selection\Dutch.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/English_UK.reg" "$INSTDIR\__Language_Selection\English_UK.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Finnish.reg" "$INSTDIR\__Language_Selection\Finnish.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/French.reg" "$INSTDIR\__Language_Selection\French.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/German.reg" "$INSTDIR\__Language_Selection\German.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Greek.reg" "$INSTDIR\__Language_Selection\Greek.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Hebrew.reg" "$INSTDIR\__Language_Selection\Hebrew.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Hungarian.reg" "$INSTDIR\__Language_Selection\Hungarian.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Italian.reg" "$INSTDIR\__Language_Selection\Italian.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Japanese.reg" "$INSTDIR\__Language_Selection\Japanese.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Korean.reg" "$INSTDIR\__Language_Selection\Korean.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Norwegian.reg" "$INSTDIR\__Language_Selection\Norwegian.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Polish.reg" "$INSTDIR\__Language_Selection\Polish.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Portuguese_Brazil.reg" "$INSTDIR\__Language_Selection\Portuguese_Brazil.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Russian.reg" "$INSTDIR\__Language_Selection\Russian.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Spanish.reg" "$INSTDIR\__Language_Selection\Spanish.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Swedish.reg" "$INSTDIR\__Language_Selection\Swedish.reg"
+Pop $0
+DetailPrint "LS: $0"
+inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v9/language-selection/Thai.reg" "$INSTDIR\__Language_Selection\Thai.reg"	
+Pop $0
+DetailPrint "LS: $0"
+
 DetailPrint "Creating Downloads folder..."
 CreateDirectory "$Documents\EA Games\The Sims™ 2 Ultimate Collection\Downloads"
 SectionEnd
 	
 Section "Graphics Rules Maker" Section2
 ${If} ${RunningX64}
-	inetc::get /BANNER "Downloading GRM Setup (64-bit detected)..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" graphicsrulesmaker-2.0.0-64bit.exe
+	inetc::get /POPUP "Downloading GRM Setup (64-bit detected)..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" graphicsrulesmaker-2.0.0-64bit.exe
 		Pop $0 # return value = exit code, "OK" means OK
 		DetailPrint "GRM download status: $0. Executing installer..." 
 	Execwait "graphicsrulesmaker-2.0.0-64bit.exe"
 		DetailPrint "Cleaning up GRM installer..."
 		Delete "graphicsrulesmaker-2.0.0-64bit.exe"
 ${Else}
-	inetc::get /BANNER "Downloading GRM Setup (32-bit detected)..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" graphicsrulesmaker-2.0.0-32bit.exe
+	inetc::get /POPUP "Downloading GRM Setup (32-bit detected)..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" graphicsrulesmaker-2.0.0-32bit.exe
 		Pop $0 # return value = exit code, "OK" means OK
 		DetailPrint "GRM download status: $0. Executing installer..." 
 	Execwait "graphicsrulesmaker-2.0.0-32bit.exe"
@@ -241,14 +284,14 @@ ${EndIf}
 	SectionEnd
 
 Section /o "DXVK" Section3
-inetc::get /BANNER "Preparing Vulkan Test..." "https://github.com/skeeto/vulkan-test/releases/download/1.0.2/vulkan_test.exe" "vulkan_test.exe"
+inetc::get /POPUP "Preparing Vulkan Test..." "https://github.com/skeeto/vulkan-test/releases/download/1.0.2/vulkan_test.exe" "vulkan_test.exe"
 ExecWait "vulkan_test.exe"
 Delete "vulkan_test.exe"
 MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
 
 true: 
 DetailPrint "Downloading DXVK 2.0..."
-inetc::get /BANNER "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v2.0/dxvk-2.0.tar.gz" "$INSTDIR\dxvk.tar.gz"
+inetc::get /POPUP "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v2.0/dxvk-2.0.tar.gz" "$INSTDIR\dxvk.tar.gz"
 	Pop $0 # return value = exit code, "OK" means OK
 	DetailPrint "DXVK download status: $0. Extracting..." 
 
@@ -271,7 +314,7 @@ DetailPrint "DXVK section complete."
 SectionEnd
 	
 Section "Visual C++ Redist" Section4
-	inetc::get /BANNER "Downloading VC Redist..." "https://aka.ms/vs/17/release/vc_redist.x86.exe" "vc_redist.x86.exe"
+	inetc::get /POPUP "Downloading VC Redist..." "https://aka.ms/vs/17/release/vc_redist.x86.exe" "vc_redist.x86.exe"
 	Pop $0
 	DetailPrint "VC Redist download status: $0"
 	ExecWait "vc_redist.x86.exe /q /norestart"
@@ -279,7 +322,7 @@ Section "Visual C++ Redist" Section4
 	SectionEnd
 	
 Section ".NET Framework" Section5
-	inetc::get /BANNER "Downloading .NET Framework..." "https://go.microsoft.com/fwlink/?LinkId=2085155" "ndp48_web.exe"
+	inetc::get /POPUP "Downloading .NET Framework..." "https://go.microsoft.com/fwlink/?LinkId=2085155" "ndp48_web.exe"
 	Pop $0
 	DetailPrint ".NET Framework download status: $0"
 	ExecWait "ndp48_web.exe /q /norestart"
