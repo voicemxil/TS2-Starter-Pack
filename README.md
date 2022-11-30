@@ -11,7 +11,7 @@ The Starter Pack is the easiest all-in-one way to install and optimize TS2 on mo
 
 
 ## Starter Pack Flavors:
-### [Web Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Recommended, v8)
+### [Web Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Recommended)
 
 - Downloads The Sims 2: Starter Pack (Fixed Ultimate Collection with Sims2RPC by Lazy Duchess included)
 - Includes automated Touchup.
