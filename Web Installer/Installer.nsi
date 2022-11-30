@@ -338,8 +338,9 @@ Section "Sim Shadow Fix" Section6
 
 Section "Start Menu/Desktop Shortcut" Section7
 	SetShellVarContext current
+	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
 	CreateDirectory '$SMPROGRAMS\The Sims 2 Starter Pack\'
-	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Launch Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
+	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	CreateShortCut '$Desktop\The Sims 2 Starter Pack\Launch Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	SectionEnd
 
