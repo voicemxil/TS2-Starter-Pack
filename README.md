@@ -18,6 +18,6 @@ The Starter Pack is the easiest all-in-one way to install and optimize TS2 on mo
 - Optional dependencies: x86 VC Redist & .NET Framework
 - Recommended (optional) installations: Graphics Rules Maker, DXVK, SimNopke's shadow fix, and desktop/start menu shortcuts.  
 
-### Standalone Starter Pack
+### [Standalone Starter Pack](https://github.com/voicemxil/TS2-Starter-Pack/releases/v9-standalone)
 - Includes The Sims 2: Ultimate Collection and Sims2RPC.
 - The new [Touchup launcher](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v6/Standalone-TS2TouchupLauncher.exe) adds automated Touchup to the standalone version.
