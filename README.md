@@ -2,7 +2,7 @@
 
 
 
-[![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20TS2%20Community%20Discord%20Server&logo=Discord&logoColor=white)](https://discord.com/servers/ts2-community-912700195249197086) ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/Web%20Installer%5CTS2StarterPack.WebInstaller-v7.exe)
+[![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20TS2%20Community%20Discord%20Server&logo=Discord&logoColor=white)](https://discord.com/servers/ts2-community-912700195249197086) ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/Web%20Installer%5CTS2StarterPack.WebInstaller-v9.exe)
 
 The Starter Pack is the easiest all-in-one way to install and optimize TS2 on modern systems. It utilizes Sims2RPC as its launcher & includes documentation for setting up the game.
 
