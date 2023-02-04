@@ -15,8 +15,8 @@ The Web Installer is the easiest all-in-one way to install and optimize TS2 on m
 ## Features:
 - Downloads The Sims 2: Starter Pack (Fixed Ultimate Collection with Sims2RPC by Lazy Duchess included)
 - Automates Touchup based on the install directory
-- Optional dependencies: x86 VC Redist & .NET Framework
-- Recommended (optional) installations: Graphics Rules Maker, DXVK, SimNopke's shadow fix, and desktop/start menu shortcuts. 
+- Optional - installs dependencies: x86 VC Redist & .NET Framework
+- Recommended/optional installations: Graphics Rules Maker, DXVK, SimNopke's shadow fix, and desktop/start menu shortcuts
 
 
 ### See also: [Standalone Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/v9-standalone)
