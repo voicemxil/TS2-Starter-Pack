@@ -1,4 +1,4 @@
-<h1 align=center>The Sims 2: Starter Pack - by osab </h1> 
+<h1 align=center>The Sims 2 Starter Pack - by osab </h1> 
 
 [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20TS2%20Community%20Discord%20Server&logo=Discord&logoColor=white)](https://discord.com/servers/ts2-community-912700195249197086)  ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total)
 
@@ -8,7 +8,7 @@ Choose your favorite **flavor** from the [latest release](https://github.com/voi
 
 ## [Web Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Recommended) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Web%20Installer/TS2StarterPack.WebInstaller-v10.exe?branch=v10)
 - Lightweight NSIS-based web installer
-- Downloads The Sims 2: Starter Pack (Fixed Ultimate Collection with Sims2RPC by Lazy Duchess included)
+- Downloads The Sims 2 Starter Pack (Fixed Ultimate Collection with Sims2RPC by Lazy Duchess included)
 - Automates Touchup process based on the install directory
 - Install dependencies (optional): x86 VC Redist & .NET Framework
 - Recommended/Optional components: Graphics Rules Maker, DXVK, SimNopke's shadow fix, and desktop/start menu shortcuts
