@@ -31,8 +31,8 @@ ${Do}
 	Pop $0 # return value = exit code, "OK" means OK
 	DetailPrint "${packName} download status: $0" 
 	filecheck::calcFileHash "${outputFile}" sha256
-	Pop $R0
-	${if} $R0 == "${packSHA256}"
+	Pop $R1
+	${if} $R1 == "${packSHA256}"
 		ExecWait '"${outputFile}" -InstallPath="$INSTDIR" -o"$INSTDIR" -y -gm1'
 		${Break}
 	${else}
@@ -44,7 +44,8 @@ ${Do}
 	${endif}
 ${Loop}
 Delete "${outputFile}"
-DetailPrint "Cleaning up ${outputFile}..."
+Pop $0
+DetailPrint "Cleanup result: $0"
 !macroend
 
 Function .OnInit
@@ -107,7 +108,7 @@ CreateDirectory "$INSTDIR\temp"
 !insertmacro downloadPack "Apartment Life" "$AL" "temp\SFX_ApartmentLife-v7.exe" "ebd4fb1812b1b378b6318af21a75c14fe3b1cd8da0ee992177f89aa4806c8bcd"
 !insertmacro downloadPack "Best of Business" "$BoB" "temp\SFX_BestofBusiness-v7.exe" "d91171a09683e8f6606ca5ccc45de1cb4c6f7e17c60be33654995718b9b5fa1b"
 !insertmacro downloadPack "Bon Voyage" "$BV" "temp\SFX_BonVoyage-v7.exe" "9f5cb69f01ce6710eea8431923af066a34efe533c1acd3866a0f02be5c715944"
-!insertmacro downloadPack "Base Game" "$Base" "temp\SFX_Base-v10.exe" "3c239ec23ccb826caf8bd0a0dec17c824306c919d00234228768b945888a523e"
+!insertmacro downloadPack "Base Game" "$Base" "temp\SFX_Base-v10.exe" "b0c80a7a90dc5b55df3d1cfd31ab967cf9c1440f4ca7a62a1170bdd0a9cd0837"
 !insertmacro downloadPack "Double Deluxe Packs" "$DD" "temp\SFX_DoubleDeluxe-v7.exe" "750b642f31b9e21247f7ac61e12d35203fc41fe20c8dd7f19c6ddcdaf206f514"
 !insertmacro downloadPack "FreeTime" "$FT" "temp\SFX_FreeTime-v7.exe" "61686cc9f047d590a956c42673baa3ca013b7ab826dd4c571e53d41e3aeafbb4"
 !insertmacro downloadPack "Fun with Pets" "$FwP" "temp\SFX_FunwithPets-v8.exe" "c7f6c71a918d0a4a289c16a2e1b1de55641bc5b59feddb6b038ca1682a340681"
@@ -205,8 +206,9 @@ Section "Graphics Rules Maker" Section2
 		DetailPrint "GRM download status: $0. Executing installer..." 
 	${EndIf}
 		Execwait "$INSTDIR\temp\grm_install.exe"
-		DetailPrint "Cleaning up GRM installer..."
 		Delete "$INSTDIR\temp\grm_install.exe"
+		Pop $0
+		DetailPrint "Cleanup result: $0"
 		RMDir /r "$INSTDIR\temp"
 SectionEnd
 
@@ -231,13 +233,16 @@ Section /o "DXVK" Section3
 		DetailPrint "DXVK extraction status: $0. Deleting archive..." 
 
 		Delete "$INSTDIR\temp\dxvk.tar.gz"
+		Pop $0
+		DetailPrint "Cleanup result: $0"
 		DetailPrint "Placing x32 d3d9.dll in TSBin..."
 		Rename "$INSTDIR\temp\dxvk-2.1\x32\d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll"
-		DetailPrint "Done."
+		Pop $0
+		DetailPrint "File move result: $0"
 
-		DetailPrint "Deleting temporary DXVK folder."
 		RMDir /r "$INSTDIR\temp\dxvk-2.1"
-		DetailPrint "Done."
+		Pop $0
+		DetailPrint "Cleanup result: $0"
 	false:
 		DetailPrint "Vulkan is unsupported, DXVK will be skipped."
 	next:
@@ -252,7 +257,11 @@ Section "Visual C++ Redist" Section4
 	DetailPrint "VC Redist download status: $0"
 	ExecWait "temp\vc_redist.x86.exe /q /norestart"
 	Delete "temp\vc_redist.x86.exe"
+		Pop $0
+		DetailPrint "Cleanup result: $0"
 	RMDir /r "$INSTDIR\temp"
+		Pop $0
+		DetailPrint "Cleanup result: $0"	
 SectionEnd
 	
 Section ".NET Framework" Section5
@@ -262,7 +271,11 @@ Section ".NET Framework" Section5
 	DetailPrint ".NET Framework download status: $0"
 	ExecWait "temp\ndp48_web.exe /q /norestart"
 	Delete "temp\ndp48_web.exe"
+		Pop $0
+		DetailPrint "Cleanup result: $0"
 	RMDir /r "$INSTDIR\temp"
+		Pop $0
+		DetailPrint "Cleanup result: $0"
 SectionEnd
 	
 Section "Sim Shadow Fix" Section6
