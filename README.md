@@ -25,5 +25,5 @@ Choose your favorite **flavor** from the [latest release](https://github.com/voi
 # Resources & Support:
 - For help with your TS2 game, please [join TS2 Community](https://discord.gg/ts2-community-912700195249197086) and post in the #ts2-support forum! We also have FAQs available and our support volunteers are active daily.
 - We also share gameplay, CC/Mods, and plenty of other useful resources.
-## Join here:
+## Join TS2 Community here:
 [<img src="https://discordapp.com/api/guilds/912700195249197086/widget.png?style=banner3" alt="">](https://discord.gg/ts2-community-912700195249197086)
