@@ -4,9 +4,7 @@
 
 The Starter Pack is an all-in-one source for obtaining, installing, and optimizing TS2 on modern hardware. 
 
-
-### Check out the [Full Installation Guide](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) on Google Docs to begin!
-
+Choose your favorite **flavor** from the [latest release](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) and follow the [Full Installation Guide](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) to begin!
 
 ## [Web Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Recommended) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Web%20Installer/TS2StarterPack.WebInstaller-v10.exe?branch=v10)
 - Lightweight NSIS-based web installer
