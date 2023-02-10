@@ -56,7 +56,6 @@ FunctionEnd
 ###########################
 brandingText "osab Web Installer v10"
 !define MUI_ABORTWARNING
-!define MUI_HEADERIMAGE_RIGHT
 !define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
 !define MUI_HEADERIMAGE_BITMAP "..\assets\header.bmp"
 !define MUI_ICON "..\assets\NewInstaller.ico"
