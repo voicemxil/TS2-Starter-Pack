@@ -8,7 +8,7 @@
 [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20TS2%20Community%20Discord%20Server&logo=Discord&logoColor=white)](https://discord.com/servers/ts2-community-912700195249197086) ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total) 
 
 # [Web Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Recommended)
-![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/main/bin/Web Installer/TS2StarterPack.WebInstaller-v10.exe)
+[![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/main/bin/Web Installer/TS2StarterPack.WebInstaller-v10.exe)](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Web%20Installer/TS2StarterPack.WebInstaller-v10.exe?branch=v10)
 
 The Web Installer is the easiest all-in-one way to install and optimize TS2 on modern systems.
 
