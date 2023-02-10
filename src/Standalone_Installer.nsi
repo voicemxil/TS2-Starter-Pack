@@ -93,8 +93,8 @@ Section /o "DXVK" Section3
 	CreateDirectory "$INSTDIR\temp"
 	SetOutPath "$INSTDIR\temp"
 	File "..\components\vulkan_test.exe"
-	ExecWait "temp\vulkan_test.exe"
-	Delete "temp\vulkan_test.exe"
+	ExecWait "$INSTDIR\temp\vulkan_test.exe"
+	Delete "$INSTDIR\temp\vulkan_test.exe"
 	RMDir /r "$INSTDIR\temp"
 	MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
 	true: 
@@ -119,8 +119,8 @@ Section "Visual C++ Redist" Section4
 	File "..\components\vc_redist.x86.exe"
 	Pop $0
 	DetailPrint "VC Redist extract status: $0"
-	ExecWait "vc_redist.x86.exe /q /norestart"
-	Delete "vc_redist.x86.exe"
+	ExecWait "$INSTDIR\temp\vc_redist.x86.exe /q /norestart"
+	Delete "$INSTDIR\temp\vc_redist.x86.exe"
 	RMDir /r "$INSTDIR\temp"
 SectionEnd
 	
@@ -130,8 +130,8 @@ Section ".NET Framework" Section5
 	File "..\components\ndp48-web.exe"
 	Pop $0
 	DetailPrint ".NET Framework extract status: $0"
-	ExecWait "temp\ndp48-web.exe /q /norestart"
-	Delete "temp\ndp48-web.exe"
+	ExecWait "$INSTDIR\temp\ndp48-web.exe /q /norestart"
+	Delete "$INSTDIR\temp\ndp48-web.exe"
 	RMDir /r "$INSTDIR\temp"
 SectionEnd
 

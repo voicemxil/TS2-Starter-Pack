@@ -215,8 +215,8 @@ SectionEnd
 Section /o "DXVK" Section3
 	CreateDirectory "$INSTDIR\temp"
 	inetc::get /POPUP "Preparing Vulkan Test..." "https://github.com/skeeto/vulkan-test/releases/download/1.0.2/vulkan_test.exe" "temp\vulkan_test.exe"
-	ExecWait "temp\vulkan_test.exe"
-	Delete "temp\vulkan_test.exe"
+	ExecWait "$INSTDIR\temp\vulkan_test.exe"
+	Delete "$INSTDIR\temp\vulkan_test.exe"
 	MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
 	true: 
 		DetailPrint "Downloading DXVK $DXVKVER ..."
@@ -255,8 +255,8 @@ Section "Visual C++ Redist" Section4
 	inetc::get /POPUP "Downloading VC Redist..." "https://aka.ms/vs/17/release/vc_redist.x86.exe" "temp\vc_redist.x86.exe"
 	Pop $0
 	DetailPrint "VC Redist download status: $0"
-	ExecWait "temp\vc_redist.x86.exe /q /norestart"
-	Delete "temp\vc_redist.x86.exe"
+	ExecWait "$INSTDIR\temp\vc_redist.x86.exe /q /norestart"
+	Delete "$INSTDIR\temp\vc_redist.x86.exe"
 		Pop $0
 		DetailPrint "Cleanup result: $0"
 	RMDir /r "$INSTDIR\temp"
@@ -269,8 +269,8 @@ Section ".NET Framework" Section5
 	inetc::get /POPUP "Downloading .NET Framework..." "https://go.microsoft.com/fwlink/?LinkId=2085155" "temp\ndp48_web.exe"
 	Pop $0
 	DetailPrint ".NET Framework download status: $0"
-	ExecWait "temp\ndp48_web.exe /q /norestart"
-	Delete "temp\ndp48_web.exe"
+	ExecWait "$INSTDIR\temp\ndp48_web.exe /q /norestart"
+	Delete "$INSTDIR\temp\ndp48_web.exe"
 		Pop $0
 		DetailPrint "Cleanup result: $0"
 	RMDir /r "$INSTDIR\temp"
