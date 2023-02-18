@@ -1,13 +1,16 @@
 Unicode true
 !include "MUI2.nsh"
 !include "x64.nsh"
+!include ".\Language-r.nsh"
+!include ".\Touchup-er.nsh"
 
+########################### Installer SETUP
 Name "The Sims 2 Starter Pack - Stanalone Installer"
-OutFile "..\bin\Standalone Installer\TS2.StandaloneInstaller-v10.exe"
+OutFile "..\bin\Standalone Installer\TS2.StandaloneInstaller-v11.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 
-###########################
+########################### MUI SETUP
 !define MUI_ABORTWARNING
 !define MUI_HEADERIMAGE_RIGHT
 !define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
@@ -15,27 +18,29 @@ InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 !define MUI_ICON "..\assets\NewInstaller.ico"
 !define MUI_PAGE_HEADER_TEXT "TS2: Starter Pack - Standalone Installer"
 !define MUI_PAGE_HEADER_SUBTEXT "Touchup installer for Standalone TS2:UC, by osab."
-
 !define MUI_WELCOMEPAGE_TITLE "Install The Sims 2 (Standalone)"
 !define MUI_WELCOMEPAGE_TEXT "This installer is for the standalone download of The Sims 2: Starter Pack (or UC) - it does NOT download the game files. For an all-in-one installation, use the Web Installer instead. This installs the game in English. To change the game language, please follow the tutorial linked in the wiki. Set the directory to your game (Sims 2) root folder."
-
+!define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. The game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
 !define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
-
-!define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\v10.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
 !define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the next step of the guide (Graphics Setup)?"
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
 !define MUI_FINISHPAGE_LINK "TS2 Community Discord Server!"
 !define MUI_FINISHPAGE_LINK_LOCATION "https://discord.gg/invite/ts2-community-912700195249197086"
-
 !insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_LICENSE "C:\Users\c\Documents\GitHub\TS2-Starter-Pack\LICENSE.txt"
+!insertmacro MUI_PAGE_LICENSE "..\LICENSE.txt"
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
-
+!insertmacro MUI_UNPAGE_WELCOME
+!insertmacro MUI_UNPAGE_DIRECTORY
+!insertmacro MUI_UNPAGE_CONFIRM
+!insertmacro MUI_UNPAGE_INSTFILES
+!insertmacro MUI_UNPAGE_FINISH
 !insertmacro MUI_LANGUAGE "English"
+##################################### Begin Installation
 
 Section "Touchup & Sims2RPC" Section1
 SectionIn RO 
@@ -43,8 +48,9 @@ SetOutPath $INSTDIR
 InitPluginsDir
 SetOverwrite ifnewer
 
-DetailPrint "Touching Up..."
-Execwait '"$INSTDIR\__Installer\Touchup.exe" install -locale en_US -installPath "$INSTDIR" -autologging'
+# Touchup
+
+!insertmacro touchup "The Sims 2 Ultimate Collection" "EA GAMES\The Sims 2" "{04450C18-F039-4B81-A621-70C3B0F523D5}" "Fun with Pets\SP9\TSBin"
 
 CreateDirectory "$INSTDIR\temp"
 SetOutPath "$INSTDIR\temp"
@@ -58,7 +64,7 @@ DetailPrint "Cleaning up RPC zip file..."
 Delete "SFX_Sims2RPC_1.15.exe"
 RMDIR "$INSTDIR\temp"
 
-DetailPrint "Extracting Language Selection Files."
+!insertmacro setLanguage "EA GAMES\The Sims 2" # macro takes in ts2 registry key
 File /r "C:\Users\c\Documents\GitHub\TS2-Starter-Pack\language-selection" 
 
 DetailPrint "Tweaking Registry for compatibility..."
@@ -149,21 +155,24 @@ Section "Start Menu/Desktop Shortcut" Section7
 	CreateShortCut '$Desktop\Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 SectionEnd 
 
-LangString DESC_Section1 ${LANG_ENGLISH} "Touches up your local copy of The Sims 2 Ultimate Collection and installs Sims2RPC v1.15."
-LangString DESC_Section2 ${LANG_ENGLISH} "Installs Graphics Rules Maker 2.0.0."
-LangString DESC_Section3 ${LANG_ENGLISH} "Installs DXVK 2.1. (Not recommended for beginners.)"
-LangString DESC_Section4 ${LANG_ENGLISH} "Installs Visual C++ Redist (x86) if not already installed."
-LangString DESC_Section5 ${LANG_ENGLISH} "Installs .NET Framework if not already installed."
-LangString DESC_Section6 ${LANG_ENGLISH} "Installs SimNopke's Sim Shadow Fix to your downloads folder. *Don't Use With DXVK*."
-LangString DESC_Section7 ${LANG_ENGLISH} "Create a shortuct to launch the game in your Start Menu/Desktop."
+Section "Uninstall" Section8
+	SetRegView 32
+	Delete "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
+	ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
+	RMDir /r $R4
+	DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2"
+	DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\The Sims 2 Starter Pack"
+	DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP9.exe"
+	RMDir /r "$SMPROGRAMS\The Sims 2 Starter Pack"
+	Delete "$Desktop\Sims2RPC.lnk"
+SectionEnd
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section1} $(DESC_Section1)
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section2} $(DESC_Section2)
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section3} $(DESC_Section3)
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section4} $(DESC_Section4)
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section5} $(DESC_Section5)
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section6} $(DESC_Section6)	
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section7} $(DESC_Section7)
-
+!insertmacro MUI_DESCRIPTION_TEXT ${Section1} "Touches up your local copy of The Sims 2 Ultimate Collection and installs Sims2RPC v1.15."
+!insertmacro MUI_DESCRIPTION_TEXT ${Section2} "Installs Graphics Rules Maker 2.0.0."
+!insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs DXVK 2.1. (Not recommended for beginners.)"
+!insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs Visual C++ Redist (x86) if not already installed."
+!insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs .NET Framework if not already installed."
+!insertmacro MUI_DESCRIPTION_TEXT ${Section6} "Installs SimNopke's Sim Shadow Fix to your downloads folder. *Don't Use With DXVK*."
+!insertmacro MUI_DESCRIPTION_TEXT ${Section7} "Create a shortuct to launch the game in your Start Menu/Desktop."
 !insertmacro MUI_FUNCTION_DESCRIPTION_END

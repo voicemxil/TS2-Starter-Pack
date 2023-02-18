@@ -1,3 +1,4 @@
+
 Web/Standalone Installers code/assets (c) Copyright 2023 osab
 
                     GNU GENERAL PUBLIC LICENSE
