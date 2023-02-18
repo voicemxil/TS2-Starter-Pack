@@ -49,7 +49,6 @@ InitPluginsDir
 SetOverwrite ifnewer
 
 # Touchup
-
 !insertmacro touchup "The Sims 2 Ultimate Collection" "EA GAMES\The Sims 2" "{04450C18-F039-4B81-A621-70C3B0F523D5}" "Fun with Pets\SP9\TSBin"
 
 CreateDirectory "$INSTDIR\temp"
@@ -65,12 +64,11 @@ Delete "SFX_Sims2RPC_1.15.exe"
 RMDIR "$INSTDIR\temp"
 
 !insertmacro setLanguage "EA GAMES\The Sims 2" # macro takes in ts2 registry key
-File /r "C:\Users\c\Documents\GitHub\TS2-Starter-Pack\language-selection" 
+File /r "..\components\language-selection" 
 
-DetailPrint "Tweaking Registry for compatibility..."
-WriteRegStr HKLM32 "Software\EA GAMES\The Sims 2" "DisplayName" "The Sims 2 Ultimate Collection"
 DetailPrint "Creating Downloads folder..."
 CreateDirectory "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
+WriteUninstaller "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
 SectionEnd
 
 Section "Graphics Rules Maker" Section2
@@ -159,7 +157,9 @@ Section "Uninstall" Section8
 	SetRegView 32
 	Delete "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
 	ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
+	${If} $R4 = $INSTDIR
 	RMDir /r $R4
+    ${EndIf}
 	DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2"
 	DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\The Sims 2 Starter Pack"
 	DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP9.exe"
