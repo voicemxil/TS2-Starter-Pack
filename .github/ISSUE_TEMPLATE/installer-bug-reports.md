@@ -1,5 +1,5 @@
 ---
-name: Installer Bug Reports
+name: Report Installer Bugs
 about: This is for reporting bugs with osab's code, NOT for requesting game support.
 title: ''
 labels: bug
