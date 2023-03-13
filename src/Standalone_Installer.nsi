@@ -154,7 +154,6 @@ Section "Start Menu/Desktop Shortcut" Section7
 SectionEnd 
 
 Section "Uninstall" Section8
-Section "Uninstall" Section8
 	SetRegView 32
 	Delete "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
 	ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
