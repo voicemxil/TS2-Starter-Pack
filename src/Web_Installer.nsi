@@ -116,29 +116,29 @@ Section "TS2 Starter Pack" Section1
 	RMDir /r "$INSTDIR\temp"
 
 	!insertmacro setLanguage "EA GAMES\The Sims 2" # macro takes in ts2 registry key
-	DetailPrint "Adding Language Selection files."
+	DetailPrint "Adding Language Selection files to game folder..."
 	CreateDirectory "$INSTDIR\_Language Selection"
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Chinese_Simplified.reg" "$INSTDIR\_Language Selection\Chinese_Simplified.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Chinese_Traditional.reg" "$INSTDIR\_Language Selection\Chinese_Traditional.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Czech.reg" "$INSTDIR\_Language Selection\Czech.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Dutch.reg" "$INSTDIR\_Language Selection\Dutch.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/English_UK.reg" "$INSTDIR\_Language Selection\English_UK.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Finnish.reg" "$INSTDIR\_Language Selection\Finnish.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/French.reg" "$INSTDIR\_Language Selection\French.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/German.reg" "$INSTDIR\_Language Selection\German.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Greek.reg" "$INSTDIR\_Language Selection\Greek.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Hebrew.reg" "$INSTDIR\_Language Selection\Hebrew.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Hungarian.reg" "$INSTDIR\_Language Selection\Hungarian.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Italian.reg" "$INSTDIR\_Language Selection\Italian.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Japanese.reg" "$INSTDIR\_Language Selection\Japanese.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Korean.reg" "$INSTDIR\_Language Selection\Korean.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Norwegian.reg" "$INSTDIR\_Language Selection\Norwegian.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Polish.reg" "$INSTDIR\_Language Selection\Polish.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Portuguese_Brazil.reg" "$INSTDIR\_Language Selection\Portuguese_Brazil.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Russian.reg" "$INSTDIR\_Language Selection\Russian.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Spanish.reg" "$INSTDIR\_Language Selection\Spanish.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Swedish.reg" "$INSTDIR\_Language Selection\Swedish.reg" /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Thai.reg" "$INSTDIR\_Language Selection\Thai.reg"	 /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Chinese_Simplified.reg" "$INSTDIR\_Language Selection\Chinese_Simplified.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Chinese_Traditional.reg" "$INSTDIR\_Language Selection\Chinese_Traditional.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Czech.reg" "$INSTDIR\_Language Selection\Czech.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Dutch.reg" "$INSTDIR\_Language Selection\Dutch.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/English_UK.reg" "$INSTDIR\_Language Selection\English_UK.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Finnish.reg" "$INSTDIR\_Language Selection\Finnish.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/French.reg" "$INSTDIR\_Language Selection\French.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/German.reg" "$INSTDIR\_Language Selection\German.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Greek.reg" "$INSTDIR\_Language Selection\Greek.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Hebrew.reg" "$INSTDIR\_Language Selection\Hebrew.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Hungarian.reg" "$INSTDIR\_Language Selection\Hungarian.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Italian.reg" "$INSTDIR\_Language Selection\Italian.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Japanese.reg" "$INSTDIR\_Language Selection\Japanese.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Korean.reg" "$INSTDIR\_Language Selection\Korean.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Norwegian.reg" "$INSTDIR\_Language Selection\Norwegian.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Polish.reg" "$INSTDIR\_Language Selection\Polish.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Portuguese_Brazil.reg" "$INSTDIR\_Language Selection\Portuguese_Brazil.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Russian.reg" "$INSTDIR\_Language Selection\Russian.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Spanish.reg" "$INSTDIR\_Language Selection\Spanish.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Swedish.reg" "$INSTDIR\_Language Selection\Swedish.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Thai.reg" "$INSTDIR\_Language Selection\Thai.reg" /BACKGROUND /END
 
 	DetailPrint "Creating Downloads folder..."
 	CreateDirectory "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads" 
@@ -150,13 +150,17 @@ Section "Graphics Rules Maker" Section2
 
 	CreateDirectory "$INSTDIR\temp"
 	${If} ${RunningX64}
-		!insertmacro downloadPack "Graphics Rules Maker" "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" "$INSTDIR\temp\grm_install.exe" "d39b35fcf4a1b9e8bde70b1fa1d2f2db5def62a0f946892a46a219b59c44ab45"
+		DetailPrint "Downloading Graphics Rules Maker..."
+		NScurl::http GET "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" "$INSTDIR\temp\grm_install.exe" /RESUME /INSIST /CANCEL /END
 		Pop $0 # return value = exit code, "OK" means OK
 		DetailPrint "GRM download status: $0. Executing installer..." 
+		ExecWait "grm_install.exe"
 	${Else}
-		!insertmacro downloadPack "Graphics Rules Maker" "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" "$INSTDIR\temp\grm_install.exe" "a5d3e11afab519f567a149615177c7f22a8073c42d24e6c7593c900c55431ca2"
+		DetailPrint "Downloading Graphics Rules Maker.."
+		NScurl::http GET "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" "$INSTDIR\temp\grm_install.exe" /RESUME /INSIST /CANCEL /END"
 		Pop $0 # return value = exit code, "OK" means OK
 		DetailPrint "GRM download status: $0. Executing installer..." 
+		ExecWait "grm_install.exe"
 	${EndIf}
 	Execwait $INSTDIR\temp\grm_install.exe
 	Delete $INSTDIR\temp\grm_install.exe
@@ -168,7 +172,11 @@ Section /o "DXVK" Section3
 
 	CreateDirectory "$INSTDIR\temp"
 	SetOutPath $INSTDIR\temp
-	!insertmacro downloadPack "Vulkan Test" "https://github.com/skeeto/vulkan-test/releases/download/1.0.2/vulkan_test.exe" "vulkan_test.exe" "b737349489d3cca14ed3b5b79b9bea5f085b520d939e2ccb796d0ddebdd8148f"
+
+	DetailPrint "Downloading Vulkan-Test to check for DXVK support..."
+	NScurl::http GET "https://github.com/skeeto/vulkan-test/releases/download/1.0.2/vulkan_test.exe" "vulkan_test.exe" /RESUME /INSIST /CANCEL /END
+	ExecWait "vulkan_test.exe"
+
 	Delete "$INSTDIR\temp\vulkan_test.exe"
 		RMDir /r "$INSTDIR\temp"
 		Pop $0
@@ -176,14 +184,14 @@ Section /o "DXVK" Section3
 	MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
 	true: 
 		SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin\"
-		DetailPrint "Downloading DXVK $DXVKVER ..."
+		DetailPrint "Downloading DXVK $DXVKVER..."
 		NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/main/components/d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll" /RESUME /INSIST /CANCEL /END
 		Pop $0 # return value = exit code, "OK" means OK
 		DetailPrint "DXVK download status: $0." 
 
 		NScurl::http GET "https://raw.githubusercontent.com/doitsujin/dxvk/v2.1/dxvk.conf" "$INSTDIR\Fun with Pets\SP9\TSBin\dxvk.conf" /RESUME /INSIST /CANCEL /END
 		Pop $0
-		DetailPrint "DXVK.conf download status: $0. Extracting..." 
+		DetailPrint "DXVK.conf download status: $0." 
 	false:
 		DetailPrint "Vulkan is unsupported, DXVK will be skipped."
 	next:
@@ -195,9 +203,10 @@ Section "Visual C++ Redist" Section4
 	SectionInstType ${IT_FULL} ${IT_AMD}
 
 	CreateDirectory "$INSTDIR\temp"	
+	DetailPrint "Downloading VC Redist..."
 	NScurl::http GET "https://aka.ms/vs/17/release/vc_redist.x86.exe" "temp\vc_redist.x86.exe" /RESUME /INSIST /CANCEL /END
 	Pop $0
-	DetailPrint "VC Redist download status: $0"
+	DetailPrint "VC Redist download status: $0. Executing silently..."
 	ExecWait "$INSTDIR\temp\vc_redist.x86.exe /q /norestart"
 	Delete "$INSTDIR\temp\vc_redist.x86.exe"
 	RMDir /r "$INSTDIR\temp"
@@ -209,9 +218,10 @@ Section ".NET Framework" Section5
 	SectionInstType ${IT_FULL} ${IT_AMD}
 
 	CreateDirectory "$INSTDIR\temp"	
+	DetailPrint "Downloading x86 .NET Framework..."
 	NScurl::http GET "https://go.microsoft.com/fwlink/?LinkId=2085155" "temp\ndp48_web.exe" /RESUME /INSIST /CANCEL /END
 	Pop $0
-	DetailPrint ".NET Framework download status: $0"
+	DetailPrint ".NET Framework download status: $0. Executing silently..."
 	ExecWait "$INSTDIR\temp\ndp48_web.exe /q /norestart"
 	Delete "$INSTDIR\temp\ndp48_web.exe"
 	RMDir /r "$INSTDIR\temp"
@@ -223,7 +233,7 @@ Section "Sim Shadow Fix" Section6
 	SectionInstType ${IT_FULL}
 
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
-	!insertmacro downloadPack "SimNopke's Shadow Fix" "https://github.com/voicemxil/TS2-Starter-Pack/raw/v11/components/simNopke-simShadowFix0.3reallyNotMisty.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\simNopke-simShadowFix0.3reallyNotMisty.package" "5c4e0c15c91d022246c660a89cc81927ee652f7f04c13c671b7e7e2558324c3f"
+	NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v11/components/simNopke-simShadowFix0.3reallyNotMisty.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\simNopke-simShadowFix0.3reallyNotMisty.package" /RESUME /INSIST /CANCEL /END
 	Pop $0
 	DetailPrint "Shadow Fix download status: $0"
 	ExecShell "open" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
@@ -235,7 +245,7 @@ SectionEnd
 
 Section "Start Menu/Desktop Shortcut" Section7
 	SectionInstType ${IT_FULL} ${IT_AMD}
-	SetShellVarContext current
+	SetShellVarContext all
 	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
 	CreateDirectory '$SMPROGRAMS\The Sims 2 Starter Pack\'
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0

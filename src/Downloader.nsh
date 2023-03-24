@@ -7,7 +7,8 @@ ${Do}
 	NScurl::sha256 "${outputFile}"
 	Pop $R1
 	${if} $R1 == "${packSHA256}"
-		ExecWait '"${outputFile}" -InstallPath="$INSTDIR" -o"$INSTDIR" -y -gm1'
+		DetailPrint "Extracting ${packName} to ${outputFile}..."
+		Nsis7z::ExtractWithDetails "${outputFile}" "Extracting ${packName} %s..."
 		${Break}
 	${else}
 		${If} ${Cmd} `MessageBox MB_RETRYCANCEL|MB_ICONEXCLAMATION "${outputFile} seems to be corrupted. This may be due to a bad connection or interrupted download. If you continue to see this message after retrying, consult the Discord. Would you like to retry?" /SD IDRETRY IDRETRY`
