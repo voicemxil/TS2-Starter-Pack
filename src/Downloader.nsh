@@ -1,10 +1,10 @@
 !macro downloadPack packName packLink outputFile packSHA256
 ${Do}
 	DetailPrint "Downloading ${packName} from ${packLink}. Closing the download window will interrupt the download."
-	inetc::get /POPUP "Downloading ${packName}..." "${packLink}" "${outputFile}"
+	NScurl::http GET "${packLink}" "${outputFile}" /RESUME /INSIST /CANCEL /END
 	Pop $0 # return value = exit code, "OK" means OK
 	DetailPrint "${packName} download status: $0" 
-	filecheck::calcFileHash "${outputFile}" sha256
+	NScurl::sha256 "${outputFile}"
 	Pop $R1
 	${if} $R1 == "${packSHA256}"
 		ExecWait '"${outputFile}" -InstallPath="$INSTDIR" -o"$INSTDIR" -y -gm1'

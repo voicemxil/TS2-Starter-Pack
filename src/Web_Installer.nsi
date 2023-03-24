@@ -1,20 +1,25 @@
 ﻿Unicode True ;Support Unicode format in the installer
+Target amd64-unicode
 
 ;Include header files
+!define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
+!include "ModernXL.nsh"
 !include "MUI2.nsh"
 !include "x64.nsh"
 !include ".\Downloader.nsh"
 !include ".\Language-r.nsh"
 !include ".\Touchup-er.nsh"
+!include ".\RemovePriorInstallation.nsh"
 
 ########################### Installer SETUP
 Name "The Sims 2 Starter Pack"
-OutFile "..\bin\Web Installer\TS2StarterPack.WebInstaller-v11.exe"
+OutFile "..\bin\Web Installer\TS2StarterPack-WebInstaller.v12.x64.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
 
 ########################### MUI SETUP
-brandingText "osab Web Installer v11"
+brandingText "osab Web Installer v12"
 !define MUI_ABORTWARNING
 !define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
 !define MUI_HEADERIMAGE_BITMAP "..\assets\header.bmp"
@@ -22,10 +27,9 @@ brandingText "osab Web Installer v11"
 !define MUI_PAGE_HEADER_TEXT "TS2: Starter Pack - Web Installer"
 !define MUI_PAGE_HEADER_SUBTEXT "TS2 Ultimate Collection repacked by osab!"
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the Sims 2 Starter Pack Web Installer (v11). Please ensure you have downloaded the latest version from the GitHub! Helpful log messages will be shown in the 'More Details' box."
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the Sims 2 Starter Pack Web Installer (v12). Please ensure you have downloaded the latest version from the GitHub! Helpful log messages will be shown in the 'More Details' box."
 !define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. The game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
 !define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
 !define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the next step of the guide (Graphics Setup)?"
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
@@ -65,12 +69,19 @@ Function .OnInit
 	StrCpy $DXVKVER "2.1"
 FunctionEnd
 
+InstType "Full (Choose if unsure)" IT_FULL
+InstType "AMD Graphics preset" IT_AMD
+InstType "Minimal (Linux/WINE optimized)" IT_MIN
+	
 Section "TS2 Starter Pack" Section1
+	SectionInstType ${IT_FULL} ${IT_AMD} ${IT_MIN}
 	SectionIn RO 
 	SetOutPath $INSTDIR
 	SetOverwrite on
 	InitPluginsDir
-	AddSize 1400000
+	AddSize 15000000
+
+	!insertmacro RemovePreviousInstall
 		
 	StrCpy $AL "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v11/SFX_ApartmentLife.v11.exe"
 	StrCpy $BoB "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v11/SFX_BestofBusiness.v11.exe"
@@ -107,27 +118,27 @@ Section "TS2 Starter Pack" Section1
 	!insertmacro setLanguage "EA GAMES\The Sims 2" # macro takes in ts2 registry key
 	DetailPrint "Adding Language Selection files."
 	CreateDirectory "$INSTDIR\_Language Selection"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Chinese_Simplified.reg" "$INSTDIR\_Language Selection\Chinese_Simplified.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Chinese_Traditional.reg" "$INSTDIR\_Language Selection\Chinese_Traditional.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Czech.reg" "$INSTDIR\_Language Selection\Czech.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Dutch.reg" "$INSTDIR\_Language Selection\Dutch.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/English_UK.reg" "$INSTDIR\_Language Selection\English_UK.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Finnish.reg" "$INSTDIR\_Language Selection\Finnish.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/French.reg" "$INSTDIR\_Language Selection\French.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/German.reg" "$INSTDIR\_Language Selection\German.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Greek.reg" "$INSTDIR\_Language Selection\Greek.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Hebrew.reg" "$INSTDIR\_Language Selection\Hebrew.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Hungarian.reg" "$INSTDIR\_Language Selection\Hungarian.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Italian.reg" "$INSTDIR\_Language Selection\Italian.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Japanese.reg" "$INSTDIR\_Language Selection\Japanese.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Korean.reg" "$INSTDIR\_Language Selection\Korean.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Norwegian.reg" "$INSTDIR\_Language Selection\Norwegian.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Polish.reg" "$INSTDIR\_Language Selection\Polish.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Portuguese_Brazil.reg" "$INSTDIR\_Language Selection\Portuguese_Brazil.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Russian.reg" "$INSTDIR\_Language Selection\Russian.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Spanish.reg" "$INSTDIR\_Language Selection\Spanish.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Swedish.reg" "$INSTDIR\_Language Selection\Swedish.reg"
-	inetc::get /BANNER "Adding language selection files to game folder..." "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Thai.reg" "$INSTDIR\_Language Selection\Thai.reg"	
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Chinese_Simplified.reg" "$INSTDIR\_Language Selection\Chinese_Simplified.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Chinese_Traditional.reg" "$INSTDIR\_Language Selection\Chinese_Traditional.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Czech.reg" "$INSTDIR\_Language Selection\Czech.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Dutch.reg" "$INSTDIR\_Language Selection\Dutch.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/English_UK.reg" "$INSTDIR\_Language Selection\English_UK.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Finnish.reg" "$INSTDIR\_Language Selection\Finnish.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/French.reg" "$INSTDIR\_Language Selection\French.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/German.reg" "$INSTDIR\_Language Selection\German.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Greek.reg" "$INSTDIR\_Language Selection\Greek.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Hebrew.reg" "$INSTDIR\_Language Selection\Hebrew.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Hungarian.reg" "$INSTDIR\_Language Selection\Hungarian.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Italian.reg" "$INSTDIR\_Language Selection\Italian.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Japanese.reg" "$INSTDIR\_Language Selection\Japanese.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Korean.reg" "$INSTDIR\_Language Selection\Korean.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Norwegian.reg" "$INSTDIR\_Language Selection\Norwegian.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Polish.reg" "$INSTDIR\_Language Selection\Polish.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Portuguese_Brazil.reg" "$INSTDIR\_Language Selection\Portuguese_Brazil.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Russian.reg" "$INSTDIR\_Language Selection\Russian.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Spanish.reg" "$INSTDIR\_Language Selection\Spanish.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Swedish.reg" "$INSTDIR\_Language Selection\Swedish.reg" /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Thai.reg" "$INSTDIR\_Language Selection\Thai.reg"	 /END
 
 	DetailPrint "Creating Downloads folder..."
 	CreateDirectory "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads" 
@@ -135,13 +146,15 @@ Section "TS2 Starter Pack" Section1
 SectionEnd
 	
 Section "Graphics Rules Maker" Section2
+	SectionInstType ${IT_FULL} ${IT_AMD} ${IT_MIN}
+
 	CreateDirectory "$INSTDIR\temp"
 	${If} ${RunningX64}
-		inetc::get /POPUP "Downloading GRM Setup (64-bit detected)..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" "$INSTDIR\temp\grm_install.exe"
+		!insertmacro downloadPack "Graphics Rules Maker" "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" "$INSTDIR\temp\grm_install.exe" "d39b35fcf4a1b9e8bde70b1fa1d2f2db5def62a0f946892a46a219b59c44ab45"
 		Pop $0 # return value = exit code, "OK" means OK
 		DetailPrint "GRM download status: $0. Executing installer..." 
 	${Else}
-		inetc::get /POPUP "Downloading GRM Setup (32-bit detected)..." "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" "$INSTDIR\temp\grm_install.exe"
+		!insertmacro downloadPack "Graphics Rules Maker" "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" "$INSTDIR\temp\grm_install.exe" "a5d3e11afab519f567a149615177c7f22a8073c42d24e6c7593c900c55431ca2"
 		Pop $0 # return value = exit code, "OK" means OK
 		DetailPrint "GRM download status: $0. Executing installer..." 
 	${EndIf}
@@ -151,38 +164,26 @@ Section "Graphics Rules Maker" Section2
 SectionEnd
 
 Section /o "DXVK" Section3
+	SectionInstType ${IT_AMD} 
+
 	CreateDirectory "$INSTDIR\temp"
 	SetOutPath $INSTDIR\temp
-	inetc::get /POPUP "Preparing Vulkan Test..." "https://github.com/skeeto/vulkan-test/releases/download/1.0.2/vulkan_test.exe" "vulkan_test.exe"
-	ExecWait "$INSTDIR\temp\vulkan_test.exe"
+	!insertmacro downloadPack "Vulkan Test" "https://github.com/skeeto/vulkan-test/releases/download/1.0.2/vulkan_test.exe" "vulkan_test.exe" "b737349489d3cca14ed3b5b79b9bea5f085b520d939e2ccb796d0ddebdd8148f"
 	Delete "$INSTDIR\temp\vulkan_test.exe"
-	MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
-	true: 
-		DetailPrint "Downloading DXVK $DXVKVER ..."
-		inetc::get /POPUP "Downloading DXVK..." "https://github.com/doitsujin/dxvk/releases/download/v2.1/dxvk-2.1.tar.gz" "dxvk.tar.gz"
-		Pop $0 # return value = exit code, "OK" means OK
-		DetailPrint "DXVK download status: $0. Extracting..." 
-
-		inetc::get /POPUP "Downloading DXVK.conf..." "https://raw.githubusercontent.com/doitsujin/dxvk/v2.1/dxvk.conf" "$INSTDIR\Fun with Pets\SP9\TSBin\dxvk.conf"
-		Pop $0
-		DetailPrint "DXVK.conf download status: $0. Extracting..." 
-
-		untgz::extract -h -u -d "$INSTDIR\temp" -zgz "$INSTDIR\temp\dxvk.tar.gz"
-		Pop $0 
-		DetailPrint "DXVK extraction status: $0. Deleting archive..." 
-
-		Delete "$INSTDIR\temp\dxvk.tar.gz"
-		Pop $0
-		DetailPrint "Cleanup result: $0"
-		DetailPrint "Placing x32 d3d9.dll in TSBin..."
-		Rename "$INSTDIR\temp\dxvk-2.1\x32\d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll"
-		Pop $0
-		DetailPrint "File move result: $0"
-
-		RMDir /r "$INSTDIR\temp\dxvk-2.1"
 		RMDir /r "$INSTDIR\temp"
 		Pop $0
 		DetailPrint "Cleanup result: $0"
+	MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
+	true: 
+		SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin\"
+		DetailPrint "Downloading DXVK $DXVKVER ..."
+		NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/main/components/d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll" /RESUME /INSIST /CANCEL /END
+		Pop $0 # return value = exit code, "OK" means OK
+		DetailPrint "DXVK download status: $0." 
+
+		NScurl::http GET "https://raw.githubusercontent.com/doitsujin/dxvk/v2.1/dxvk.conf" "$INSTDIR\Fun with Pets\SP9\TSBin\dxvk.conf" /RESUME /INSIST /CANCEL /END
+		Pop $0
+		DetailPrint "DXVK.conf download status: $0. Extracting..." 
 	false:
 		DetailPrint "Vulkan is unsupported, DXVK will be skipped."
 	next:
@@ -191,8 +192,10 @@ Section /o "DXVK" Section3
 SectionEnd
 	
 Section "Visual C++ Redist" Section4
+	SectionInstType ${IT_FULL} ${IT_AMD}
+
 	CreateDirectory "$INSTDIR\temp"	
-	inetc::get /POPUP "Downloading VC Redist..." "https://aka.ms/vs/17/release/vc_redist.x86.exe" "temp\vc_redist.x86.exe"
+	NScurl::http GET "https://aka.ms/vs/17/release/vc_redist.x86.exe" "temp\vc_redist.x86.exe" /RESUME /INSIST /CANCEL /END
 	Pop $0
 	DetailPrint "VC Redist download status: $0"
 	ExecWait "$INSTDIR\temp\vc_redist.x86.exe /q /norestart"
@@ -203,8 +206,10 @@ Section "Visual C++ Redist" Section4
 SectionEnd
 	
 Section ".NET Framework" Section5
+	SectionInstType ${IT_FULL} ${IT_AMD}
+
 	CreateDirectory "$INSTDIR\temp"	
-	inetc::get /POPUP "Downloading .NET Framework..." "https://go.microsoft.com/fwlink/?LinkId=2085155" "temp\ndp48_web.exe"
+	NScurl::http GET "https://go.microsoft.com/fwlink/?LinkId=2085155" "temp\ndp48_web.exe" /RESUME /INSIST /CANCEL /END
 	Pop $0
 	DetailPrint ".NET Framework download status: $0"
 	ExecWait "$INSTDIR\temp\ndp48_web.exe /q /norestart"
@@ -215,14 +220,21 @@ Section ".NET Framework" Section5
 SectionEnd
 	
 Section "Sim Shadow Fix" Section6
+	SectionInstType ${IT_FULL}
+
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
-	inetc::get /POPUP "Downloading SimNopke's Shadow Fix" "https://github.com/voicemxil/TS2-Starter-Pack/raw/v11/components/simNopke-simShadowFix0.3reallyNotMisty.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\simNopke-simShadowFix0.3reallyNotMisty.package"
+	!insertmacro downloadPack "SimNopke's Shadow Fix" "https://github.com/voicemxil/TS2-Starter-Pack/raw/v11/components/simNopke-simShadowFix0.3reallyNotMisty.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\simNopke-simShadowFix0.3reallyNotMisty.package" "5c4e0c15c91d022246c660a89cc81927ee652f7f04c13c671b7e7e2558324c3f"
 	Pop $0
 	DetailPrint "Shadow Fix download status: $0"
 	ExecShell "open" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
 SectionEnd
 
+Section
+	ExecShell "open" "$INSTDIR\Fun with Pets\SP9\TSBin"
+SectionEnd
+
 Section "Start Menu/Desktop Shortcut" Section7
+	SectionInstType ${IT_FULL} ${IT_AMD}
 	SetShellVarContext current
 	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
 	CreateDirectory '$SMPROGRAMS\The Sims 2 Starter Pack\'
@@ -264,7 +276,7 @@ SectionEnd
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${Section1} "Installs The Sims 2 Ultimate Collection and Sims2RPC v1.15 (minimal install)."
   !insertmacro MUI_DESCRIPTION_TEXT ${Section2} "Installs Graphics Rules Maker 2.0.0."
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs DXVK $DXVKVER. (Not recommended for beginners.)"
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs DXVK $DXVKVER. (Check this if you have a modern AMD graphics card to prevent the long loading screen bug. Otherwise, only select if you know you have a specific reason to. Not recommended for beginners.)"
   !insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs Visual C++ Redist (x86) if not already installed."
   !insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs .NET Framework if not already installed."
   !insertmacro MUI_DESCRIPTION_TEXT ${Section6} "Installs SimNopke's Sim Shadow Fix to your downloads folder. *Don't Use With DXVK*."
