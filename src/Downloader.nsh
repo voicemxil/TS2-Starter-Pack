@@ -7,7 +7,7 @@ ${Do}
 	NScurl::sha256 "${outputFile}"
 	Pop $R1
 	${if} $R1 == "${packSHA256}"
-		DetailPrint "Extracting ${packName} to ${outputFile}..."
+		DetailPrint "Extracting ${packName} from ${outputFile}..."
 		Nsis7z::ExtractWithDetails "${outputFile}" "Extracting ${packName} %s..."
 		${Break}
 	${else}
