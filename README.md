@@ -2,7 +2,7 @@
 
 ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total?label=total%20downloads) ![Current Version](https://img.shields.io/github/v/release/voicemxil/TS2-Starter-Pack?label=current%20version) [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=Join%20osab%27s%20TS2%20Community%20Discord%20Server&logo=Discord&logoColor=white)](https://discord.com/servers/ts2-community-912700195249197086)
 
-The Starter Pack is an all-in-one source for obtaining, installing, and optimizing TS2 on modern hardware. 
+The Starter Pack is an all-in-one source for obtaining, installing, and optimizing TS2 on modern hardware!
 
 Choose your favorite **flavor** from the [latest release](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) and follow the [Full Installation Guide](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) to begin!
 
