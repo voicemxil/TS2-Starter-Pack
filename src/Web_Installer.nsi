@@ -1,4 +1,4 @@
-﻿Unicode True ;Support Unicode format in the installer
+﻿Unicode True 
 Target amd64-unicode
 
 ;Include header files
@@ -17,24 +17,35 @@ Name "The Sims 2 Starter Pack"
 OutFile "..\bin\Web Installer\TS2StarterPack-WebInstaller.v12.x64.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
+SetCompressor /SOLID LZMA
+ShowInstDetails show
+ManifestDPIAware True
+VIProductVersion 12.0.0.0
+VIAddVersionKey "CompanyName" "osab"
+VIAddVersionKey "FileVersion" "12.0.0"
+VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
+VIAddVersionKey "ProductVersion" "12.0"
 
 ########################### MUI SETUP
 brandingText "osab Web Installer v12"
 !define MUI_ABORTWARNING
-!define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
+!define MUI_HEADERIMAGE
+!define MUI_HEADERIMAGE_RIGHT
 !define MUI_HEADERIMAGE_BITMAP "..\assets\header.bmp"
+!define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
 !define MUI_ICON "..\assets\NewInstaller.ico"
 !define MUI_PAGE_HEADER_TEXT "TS2: Starter Pack - Web Installer"
 !define MUI_PAGE_HEADER_SUBTEXT "TS2 Ultimate Collection repacked by osab!"
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the Sims 2 Starter Pack Web Installer (v12). Please ensure you have downloaded the latest version from the GitHub! Helpful log messages will be shown in the 'More Details' box."
-!define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. The game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the Sims 2 Starter Pack Web Installer (v12). $\nPlease ensure you have downloaded the latest version from the GitHub! Helpful log messages will be shown in the 'More Details' box."
+!define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. $\n$\nThe game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
 !define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
 !define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the next step of the guide (Graphics Setup)?"
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
 !define MUI_FINISHPAGE_LINK "TS2 Community Discord Server!"
 !define MUI_FINISHPAGE_LINK_LOCATION "https://discord.gg/invite/ts2-community-912700195249197086"
+!define MUI_FINISHPAGE_LINK_COLOR "5865F2"
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "..\LICENSE.txt"
 !insertmacro MUI_PAGE_COMPONENTS
@@ -149,18 +160,17 @@ Section "Graphics Rules Maker" Section2
 	SectionInstType ${IT_FULL} ${IT_AMD} ${IT_MIN}
 
 	CreateDirectory "$INSTDIR\temp"
+	SetOutPath "$INSTDIR\temp"
 	${If} ${RunningX64}
 		DetailPrint "Downloading Graphics Rules Maker..."
 		NScurl::http GET "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-64bit.exe" "$INSTDIR\temp\grm_install.exe" /RESUME /INSIST /CANCEL /END
 		Pop $0 # return value = exit code, "OK" means OK
 		DetailPrint "GRM download status: $0. Executing installer..." 
-		ExecWait "grm_install.exe"
 	${Else}
 		DetailPrint "Downloading Graphics Rules Maker.."
-		NScurl::http GET "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" "$INSTDIR\temp\grm_install.exe" /RESUME /INSIST /CANCEL /END"
+		NScurl::http GET "https://www.simsnetwork.com/files/graphicsrulesmaker/graphicsrulesmaker-2.0.0-32bit.exe" "$INSTDIR\temp\grm_install.exe" /RESUME /INSIST /CANCEL /END
 		Pop $0 # return value = exit code, "OK" means OK
 		DetailPrint "GRM download status: $0. Executing installer..." 
-		ExecWait "grm_install.exe"
 	${EndIf}
 	Execwait $INSTDIR\temp\grm_install.exe
 	Delete $INSTDIR\temp\grm_install.exe
@@ -192,11 +202,13 @@ Section /o "DXVK" Section3
 		NScurl::http GET "https://raw.githubusercontent.com/doitsujin/dxvk/v2.1/dxvk.conf" "$INSTDIR\Fun with Pets\SP9\TSBin\dxvk.conf" /RESUME /INSIST /CANCEL /END
 		Pop $0
 		DetailPrint "DXVK.conf download status: $0." 
+		goto next
 	false:
 		DetailPrint "Vulkan is unsupported, DXVK will be skipped."
 	next:
-	DetailPrint "DXVK section complete."
 	RMDir /r "$INSTDIR\temp"
+	Pop $0
+	DetailPrint "Cleanup result: $0"
 SectionEnd
 	
 Section "Visual C++ Redist" Section4
@@ -222,7 +234,9 @@ Section ".NET Framework" Section5
 	NScurl::http GET "https://go.microsoft.com/fwlink/?LinkId=2085155" "temp\ndp48_web.exe" /RESUME /INSIST /CANCEL /END
 	Pop $0
 	DetailPrint ".NET Framework download status: $0. Executing silently..."
+
 	ExecWait "$INSTDIR\temp\ndp48_web.exe /q /norestart"
+
 	Delete "$INSTDIR\temp\ndp48_web.exe"
 	RMDir /r "$INSTDIR\temp"
 	Pop $0
@@ -245,6 +259,7 @@ SectionEnd
 
 Section "Start Menu/Desktop Shortcut" Section7
 	SectionInstType ${IT_FULL} ${IT_AMD}
+	
 	SetShellVarContext all
 	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
 	CreateDirectory '$SMPROGRAMS\The Sims 2 Starter Pack\'

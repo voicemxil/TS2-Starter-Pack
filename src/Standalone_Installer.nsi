@@ -1,33 +1,54 @@
 Unicode true
+Target amd64-unicode
+
+;Include header files
+!define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
+!include "ModernXL.nsh"
 !include "MUI2.nsh"
 !include "x64.nsh"
+
 !include ".\Language-r.nsh"
 !include ".\Touchup-er.nsh"
 
+
 ########################### Installer SETUP
-Name "The Sims 2 Starter Pack - Stanalone Installer"
-OutFile "..\bin\Standalone Installer\TS2.StandaloneInstaller-v11.exe"
+Name "The Sims 2 Starter Pack - Standalone"
+OutFile "..\bin\Standalone Installer\TS2-StandaloneInstaller.v12.x64.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
+SetCompressor /SOLID LZMA
+ShowInstDetails show
+ManifestDPIAware True
+VIProductVersion 12.0.0.0
+VIAddVersionKey "CompanyName" "osab"
+VIAddVersionKey "FileVersion" "12.0.0"
+VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
+VIAddVersionKey "ProductVersion" "12.0"
 
 ########################### MUI SETUP
+brandingText "osab Standalone Installer v12"
 !define MUI_ABORTWARNING
+!define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
+!define MUI_INSTFILESPAGE_PROGRESSBAR "colored"
+!define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
-!define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
 !define MUI_HEADERIMAGE_BITMAP "..\assets\header.bmp"
+!define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
 !define MUI_ICON "..\assets\NewInstaller.ico"
-!define MUI_PAGE_HEADER_TEXT "TS2: Starter Pack - Standalone Installer"
+!define MUI_PAGE_HEADER_TEXT "TS2: Starter Pack - Standalone"
 !define MUI_PAGE_HEADER_SUBTEXT "Touchup installer for Standalone TS2:UC, by osab."
-!define MUI_WELCOMEPAGE_TITLE "Install The Sims 2 (Standalone)"
-!define MUI_WELCOMEPAGE_TEXT "This installer is for the standalone download of The Sims 2: Starter Pack (or UC) - it does NOT download the game files. For an all-in-one installation, use the Web Installer instead. This installs the game in English. To change the game language, please follow the tutorial linked in the wiki. Set the directory to your game (Sims 2) root folder."
-!define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. The game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
+!define MUI_WELCOMEPAGE_TITLE "Install The Sims 2 Starter Pack (Standalone)"
+!define MUI_WELCOMEPAGE_TEXT "This installer is for the standalone download of The Sims 2: Ultimate Collection - it does NOT download the game files itself. $\nFor an all-in-one download and installation, use the Web Installer instead. $\n$\nThis installs the game in English. To change the game language, you can run one of the registry files in the $\"_Language Selection$\" folder. $\n$\nPlease set the install directory to your Sims 2 root folder where you've extracted the game files."
+!define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. $\n$\nThe game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
 !define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
-!define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
+!define MUI_DIRECTORYPAGE_TEXT_DESTINATION "The folder you choose should contain the game packs such as $\"Fun with Pets.$\""
 !define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the next step of the guide (Graphics Setup)?"
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
 !define MUI_FINISHPAGE_LINK "TS2 Community Discord Server!"
 !define MUI_FINISHPAGE_LINK_LOCATION "https://discord.gg/invite/ts2-community-912700195249197086"
+!define MUI_FINISHPAGE_LINK_COLOR "5865F2"
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "..\LICENSE.txt"
 !insertmacro MUI_PAGE_COMPONENTS
@@ -42,11 +63,75 @@ InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 !insertmacro MUI_LANGUAGE "English"
 ##################################### Begin Installation
 
+!macro RemovePreviousInstall
+    SetRegView 32
+    ClearErrors
+    EnumRegKey $0 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" 0
+IfErrors keydontexist keyexists
+goto noo
+keyexists:
+        ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Install Dir" 
+        MessageBox MB_YESNO|MB_ICONEXCLAMATION "A previous installation of The Sims 2 was detected on this system. Leaving behind remnants in the registry can cause unwanted behavior. Would you like the installer to remove the conflicting registry keys?$\n$\nWARNING: this will remove the keys we detected, rendering the old installation unplayable. Your game file and save file directories will not be affected." IDYES si IDNO noo
+si:
+            ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Install Dir" 
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Apartment Life"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Bon Voyage"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Celebration Stuff"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Family Fun Stuff"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 FreeTime"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Glamour Life Stuff"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 H M Fashion Stuff"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 IKEA Home Stuff"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Kitchen & Bath Interior Design Stuff"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Mansion and Garden Stuff"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Nightlife"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Open For Business"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Pets"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Seasons"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Teen Style Stuff"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 University"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Best of Business Collection"    
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 University Life Collection"
+            DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Fun with Pets Collection"
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\The Sims 2 Starter Pack"
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2.exe"	
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP1.exe"	
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP2.exe"	
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP3.exe"	
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP4.exe"	
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP5.exe"	
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP6.exe"	
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP7.exe"
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP8.exe"	
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP9.exe"
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SC.exe"
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP1.exe"	
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP2.exe"	
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP4.exe"	
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP5.exe"	
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP6.exe"	
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP7.exe"
+            DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP8.exe"	
+            goto noo
+keydontexist:
+        #key doesn't exist
+        DetailPrint "No prior installations were detected. Yay!"
+noo:
+!macroend
+
+InstType "Full (Choose if unsure)" IT_FULL
+InstType "AMD Graphics preset" IT_AMD
+InstType "Minimal (Linux/WINE optimized)" IT_MIN
+
 Section "Touchup & Sims2RPC" Section1
+SectionInstType ${IT_FULL} ${IT_AMD} ${IT_MIN}
 SectionIn RO 
 SetOutPath $INSTDIR
 InitPluginsDir
 SetOverwrite ifnewer
+
+!insertmacro RemovePreviousInstall
 
 # Touchup
 !insertmacro touchup "The Sims 2 Ultimate Collection" "EA GAMES\The Sims 2" "{04450C18-F039-4B81-A621-70C3B0F523D5}" "Sims2EP9.exe"
@@ -72,30 +157,32 @@ WriteUninstaller "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
 SectionEnd
 
 Section "Graphics Rules Maker" Section2
-CreateDirectory "$INSTDIR\temp"
-SetOutPath "$INSTDIR\temp"
-${If} ${RunningX64}
-	File "..\components\graphicsrulesmaker-2.0.0-64bit.exe"
-	Pop $0 # return value = exit code, "OK" means OK
-	Rename graphicsrulesmaker-2.0.0-64bit.exe grm_install.exe
-	DetailPrint "GRM extract status: $0. Executing installer..." 
-${Else}
-	File "..\components\graphicsrulesmaker-2.0.0-32bit.exe"
-	Pop $0 
-	Rename graphicsrulesmaker-2.0.0-32bit.exe grm_install.exe
-	DetailPrint "GRM extract status: $0. Executing installer..." 
+	SectionInstType ${IT_FULL} ${IT_AMD} ${IT_MIN}
 
-${EndIf}
+	CreateDirectory "$INSTDIR\temp"
+	SetOutPath "$INSTDIR\temp"
+	${If} ${RunningX64}
+		File "..\components\graphicsrulesmaker-2.0.0-64bit.exe"
+		Pop $0 # return value = exit code, "OK" means OK
+		Rename graphicsrulesmaker-2.0.0-64bit.exe grm_install.exe
+		DetailPrint "GRM extract status: $0. Executing installer..." 
+	${Else}
+		File "..\components\graphicsrulesmaker-2.0.0-32bit.exe"
+		Pop $0 
+		Rename graphicsrulesmaker-2.0.0-32bit.exe grm_install.exe
+		DetailPrint "GRM extract status: $0. Executing installer..." 
+	${EndIf}
 	Execwait "grm_install.exe"
 	DetailPrint "Cleaning up GRM installer..."
-	Delete "grm_install.exe"
-	SetOutPath $INSTDIR
 	RMDir /r "$INSTDIR\temp"
 SectionEnd
 
 Section /o "DXVK" Section3
+	SectionInstType ${IT_AMD} 
+
 	CreateDirectory "$INSTDIR\temp"
 	SetOutPath "$INSTDIR\temp"
+
 	File "..\components\vulkan_test.exe"
 	ExecWait "$INSTDIR\temp\vulkan_test.exe"
 	Delete "$INSTDIR\temp\vulkan_test.exe"
@@ -111,13 +198,15 @@ Section /o "DXVK" Section3
 		File "..\components\dxvk.conf"
 		Pop $0
 		DetailPrint "DXVK.conf extrtact status: $0." 
+		goto next
 	false:
 		DetailPrint "Vulkan is unsupported, DXVK will be skipped."
 	next:
-		DetailPrint "DXVK section complete."
 SectionEnd
 
 Section "Visual C++ Redist" Section4
+	SectionInstType ${IT_FULL} ${IT_AMD}
+
 	CreateDirectory "$INSTDIR\temp"	
 	SetOutPath "$INSTDIR\temp"
 	File "..\components\vc_redist.x86.exe"
@@ -129,6 +218,8 @@ Section "Visual C++ Redist" Section4
 SectionEnd
 	
 Section ".NET Framework" Section5
+	SectionInstType ${IT_FULL} ${IT_AMD}
+
 	CreateDirectory "$INSTDIR\temp"
 	SetOutPath "$INSTDIR\temp"
 	File "..\components\ndp48-web.exe"
@@ -140,13 +231,17 @@ Section ".NET Framework" Section5
 SectionEnd
 
 Section "Sim Shadow Fix" Section6
+	SectionInstType ${IT_FULL}
+
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
 	File "..\components\simNopke-simShadowFix0.3reallyNotMisty.package"
 	ExecShell "open" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
 SectionEnd
 
 Section "Start Menu/Desktop Shortcut" Section7
-	SetShellVarContext current
+	SectionInstType ${IT_FULL} ${IT_AMD}
+
+	SetShellVarContext all
 	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
 	CreateDirectory '$SMPROGRAMS\The Sims 2 Starter Pack\'
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
