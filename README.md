@@ -1,6 +1,6 @@
 <h1 align=center>The Sims 2 Starter Pack - by osab </h1> 
 
-![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total?label=total%20downloads) ![Current Version](https://img.shields.io/github/v/release/voicemxil/TS2-Starter-Pack?label=current%20version) [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=Join%20osab%27s%20TS2%20Community%20Discord%20Server&logo=Discord&logoColor=white)](https://discord.com/servers/ts2-community-912700195249197086)
+![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total?label=total%20downloads) ![Current Version](https://img.shields.io/github/v/release/voicemxil/TS2-Starter-Pack?label=current%20version) [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20TS2%20Community%20Discord%20Server&logo=Discord&logoColor=white)](https://discord.com/servers/ts2-community-912700195249197086)
 
 The Starter Pack is an all-in-one source for obtaining, installing, and optimizing TS2 on modern hardware!
 
