@@ -210,7 +210,7 @@ Section "Visual C++ Redist" Section4
 	SectionInstType ${IT_FULL} ${IT_AMD}
 
 	SetOutPath "$INSTDIR\temp"	
-	DetailPrint "Downloading VC Redist..."
+	DetailPrint "Downloading x86 VC Redist..."
 	NScurl::http GET "https://aka.ms/vs/17/release/vc_redist.x86.exe" "temp\vc_redist.x86.exe" /RESUME /INSIST /CANCEL /END
 	Pop $0
 	DetailPrint "VC Redist download status: $0. Executing silently..."
@@ -238,7 +238,7 @@ SectionEnd
 	
 Section "Sim Shadow Fix" Section6
 	SectionInstType ${IT_FULL}
-
+	DetailPrint "Donwloading Sim Shadow Fix..."
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
 	NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v12/components/simNopke-simShadowFix0.3reallyNotMisty.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\simNopke-simShadowFix0.3reallyNotMisty.package" /RESUME /INSIST /CANCEL /END
 	Pop $0
