@@ -1,7 +1,7 @@
 !macro downloadPack packName packLink outputFile packSHA256
 ${Do}
 	DetailPrint "Downloading ${packName} from ${packLink}. Closing the download window will interrupt the download."
-	NScurl::http GET "${packLink}" "${outputFile}" /RESUME /INSIST /CANCEL /END
+	NScurl::http GET "${packLink}" "${outputFile}" /RESUME /INSIST /END
 	Pop $0 # return value = exit code, "OK" means OK
 	DetailPrint "${packName} download status: $0" 
 	NScurl::sha256 "${outputFile}"

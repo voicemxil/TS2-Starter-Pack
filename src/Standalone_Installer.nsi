@@ -1,4 +1,4 @@
-Unicode true
+  Unicode true
 Target amd64-unicode
 
 ;Include header files
@@ -10,7 +10,6 @@ Target amd64-unicode
 
 !include ".\Language-r.nsh"
 !include ".\Touchup-er.nsh"
-
 
 ########################### Installer SETUP
 Name "The Sims 2 Starter Pack - Standalone"
@@ -30,7 +29,6 @@ VIAddVersionKey "ProductVersion" "12.0"
 brandingText "osab Standalone Installer v12"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
-!define MUI_INSTFILESPAGE_PROGRESSBAR "colored"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
 !define MUI_HEADERIMAGE_BITMAP "..\assets\header.bmp"
@@ -40,7 +38,7 @@ brandingText "osab Standalone Installer v12"
 !define MUI_PAGE_HEADER_SUBTEXT "Touchup installer for Standalone TS2:UC, by osab."
 !define MUI_WELCOMEPAGE_TITLE "Install The Sims 2 Starter Pack (Standalone)"
 !define MUI_WELCOMEPAGE_TEXT "This installer is for the standalone download of The Sims 2: Ultimate Collection - it does NOT download the game files itself. $\nFor an all-in-one download and installation, use the Web Installer instead. $\n$\nThis installs the game in English. To change the game language, you can run one of the registry files in the $\"_Language Selection$\" folder. $\n$\nPlease set the install directory to your Sims 2 root folder where you've extracted the game files."
-!define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. $\n$\nThe game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
+!define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. The game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
 !define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
 !define MUI_DIRECTORYPAGE_TEXT_DESTINATION "The folder you choose should contain the game packs such as $\"Fun with Pets.$\""
 !define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
@@ -136,6 +134,11 @@ SetOverwrite ifnewer
 # Touchup
 !insertmacro touchup "The Sims 2 Ultimate Collection" "EA GAMES\The Sims 2" "{04450C18-F039-4B81-A621-70C3B0F523D5}" "Sims2EP9.exe"
 
+SetOutPath "$INSTDIR\Double Deluxe\Base\TSData\Res\Catalog\Bins"
+File "..\components\holiday\H05.bundle.package"
+SetOutPath "$INSTDIR\Double Deluxe\Base\TSData\Res\Catalog\Skins"
+File "..\components\holiday\Skins.package"
+
 CreateDirectory "$INSTDIR\temp"
 SetOutPath "$INSTDIR\temp"
 DetailPrint "Installing Sims2RPC..."
@@ -146,7 +149,6 @@ DetailPrint "RPC extraction status: $0."
 
 DetailPrint "Cleaning up RPC zip file..."
 Delete "SFX_Sims2RPC_1.15.exe"
-RMDIR "$INSTDIR\temp"
 
 !insertmacro setLanguage "EA GAMES\The Sims 2" # macro takes in ts2 registry key
 File /r "..\components\language-selection" 
@@ -159,7 +161,6 @@ SectionEnd
 Section "Graphics Rules Maker" Section2
 	SectionInstType ${IT_FULL} ${IT_AMD} ${IT_MIN}
 
-	CreateDirectory "$INSTDIR\temp"
 	SetOutPath "$INSTDIR\temp"
 	${If} ${RunningX64}
 		File "..\components\graphicsrulesmaker-2.0.0-64bit.exe"
@@ -174,19 +175,18 @@ Section "Graphics Rules Maker" Section2
 	${EndIf}
 	Execwait "grm_install.exe"
 	DetailPrint "Cleaning up GRM installer..."
-	RMDir /r "$INSTDIR\temp"
+	Delete "grm_install.exe"
 SectionEnd
 
 Section /o "DXVK" Section3
 	SectionInstType ${IT_AMD} 
 
-	CreateDirectory "$INSTDIR\temp"
 	SetOutPath "$INSTDIR\temp"
 
 	File "..\components\vulkan_test.exe"
 	ExecWait "$INSTDIR\temp\vulkan_test.exe"
 	Delete "$INSTDIR\temp\vulkan_test.exe"
-	RMDir /r "$INSTDIR\temp"
+
 	MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
 	true: 
 		SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
@@ -207,27 +207,23 @@ SectionEnd
 Section "Visual C++ Redist" Section4
 	SectionInstType ${IT_FULL} ${IT_AMD}
 
-	CreateDirectory "$INSTDIR\temp"	
 	SetOutPath "$INSTDIR\temp"
 	File "..\components\vc_redist.x86.exe"
 	Pop $0
 	DetailPrint "VC Redist extract status: $0"
 	ExecWait "$INSTDIR\temp\vc_redist.x86.exe /q /norestart"
 	Delete "$INSTDIR\temp\vc_redist.x86.exe"
-	RMDir /r "$INSTDIR\temp"
 SectionEnd
 	
 Section ".NET Framework" Section5
 	SectionInstType ${IT_FULL} ${IT_AMD}
 
-	CreateDirectory "$INSTDIR\temp"
 	SetOutPath "$INSTDIR\temp"
 	File "..\components\ndp48-web.exe"
 	Pop $0
 	DetailPrint ".NET Framework extract status: $0"
 	ExecWait "$INSTDIR\temp\ndp48-web.exe /q /norestart"
 	Delete "$INSTDIR\temp\ndp48-web.exe"
-	RMDir /r "$INSTDIR\temp"
 SectionEnd
 
 Section "Sim Shadow Fix" Section6
@@ -247,6 +243,11 @@ Section "Start Menu/Desktop Shortcut" Section7
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	CreateShortCut '$Desktop\Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 SectionEnd 
+
+Section
+	ExecShell "open" "$INSTDIR\Fun with Pets\SP9\TSBin"
+	RMDir /r "$INSTDIR\temp"
+SectionEnd
 
 Section "Uninstall" Section8
 	SetRegView 32

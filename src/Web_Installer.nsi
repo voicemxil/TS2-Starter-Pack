@@ -29,6 +29,7 @@ VIAddVersionKey "ProductVersion" "12.0"
 ########################### MUI SETUP
 brandingText "osab Web Installer v12"
 !define MUI_ABORTWARNING
+!define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
 !define MUI_HEADERIMAGE_BITMAP "..\assets\header.bmp"
@@ -37,7 +38,7 @@ brandingText "osab Web Installer v12"
 !define MUI_PAGE_HEADER_TEXT "TS2: Starter Pack - Web Installer"
 !define MUI_PAGE_HEADER_SUBTEXT "TS2 Ultimate Collection repacked by osab!"
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the Sims 2 Starter Pack Web Installer (v12). $\nPlease ensure you have downloaded the latest version from the GitHub! Helpful log messages will be shown in the 'More Details' box."
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the Sims 2 Starter Pack Web Installer (v12). This installer automatically downloads/installs the game files and dependencies. $\n$\nPlease ensure you have downloaded the latest version from the GitHub! $\n$\nHelpful log messages will be shown in the 'More Details' box."
 !define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. $\n$\nThe game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
 !define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
 !define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
@@ -81,7 +82,7 @@ Function .OnInit
 FunctionEnd
 
 InstType "Full (Choose if unsure)" IT_FULL
-InstType "AMD Graphics preset" IT_AMD
+InstType "Modern AMD Graphics preset" IT_AMD
 InstType "Minimal (Linux/WINE optimized)" IT_MIN
 	
 Section "TS2 Starter Pack" Section1
@@ -94,62 +95,63 @@ Section "TS2 Starter Pack" Section1
 
 	!insertmacro RemovePreviousInstall
 		
-	StrCpy $AL "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v11/SFX_ApartmentLife.v11.exe"
-	StrCpy $BoB "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v11/SFX_BestofBusiness.v11.exe"
-	StrCpy $BV "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v11/SFX_BonVoyage.v11.exe"
-	StrCpy $Base "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v11/SFX_Base.v11.exe"
-	StrCpy $DD "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v11/SFX_DoubleDeluxe.v11.exe"
-	StrCpy $FT "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v11/SFX_FreeTime.v11.exe"
-	StrCpy $FwP "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v11/SFX_FunwithPets.v11.exe"
-	StrCpy $GLS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v11/SFX_GlamourLifeStuff.v11.exe"
-	StrCpy $SS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v11/SFX_Seasons.v11.exe"
-	StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v11/SFX_UniversityLife.v11.exe"
+	StrCpy $AL "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v12/ApartmentLife.v12.7z"
+	StrCpy $BoB "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v12/BestofBusiness.v12.7z"
+	StrCpy $BV "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v12/BonVoyage.v12.7z"
+	StrCpy $Base "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v12/Base.v12.7z"
+	StrCpy $DD "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v12/DoubleDeluxe.v12.7z"
+	StrCpy $FT "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v12/FreeTime.v12.7z"
+	StrCpy $FwP "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v12/FunwithPets.v12.7z"
+	StrCpy $GLS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v12/GlamourLifeStuff.v12.7z"
+	StrCpy $SS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v12/Seasons.v12.7z"
+	StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v12/UniversityLife.v12.7z"
 		
 	CreateDirectory "$INSTDIR\temp"
-	!insertmacro downloadPack "Apartment Life" "$AL" "temp\SFX_ApartmentLife.exe" "4F2D3884B920D985401C785F09E21A1110E3F328190201BE7AA52C1007E1D3C1"
-	!insertmacro downloadPack "Best of Business" "$BoB" "temp\SFX_BestofBusiness.exe" "E43D87C76E6DA84B04D52A9672544DE5AEB255422037C97926961F8164A0F480"
-	!insertmacro downloadPack "Bon Voyage" "$BV" "temp\SFX_BonVoyage.exe" "11C03EF93DCA19A6F67642311E95DA23E6E7B840749DAA8657013025A40AAA1E"
-	!insertmacro downloadPack "Base Game" "$Base" "temp\SFX_Base.exe" "8956EB294E97B1B6FCE0C5C2FBF562079E6645778A4FFC4B19B6B20A02616D11"
-	!insertmacro downloadPack "Double Deluxe Packs" "$DD" "temp\SFX_DoubleDeluxe.exe" "7520F68D2B32DA06110E146EB39A2D43439302D217AD088822EA6CF58DD4DC25"
-	!insertmacro downloadPack "FreeTime" "$FT" "temp\SFX_FreeTime.exe" "459E8A618A4CA69DD901833E0953CA485DA96698E728994757BC035FCC0B3DF0"
-	!insertmacro downloadPack "Fun with Pets" "$FwP" "temp\SFX_FunwithPets.exe" "C1007F5BF8E01B58B63EFB041D3E30AEE0B686C170B408086EB63D8EDC619DF0"
-	!insertmacro downloadPack "Glamour Life Stuff" "$GLS" "temp\SFX_GlamourLifeStuff.exe" "A67083B1677BC03E53F1963A5416218D34B3677F550129ABF6502145C01EFD39"
-	!insertmacro downloadPack "Seasons" "$SS" "temp\SFX_Seasons.exe" "5F08EFF83F9901CEE8AB11F52AE91DFE4A2C5541C57E10B9C69EE67ED2BE382F"
-	!insertmacro downloadPack "University Life" "$UNI" "temp\SFX_UniversityLife.exe" "09D2B04B39F9263F5BF6111C83412D1B22886F36F33C29497F405205C4C6EFF0"
+	!insertmacro downloadPack "Apartment Life" "$AL" "temp\ApartmentLife.7z" "f443736f43d3678dc54c0bc105a6d8776bfdbfef7d38801409051a9bf37368fb"
+	!insertmacro downloadPack "Best of Business" "$BoB" "temp\BestofBusiness.7z" "3deb97133ba4b2f95a4bea3188aae8fb3d6e46dff9625f02342507c0f1dfa86a"
+	!insertmacro downloadPack "Bon Voyage" "$BV" "temp\BonVoyage.7z" "485481e4144b49bc6dffefed2b177d4c90cd51023db6e44875a6344e985a41a1"
+	!insertmacro downloadPack "Base Game" "$Base" "temp\Base.7z" "ab4d1cee854b5ca5dc7cf6e65746ab30f4d1ee407cd609a5bd86568e330b06c7"
+	!insertmacro downloadPack "Double Deluxe Packs" "$DD" "temp\DoubleDeluxe.7z" "3cc771c01a846fbf27b81d5ad5fce117bd998197e19674a1fa0aabc60bd45d91"
+	!insertmacro downloadPack "FreeTime" "$FT" "temp\FreeTime.7z" "3d250fe1da11b27df40daa291c80343a24bbdeef9387e016107819767035bf57"
+	!insertmacro downloadPack "Fun with Pets" "$FwP" "temp\FunwithPets.7z" "c13db6b6e609a058a53e24a717aeb4b76a9fecb8c4268b88f075dad287ad0639"
+	!insertmacro downloadPack "Glamour Life Stuff" "$GLS" "temp\GlamourLifeStuff.7z" "838d8011915942fbc27787c4bc967d3c78f0a61c1605f48efe899613201d6c1d"
+	!insertmacro downloadPack "Seasons" "$SS" "temp\Seasons.7z" "5b11abd4dd02b22668f54548a6ba5ca58d526ac7b11cd005e212fe100c7c74fb"
+	!insertmacro downloadPack "University Life" "$UNI" "temp\UniversityLife.7z" "c1a11790dc42c513cef00f1760292167b69eb8a73f0423edf210c06e34905c70"
 
 	# Touchup
 	DetailPrint "Touching Up..."
 	!insertmacro touchup "The Sims 2 Ultimate Collection" "EA GAMES\The Sims 2" "{04450C18-F039-4B81-A621-70C3B0F523D5}" "Sims2EP9.exe"
 
 	# RPC
-	!insertmacro downloadPack "Sims2RPC" "https://github.com/voicemxil/TS2-Starter-Pack/raw/v11/components/SFX_Sims2RPC_1.15.exe" "$INSTDIR\temp\SFX_Sims2RPC.exe" "39aa5c91cb584b63fec783db5554c67bf139ca8af13dd297f7cb2bc61056307c"
+	!insertmacro downloadPack "Sims2RPC" "https://github.com/voicemxil/TS2-Starter-Pack/raw/v12/components/SFX_Sims2RPC_1.15.exe" "$INSTDIR\temp\SFX_Sims2RPC.exe" "39aa5c91cb584b63fec783db5554c67bf139ca8af13dd297f7cb2bc61056307c"
 
-	RMDir /r "$INSTDIR\temp"
+	Delete "$INSTDIR\temp\SFX_Sims2RPC.exe"
 
 	!insertmacro setLanguage "EA GAMES\The Sims 2" # macro takes in ts2 registry key
 	DetailPrint "Adding Language Selection files to game folder..."
 	CreateDirectory "$INSTDIR\_Language Selection"
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Chinese_Simplified.reg" "$INSTDIR\_Language Selection\Chinese_Simplified.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Chinese_Traditional.reg" "$INSTDIR\_Language Selection\Chinese_Traditional.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Czech.reg" "$INSTDIR\_Language Selection\Czech.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Dutch.reg" "$INSTDIR\_Language Selection\Dutch.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/English_UK.reg" "$INSTDIR\_Language Selection\English_UK.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Finnish.reg" "$INSTDIR\_Language Selection\Finnish.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/French.reg" "$INSTDIR\_Language Selection\French.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/German.reg" "$INSTDIR\_Language Selection\German.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Greek.reg" "$INSTDIR\_Language Selection\Greek.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Hebrew.reg" "$INSTDIR\_Language Selection\Hebrew.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Hungarian.reg" "$INSTDIR\_Language Selection\Hungarian.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Italian.reg" "$INSTDIR\_Language Selection\Italian.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Japanese.reg" "$INSTDIR\_Language Selection\Japanese.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Korean.reg" "$INSTDIR\_Language Selection\Korean.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Norwegian.reg" "$INSTDIR\_Language Selection\Norwegian.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Polish.reg" "$INSTDIR\_Language Selection\Polish.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Portuguese_Brazil.reg" "$INSTDIR\_Language Selection\Portuguese_Brazil.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Russian.reg" "$INSTDIR\_Language Selection\Russian.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Spanish.reg" "$INSTDIR\_Language Selection\Spanish.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Swedish.reg" "$INSTDIR\_Language Selection\Swedish.reg" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v11/components/language-selection/Thai.reg" "$INSTDIR\_Language Selection\Thai.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Chinese_Simplified.reg" "$INSTDIR\_Language Selection\Chinese_Simplified.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Chinese_Traditional.reg" "$INSTDIR\_Language Selection\Chinese_Traditional.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Czech.reg" "$INSTDIR\_Language Selection\Czech.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Dutch.reg" "$INSTDIR\_Language Selection\Dutch.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/English_UK.reg" "$INSTDIR\_Language Selection\English_UK.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Finnish.reg" "$INSTDIR\_Language Selection\Finnish.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/French.reg" "$INSTDIR\_Language Selection\French.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/German.reg" "$INSTDIR\_Language Selection\German.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Greek.reg" "$INSTDIR\_Language Selection\Greek.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Hebrew.reg" "$INSTDIR\_Language Selection\Hebrew.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Hungarian.reg" "$INSTDIR\_Language Selection\Hungarian.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Italian.reg" "$INSTDIR\_Language Selection\Italian.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Japanese.reg" "$INSTDIR\_Language Selection\Japanese.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Korean.reg" "$INSTDIR\_Language Selection\Korean.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Norwegian.reg" "$INSTDIR\_Language Selection\Norwegian.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Portuguese_Portugal.reg" "$INSTDIR\_Language Selection\Portuguese_Portugal.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Polish.reg" "$INSTDIR\_Language Selection\Polish.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Portuguese_Brazil.reg" "$INSTDIR\_Language Selection\Portuguese_Brazil.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Russian.reg" "$INSTDIR\_Language Selection\Russian.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Spanish.reg" "$INSTDIR\_Language Selection\Spanish.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Swedish.reg" "$INSTDIR\_Language Selection\Swedish.reg" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Thai.reg" "$INSTDIR\_Language Selection\Thai.reg" /BACKGROUND /END
 
 	DetailPrint "Creating Downloads folder..."
 	CreateDirectory "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads" 
@@ -159,7 +161,6 @@ SectionEnd
 Section "Graphics Rules Maker" Section2
 	SectionInstType ${IT_FULL} ${IT_AMD} ${IT_MIN}
 
-	CreateDirectory "$INSTDIR\temp"
 	SetOutPath "$INSTDIR\temp"
 	${If} ${RunningX64}
 		DetailPrint "Downloading Graphics Rules Maker..."
@@ -174,13 +175,11 @@ Section "Graphics Rules Maker" Section2
 	${EndIf}
 	Execwait $INSTDIR\temp\grm_install.exe
 	Delete $INSTDIR\temp\grm_install.exe
-	RMDir /r $INSTDIR\temp
 SectionEnd
 
 Section /o "DXVK" Section3
 	SectionInstType ${IT_AMD} 
 
-	CreateDirectory "$INSTDIR\temp"
 	SetOutPath $INSTDIR\temp
 
 	DetailPrint "Downloading Vulkan-Test to check for DXVK support..."
@@ -195,7 +194,7 @@ Section /o "DXVK" Section3
 	true: 
 		SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin\"
 		DetailPrint "Downloading DXVK $DXVKVER..."
-		NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/main/components/d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll" /RESUME /INSIST /CANCEL /END
+		NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll" /RESUME /INSIST /CANCEL /END
 		Pop $0 # return value = exit code, "OK" means OK
 		DetailPrint "DXVK download status: $0." 
 
@@ -206,7 +205,6 @@ Section /o "DXVK" Section3
 	false:
 		DetailPrint "Vulkan is unsupported, DXVK will be skipped."
 	next:
-	RMDir /r "$INSTDIR\temp"
 	Pop $0
 	DetailPrint "Cleanup result: $0"
 SectionEnd
@@ -214,14 +212,13 @@ SectionEnd
 Section "Visual C++ Redist" Section4
 	SectionInstType ${IT_FULL} ${IT_AMD}
 
-	CreateDirectory "$INSTDIR\temp"	
+	SetOutPath "$INSTDIR\temp"	
 	DetailPrint "Downloading VC Redist..."
 	NScurl::http GET "https://aka.ms/vs/17/release/vc_redist.x86.exe" "temp\vc_redist.x86.exe" /RESUME /INSIST /CANCEL /END
 	Pop $0
 	DetailPrint "VC Redist download status: $0. Executing silently..."
 	ExecWait "$INSTDIR\temp\vc_redist.x86.exe /q /norestart"
 	Delete "$INSTDIR\temp\vc_redist.x86.exe"
-	RMDir /r "$INSTDIR\temp"
 	Pop $0
 	DetailPrint "Cleanup result: $0"	
 SectionEnd
@@ -229,7 +226,7 @@ SectionEnd
 Section ".NET Framework" Section5
 	SectionInstType ${IT_FULL} ${IT_AMD}
 
-	CreateDirectory "$INSTDIR\temp"	
+	SetOutPath "$INSTDIR\temp"	
 	DetailPrint "Downloading x86 .NET Framework..."
 	NScurl::http GET "https://go.microsoft.com/fwlink/?LinkId=2085155" "temp\ndp48_web.exe" /RESUME /INSIST /CANCEL /END
 	Pop $0
@@ -238,7 +235,6 @@ Section ".NET Framework" Section5
 	ExecWait "$INSTDIR\temp\ndp48_web.exe /q /norestart"
 
 	Delete "$INSTDIR\temp\ndp48_web.exe"
-	RMDir /r "$INSTDIR\temp"
 	Pop $0
 	DetailPrint "Cleanup result: $0"
 SectionEnd
@@ -247,14 +243,10 @@ Section "Sim Shadow Fix" Section6
 	SectionInstType ${IT_FULL}
 
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
-	NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v11/components/simNopke-simShadowFix0.3reallyNotMisty.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\simNopke-simShadowFix0.3reallyNotMisty.package" /RESUME /INSIST /CANCEL /END
+	NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v12/components/simNopke-simShadowFix0.3reallyNotMisty.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\simNopke-simShadowFix0.3reallyNotMisty.package" /RESUME /INSIST /CANCEL /END
 	Pop $0
 	DetailPrint "Shadow Fix download status: $0"
 	ExecShell "open" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
-SectionEnd
-
-Section
-	ExecShell "open" "$INSTDIR\Fun with Pets\SP9\TSBin"
 SectionEnd
 
 Section "Start Menu/Desktop Shortcut" Section7
@@ -266,6 +258,11 @@ Section "Start Menu/Desktop Shortcut" Section7
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	CreateShortCut '$Desktop\Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 SectionEnd 
+
+Section
+	ExecShell "open" "$INSTDIR\Fun with Pets\SP9\TSBin"
+	RMDir /r "$INSTDIR\temp"
+SectionEnd
 
 Section "Uninstall" Section8
 	SetRegView 32

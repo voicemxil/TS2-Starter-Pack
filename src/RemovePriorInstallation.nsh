@@ -5,10 +5,10 @@
 IfErrors keydontexist keyexists
 goto noo
 keyexists:
-        ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Install Dir" 
-        MessageBox MB_YESNO|MB_ICONEXCLAMATION "A previous installation of The Sims 2 was detected on this system. Leaving behind remnants in the registry can cause unwanted behavior. Would you like the installer to remove the conflicting registry keys?$\n$\nWARNING: this will remove the game files at '$R4' as well as registry keys we detected, rendering the old installation unplayable. Your save file directories will not be affected." IDYES si IDNO noo
+        ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
+        MessageBox MB_YESNO|MB_ICONEXCLAMATION "A previous installation of The Sims 2 was detected on this system. Leaving behind remnants in the registry can cause unwanted behavior. Would you like the installer to remove the conflicting installation?$\n$\nWARNING: this will remove the game files at '$R4' as well as registry keys we detected, rendering the old installation unplayable. Your save file directories will not be affected." IDYES si IDNO noo
 si:
-            ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Install Dir" 
+            ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
             RMDir /r $R4
             DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2"
             DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Apartment Life"

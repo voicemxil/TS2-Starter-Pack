@@ -2,7 +2,7 @@
 !macro setLanguage gameKey
 	SetRegView 32
   	System::Call 'kernel32::GetSystemDefaultLangID() i .r7' 	
-	Pop $7	
+	Pop $R7	
 	DetailPrint "Detected Language: $7" 
 	${If} $7 == 1033 ; English
 	${OrIf} $7 == 4105
@@ -128,12 +128,15 @@
 		DetailPrint "Game Language = Norwegian"
 		WriteRegDWORD HKLM32 "Software\${gameKey}\1.0" "Language" "16"
 		WriteRegStr HKLM32 "Software\${gameKey}\1.0" "LanguageName" "Norwegian"
+	${ElseIf} $7 == 2070 ; Portuguese
+		DetailPrint "Game Language = Portuguese"
+		WriteRegDWORD HKLM32 "Software\${gameKey}\1.0" "Language" "17"
+		WriteRegStr HKLM32 "Software\${gameKey}\1.0" "LanguageName" "Portuguese"
 	${ElseIf} $7 == 1038 ; Hungarian
 		DetailPrint "Game Language = Hungarian"
 		WriteRegDWORD HKLM32 "Software\${gameKey}\1.0" "Language" "18"
 		WriteRegStr HKLM32 "Software\${gameKey}\1.0" "LanguageName" "Hungarian"
 	${ElseIf} $7 == 1046 ; Portuguese (Brazil)
-	${OrIf} $7 == 2070
 		DetailPrint "Game Language = Portuguese (Brazil)"
 		WriteRegDWORD HKLM32 "Software\${gameKey}\1.0" "Language" "a"
 		WriteRegStr HKLM32 "Software\${gameKey}\1.0" "LanguageName" "Portuguese (Brazil)"
