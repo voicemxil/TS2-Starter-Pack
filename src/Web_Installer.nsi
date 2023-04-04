@@ -187,7 +187,6 @@ Section /o "DXVK" Section3
 	ExecWait "vulkan_test.exe"
 
 	Delete "$INSTDIR\temp\vulkan_test.exe"
-		RMDir /r "$INSTDIR\temp"
 		Pop $0
 		DetailPrint "Cleanup result: $0"
 	MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
@@ -205,8 +204,6 @@ Section /o "DXVK" Section3
 	false:
 		DetailPrint "Vulkan is unsupported, DXVK will be skipped."
 	next:
-	Pop $0
-	DetailPrint "Cleanup result: $0"
 SectionEnd
 	
 Section "Visual C++ Redist" Section4
