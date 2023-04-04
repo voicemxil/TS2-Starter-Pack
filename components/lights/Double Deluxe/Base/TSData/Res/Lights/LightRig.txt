@@ -1,0 +1,134 @@
+# Light rig parser commands:
+#
+# lightrig <string>
+# Start a light rig definition with the specified logical name
+#
+# autoRig [<state:string>]
+# Turns on auto-lighting (the lighting manager).
+#
+# resource <string>
+# Specifies the on-disk name for the light rig scene graph resource
+#
+# root <string>
+# Specifies the node tag used to search for the root locator node in the light rig hierarchy
+#
+
+
+version 1
+
+
+# Default lot lighting setup
+lightrig Lot
+   autoRig
+end
+
+# Neighbourhood
+lightrig neighbourhood
+   autoRig neighbourhood
+end
+
+
+# Need light rigs for the following.
+
+lightrig UIFamilyView
+   resource UIPieMenu
+   root     UIPieMenu
+end
+
+lightrig UICreateASim
+   resource UIPieMenu
+   root     UIPieMenu
+end
+
+lightrig UIUCPHead
+   resource UIPieMenu
+   root     UIPieMenu
+end
+
+lightrig UIPieMenu
+   resource UIPieMenu
+   root     UIPieMenu
+end
+
+lightrig UIHouseInfoHead
+   resource UIPersonHead
+   root     UIPersonHead
+end
+
+lightrig CASUIMAB
+   resource SimThumbnails
+   root     SimThumbnails
+end
+
+lightrig ClothingPurchaseDialog
+   resource UIPieMenu
+   root     UIPieMenu
+end
+
+lightrig ClothingDialog
+   resource UIPieMenu
+   root     UIPieMenu
+end
+
+lightrig VanityDialog
+   resource UIPieMenu
+   root     UIPieMenu
+end
+
+# Thumbnail default light rigs
+lightrig UIDeckFoundationThumbnails
+   resource Thumbnails
+   root     Thumbnails
+end
+
+lightrig UIDormerThumbnails
+   resource Thumbnails
+   root     Thumbnails
+end
+
+lightrig UIFenceThumbnails
+   resource Thumbnails
+   root     Thumbnails
+end
+
+lightrig UIFireplaceThumbnails
+   resource Thumbnails
+   root     Thumbnails
+end
+
+lightrig UIFloorThumbnails
+   resource floorThumbnails
+   root     floorThumbnails
+end
+
+lightrig UIModularStairThumbnails
+   resource Thumbnails
+   root     Thumbnails
+end
+
+lightrig UIObjectThumbnails
+   resource Thumbnails
+   root     Thumbnails
+end
+
+lightrig UIPoolThumbnails
+   resource Thumbnails
+   root     Thumbnails
+end
+
+lightrig UIRoofThumbnails
+   resource Thumbnails
+   root     Thumbnails
+end
+
+lightrig UITerrainThumbnails
+   resource terrainThumbnails
+   root     terrainThumbnails
+end
+ 
+lightrig UIWallThumbnails
+   resource wallThumbnails
+   root     wallThumbnails
+end
+ 
+sinclude userLightRig.txt

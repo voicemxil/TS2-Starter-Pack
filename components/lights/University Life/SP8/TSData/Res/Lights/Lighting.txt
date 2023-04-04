@@ -1,0 +1,117 @@
+####################################################
+# EP2 Lighting Manager settings
+#
+
+# Lighting override (.nlo) files for specific EP1 objects should be placed in this directory.
+# The following command triggers the game to parse all such files.
+
+
+sinclude "SP8Lights.nlo"
+
+lightingState night
+
+   environment (0.5, 0.5, 1) 0.7  # override environment lighting state
+
+end
+
+
+lightingState neighbourhood
+
+   environment (1, 1, 1) 1.0  # override environment lighting state
+
+end
+
+lightingState neighbourhoodNoPortals
+   
+   skylight                      (.87,.925,1)  .25
+   light sun      (1.75, -2, 1.5)    (1, .9, .8) 1.75
+   light sky      (-2, 1.75, 2)  (0.7,.75,.8)   .5
+   light fill1    (0, 0, 1)     (1,1,1)     0.25
+
+   lightMap 0x0be702ef
+   
+   # inside diffusion
+   diffParam insideAmbientColor       (1, .95, .75)
+   diffParam insideFloorAmbient        .15 
+   diffParam insideWallAmbient         .25 
+   
+   # diffusion inside and outside
+   diffParam floorThreshold            0.154
+   diffParam wallThreshold             0.12
+   
+   #               pract. diffuse  p. falloff  d. falloff
+   modifiers insidePortals       3      3.8        0.8         .9
+   modifiers insidePortalSpills  3      4          .8         1.3
+   
+   modifiers outsidePortals      0       0          1           1
+   modifiers outsidePortalSpills 0       0          1           1
+
+   #                         pract. diffuse  p. falloff  d. falloff
+   modifiers insideObjects     1       1         2        1 
+   modifiers outsideObjects    0.5     1         4         2  
+
+
+   # extra ambient for unlit rooms.
+   unlitRoomColor (0.01, 0.01, 0.01)
+   
+   flatShade (1, .95, .85) .75  # for lighting quality 0
+
+   environment (1, 1, 1) 1.0  # override environment lighting state   
+end
+
+####################################################
+# Neighbourhood
+#
+lightingState neighborhoodnight
+   # outside direct lighting
+  # skylight (0.65, 0.65, .95) 1
+  # light sun    ( 1, -2, 2)     (.9, .855, .8) 1.6
+  # light sky    (-1,  2, 1)     (.8, .8, 1)  .9 
+ # skylight                      (.87,.925,1)  0.5
+  # light sun      (1.5, 1.2, 2)    (1, .94, .875)     1.75
+   # light sky      (-1.5, -1.2, 2)  (.8,.8,.8)    .25
+    # light fill1    (1, 1, 1)     (1,1,1)    .15
+
+   
+   skylight                         (0.2, 0.2, 1)     .3
+  light sun      (-1.5, -1,  2)    (.45, .45, 1)      1
+   # light sun      (-1.5, -1,  2)    (.3, .3, .95)      .6
+   #light sky      ( 1.5,  1, 1)    (.25, 0.25, 1)    .6
+
+   lightMap   0x6fb59732
+   
+   # inside diffusion
+   diffParam insideAmbientColor       (1, .95, .75)
+   diffParam insideFloorAmbient        .15 
+   diffParam insideWallAmbient         .25 
+   
+   # diffusion inside and outside
+   diffParam floorThreshold            0.154
+   diffParam wallThreshold             0.12
+   
+   #               pract. diffuse  p. falloff  d. falloff
+   modifiers insidePortals       3      3.8        0.8         .9
+   modifiers insidePortalSpills  3      4          .8         1.3
+   
+   modifiers outsidePortals      0       0          1           1
+   modifiers outsidePortalSpills 0       0          1           1
+
+   #                         pract. diffuse  p. falloff  d. falloff
+   modifiers insideObjects     1       1         2        1 
+   modifiers outsideObjects    0.5     1         4         2  
+
+
+   # extra ambient for unlit rooms.
+   unlitRoomColor (0.01, 0.01, 0.01)
+   
+   # fog <colour> <nearRange> <farRange>
+   # DISABLED pending shader program path support for linear fog.
+   #fog (0.9, 0.9, 1) 1200 2200
+
+   flatShade (.3, .35, .9) .5  # for lighting quality 0
+
+   environment (0.5, 0.5, 1) 0.65  # override environment lighting state
+
+end
+
+

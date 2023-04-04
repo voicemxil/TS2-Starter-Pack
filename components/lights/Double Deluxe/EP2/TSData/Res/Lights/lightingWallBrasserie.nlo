@@ -1,0 +1,19 @@
+### lightingWallBrasserie ####################################
+
+
+
+lightAttribOverride lightingWallBrasserie_light intensity 1
+lightAttribOverride lightingWallBrasserie_light color (1, 1, .7)
+lightAttribOverride lightingWallBrasserie_light falloffRate 1
+lightAttribOverride lightingWallBrasserie_light diffusionSourceIntensity 1
+lightAttribOverride lightingWallBrasserie_light diffusionSourceColor (1, 1 , .7)
+lightAttribOverride lightingWallBrasserie_light diffusionSourceMin (-.5, -.5)
+lightAttribOverride lightingWallBrasserie_light diffusionSourceMax (.5, .5)
+lightAttribOverride lightingWallBrasserie_light diffusionSourceFalloff 1.2
+lightAttribOverride lightingWallBrasserie_light diffusionSourceWallIntensityScale 1
+lightAttribOverride lightingWallBrasserie_light diffusionSourceFloorIntensityScale 0.8
+lightAttribOverride lightingWallBrasserie_light diffusionSourceIsDirectional 0
+lightAttribOverride lightingWallBrasserie_light diffusionSourceDirectionalFalloff 0
+
+
+

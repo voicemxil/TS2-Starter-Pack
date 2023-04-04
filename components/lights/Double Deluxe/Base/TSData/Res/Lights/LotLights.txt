@@ -1,0 +1,41 @@
+######################################################### 
+# Various manual light overrides for lot lighting.
+#
+
+######################################################### 
+#
+# Set diffusion constants for practical lights
+#
+# diffusionSourceIntensity defaults to 10
+# diffusionSourceColor default to white (1, 1, 1)
+# diffusionSourceMin defaults to (-0.5, -0.5)
+# diffusionSourceMax defaults to (0.5, 0.5)
+# diffusionSourceIsDirectional defaults to false
+# diffusionSourceDirectionalFalloff defaults to false
+
+setf wConeMul 40
+setf wPenMul  20
+
+# LightRigs
+sinclude "LightRigs/PieMenu.txt"
+sinclude "LightRigs/terrainThumbnails.txt"
+sinclude "LightRigs/SimThumbnails.txt"
+sinclude "LightRigs/CASThumbnails.txt"
+
+# CAS
+sinclude "cas/casNeighborhoodPose.txt"
+sinclude "cas/casStudio.txt"
+
+# -- Studio lights --
+sinclude "objects/lightingFloorStudioUmbrella.txt"
+sinclude "objects/lightingFloorStudioBoom.txt"
+sinclude "objects/lightingFloorStudioDiffuser.txt"
+sinclude "objects/lightingFloorStudioBarnDoors.txt"
+sinclude "objects/lightingFloorStudioBoxDiffuser.txt"
+
+sinclude "windows/windows.txt"
+
+sinclude "objects/colors.txt"
+sinclude "objects/lightObjects.txt"
+sinclude "objects/SpecialObjects.txt"
+sinclude "CAS_lighting.txt"

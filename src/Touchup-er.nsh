@@ -12,7 +12,7 @@
 	WriteRegStr HKLM32 "Software\${gameKey}" "Folder" "$INSTDIR"
 		Pop $3
 		DetailPrint "Folder Registry: $3"
-	WriteRegStr HKLM32 "Software\${gameKey}" "Install Dir" "$INSTDIR"
+	WriteRegStr HKLM32 "Software\${gameKey}" "Install Dir" "$INSTDIR\Double Deluxe\Base"
 		Pop $3
 		DetailPrint "Install Dir Registry: $3"
 	WriteRegStr HKLM32 "Software\${gameKey}" "Product GUID" "${GameGUID}"

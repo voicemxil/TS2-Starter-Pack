@@ -1,0 +1,270 @@
+
+### Windows #########################################
+
+create WFive(windowMedieval_0_0_0_N_light)
+create WFive(windowMedieval_0_1S_0_S_light)
+create WFive(windowMedievalDiagonal_0_0_0_NW_light)
+create WFive(windowMedievalDiagonal_0_0_0_SE_light)
+create NS(windowMedieval_0_0_0_N_light)
+create NS(windowMedieval_0_1S_0_S_light)
+create EW(windowMedievalDiagonal_0_0_0_NW_light)
+create EW(windowMedievalDiagonal_0_0_0_SE_light)
+
+
+create WFive(windowGroovy_0_0_0_N_light)
+create WFive(windowGroovy_0_1S_0_S_light)
+create WFive(windowGroovyDiagonal_0_0_0_NW_light)
+create WFive(windowGroovyDiagonal_0_0_0_SE_light)
+create NS(windowGroovy_0_0_0_N_light)
+create NS(windowGroovy_0_1S_0_S_light)
+create EW(windowGroovyDiagonal_0_0_0_NW_light)
+create EW(windowGroovyDiagonal_0_0_0_SE_light)
+
+
+### Doors ###########################################
+
+create WFour(doorGroovy_0_0_0_N_light)
+create WFour(doorGroovy_0_1S_0_S_light)
+create WFour(doorGroovyDiagonal_0_0_0_NW_light)
+create WFour(doorGroovyDiagonal_0_0_0_SE_light)
+create NS(doorGroovy_0_0_0_N_light)
+create NS(doorGroovy_0_1S_0_S_light)
+create EW(doorGroovyDiagonal_0_0_0_NW_light)
+create EW(doorGroovyDiagonal_0_0_0_SE_light)
+
+create WEight(doorGroovyArch_0_0_0_N_light)
+create WEight(doorGroovyArch_0_1S_0_S_light)
+create WEight(doorGroovyDiagonalArch_0_0_0_NW_light)
+create WEight(doorGroovyDiagonalArch_0_0_0_SE_light)
+create NS(doorGroovyArch_0_0_0_N_light)
+create NS(doorGroovyArch_0_1S_0_S_light)
+create EW(doorGroovyDiagonalArch_0_0_0_NW_light)
+create EW(doorGroovyDiagonalArch_0_0_0_SE_light)
+
+create noAngle(doorGroovy_0_0_0_N_light)
+create noAngle(doorGroovy_0_1S_0_S_light)
+create noAngle(doorGroovyDiagonal_0_0_0_NW_light)
+create noAngle(doorGroovyDiagonal_0_0_0_SE_light)
+create noAngle(doorGroovyArch_0_0_0_N_light)
+create noAngle(doorGroovyArch_0_1S_0_S_light)
+create noAngle(doorGroovyDiagonalArch_0_0_0_NW_light)
+create noAngle(doorGroovyDiagonalArch_0_0_0_SE_light)
+
+create WSix(door3TileWide2StoryMedieval_0_0_0_N_light)
+create WSix(door3TileWide2StoryMedieval_1E_0_0_N_light)
+create WSix(door3TileWide2StoryMedieval_2E_0_0_N_light)
+create WEight(door3TileWide2StoryMedieval_0_0_1_N_light)
+create WEight(door3TileWide2StoryMedieval_1E_0_1_N_light)
+create WEight(door3TileWide2StoryMedieval_2E_0_1_N_light)
+create WEight(door3TileWide2StoryMedieval_0_1S_0_S_light)
+create WEight(door3TileWide2StoryMedieval_1E_1S_0_S_light)
+create WEight(door3TileWide2StoryMedieval_2E_1S_0_S_light)
+create WSeven(door3TileWide2StoryMedieval_0_1S_1_S_light)
+create WSeven(door3TileWide2StoryMedieval_1E_1S_1_S_light)
+create WSeven(door3TileWide2StoryMedieval_2E_1S_1_S_light)
+create NS(door3TileWide2StoryMedieval_0_0_0_N_light)
+create NS(door3TileWide2StoryMedieval_1E_0_0_N_light)
+create NS(door3TileWide2StoryMedieval_2E_0_0_N_light)
+create NS(door3TileWide2StoryMedieval_0_0_1_N_light)
+create NS(door3TileWide2StoryMedieval_1E_0_1_N_light)
+create NS(door3TileWide2StoryMedieval_2E_0_1_N_light)
+create NS(door3TileWide2StoryMedieval_0_1S_0_S_light)
+create NS(door3TileWide2StoryMedieval_1E_1S_0_S_light)
+create NS(door3TileWide2StoryMedieval_2E_1S_0_S_light)
+create NS(door3TileWide2StoryMedieval_0_1S_1_S_light)
+create NS(door3TileWide2StoryMedieval_1E_1S_1_S_light)
+create NS(door3TileWide2StoryMedieval_2E_1S_1_S_light)
+
+create WNine(door3TileWide2StoryMedievalArch_0_0_0_N_light)
+create WTen(door3TileWide2StoryMedievalArch_1E_0_0_N_light)
+create WNine(door3TileWide2StoryMedievalArch_2E_0_0_N_light)
+create WTen(door3TileWide2StoryMedievalArch_0_0_1_N_light)
+create WTen(door3TileWide2StoryMedievalArch_1E_0_1_N_light)
+create WTen(door3TileWide2StoryMedievalArch_2E_0_1_N_light)
+create WNine(door3TileWide2StoryMedievalArch_0_1S_0_S_light)
+create WTen(door3TileWide2StoryMedievalArch_1E_1S_0_S_light)
+create WNine(door3TileWide2StoryMedievalArch_2E_1S_0_S_light)
+create WTen(door3TileWide2StoryMedievalArch_0_1S_1_S_light)
+create WTen(door3TileWide2StoryMedievalArch_1E_1S_1_S_light)
+create WTen(door3TileWide2StoryMedievalArch_2E_1S_1_S_light)
+create NS(door3TileWide2StoryMedievalArch_0_0_0_N_light)
+create NS(door3TileWide2StoryMedievalArch_1E_0_0_N_light)
+create NS(door3TileWide2StoryMedievalArch_2E_0_0_N_light)
+create NS(door3TileWide2StoryMedievalArch_0_0_1_N_light)
+create NS(door3TileWide2StoryMedievalArch_1E_0_1_N_light)
+create NS(door3TileWide2StoryMedievalArch_2E_0_1_N_light)
+create NS(door3TileWide2StoryMedievalArch_0_1S_0_S_light)
+create NS(door3TileWide2StoryMedievalArch_1E_1S_0_S_light)
+create NS(door3TileWide2StoryMedievalArch_2E_1S_0_S_light)
+create NS(door3TileWide2StoryMedievalArch_0_1S_1_S_light)
+create NS(door3TileWide2StoryMedievalArch_1E_1S_1_S_light)
+create NS(door3TileWide2StoryMedievalArch_2E_1S_1_S_light)
+
+lightAttribOverride door3TileWide2StoryMedievalArch_0_0_0_N_light diffusionSourceFalloff 0.35
+lightAttribOverride door3TileWide2StoryMedievalArch_1E_0_0_N_light diffusionSourceFalloff 0.35
+lightAttribOverride door3TileWide2StoryMedievalArch_2E_0_0_N_light diffusionSourceFalloff 0.35
+lightAttribOverride door3TileWide2StoryMedievalArch_0_0_1_N_light diffusionSourceFalloff 0.35
+lightAttribOverride door3TileWide2StoryMedievalArch_1E_0_1_N_light diffusionSourceFalloff 0.35
+lightAttribOverride door3TileWide2StoryMedievalArch_2E_0_1_N_light diffusionSourceFalloff 0.35
+lightAttribOverride door3TileWide2StoryMedievalArch_0_1S_0_S_light diffusionSourceFalloff 0.35
+lightAttribOverride door3TileWide2StoryMedievalArch_1E_1S_0_S_light diffusionSourceFalloff 0.35
+lightAttribOverride door3TileWide2StoryMedievalArch_2E_1S_0_S_light diffusionSourceFalloff 0.35
+lightAttribOverride door3TileWide2StoryMedievalArch_0_1S_1_S_light diffusionSourceFalloff 0.35
+lightAttribOverride door3TileWide2StoryMedievalArch_1E_1S_1_S_light diffusionSourceFalloff 0.35
+lightAttribOverride door3TileWide2StoryMedievalArch_2E_1S_1_S_light diffusionSourceFalloff 0.35
+
+create WFive(door2TileWideMedievalArch_0_0_0_N_light)
+create WFive(door2TileWideMedievalArch_0_1S_0_S_light)
+create WFive(door2TileWideMedievalArch_1E_0_0_N_light)
+create WFive(door2TileWideMedievalArch_1E_1S_0_S_light)
+create WFive(door2TileWideMedievalDiagonalArch_0_0_0_NW_light)
+create WFive(door2TileWideMedievalDiagonalArch_0_0_0_SE_light)
+create WFive(door2TileWideMedievalDiagonalArch_1E_1N_0_NW_light)
+create WFive(door2TileWideMedievalDiagonalArch_1E_1N_0_SE_light)
+create NS(door2TileWideMedievalArch_0_0_0_N_light)
+create NS(door2TileWideMedievalArch_0_1S_0_S_light)
+create NS(door2TileWideMedievalArch_1E_0_0_N_light)
+create NS(door2TileWideMedievalArch_1E_1S_0_S_light)
+create EW(door2TileWideMedievalDiagonalArch_0_0_0_NW_light)
+create EW(door2TileWideMedievalDiagonalArch_0_0_0_SE_light)
+create EW(door2TileWideMedievalDiagonalArch_1E_1N_0_NW_light)
+create EW(door2TileWideMedievalDiagonalArch_1E_1N_0_SE_light)
+create noAngle(door2TileWideMedievalArch_0_0_0_N_light)
+create noAngle(door2TileWideMedievalArch_0_1S_0_S_light)
+create noAngle(door2TileWideMedievalArch_1E_0_0_N_light)
+create noAngle(door2TileWideMedievalArch_1E_1S_0_S_light)
+create noAngle(door2TileWideMedievalDiagonalArch_0_0_0_NW_light)
+create noAngle(door2TileWideMedievalDiagonalArch_0_0_0_SE_light)
+create noAngle(door2TileWideMedievalDiagonalArch_1E_1N_0_NW_light)
+create noAngle(door2TileWideMedievalDiagonalArch_1E_1N_0_SE_light)
+
+
+### Ceiling lamps ##################################
+
+create Six(lightingCeilingGroovy_light) 
+create SoftBlue(lightingCeilingGroovy_light)
+
+### Floor lamps ####################################
+
+create Five(lightingFloorGroovy_light)
+create SoftBlue(lightingFloorGroovy_light)
+
+create Five(lightingFloorMedieval_light)
+create SoftAmber(lightingFloorMedieval_light)
+
+### Wall lamps #####################################
+
+create Three(lightingWallMedieval_light)
+create Amber(lightingWallMedieval_light)
+
+### Table lamps ####################################
+
+create Three(lightingTableMedieval_light)
+create Amber(lightingTableMedieval_light)
+
+### Outdoor lights #################################
+
+### Misc ###########################################
+
+lightAttribOverride bonfireStage1_light color (1, 0.8, 0.3)
+lightAttribOverride bonfireStage1_light intensity 2.5
+lightAttribOverride bonfireStage1_light falloffRate 1.3
+lightAttribOverride bonfireStage1_light diffusionSourceColor (1, 0.8, 0.3)
+lightAttribOverride bonfireStage1_light diffusionSourceIntensity 2.5
+lightAttribOverride bonfireStage1_light diffusionSourceFalloff 3
+lightAttribOverride bonfireStage1_light diffusionSourceWallIntensityScale 1
+lightAttribOverride bonfireStage1_light diffusionSourceFloorIntensityScale 1
+lightAttribOverride bonfireStage1_light diffusionSourceIsDirectional 0
+
+lightAttribOverride bonfireStage2_light color (1, 0.8, 0.3)
+lightAttribOverride bonfireStage2_light intensity 2.5
+lightAttribOverride bonfireStage2_light falloffRate 1.3
+lightAttribOverride bonfireStage2_light diffusionSourceColor (1, 0.8, 0.3)
+lightAttribOverride bonfireStage2_light diffusionSourceIntensity 1.6
+lightAttribOverride bonfireStage2_light diffusionSourceFalloff 3
+lightAttribOverride bonfireStage2_light diffusionSourceWallIntensityScale 1
+lightAttribOverride bonfireStage2_light diffusionSourceFloorIntensityScale 1
+lightAttribOverride bonfireStage2_light diffusionSourceIsDirectional 0
+
+create SoftBlue(vendingKiosk_light)
+create SoftBlue(vendingKiosk_light1)
+create SFour(vendingKiosk_light)
+create SFour(vendingKiosk_light1)
+
+create ElectricBlue(arcadeGame_light) 
+lightAttribOverride arcadeGame_light intensity 1
+lightAttribOverride arcadeGame_light falloffRate 1.3
+lightAttribOverride arcadeGame_light diffusionSourceIntensity 0.7
+lightAttribOverride arcadeGame_light diffusionSourceFalloff 2
+lightAttribOverride arcadeGame_light diffusionSourceWallIntensityScale 0
+lightAttribOverride arcadeGame_light diffusionSourceFloorIntensityScale 1
+lightAttribOverride arcadeGame_light diffusionSourceIsDirectional 0
+
+
+#lightAttribOverride lightingFloorStudioBarnDoors_light intensity 1.25
+#lightAttribOverride lightingFloorStudioBarnDoors_light color (1.0, 0.95, 0.85)
+#lightAttribOverride lightingFloorStudioBarnDoors_light falloffRate 0.35
+#lightAttribOverride lightingFloorStudioBarnDoors_light diffusionSourceIntensity 1.5
+#lightAttribOverride lightingFloorStudioBarnDoors_light diffusionSourceColor (1.0, 0.95, 0.85)
+#lightAttribOverride lightingFloorStudioBarnDoors_light diffusionSourceMin (-.5, -.5)
+#lightAttribOverride lightingFloorStudioBarnDoors_light diffusionSourceMax (.5, .5)
+#lightAttribOverride lightingFloorStudioBarnDoors_light diffusionSourceFalloff .7
+#lightAttribOverride lightingFloorStudioBarnDoors_light diffusionSourceWallIntensityScale 1.5
+#lightAttribOverride lightingFloorStudioBarnDoors_light diffusionSourceFloorIntensityScale 0.3
+#lightAttribOverride lightingFloorStudioBarnDoors_light diffusionSourceIsDirectional 0
+#lightAttribOverride lightingFloorStudioBarnDoors_light diffusionSourceDirectionalFalloff 0
+
+#lightAttribOverride lightingFloorStudioBoom_light intensity 1.25
+#lightAttribOverride lightingFloorStudioBoom_light color (1.0, 0.95, 0.85)
+#lightAttribOverride lightingFloorStudioBoom_light falloffRate 0.2
+#lightAttribOverride lightingFloorStudioBoom_light diffusionSourceIntensity 1.6
+#lightAttribOverride lightingFloorStudioBoom_light diffusionSourceColor (1.0, 0.95, 0.85)
+#lightAttribOverride lightingFloorStudioBoom_light diffusionSourceMin (-.5, -.5)
+#lightAttribOverride lightingFloorStudioBoom_light diffusionSourceMax (.5, .5)
+#lightAttribOverride lightingFloorStudioBoom_light diffusionSourceFalloff 0.7
+#lightAttribOverride lightingFloorStudioBoom_light diffusionSourceWallIntensityScale 0.9
+#lightAttribOverride lightingFloorStudioBoom_light diffusionSourceFloorIntensityScale 0.6
+#lightAttribOverride lightingFloorStudioBoom_light diffusionSourceIsDirectional 0
+#lightAttribOverride lightingFloorStudioBoom_light diffusionSourceDirectionalFalloff 0
+
+#lightAttribOverride lightingFloorStudioBoxDiffuser_light intensity 2.0
+#lightAttribOverride lightingFloorStudioBoxDiffuser_light color (1.0, 0.95, 0.85)
+#lightAttribOverride lightingFloorStudioBoxDiffuser_light falloffRate 0.2
+#lightAttribOverride lightingFloorStudioBoxDiffuser_light diffusionSourceIntensity 1.9
+#lightAttribOverride lightingFloorStudioBoxDiffuser_light diffusionSourceColor (1.0, 0.95, 0.85)
+#lightAttribOverride lightingFloorStudioBoxDiffuser_light diffusionSourceMin (-.5, -.5)
+#lightAttribOverride lightingFloorStudioBoxDiffuser_light diffusionSourceMax (.5, .5)
+#lightAttribOverride lightingFloorStudioBoxDiffuser_light diffusionSourceFalloff .5
+#lightAttribOverride lightingFloorStudioBoxDiffuser_light diffusionSourceWallIntensityScale 0.9
+#lightAttribOverride lightingFloorStudioBoxDiffuser_light diffusionSourceFloorIntensityScale 0.6
+#lightAttribOverride lightingFloorStudioBoxDiffuser_light diffusionSourceIsDirectional 0
+#lightAttribOverride lightingFloorStudioBoxDiffuser_light diffusionSourceDirectionalFalloff 0
+
+#lightAttribOverride lightingFloorStudioDiffuser_light intensity 1.25
+#lightAttribOverride lightingFloorStudioDiffuser_light color (.89, 0.95, 1)
+#lightAttribOverride lightingFloorStudioDiffuser_light falloffRate 0.4
+#lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceIntensity 1.0
+#lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceColor (.95, .95, 1)
+#lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceMin (-.5, -.5)
+#lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceMax (.5, .5)
+#lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceFalloff .8
+#lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceWallIntensityScale 0.9
+#lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceFloorIntensityScale 0.7
+#lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceIsDirectional 0
+#lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceDirectionalFalloff 0
+
+#lightAttribOverride lightingFloorStudioUmbrella_light intensity 1.1
+#lightAttribOverride lightingFloorStudioUmbrella_light color (1.0, 0.95, 0.84)
+#lightAttribOverride lightingFloorStudioUmbrella_light falloffRate .01
+#lightAttribOverride lightingFloorStudioUmbrella_light diffusionSourceIntensity 1.8
+#lightAttribOverride lightingFloorStudioUmbrella_light diffusionSourceColor (1.0, 0.95, 0.85)
+#lightAttribOverride lightingFloorStudioUmbrella_light diffusionSourceMin (-.5, -.5)
+#lightAttribOverride lightingFloorStudioUmbrella_light diffusionSourceMax (.5, .5)
+#lightAttribOverride lightingFloorStudioUmbrella_light diffusionSourceFalloff 0.8
+#lightAttribOverride lightingFloorStudioUmbrella_light diffusionSourceWallIntensityScale 1
+#lightAttribOverride lightingFloorStudioUmbrella_light diffusionSourceFloorIntensityScale 0.6
+#lightAttribOverride lightingFloorStudioUmbrella_light diffusionSourceIsDirectional 0
+#lightAttribOverride lightingFloorStudioUmbrella_light diffusionSourceDirectionalFalloff 0
+
+
+

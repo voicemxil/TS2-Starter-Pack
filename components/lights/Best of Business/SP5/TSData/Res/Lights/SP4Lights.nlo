@@ -1,0 +1,80 @@
+######### LIGHTS ####################
+
+######## Ceiling Lights ###############
+create Six(lightingCeilingSquareRetail_light)
+create SoftWhite(lightingCeilingSquareRetail_light)
+
+create Six(lightingCeilingPartyLantern_light)
+create SoftWhite(lightingCeilingPartyLantern_light)
+
+########### Floor lights ############
+
+######### OUTDOOR lights ##########
+
+######### Table lights ###########
+
+
+create Four(lightingTablePartyHurricane_light)
+create Amber(lightingTablePartyHurricane_light)
+
+create Four(lightingTablePartyTealights_light)
+create Fire(lightingTablePartyTealights_light)
+
+######### Wall lights ##########
+
+
+########## Windows ##############
+
+create NS(windowTwoTileTwoStoryRetail_1E_1S_1_S_light)
+create NS(windowTwoTileTwoStoryRetail_0_1S_0_S_light)
+create NS(doorThreeTileTwoStoryRetail_2E_0_0_N_light)
+create NS(windowTwoTileTwoStoryRetail_1E_1S_0_S_light)
+create NS(windowTwoTileTwoStoryRetail_0_1S_1_S_light)
+
+create NS(windowTwoTileTwoStoryRetail_0_0_1_N_light)
+create NS(windowTwoTileTwoStoryRetail_1E_0_1_N_light)
+create NS(windowTwoTileTwoStoryRetail_0_0_0_N_light)
+create NS(windowTwoTileTwoStoryRetail_1E_0_0_N_light)
+
+create WFive(windowTwoTileTwoStoryRetail_1E_1S_1_S_light)
+create WFive(windowTwoTileTwoStoryRetail_0_1S_0_S_light)
+create WFive(doorThreeTileTwoStoryRetail_2E_0_0_N_light)
+create WFive(windowTwoTileTwoStoryRetail_1E_1S_0_S_light)
+create WFive(windowTwoTileTwoStoryRetail_0_1S_1_S_light)
+
+create WFive(windowTwoTileTwoStoryRetail_0_0_1_N_light)
+create WFive(windowTwoTileTwoStoryRetail_1E_0_1_N_light)
+create WFive(windowTwoTileTwoStoryRetail_0_0_0_N_light)
+create WFive(windowTwoTileTwoStoryRetail_1E_0_0_N_light)
+
+
+########## Doors ##############
+
+create NS(doorThreeTileTwoStoryRetail_0_0_0_N_light)
+create NS(doorThreeTileTwoStoryRetail_1E_0_0_N_light)
+create NS(doorThreeTileTwoStoryRetail_2E_0_0_N_light)
+create NS(doorThreeTileTwoStoryRetail_0_0_1_N_light)
+create NS(doorThreeTileTwoStoryRetail_1E_0_1_N_light)
+create NS(doorThreeTileTwoStoryRetail_2E_0_1_N_light)
+
+create NS(doorThreeTileTwoStoryRetail_0_1S_0_S_light)
+create NS(doorThreeTileTwoStoryRetail_1E_1S_0_S_light)
+create NS(doorThreeTileTwoStoryRetail_2E_1S_0_S_light)
+create NS(doorThreeTileTwoStoryRetail_0_1S_1_S_light)
+create NS(doorThreeTileTwoStoryRetail_1E_1S_1_S_light)
+create NS(doorThreeTileTwoStoryRetail_2E_1S_1_S_light)
+
+
+create WFive(doorThreeTileTwoStoryRetail_0_0_0_N_light)
+create WFive(doorThreeTileTwoStoryRetail_1E_0_0_N_light)
+create WFive(doorThreeTileTwoStoryRetail_2E_0_0_N_light)
+create WFive(doorThreeTileTwoStoryRetail_0_0_1_N_light)
+create WFive(doorThreeTileTwoStoryRetail_1E_0_1_N_light)
+create WFive(doorThreeTileTwoStoryRetail_2E_0_1_N_light)
+
+create WFive(doorThreeTileTwoStoryRetail_0_1S_0_S_light)
+create WFive(doorThreeTileTwoStoryRetail_1E_1S_0_S_light)
+create WFive(doorThreeTileTwoStoryRetail_2E_1S_0_S_light)
+create WFive(doorThreeTileTwoStoryRetail_0_1S_1_S_light)
+create WFive(doorThreeTileTwoStoryRetail_1E_1S_1_S_light)
+create WFive(doorThreeTileTwoStoryRetail_2E_1S_1_S_light)
