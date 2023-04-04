@@ -113,7 +113,7 @@ Section "TS2 Starter Pack" Section1
 	!insertmacro downloadPack "Base Game" "$Base" "temp\Base.7z" "ab4d1cee854b5ca5dc7cf6e65746ab30f4d1ee407cd609a5bd86568e330b06c7"
 	!insertmacro downloadPack "Double Deluxe Packs" "$DD" "temp\DoubleDeluxe.7z" "3cc771c01a846fbf27b81d5ad5fce117bd998197e19674a1fa0aabc60bd45d91"
 	!insertmacro downloadPack "FreeTime" "$FT" "temp\FreeTime.7z" "3d250fe1da11b27df40daa291c80343a24bbdeef9387e016107819767035bf57"
-	!insertmacro downloadPack "Fun with Pets" "$FwP" "temp\FunwithPets.7z" "c13db6b6e609a058a53e24a717aeb4b76a9fecb8c4268b88f075dad287ad0639"
+	!insertmacro downloadPack "Fun with Pets" "$FwP" "temp\FunwithPets.7z" "3cf7cd78a5b38b9f152db759281d0a0a541ff2972e3b9997eb1c392deeeb70c3"
 	!insertmacro downloadPack "Glamour Life Stuff" "$GLS" "temp\GlamourLifeStuff.7z" "838d8011915942fbc27787c4bc967d3c78f0a61c1605f48efe899613201d6c1d"
 	!insertmacro downloadPack "Seasons" "$SS" "temp\Seasons.7z" "5b11abd4dd02b22668f54548a6ba5ca58d526ac7b11cd005e212fe100c7c74fb"
 	!insertmacro downloadPack "University Life" "$UNI" "temp\UniversityLife.7z" "c1a11790dc42c513cef00f1760292167b69eb8a73f0423edf210c06e34905c70"
