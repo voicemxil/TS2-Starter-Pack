@@ -6,10 +6,9 @@ IfErrors keydontexist keyexists
 goto noo
 keyexists:
         ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
-        MessageBox MB_YESNO|MB_ICONEXCLAMATION "A previous installation of The Sims 2 was detected on this system. Leaving behind remnants in the registry can cause unwanted behavior. Would you like the installer to remove the conflicting installation?$\n$\nWARNING: this will remove the game files at '$R4' as well as registry keys we detected, rendering the old installation unplayable. Your save file directories will not be affected." IDYES si IDNO noo
+        MessageBox MB_YESNO|MB_ICONEXCLAMATION "A previous installation of The Sims 2 was detected on this system. Leaving behind remnants in the registry can cause unwanted behavior. Would you like the installer to remove the conflicting installation?$\n$\nWARNING: this will remove the registry keys we detected, rendering the old installation unplayable. Your game/save file directories will not be affected." IDYES si IDNO noo
 si:
             ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
-            RMDir /r $R4
             DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2"
             DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Apartment Life"
             DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Bon Voyage"
@@ -49,7 +48,13 @@ si:
             DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP6.exe"	
             DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP7.exe"
             DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP8.exe"	
-            goto noo
+            MessageBox MB_YESNO|MB_ICONEXCLAMATION "Would you like to remove the game files the old registry keys pointed to at: '$R4'? (Save files will not be removed, only game files.)" IDYES yassdelete IDNO nodelete
+            yassdelete:
+                RMDir /r $R4
+                Pop $0
+                DetailPrint "$R4 has been deleted. Delete result: $0"
+            nodelete:    
+                goto noo
 keydontexist:
         #key doesn't exist
         DetailPrint "No prior installations were detected. Yay!"
