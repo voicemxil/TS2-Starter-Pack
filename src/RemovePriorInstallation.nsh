@@ -1,12 +1,12 @@
 !macro RemovePreviousInstall
-    SetRegView 32
-    ClearErrors
-    EnumRegKey $0 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" 0
-IfErrors keydontexist keyexists
-goto noo
-keyexists:
-        ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
-        MessageBox MB_YESNO|MB_ICONEXCLAMATION "A previous installation of The Sims 2 was detected on this system. Leaving behind remnants in the registry can cause unwanted behavior. Would you like the installer to remove the conflicting installation?$\n$\nWARNING: this will remove the registry keys we detected, rendering the old installation unplayable. Your game/save file directories will not be affected." IDYES si IDNO noo
+	SetRegView 32
+	ClearErrors
+	EnumRegKey $0 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" 0
+	IfErrors keydontexist keyexists
+	goto noo
+	keyexists:
+      	ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
+      	MessageBox MB_YESNO|MB_ICONEXCLAMATION "A previous installation of The Sims 2 was detected on this system. Leaving behind remnants in the registry can cause unwanted behavior. Would you like the installer to remove the conflicting installation?$\n$\nWARNING: this will remove the registry keys we detected, rendering the old installation unplayable. Your game/save file directories will not be affected." IDYES si IDNO noo
 si:
             ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
             DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2"
@@ -55,8 +55,8 @@ si:
                 DetailPrint "$R4 has been deleted. Delete result: $0"
             nodelete:    
                 goto noo
-keydontexist:
-        #key doesn't exist
-        DetailPrint "No prior installations were detected. Yay!"
-noo:
+	keydontexist:
+        	# prior keys don't exist
+      	DetailPrint "No prior installations were detected. Yay!"
+	noo:
 !macroend

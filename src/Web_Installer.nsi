@@ -85,6 +85,7 @@ InstType "Full (Choose if unsure)" IT_FULL
 InstType "Modern AMD Graphics preset" IT_AMD
 InstType "Minimal (Linux/WINE optimized)" IT_MIN
 	
+SectionGroup /e "TS2 Starter Pack"
 Section "TS2 Starter Pack" Section1
 	SectionInstType ${IT_FULL} ${IT_AMD} ${IT_MIN}
 	SectionIn RO 
@@ -157,8 +158,58 @@ Section "TS2 Starter Pack" Section1
 	CreateDirectory "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads" 
 	WriteUninstaller "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
 SectionEnd
+
+Section /o "Disable Intro Videos?" Section2
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Movies\ealogo_audio.movie.backup"
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Brazilian Portuguese\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Brazilian Portuguese\Movies\ealogo_audio.movie.backup"
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Czech\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Czech\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Danish\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Danish\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Dutch\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Dutch\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Finnish\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Finnish\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\French\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\French\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\German\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\German\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Hungarian\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Hungarian\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Italian\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Italian\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Japanese\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Japanese\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Korean\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Korean\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Norwegian\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Norwegian\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Polish\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Polish\Movies\ealogo_audio.movie.backup"		
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Russian\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Russian\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Simplified Chinese\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Simplified Chinese\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Spanish\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Spanish\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Swedish\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Swedish\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Thai\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Thai\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Traditional Chinese\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\Traditional Chinese\Movies\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\UK English\Movies\ealogo_audio.movie" "$INSTDIR\Fun with Pets\SP9\TSData\Res\Locale\UK English\Movies\ealogo_audio.movie.backup"	
+
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Movies\intro_eng_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Movies\intro_eng_audio.movie.backup"
+
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Movies\ealogo_audio.movie.backup"
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Brazilian Portuguese\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Brazilian Portuguese\ealogo_audio.movie.backup"
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Czech\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Czech\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Danish\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Danish\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Dutch\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Dutch\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Finnish\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Finnish\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\French\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\French\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\German\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\German\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Hungarian\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Hungarian\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Italian\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Italian\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Japanese\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Japanese\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Korean\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Korean\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Norwegian\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Norwegian\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Polish\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Polish\ealogo_audio.movie.backup"		
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Russian\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Russian\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Simplified Chinese\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Simplified Chinese\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Spanish\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Spanish\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Swedish\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Swedish\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Thai\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Thaiealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Traditional Chinese\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\Traditional Chinese\ealogo_audio.movie.backup"	
+	Rename "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\UK English\Movies\ealogo_audio.movie" "$INSTDIR\Double Deluxe\Base\TSData\Res\Locale\UK English\ealogo_audio.movie.backup"	
+SectionEnd
+
+SectionGroupEnd
 	
-Section "Graphics Rules Maker" Section2
+Section "Graphics Rules Maker" Section3
 	SectionInstType ${IT_FULL} ${IT_AMD} ${IT_MIN}
 
 	SetOutPath "$INSTDIR\temp"
@@ -177,7 +228,7 @@ Section "Graphics Rules Maker" Section2
 	Delete $INSTDIR\temp\grm_install.exe
 SectionEnd
 
-Section /o "DXVK" Section3
+Section /o "DXVK" Section4
 	SectionInstType ${IT_AMD} 
 
 	SetOutPath $INSTDIR\temp
@@ -206,7 +257,7 @@ Section /o "DXVK" Section3
 	next:
 SectionEnd
 	
-Section "Visual C++ Redist" Section4
+Section "Visual C++ Redist" Section5
 	SectionInstType ${IT_FULL} ${IT_AMD}
 
 	SetOutPath "$INSTDIR\temp"	
@@ -220,7 +271,7 @@ Section "Visual C++ Redist" Section4
 	DetailPrint "Cleanup result: $0"	
 SectionEnd
 	
-Section ".NET Framework" Section5
+Section ".NET Framework" Section6
 	SectionInstType ${IT_FULL} ${IT_AMD}
 
 	SetOutPath "$INSTDIR\temp"	
@@ -236,7 +287,7 @@ Section ".NET Framework" Section5
 	DetailPrint "Cleanup result: $0"
 SectionEnd
 	
-Section "Sim Shadow Fix" Section6
+Section "Sim Shadow Fix" Section7
 	SectionInstType ${IT_FULL}
 	DetailPrint "Donwloading Sim Shadow Fix..."
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
@@ -246,7 +297,7 @@ Section "Sim Shadow Fix" Section6
 	ExecShell "open" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
 SectionEnd
 
-Section "Start Menu/Desktop Shortcut" Section7
+Section "Start Menu/Desktop Shortcut" Section8
 	SectionInstType ${IT_FULL} ${IT_AMD}
 	
 	SetShellVarContext all
@@ -261,7 +312,7 @@ Section
 	RMDir /r "$INSTDIR\temp"
 SectionEnd
 
-Section "Uninstall" Section8
+Section "Uninstall" Section9
 	SetRegView 32
 	Delete "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
 	ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
@@ -294,10 +345,11 @@ SectionEnd
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${Section1} "Installs The Sims 2 Ultimate Collection and Sims2RPC v1.15 (minimal install)."
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section2} "Installs Graphics Rules Maker 2.0.0."
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs DXVK $DXVKVER. (Check this if you have a modern AMD graphics card to prevent the long loading screen bug. Otherwise, only select if you know you have a specific reason to. Not recommended for beginners.)"
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs Visual C++ Redist (x86) if not already installed."
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs .NET Framework if not already installed."
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section6} "Installs SimNopke's Sim Shadow Fix to your downloads folder. *Don't Use With DXVK*."
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section7} "Create a shortuct to launch the game in your Start Menu/Desktop."
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section2} "Disables EA Logo and Intro videos from playing."
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs Graphics Rules Maker 2.0.0."
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs DXVK $DXVKVER. (Check this if you have a modern AMD graphics card to prevent the long loading screen bug. Otherwise, only select if you know you have a specific reason to. Not recommended for beginners.)"
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs Visual C++ Redist (x86) if not already installed."
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section6} "Installs .NET Framework if not already installed."
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section7} "Installs SimNopke's Sim Shadow Fix to your downloads folder. *Don't Use With DXVK*."
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section8} "Create a shortuct to launch the game in your Start Menu/Desktop."
 !insertmacro MUI_FUNCTION_DESCRIPTION_END
