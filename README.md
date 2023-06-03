@@ -23,8 +23,7 @@ Choose your favorite **flavor** from the [latest release](https://github.com/voi
 - Offline installations for recommended/optional components: Graphics Rules Maker, DXVK, SimNopke's shadow fix, and desktop/start menu shortcuts
 
 # Resources & Support:
-- For help with your TS2 game, please [join TS2 Community](https://discord.gg/ts2-community-912700195249197086) and consult the #ts2-support forum! 
-- We have FAQs for the series and our support volunteers are active daily.
-- Our members share gameplay, CC/Mods, and plenty of other useful resources.
+- For help with your TS2 game, please [join TS2 Community](https://discord.gg/ts2-community-912700195249197086) and consult the #ts2-faq and #ts2-help forums! 
+- Our members also share gameplay, CC/Mods, and plenty of other useful resources.
 ## Join TS2 Community here:
 [<img src="https://discordapp.com/api/guilds/912700195249197086/widget.png?style=banner3" alt="">](https://discord.gg/ts2-community-912700195249197086)
