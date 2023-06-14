@@ -123,49 +123,62 @@ InstType "AMD Graphics preset" IT_AMD
 InstType "Minimal (Linux/WINE optimized)" IT_MIN
 
 Section "Touchup & Sims2RPC" Section1
-SectionInstType ${IT_FULL} ${IT_AMD} ${IT_MIN}
-SectionIn RO 
-SetOutPath $INSTDIR
-InitPluginsDir
-SetOverwrite ifnewer
+	SectionInstType ${IT_FULL} ${IT_AMD} ${IT_MIN}
+	SectionIn RO 
+	SetOutPath $INSTDIR
+	InitPluginsDir
+	SetOverwrite ifnewer
 
-!insertmacro RemovePreviousInstall
+	!insertmacro RemovePreviousInstall
 
-# Touchup
-!insertmacro touchup "The Sims 2 Ultimate Collection" "EA GAMES\The Sims 2" "{04450C18-F039-4B81-A621-70C3B0F523D5}" "Sims2EP9.exe"
+	# Touchup
+	!insertmacro touchup "The Sims 2 Ultimate Collection" "EA GAMES\The Sims 2" "{04450C18-F039-4B81-A621-70C3B0F523D5}" "Sims2EP9.exe"
 
-SetOutPath "$INSTDIR\Double Deluxe\Base\TSData\Res\Catalog\Bins"
-File "..\components\holiday\H05.bundle.package"
-SetOutPath "$INSTDIR\Double Deluxe\Base\TSData\Res\Catalog\Skins"
-File "..\components\holiday\Skins.package"
-SetOutPath $INSTDIR
-File /r "..\components\lights\Apartment Life"
-File /r "..\components\lights\Best of Business"
-File /r "..\components\lights\Bon Voyage"
-File /r "..\components\lights\Double Deluxe"
-File /r "..\components\lights\Free Time"
-File /r "..\components\lights\Fun with Pets"
-File /r "..\components\lights\Glamour Life Stuff"
-File /r "..\components\lights\Seasons"
-File /r "..\components\lights\University Life"
+	# Patch missing items from Holiday pack
+	SetOutPath "$INSTDIR\Double Deluxe\Base\TSData\Res\Catalog\Bins"
+	File "..\components\holiday\H05.bundle.package"
+	SetOutPath "$INSTDIR\Double Deluxe\Base\TSData\Res\Catalog\Skins"
+	File "..\components\holiday\Skins.package"
 
-CreateDirectory "$INSTDIR\temp"
-SetOutPath "$INSTDIR\temp"
-DetailPrint "Installing Sims2RPC..."
-File "..\components\SFX_Sims2RPC_1.15.exe"
-ExecWait '"SFX_Sims2RPC_1.15.exe" -InstallPath=".\" -o".\" -y -gm1'
-Pop $0
-DetailPrint "RPC extraction status: $0."
+	# Patch wrong lighting files included in standalone MediaFire download
+	SetOutPath $INSTDIR
+	File /r "..\components\lights\Apartment Life"
+	File /r "..\components\lights\Best of Business"
+	File /r "..\components\lights\Bon Voyage"
+	File /r "..\components\lights\Double Deluxe"
+	File /r "..\components\lights\Free Time"
+	File /r "..\components\lights\Fun with Pets"
+	File /r "..\components\lights\Glamour Life Stuff"
+	File /r "..\components\lights\Seasons"
+	File /r "..\components\lights\University Life"
 
-DetailPrint "Cleaning up RPC zip file..."
-Delete "SFX_Sims2RPC_1.15.exe"
+	# Install Sims2RPC
+	CreateDirectory "$INSTDIR\temp"
+	SetOutPath "$INSTDIR\temp"
+	DetailPrint "Installing Sims2RPC..."
+	File "..\components\SFX_Sims2RPC_1.15.exe"
+	ExecWait '"SFX_Sims2RPC_1.15.exe" -InstallPath=".\" -o".\" -y -gm1'
+	Pop $0
+	DetailPrint "RPC extraction status: $0."
+	DetailPrint "Cleaning up RPC zip file..."
+	Delete "SFX_Sims2RPC_1.15.exe"
 
-!insertmacro setLanguage "EA GAMES\The Sims 2" # macro takes in ts2 registry key
-File /r "..\components\language-selection" 
+	# LD Bright CAS Fix
+	DetailPrint "Creating Downloads folder..."
+	CreateDirectory "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
+	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
+	File /r "..\components\ld_BrightCASFix.package"
 
-DetailPrint "Creating Downloads folder..."
-CreateDirectory "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
-WriteUninstaller "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
+	# Autodetect Launguage
+	SetOutPath $INSTDIR
+	!insertmacro setLanguage "EA GAMES\The Sims 2" # macro takes in ts2 registry key
+	DetailPrint "Adding Language Selection files to game folder..."
+
+	# Language Selection Files
+	File /r "..\components\language-selection" 
+
+	# Create Uninstaller
+	WriteUninstaller "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
 SectionEnd
 
 Section "Graphics Rules Maker" Section2

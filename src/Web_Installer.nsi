@@ -1,4 +1,4 @@
-﻿Unicode True 
+Unicode True 
 Target amd64-unicode
 
 ;Include header files
@@ -107,6 +107,7 @@ Section "TS2 Starter Pack" Section1
 	StrCpy $SS "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v12/Seasons.v12.7z"
 	StrCpy $UNI "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v12/UniversityLife.v12.7z"
 		
+	# Downloading Game
 	CreateDirectory "$INSTDIR\temp"
 	!insertmacro downloadPack "Apartment Life" "$AL" "temp\ApartmentLife.7z" "f443736f43d3678dc54c0bc105a6d8776bfdbfef7d38801409051a9bf37368fb"
 	!insertmacro downloadPack "Best of Business" "$BoB" "temp\BestofBusiness.7z" "3deb97133ba4b2f95a4bea3188aae8fb3d6e46dff9625f02342507c0f1dfa86a"
@@ -123,13 +124,20 @@ Section "TS2 Starter Pack" Section1
 	DetailPrint "Touching Up..."
 	!insertmacro touchup "The Sims 2 Ultimate Collection" "EA GAMES\The Sims 2" "{04450C18-F039-4B81-A621-70C3B0F523D5}" "Sims2EP9.exe"
 
-	# RPC
+	# Install Sims2RPC
 	!insertmacro downloadPack "Sims2RPC" "https://github.com/voicemxil/TS2-Starter-Pack/raw/v12/components/SFX_Sims2RPC_1.15.exe" "$INSTDIR\temp\SFX_Sims2RPC.exe" "39aa5c91cb584b63fec783db5554c67bf139ca8af13dd297f7cb2bc61056307c"
-
 	Delete "$INSTDIR\temp\SFX_Sims2RPC.exe"
+	
+	# LD Bright CAS Fix
+	DetailPrint "Creating Downloads folder..."
+	CreateDirectory "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads" 
+	NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v12/components/ld_BrightCASFix.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads" /BACKGROUND /END
 
+	# Autodetect Launguage
 	!insertmacro setLanguage "EA GAMES\The Sims 2" # macro takes in ts2 registry key
 	DetailPrint "Adding Language Selection files to game folder..."
+
+	# Language Selection Files
 	CreateDirectory "$INSTDIR\_Language Selection"
 	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Chinese_Simplified.reg" "$INSTDIR\_Language Selection\Chinese_Simplified.reg" /BACKGROUND /END
 	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Chinese_Traditional.reg" "$INSTDIR\_Language Selection\Chinese_Traditional.reg" /BACKGROUND /END
@@ -153,9 +161,8 @@ Section "TS2 Starter Pack" Section1
 	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Spanish.reg" "$INSTDIR\_Language Selection\Spanish.reg" /BACKGROUND /END
 	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Swedish.reg" "$INSTDIR\_Language Selection\Swedish.reg" /BACKGROUND /END
 	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v12/components/language-selection/Thai.reg" "$INSTDIR\_Language Selection\Thai.reg" /BACKGROUND /END
-
-	DetailPrint "Creating Downloads folder..."
-	CreateDirectory "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads" 
+	
+	# Create Uninstaller
 	WriteUninstaller "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
 SectionEnd
 
