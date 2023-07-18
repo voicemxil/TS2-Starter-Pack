@@ -1,0 +1,6 @@
+create Three(lightingTableUnderwater_light)
+create Three(lightingTableFantasy_light)
+
+lightAttribOverride lightingTableUnderwater_light color (.6,.8,.9)
+lightAttribOverride lightingTableUnderwater_light diffusionSourceColor (.6,.8,.9)
+create SoftAmber(lightingTableFantasy_light)

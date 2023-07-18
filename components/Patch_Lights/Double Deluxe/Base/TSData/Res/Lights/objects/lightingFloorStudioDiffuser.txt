@@ -1,0 +1,12 @@
+lightAttribOverride lightingFloorStudioDiffuser_light intensity 1.25
+lightAttribOverride lightingFloorStudioDiffuser_light color (.89, 0.95, 1)
+lightAttribOverride lightingFloorStudioDiffuser_light falloffRate 0.4
+lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceIntensity 1.0
+lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceColor (.95, .95, 1)
+lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceMin (-.5, -.5)
+lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceMax (.5, .5)
+lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceFalloff .8
+lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceWallIntensityScale 0.9
+lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceFloorIntensityScale 0.7
+lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceIsDirectional 0
+lightAttribOverride lightingFloorStudioDiffuser_light diffusionSourceDirectionalFalloff 0

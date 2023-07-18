@@ -1,0 +1,97 @@
+######### LIGHTS ####################
+
+######## Ceiling Lights ###############
+
+create Five(lightingCeilingBaby_light)
+create SoftWhite(lightingCeilingBaby_light)
+
+########### Floor lights ############
+
+
+######### OUTDOOR lights ##########
+
+
+######### Table lights ###########
+
+
+######### Wall lights ##########
+
+create Four(ightingWallNeonSporty_light)
+create SoftWhite(ightingWallNeonSporty_light)
+
+
+lightAttribOverride lightingWallNeonFlamingo_neon_blue_lit_designModeLight intensity 1.5
+lightAttribOverride lightingWallNeonFlamingo_neon_blue_lit_designModeLight color (.2, .2, 1)
+lightAttribOverride lightingWallNeonFlamingo_neon_blue_lit_designModeLight falloffRate 0.8
+lightAttribOverride lightingWallNeonFlamingo_neon_blue_lit_designModeLight diffusionSourceIntensity 1.5
+lightAttribOverride lightingWallNeonFlamingo_neon_blue_lit_designModeLight diffusionSourceColor (.2, .2, 1)
+lightAttribOverride lightingWallNeonFlamingo_neon_blue_lit_designModeLight diffusionSourceMin (-.5, -.5)
+lightAttribOverride lightingWallNeonFlamingo_neon_blue_lit_designModeLight diffusionSourceMax (.5, .5)
+lightAttribOverride lightingWallNeonFlamingo_neon_blue_lit_designModeLight diffusionSourceFalloff 2.0
+lightAttribOverride lightingWallNeonFlamingo_neon_blue_lit_designModeLight diffusionSourceWallIntensityScale 1.6
+lightAttribOverride lightingWallNeonFlamingo_neon_blue_lit_designModeLight diffusionSourceFloorIntensityScale 0.8
+lightAttribOverride lightingWallNeonFlamingo_neon_blue_lit_designModeLight diffusionSourceIsDirectional 0
+lightAttribOverride lightingWallNeonFlamingo_neon_blue_lit_designModeLight diffusionSourceDirectionalFalloff 0
+
+lightAttribOverride lightingWallNeonFlamingo_neon_green_lit_designModeLight intensity 1.5
+lightAttribOverride lightingWallNeonFlamingo_neon_green_lit_designModeLight color (.2, 1, .2)
+lightAttribOverride lightingWallNeonFlamingo_neon_green_lit_designModeLight falloffRate 0.8
+lightAttribOverride lightingWallNeonFlamingo_neon_green_lit_designModeLight diffusionSourceIntensity 1.5
+lightAttribOverride lightingWallNeonFlamingo_neon_green_lit_designModeLight diffusionSourceColor (.2, 1, .2)
+lightAttribOverride lightingWallNeonFlamingo_neon_green_lit_designModeLight diffusionSourceMin (-.5, -.5)
+lightAttribOverride lightingWallNeonFlamingo_neon_green_lit_designModeLight diffusionSourceMax (.5, .5)
+lightAttribOverride lightingWallNeonFlamingo_neon_green_lit_designModeLight diffusionSourceFalloff 2.0
+lightAttribOverride lightingWallNeonFlamingo_neon_green_lit_designModeLight diffusionSourceWallIntensityScale 1
+lightAttribOverride lightingWallNeonFlamingo_neon_green_lit_designModeLight diffusionSourceFloorIntensityScale 0.7
+lightAttribOverride lightingWallNeonFlamingo_neon_green_lit_designModeLight diffusionSourceIsDirectional 0
+lightAttribOverride lightingWallNeonFlamingo_neon_green_lit_designModeLight diffusionSourceDirectionalFalloff 0
+
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight intensity 1.2
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight color (1, 1, .2)
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight falloffRate .91
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight diffusionSourceIntensity 1
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight diffusionSourceColor (1, 1, .2)
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight diffusionSourceMin (-.5, -.5)
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight diffusionSourceMax (.5, .5)
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight diffusionSourceFalloff 2.0
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight diffusionSourceWallIntensityScale 1.1
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight diffusionSourceFloorIntensityScale 0.8
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight diffusionSourceIsDirectional 0
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight diffusionSourceDirectionalFalloff 0
+
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight intensity 1.2
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight color (.2, 1, 1)
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight falloffRate .92
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight diffusionSourceIntensity 1.5
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight diffusionSourceColor (.2, 1, 1)
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight diffusionSourceMin (-.5, -.5)
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight diffusionSourceMax (.5, .5)
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight diffusionSourceFalloff 2.0
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight diffusionSourceWallIntensityScale 1.
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight diffusionSourceFloorIntensityScale 0.7
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight diffusionSourceIsDirectional 0
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight diffusionSourceDirectionalFalloff 0
+
+lightAttribOverride lightingWallNeonFlamingo_neon_pink_lit_designModeLight intensity 1.3
+lightAttribOverride lightingWallNeonFlamingo_neon_pink_lit_designModeLight color (1, .2, 1)
+lightAttribOverride lightingWallNeonFlamingo_neon_pink_lit_designModeLight falloffRate 1.
+lightAttribOverride lightingWallNeonFlamingo_neon_pink_lit_designModeLight diffusionSourceIntensity 1.5
+lightAttribOverride lightingWallNeonFlamingo_neon_pink_lit_designModeLight diffusionSourceColor (1, .2, 1)
+lightAttribOverride lightingWallNeonFlamingo_neon_pink_lit_designModeLight diffusionSourceMin (-.5, -.5)
+lightAttribOverride lightingWallNeonFlamingo_neon_pink_lit_designModeLight diffusionSourceMax (.5, .5)
+lightAttribOverride lightingWallNeonFlamingo_neon_pink_lit_designModeLight diffusionSourceFalloff 2.0
+lightAttribOverride lightingWallNeonFlamingo_neon_pink_lit_designModeLight diffusionSourceWallIntensityScale 1.1
+lightAttribOverride lightingWallNeonFlamingo_neon_pink_lit_designModeLight diffusionSourceFloorIntensityScale 0.8
+lightAttribOverride lightingWallNeonFlamingo_neon_pink_lit_designModeLight diffusionSourceIsDirectional 0
+lightAttribOverride lightingWallNeonFlamingo_neon_pink_lit_designModeLight diffusionSourceDirectionalFalloff 0
+
+######## Special Objects ###############
+
+
+##### FirePlaces #####
+
+
+########## Windows ##############
+
+
+########## Doors ##############

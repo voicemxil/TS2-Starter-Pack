@@ -1,0 +1,490 @@
+####################################################
+# EP2 Lighting Manager settings
+#
+
+# Lighting override (.nlo) files for specific EP1 objects should be placed in this directory.
+# The following command triggers the game to parse all such files.
+
+
+sinclude "EP7Lights.nlo"
+
+lightingState night
+
+   environment (0.5, 0.5, 1) 0.7  # override environment lighting state
+
+end
+
+
+lightingState neighbourhood
+
+   environment (1, 1, 1) 1.0  # override environment lighting state
+
+end
+
+lightingState neighbourhoodNoPortals
+   
+   skylight                      (.87,.925,1)  .25
+   light sun      (1.75, -2, 1.5)    (1, .9, .8) 1.75
+   light sky      (-2, 1.75, 2)  (0.7,.75,.8)   .5
+   light fill1    (0, 0, 1)     (1,1,1)     0.25
+
+   lightMap 0x0be702ef
+   
+   # inside diffusion
+   diffParam insideAmbientColor       (1, .95, .75)
+   diffParam insideFloorAmbient        .15 
+   diffParam insideWallAmbient         .25 
+   
+   # diffusion inside and outside
+   diffParam floorThreshold            0.154
+   diffParam wallThreshold             0.12
+   
+   #               pract. diffuse  p. falloff  d. falloff
+   modifiers insidePortals       3      3.8        0.8         .9
+   modifiers insidePortalSpills  3      4          .8         1.3
+   
+   modifiers outsidePortals      0       0          1           1
+   modifiers outsidePortalSpills 0       0          1           1
+
+   #                         pract. diffuse  p. falloff  d. falloff
+   modifiers insideObjects     1       1         2        1 
+   modifiers outsideObjects    0.5     1         4         2  
+
+
+   # extra ambient for unlit rooms.
+   unlitRoomColor (0.01, 0.01, 0.01)
+   
+   flatShade (1, .95, .85) .75  # for lighting quality 0
+
+   environment (1, 1, 1) 1.0  # override environment lighting state   
+end
+
+####################################################
+# Season - Summer
+#
+lightingState day
+   control -edith true
+
+   # outside direct lighting
+   skylight                      (1,1,1)  0.5
+   light sun      (1.5, 1.2, 2)    (0.97, .94, .83)     2
+   light sky      (-1.5, -1.2, 2)  (.8,.8,.73)    .5
+   light fill1    (1, 1, -1)     (1,0.8,.9)    .5
+
+   light simFill1  (1, -1.2, 1) (1, .95, .89)  .5
+   light simFill2  (-2, 2, 1) (1, .95, .89)  1.75
+
+   # inside diffusion
+   diffParam insideAmbientColor       (.85, .75, .75)  
+   diffParam insideFloorAmbient         0.001  
+   diffParam insideWallAmbient          0.001  
+   
+   # diffusion inside and outside
+   diffParam floorThreshold           .4
+   diffParam wallThreshold            .4
+   
+   portalSaturation 1
+
+   # modifiers <type> <practicalStrength:float> <diffusionStrength:float> [<practicalFalloff:float> <diffusionFalloff:float>] 
+   
+   #                           pract. diffuse  p. falloff  d. falloff
+   modifiers insidePortals       0.5  .7          1.3    1
+   modifiers insidePortalSpills   .9     .8         .4    .9  #### check after incremental
+   modifiers outsidePortals      0       0          1           1
+   modifiers outsidePortalSpills 0       0          1           1
+
+
+   #                         pract. diffuse  p. falloff  d. falloff
+   modifiers insideObjects     .8       .7    .35   .5  ### this can go higher when the on/off is fixed
+   modifiers outsideObjects    0       0         1 1
+
+
+  projectiveShadowStrength 0.73
+
+ # modifiers insideObjects  0 0 0 0
+ # modifiers insidePortals      0       0         0 0
+ #  modifiers insidePortalSpills 0       0          0 0
+
+   # extra ambient for unlit rooms.
+   unlitRoomColor (.3, .275, .275) -threshold .33
+   unlitRoomColor (.45, .425, .4) -threshold .4
+   flatShade (1, .95, .85) .75  -sims 1.7 -objects 1.3 -indoors 1 # for lighting set to low.
+
+   environment (1, 1, 1) 1
+   
+   #               max in time (s)   max out time (s)
+   transitionTimes        2                 100
+end
+
+
+####################################################
+# Season - Winter
+#
+lightingState Winter
+   control -edith true
+
+   # outside direct lighting
+   
+
+# Winter
+skylight          (1,1,1)  0.5
+   light sun      (1.5, 1.2, 1.65)    (.89, .88, 0.92)     1.73
+   light sky      (-1.5, -1.2, 2)  (.87,.95,0.93)    .4
+   light fill1    (1, 1, -1)     (1,1,1)    .5
+
+   light simFill1  (1, -1.2, .9) (.91, .92, 1)  .5
+   light simFill2  (-2, 2, .9) (.91, .95, 1)  1.75
+projectiveShadowStrength 0.5
+
+
+
+
+   # inside diffusion
+   diffParam insideAmbientColor       (.85, .75, .75)  
+   diffParam insideFloorAmbient         0.001  
+   diffParam insideWallAmbient          0.001  
+   
+   # diffusion inside and outside
+   diffParam floorThreshold           .4
+   diffParam wallThreshold            .4
+   
+
+   portalSaturation 1
+
+   # modifiers <type> <practicalStrength:float> <diffusionStrength:float> [<practicalFalloff:float> <diffusionFalloff:float>] 
+   
+   #                           pract. diffuse  p. falloff  d. falloff
+   modifiers insidePortals       0.5  .7          1.3    1
+   modifiers insidePortalSpills   .9     .8         .4    .9  #### check after incremental
+   modifiers outsidePortals      0       0          1           1
+   modifiers outsidePortalSpills 0       0          1           1
+
+
+   #                         pract. diffuse  p. falloff  d. falloff
+   modifiers insideObjects     .8       .7    .35   .5  ### this can go higher when the on/off is fixed
+   modifiers outsideObjects    0       0         1 1
+
+
+
+  
+
+ # modifiers insideObjects  0 0 0 0
+ # modifiers insidePortals      0       0         0 0
+ #  modifiers insidePortalSpills 0       0          0 0
+
+   # extra ambient for unlit rooms.
+   unlitRoomColor (.3, .275, .275) -threshold .33
+   unlitRoomColor (.45, .425, .4) -threshold .4
+   flatShade (1, .95, .85) .75  -sims 1.7 -objects 1.3 -indoors 1 # for lighting set to low.
+
+   environment (1, 1, 1) 1
+   
+   #               max in time (s)   max out time (s)
+   transitionTimes        2                 100
+end
+
+####################################################
+# Season - Spring
+#
+lightingState Spring
+   control -edith true
+
+   # outside direct lighting
+   
+
+
+# Spring
+skylight          (1,1,1)  0.5
+   light sun      (1.5, 1.2, 1.85)    (1, .98, .75)     1.7
+   light sky      (-1.5, -1.2, 2)  (1,.99,.75)    .52
+   light fill1    (1, 1, -1)     (1,.95,.7)    .54
+
+   light simFill1  (1, -1.2, .9) (1, .87, .78)  .55
+   light simFill2  (-2, 2, .9) (1, .88, .79)  1.8
+projectiveShadowStrength 1
+
+
+
+
+   # inside diffusion
+   diffParam insideAmbientColor       (.85, .75, .75)  
+   diffParam insideFloorAmbient         0.001  
+   diffParam insideWallAmbient          0.001  
+   
+   # diffusion inside and outside
+   diffParam floorThreshold           .4
+   diffParam wallThreshold            .4
+   
+
+   portalSaturation 1
+
+   # modifiers <type> <practicalStrength:float> <diffusionStrength:float> [<practicalFalloff:float> <diffusionFalloff:float>] 
+   
+   #                           pract. diffuse  p. falloff  d. falloff
+   modifiers insidePortals       0.5  .7          1.3    1
+   modifiers insidePortalSpills   .9     .8         .4    .9  #### check after incremental
+   modifiers outsidePortals      0       0          1           1
+   modifiers outsidePortalSpills 0       0          1           1
+
+
+   #                         pract. diffuse  p. falloff  d. falloff
+   modifiers insideObjects     .8       .7    .35   .5  ### this can go higher when the on/off is fixed
+   modifiers outsideObjects    0       0         1 1
+
+
+
+  
+
+ # modifiers insideObjects  0 0 0 0
+ # modifiers insidePortals      0       0         0 0
+ #  modifiers insidePortalSpills 0       0          0 0
+
+   # extra ambient for unlit rooms.
+   unlitRoomColor (.3, .275, .275) -threshold .33
+   unlitRoomColor (.45, .425, .4) -threshold .4
+   flatShade (1, .95, .85) .75  -sims 1.7 -objects 1.3 -indoors 1 # for lighting set to low.
+
+   environment (1, 1, 1) 1
+   
+   #               max in time (s)   max out time (s)
+   transitionTimes        2                 100
+end
+
+####################################################
+# Season - Autumn
+#
+lightingState Autumn
+   control -edith true
+
+   # outside direct lighting
+   
+
+
+# Autumn
+skylight          (1,1,1)  0.5
+   light sun      (1.5, 1.2, 1.75)    (1, .84, .7)     1.8
+   light sky      (-1.5, -1.2, 2)   (1,.85,.75) .4
+   light fill1    (1, 1, -1)     (1,.88,.6)  .5
+
+   light simFill1  (1, -1.2, .9) (1, .96, .88)  .65
+   light simFill2  (-2, 2, .9) (1, .93, .8)  1.8
+projectiveShadowStrength 0.8
+
+
+
+
+   # inside diffusion
+   diffParam insideAmbientColor       (.85, .75, .75)  
+   diffParam insideFloorAmbient         0.001  
+   diffParam insideWallAmbient          0.001  
+   
+   # diffusion inside and outside
+   diffParam floorThreshold           .4
+   diffParam wallThreshold            .4
+   
+
+   portalSaturation 1
+
+   # modifiers <type> <practicalStrength:float> <diffusionStrength:float> [<practicalFalloff:float> <diffusionFalloff:float>] 
+   
+   #                           pract. diffuse  p. falloff  d. falloff
+   modifiers insidePortals       0.5  .7          1.3    1
+   modifiers insidePortalSpills   .9     .8         .4    .9  #### check after incremental
+   modifiers outsidePortals      0       0          1           1
+   modifiers outsidePortalSpills 0       0          1           1
+
+
+   #                         pract. diffuse  p. falloff  d. falloff
+   modifiers insideObjects     .8       .7    .35   .5  ### this can go higher when the on/off is fixed
+   modifiers outsideObjects    0       0         1 1
+
+
+
+  
+
+ # modifiers insideObjects  0 0 0 0
+ # modifiers insidePortals      0       0         0 0
+ #  modifiers insidePortalSpills 0       0          0 0
+
+   # extra ambient for unlit rooms.
+   unlitRoomColor (.3, .275, .275) -threshold .33
+   unlitRoomColor (.45, .425, .4) -threshold .4
+   flatShade (1, .95, .85) .75  -sims 1.7 -objects 1.3 -indoors 1 # for lighting set to low.
+
+   environment (1, 1, 1) 1
+   
+   #               max in time (s)   max out time (s)
+   transitionTimes        2                 100
+end
+
+####################################################
+# Season - Overcast
+#
+lightingState Overcast
+   control -edith true
+
+   # outside direct lighting
+   
+
+# Overcast
+skylight         (1,1,1)  0.5
+
+   light sun      (1.5, 1.2, 2)    (.90, .98, 1)     1.1
+   light sky      (-1.5, -1.2, 2)  (.90,1,.98)    .5
+   light fill1    (1, 1, -1)     (.90,.98,1)    .5
+
+   light simFill1  (1, -1.2, 1) (1, .95, .89)  .6
+   light simFill2  (-2, 2, 1) (1, .95, .89)  1.85
+projectiveShadowStrength 0.45
+
+
+
+   # inside diffusion
+   diffParam insideAmbientColor       (.85, .75, .75)  
+   diffParam insideFloorAmbient         0.001  
+   diffParam insideWallAmbient          0.001  
+   
+   # diffusion inside and outside
+   diffParam floorThreshold           .4
+   diffParam wallThreshold            .4
+   
+
+   portalSaturation 1
+
+   # modifiers <type> <practicalStrength:float> <diffusionStrength:float> [<practicalFalloff:float> <diffusionFalloff:float>] 
+   
+   #                           pract. diffuse  p. falloff  d. falloff
+   modifiers insidePortals       0.5  .7          1.3    1
+   modifiers insidePortalSpills   .9     .8         .4    .9  #### check after incremental
+   modifiers outsidePortals      0       0          1           1
+   modifiers outsidePortalSpills 0       0          1           1
+
+
+   #                         pract. diffuse  p. falloff  d. falloff
+   modifiers insideObjects     .8       .7    .35   .5  ### this can go higher when the on/off is fixed
+   modifiers outsideObjects    0       0         1 1
+
+
+
+  
+
+ # modifiers insideObjects  0 0 0 0
+ # modifiers insidePortals      0       0         0 0
+ #  modifiers insidePortalSpills 0       0          0 0
+
+   # extra ambient for unlit rooms.
+   unlitRoomColor (.3, .275, .275) -threshold .33
+   unlitRoomColor (.45, .425, .4) -threshold .4
+   flatShade (1, .95, .85) .75  -sims 1.7 -objects 1.3 -indoors 1 # for lighting set to low.
+
+   environment (1, 1, 1) 1
+   
+   #               max in time (s)   max out time (s)
+   transitionTimes        2                 100
+end
+
+####################################################
+# Neighbourhood
+#
+lightingState neighborhoodnight
+   # outside direct lighting
+  # skylight (0.65, 0.65, .95) 1
+  # light sun    ( 1, -2, 2)     (.9, .855, .8) 1.6
+  # light sky    (-1,  2, 1)     (.8, .8, 1)  .9 
+ # skylight                      (.87,.925,1)  0.5
+  # light sun      (1.5, 1.2, 2)    (1, .94, .875)     1.75
+   # light sky      (-1.5, -1.2, 2)  (.8,.8,.8)    .25
+    # light fill1    (1, 1, 1)     (1,1,1)    .15
+
+   
+   skylight                         (0.2, 0.2, 1)     .3
+  light sun      (-1.5, -1,  2)    (.45, .45, 1)      1
+   # light sun      (-1.5, -1,  2)    (.3, .3, .95)      .6
+   #light sky      ( 1.5,  1, 1)    (.25, 0.25, 1)    .6
+
+   lightMap   0x6fb59732
+   
+   # inside diffusion
+   diffParam insideAmbientColor       (1, .95, .75)
+   diffParam insideFloorAmbient        .15 
+   diffParam insideWallAmbient         .25 
+   
+   # diffusion inside and outside
+   diffParam floorThreshold            0.154
+   diffParam wallThreshold             0.12
+   
+   #               pract. diffuse  p. falloff  d. falloff
+   modifiers insidePortals       3      3.8        0.8         .9
+   modifiers insidePortalSpills  3      4          .8         1.3
+   
+   modifiers outsidePortals      0       0          1           1
+   modifiers outsidePortalSpills 0       0          1           1
+
+   #                         pract. diffuse  p. falloff  d. falloff
+   modifiers insideObjects     1       1         2        1 
+   modifiers outsideObjects    0.5     1         4         2  
+
+
+   # extra ambient for unlit rooms.
+   unlitRoomColor (0.01, 0.01, 0.01)
+   
+   # fog <colour> <nearRange> <farRange>
+   # DISABLED pending shader program path support for linear fog.
+   #fog (0.9, 0.9, 1) 1200 2200
+
+   flatShade (.3, .35, .9) .5  # for lighting quality 0
+
+   environment (0.5, 0.5, 1) 0.65  # override environment lighting state
+
+end
+
+####################################################
+# Lot Night - Vacation Lot - Taken from the Base Game lighting.txt
+#
+lightingState vacationNight 
+   control -edith true
+   
+   skylight                         (0.2, 0.2, 0.4)     0.9
+   light sun      (-1.5, -1,  2)    (.4, .4, .9)      0.5
+   # light sun      (-1.5, -1,  2)    (.3, .3, .95)      .6
+   light sky      ( 1.5,  1, 1)    (.25, 0.25, 0.95)    .1
+
+  light simFill1  (-1.25, -.75, 1.2) (.82,.8, .8)  1
+  light simFill2  (1.25, .75, 1.2) (.82,.8, .8)  .6
+   
+   diffParam insideAmbientColor  (.9,.9,1)
+   diffParam insideFloorAmbient   .001
+   diffParam insideWallAmbient    0.001
+
+   
+   diffParam floorThreshold          0.2
+   diffParam wallThreshold           0.2
+
+   #                              pract. diffuse  p. falloff  d. falloff
+   modifiers insidePortals         0      .2      1 1
+   modifiers insidePortalSpills    0      .2      1 1
+   modifiers outsidePortals        4      4       .5         1
+   modifiers outsidePortalSpills   4      4      .5         1
+
+   #                         pract. diffuse  p. falloff  d. falloff
+   modifiers insideObjects     .6    .6       .35       .65
+   modifiers outsideObjects    1      .6        .4     .65
+  # modifiers insidePortals      0       0         0 0
+  # modifiers insidePortalSpills 0       0          0 0
+  # modifiers outsidePortals      0       0         0 0
+  # modifiers outsidePortalSpills 0       0          0 0
+
+ projectiveShadowStrength 0.4
+   # How much sun/skylight split in spill lights
+   portalSaturation 1
+   
+   # extra ambient for unlit rooms.
+   unlitRoomColor (0.345, 0.345, 0.42) -threshold .4 ### do not set threshold to 0
+ ##   unlitRoomColor (0.245, 0.245, 0.32) -threshold .28
+   flatShade (0.75, 0.8, 1)  .6 -sims 1.8 -objects 1.5 -indoors 1 # for lighting set to low
+
+   environment (1, 1, 1) .8  # for env. cubes and particles #does not work
+
+   #               max in time (s)   max out time (s)
+   transitionTimes        2                 100
+end

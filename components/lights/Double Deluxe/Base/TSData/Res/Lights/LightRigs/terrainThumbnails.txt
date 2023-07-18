@@ -1,3 +1,0 @@
-#overrides adjusted 2/14 Leo
-
-lightAttribOverride prac_terrainThumbnails intensity 0.52

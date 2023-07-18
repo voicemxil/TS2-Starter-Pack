@@ -1,0 +1,12 @@
+#overrides adjusted 2/14 Leo
+
+lightAttribOverride key_PieMenu intensity 1.8
+lightAttribOverride key_PieMenu color (0.914, 0.914, 0.782)
+
+lightAttribOverride bottomFill_PieMenu intensity 0.96
+
+lightAttribOverride rightFill_PieMenu intensity 0.84
+
+lightAttribOverride rightRim_PieMenu intensity 0.6
+
+lightAttribOverride leftRim_PieMenu intensity 0.72

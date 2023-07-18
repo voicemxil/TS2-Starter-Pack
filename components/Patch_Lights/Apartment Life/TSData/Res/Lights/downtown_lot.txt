@@ -1,0 +1,122 @@
+
+####################################################
+# Lighting Manager settings
+#
+# LIGHT FILE Nightlife Lots
+
+
+####################################################
+# Automatic room lighting tuning constants
+#
+
+# Room object lighting algorithm
+# 0 = 5 directionals, 1 = 4 directionals, 
+# 2 = ambient, 3 = ambient + 1 dir, etc.
+setf roomLightingType 2
+
+# Multiplier on how brightly the objects are lit by 
+# overall room lighting.
+set roomOverallStrength 0.4
+set sim:roomOverallStrength .6
+set object:roomOverallStrength 0.5
+set wall:roomOverallStrength 0.2
+set wall:roomDirectionalBoost  1
+setf wall:roomFromLightMapMix      1 
+setf wall:roomFromLightMapStrength 3
+
+
+####################################################
+# Nighttime
+#
+
+
+
+lightingState day
+  control -edith true
+
+   # inside diffusion
+   diffParam insideAmbientColor       (.85, .75, .75)  
+   diffParam insideFloorAmbient         0.1  
+   diffParam insideWallAmbient          0.1  
+   
+   # diffusion inside and outside
+   diffParam floorThreshold           .4
+   diffParam wallThreshold            .4
+   
+   portalSaturation 1
+
+   # modifiers <type> <practicalStrength:float> <diffusionStrength:float> [<practicalFalloff:float> <diffusionFalloff:float>] 
+   
+   #                           pract. diffuse  p. falloff  d. falloff
+   modifiers insidePortals       0.5    .7          1    1
+   modifiers insidePortalSpills  .9     .8         .4    .9  #### check after incremental
+   modifiers outsidePortals      0       0          1           1
+   modifiers outsidePortalSpills 0       0          1           1
+
+
+   #                         pract. diffuse  p. falloff  d. falloff
+   modifiers insideObjects     .8       .7    .25   .5  ### this can go higher when the on/off is fixed
+   modifiers outsideObjects    0       0         1 1
+
+   # extra ambient for unlit rooms.
+   unlitRoomColor (.45, .425, .4) -threshold .75
+   flatShade (1, .95, .85) .75  -sims 1.7 -objects 1.3 -indoors 1 # for lighting set to low.
+
+   environment (1, 1, 1) 1
+ 
+end
+
+lightingState night
+   control -edith true
+   
+  # skylight                         (0.25, 0.25, 0.3)     0.7
+ #  light sun      (-1.5, -1,  2)    (.45, .45, 1)      0.5
+    light sun      (1, 1,  2)    (.5, .5, .95)      .8
+ #  light sky      ( 1.5,  1, 1)    (.25, 0.25, 1)    .36
+
+# light simFill1  (-1.25, -.75, 1.2) (.82,.8, .8)  1
+# light simFill2  (1.25, .75, 1.2) (.82,.8, .8)  .6
+   
+   diffParam insideAmbientColor  (.5,.7,1)
+   diffParam insideFloorAmbient   .001
+   diffParam insideWallAmbient   .01
+
+   
+   diffParam floorThreshold          0.35
+   diffParam wallThreshold           0.35
+
+   #                              pract. diffuse  p. falloff  d. falloff
+   modifiers insidePortals         0      .2      1 1
+   modifiers insidePortalSpills    0      .2      1 1
+   modifiers outsidePortals        3      3       .5         1
+   modifiers outsidePortalSpills   3      3       .5         1
+
+   #                         pract. diffuse  p. falloff  d. falloff
+   modifiers insideObjects     1.2     .7       .15      .65
+   modifiers outsideObjects    1     1        .25     .57
+  # modifiers insidePortals      0       0         0 0
+  # modifiers insidePortalSpills 0       0          0 0
+  # modifiers outsidePortals      0       0         0 0
+  # modifiers outsidePortalSpills 0       0          0 0
+
+ projectiveShadowStrength 0.4
+   # How much sun/skylight split in spill lights
+   portalSaturation 1
+   
+   # extra ambient for unlit rooms.
+   unlitRoomColor (0.2345, 0.2345, 0.42) -threshold .2 ### do not set threshold to 0
+
+ ##   unlitRoomColor (0.245, 0.245, 0.32) -threshold .28
+   flatShade (0.75, 0.8, 1)  .6 -sims 1.8 -objects 1.5 -indoors 1 # for lighting set to low
+
+   environment (1, 1, 1) .8  # for env. cubes and particles #does not work
+
+   #               max in time (s)   max out time (s)
+   transitionTimes        2                 100
+end
+
+
+
+
+
+

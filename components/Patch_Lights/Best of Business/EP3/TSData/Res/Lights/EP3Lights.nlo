@@ -1,0 +1,344 @@
+
+
+######### LIGHTS ####################
+######## Ceiling Lights ###############
+
+create Five(lightingCeilingEuroPendant_light)
+create Six(lightingCeilingPendantStorybook_light)
+create Six(lightingCeilingTrack_light)
+
+create SoftWhite(lightingCeilingEuroPendant_light)
+create SoftWhite(lightingCeilingPendantStorybook_light)
+create SoftWhite(lightingCeilingTrack_light)
+
+########### Floor lights ############
+
+create Five(lightingFloorEuro_light)
+create Four(lightingFloorStorybook_light)
+
+create SoftAmber(lightingFloorEuro_light)
+create SoftPink(lightingFloorStorybook_light)
+
+######### OUTDOOR lights ##########
+create Six(lightingPathIntlGlobe_light)
+create Ten(lightingStreetIntlGlobe_light)
+
+create SoftWhite(lightingPathIntlGlobe_light)
+create SoftWhite(lightingStreetIntlGlobe_light)
+
+######### Table lights ###########
+create Four(lightingTableEuro_light)
+create SoftWhite(lightingStreetIntlGlobe_light)
+
+######### Wall lights ##########
+create Four(lightingWallEuroSconce_light)
+create Four(lightingWallGallery_light)
+create Five(lightingWallSignLamp_light)
+create Four(lightingWallStorybookSconce_light)
+create Four(lightingWallVanity_light)
+
+create SoftWhite(lightingWallEuroSconce_light)
+create SoftWhite(lightingWallGallery_light)
+create SoftWhite(lightingWallSignLamp_light)
+create SoftWhite(lightingWallStorybookSconce_light)
+create SoftWhite(lightingWallVanity_light)
+
+########## Windows ##############
+
+
+create WSix(windowEuroArchMidHeight_0_0_0_N_light)
+create WSix(windowEuroArchMidHeight_0_1S_0_S_light)
+create WSix(windowEuroArchMidHeightDiagonal_0_0_0_NW_light)
+create WSix(windowEuroArchMidHeightDiagonal_0_0_0_SE_light)
+
+create NS(windowEuroArchMidHeight_0_0_0_N_light)
+create NS(windowEuroArchMidHeight_0_1S_0_S_light)
+create EW(windowEuroArchMidHeightDiagonal_0_0_0_NW_light)
+create EW(windowEuroArchMidHeightDiagonal_0_0_0_SE_light)
+
+
+create WFive(windowEuroMullion2Tile_0_0_0_N_light)
+create WFive(windowEuroMullion2Tile_1E_0_0_N_light)
+create WFive(windowEuroMullion2Tile_0_1S_0_S_light)
+create WFive(windowEuroMullion2Tile_1E_1S_0_S_light)
+create WFive(windowEuroMullion2TileDiagonal_0_0_0_NW_light)
+create WFive(windowEuroMullion2TileDiagonal_1E_1N_0_NW_light)
+create WFive(windowEuroMullion2TileDiagonal_0_0_0_SE_light)
+create WFive(windowEuroMullion2TileDiagonal_1E_1N_0_SE_light)
+
+create NS(windowEuroMullion2Tile_0_0_0_N_light)
+create NS(windowEuroMullion2Tile_1E_0_0_N_light)
+create NS(windowEuroMullion2Tile_0_1S_0_S_light)
+create NS(windowEuroMullion2Tile_1E_1S_0_S_light)
+create EW(windowEuroMullion2TileDiagonal_0_0_0_NW_light)
+create EW(windowEuroMullion2TileDiagonal_1E_1N_0_NW_light)
+create EW(windowEuroMullion2TileDiagonal_0_0_0_SE_light)
+create EW(windowEuroMullion2TileDiagonal_1E_1N_0_SE_light)
+
+
+create WSix(windowEuroMullionShort_0_0_0_N_light)
+create WSix(windowEuroMullionShort_0_1S_0_S_light)
+create WSix(windowEuroMullionShortDiagonal_0_0_0_NW_light)
+create WSix(windowEuroMullionShortDiagonal_0_0_0_SE_light)
+
+create NS(windowEuroMullionShort_0_0_0_N_light)
+create NS(windowEuroMullionShort_0_1S_0_S_light)
+create EW(windowEuroMullionShortDiagonal_0_0_0_NW_light)
+create EW(windowEuroMullionShortDiagonal_0_0_0_SE_light)
+
+
+create WSix(windowIntl_0_0_0_N_light)
+create WSix(windowIntl_0_1S_0_S_light)
+create WSix(windowIntlDiagonal_0_0_0_NW_light)
+create WSix(windowIntlDiagonal_0_0_0_SE_light)
+
+create NS(windowIntl_0_0_0_N_light)
+create NS(windowIntl_0_1S_0_S_light)
+create EW(windowIntlDiagonal_0_0_0_NW_light)
+create EW(windowIntlDiagonal_0_0_0_SE_light)
+
+create WFive(windowIntl3Tile_0_0_0_N_light)
+create WFive(windowIntl3Tile_2E_0_0_N_light)
+create WFive(windowIntl3Tile_0_1S_0_S_light)
+create WFive(windowIntl3Tile_2E_1S_0_S_light)
+create WFive(windowIntl3TileDiagonal_0_0_0_NW_light)
+create WFive(windowIntl3TileDiagonal_2E_2N_0_NW_light)
+create WFive(windowIntl3TileDiagonal_0_0_0_SE_light)
+create WFive(windowIntl3TileDiagonal_2E_2N_0_SE_light)
+
+create NS(windowIntl3Tile_0_0_0_N_light)
+create NS(windowIntl3Tile_2E_0_0_N_light)
+create NS(windowIntl3Tile_0_1S_0_S_light)
+create NS(windowIntl3Tile_2E_1S_0_S_light)
+create EW(windowIntl3TileDiagonal_0_0_0_NW_light)
+create EW(windowIntl3TileDiagonal_2E_2N_0_NW_light)
+create EW(windowIntl3TileDiagonal_0_0_0_SE_light)
+create EW(windowIntl3TileDiagonal_2E_2N_0_SE_light)
+
+create WSix(windowIntlTransom_0_0_0_N_light)
+create WSix(windowIntlTransom_0_1S_0_S_light)
+create WSix(windowIntlTransomDiagonal_0_0_0_NW_light)
+create WSix(windowIntlTransomDiagonal_0_0_0_SE_light)
+
+create NS(windowIntlTransom_0_0_0_N_light)
+create NS(windowIntlTransom_0_1S_0_S_light)
+create EW(windowIntlTransomDiagonal_0_0_0_NW_light)
+create EW(windowIntlTransomDiagonal_0_0_0_SE_light)
+
+create WFive(windowIntlTransom3Tile_0_0_0_N_light)
+create WFive(windowIntlTransom3Tile_2E_0_0_N_light)
+create WFive(windowIntlTransom3Tile_0_1S_0_S_light)
+create WFive(windowIntlTransom3Tile_2E_1S_0_S_light)
+create WFive(windowIntlTransom3TileDiagonal_0_0_0_NW_light)
+create WFive(windowIntlTransom3TileDiagonal_2E_2N_0_NW_light)
+create WFive(windowIntlTransom3TileDiagonal_0_0_0_SE_light)
+create WFive(windowIntlTransom3TileDiagonal_2E_2N_0_SE_light)
+
+create NS(windowIntlTransom3Tile_0_0_0_N_light)
+create NS(windowIntlTransom3Tile_2E_0_0_N_light)
+create NS(windowIntlTransom3Tile_0_1S_0_S_light)
+create NS(windowIntlTransom3Tile_2E_1S_0_S_light)
+create EW(windowIntlTransom3TileDiagonal_0_0_0_NW_light)
+create EW(windowIntlTransom3TileDiagonal_2E_2N_0_NW_light)
+create EW(windowIntlTransom3TileDiagonal_0_0_0_SE_light)
+create EW(windowIntlTransom3TileDiagonal_2E_2N_0_SE_light)
+
+create WZero(windowStorybookBay_0_0_0_N_light)
+create WZero(windowStorybookBay_2E_0_0_N_light)
+create WZero(windowStorybookBay_0_1S_0_S_light)
+create WZero(windowStorybookBay_2E_1S_0_S_light)
+create WZero(windowStorybookBayDiagonal_0_0_0_NW_light)
+create WZero(windowStorybookBayDiagonal_2E_2N_0_NW_light)
+create WZero(windowStorybookBayDiagonal_0_0_0_SE_light)
+create WZero(windowStorybookBayDiagonal_2E_2N_0_SE_light)
+
+create WSix(windowStorybookBay_0_0_0_N_light)
+create WSix(windowStorybookBay_2E_0_0_N_light)
+create WSix(windowStorybookBay_0_1S_0_S_light)
+create WSix(windowStorybookBay_2E_1S_0_S_light)
+create WSix(windowStorybookBayDiagonal_0_0_0_NW_light)
+create WSix(windowStorybookBayDiagonal_2E_2N_0_NW_light)
+create WSix(windowStorybookBayDiagonal_0_0_0_SE_light)
+create WSix(windowStorybookBayDiagonal_2E_2N_0_SE_light)
+
+
+create NS(windowStorybookBay_0_0_0_N_light)
+create NS(windowStorybookBay_2E_0_0_N_light)
+create NS(windowStorybookBay_0_1S_0_S_light)
+create NS(windowStorybookBay_2E_1S_0_S_light)
+create EW(windowStorybookBayDiagonal_0_0_0_NW_light)
+create EW(windowStorybookBayDiagonal_2E_2N_0_NW_light)
+create EW(windowStorybookBayDiagonal_0_0_0_SE_light)
+create EW(windowStorybookBayDiagonal_2E_2N_0_SE_light)
+
+create WFive(windowStorybookStencil_0_0_0_N_light)
+create WFive(windowStorybookStencil_0_1S_0_S_light)
+create WFive(windowStorybookStencilDiagonal_0_0_0_NW_light)
+create WFive(windowStorybookStencilDiagonal_0_0_0_SE_light)
+
+create NS(windowStorybookStencil_0_0_0_N_light)
+create NS(windowStorybookStencil_0_1S_0_S_light)
+create EW(windowStorybookStencilDiagonal_0_0_0_NW_light)
+create EW(windowStorybookStencilDiagonal_0_0_0_SE_light)
+
+create WFive(windowStorybookStencil2Tile_0_0_0_N_light)
+create WFive(windowStorybookStencil2Tile_1E_0_0_N_light)
+create WFive(windowStorybookStencil2Tile_0_1S_0_S_light)
+create WFive(windowStorybookStencil2Tile_1E_1S_0_S_light)
+create WFive(windowStorybookStencil2TileDiagonal_0_0_0_NW_light)
+create WFive(windowStorybookStencil2TileDiagonal_1E_1N_0_NW_light)
+create WFive(windowStorybookStencil2TileDiagonal_0_0_0_SE_light)
+create WFive(windowStorybookStencil2TileDiagonal_1E_1N_0_SE_light)
+
+create NS(windowStorybookStencil2Tile_0_0_0_N_light)
+create NS(windowStorybookStencil2Tile_1E_0_0_N_light)
+create NS(windowStorybookStencil2Tile_0_1S_0_S_light)
+create NS(windowStorybookStencil2Tile_1E_1S_0_S_light)
+create EW(windowStorybookStencil2TileDiagonal_0_0_0_NW_light)
+create EW(windowStorybookStencil2TileDiagonal_1E_1N_0_NW_light)
+create EW(windowStorybookStencil2TileDiagonal_0_0_0_SE_light)
+create EW(windowStorybookStencil2TileDiagonal_1E_1N_0_SE_light)
+
+create WFour(windowTriangularIntl_0_0_0_N_light)
+create WFour(windowTriangularIntl_0_1S_0_S_light)
+create WFour(windowTriangularIntlDiagonal_0_0_0_NW_light)
+create WFour(windowTriangularIntlDiagonal_0_0_0_SE_light)
+
+create NS(windowTriangularIntl_0_0_0_N_light)
+create NS(windowTriangularIntl_0_1S_0_S_light)
+create EW(windowTriangularIntlDiagonal_0_0_0_NW_light)
+create EW(windowTriangularIntlDiagonal_0_0_0_SE_light)
+
+############################### DOORS #########################################
+
+create WSix(doorEuroGlassPanel_0_0_0_N_light)
+create WSix(doorEuroGlassPanel_0_1S_0_S_light)
+create WSix(doorEuroGlassPanelDiagonal_0_0_0_SE_light)
+create WSix(doorEuroGlassPanelDiagonal_0_0_0_NW_light)
+
+create NS(doorEuroGlassPanel_0_0_0_N_light)
+create NS(doorEuroGlassPanel_0_1S_0_S_light)
+create EW(doorEuroGlassPanelDiagonal_0_0_0_SE_light)
+create EW(doorEuroGlassPanelDiagonal_0_0_0_NW_light)
+
+create noAngle(doorEuroGlassPanel_0_0_0_N_light)
+create noAngle(doorEuroGlassPanel_0_1S_0_S_light)
+create noAngle(doorEuroGlassPanelDiagonal_0_0_0_SE_light)
+create noAngle(doorEuroGlassPanelDiagonal_0_0_0_NW_light)
+
+create WSix(doorEuroMullion_0_0_0_N_light)
+create WSix(doorEuroMullion_0_1S_0_S_light)
+create WSix(doorEuroMullionDiagonal_0_0_0_NW_light)
+create WSix(doorEuroMullionDiagonal_0_0_0_SE_light)
+
+create NS(doorEuroMullion_0_0_0_N_light)
+create NS(doorEuroMullion_0_1S_0_S_light)
+create EW(doorEuroMullionDiagonal_0_0_0_NW_light)
+create EW(doorEuroMullionDiagonal_0_0_0_SE_light)
+
+create noAngle(doorEuroMullion_0_0_0_N_light)
+create noAngle(doorEuroMullion_0_1S_0_S_light)
+create noAngle(doorEuroMullionDiagonal_0_0_0_NW_light)
+create noAngle(doorEuroMullionDiagonal_0_0_0_SE_light)
+
+create WSix(doorEuroTransom_0_1S_0_S_light)
+create WSix(doorEuroTransom_0_0_0_N_light)
+create WSix(doorEuroTransomDiagonal_0_0_0_NW_light)
+create WSix(doorEuroTransomDiagonal_0_0_0_SE_light)
+
+create NS(doorEuroTransom_0_1S_0_S_light)
+create NS(doorEuroTransom_0_0_0_N_light)
+create EW(doorEuroTransomDiagonal_0_0_0_NW_light)
+create EW(doorEuroTransomDiagonal_0_0_0_SE_light)
+
+create noAngle(doorEuroTransom_0_1S_0_S_light)
+create noAngle(doorEuroTransom_0_0_0_N_light)
+create noAngle(doorEuroTransomDiagonal_0_0_0_NW_light)
+create noAngle(doorEuroTransomDiagonal_0_0_0_SE_light)
+
+create WSix(doorIntlCapFull_0_1S_0_S_light)
+create WSix(doorIntlCapFull_0_0_0_N_light)
+create WSix(doorIntlCapFull_0_0_0_NW_light)
+create WSix(doorIntlCapFull_0_0_0_SE_light)
+
+create NS(doorIntlCapFull_0_1S_0_S_light)
+create NS(doorIntlCapFull_0_0_0_N_light)
+create EW(doorIntlCapFull_0_0_0_NW_light)
+create EW(doorIntlCapFull_0_0_0_SE_light)
+
+create noAngle(doorIntlCapFull_0_1S_0_S_light)
+create noAngle(doorIntlCapFull_0_0_0_N_light)
+create noAngle(doorIntlCapFull_0_0_0_NW_light)
+create noAngle(doorIntlCapFull_0_0_0_SE_light)
+
+create WFive(doorIntlCapShort_0_1S_0_S_light)
+create WFive(doorIntlCapShort_0_0_0_N_light)
+create WFive(doorIntlCapShortDiagonal_0_0_0_SE_light)
+create WFive(doorIntlCapShortDiagonal_0_0_0_NW_light)
+
+create NS(doorIntlCapShort_0_1S_0_S_light)
+create NS(doorIntlCapShort_0_0_0_N_light)
+create EW(doorIntlCapShortDiagonal_0_0_0_SE_light)
+create EW(doorIntlCapShortDiagonal_0_0_0_NW_light)
+
+create noAngle(doorIntlCapShort_0_1S_0_S_light)
+create noAngle(doorIntlCapShort_0_0_0_N_light)
+create noAngle(doorIntlCapShortDiagonal_0_0_0_SE_light)
+create noAngle(doorIntlCapShortDiagonal_0_0_0_NW_light)
+
+create WSix(doorIntlTransom_0_0_0_N_light)
+create WSix(doorIntlTransom_0_1S_0_S_light)
+create WSix(doorIntlTransomDiagonal_0_0_0_NW_light)
+create WSix(doorIntlTransomDiagonal_0_0_0_SE_light)
+
+create NS(doorIntlTransom_0_0_0_N_light)
+create NS(doorIntlTransom_0_1S_0_S_light)
+create EW(doorIntlTransomDiagonal_0_0_0_NW_light)
+create EW(doorIntlTransomDiagonal_0_0_0_SE_light)
+
+create noAngle(doorIntlTransom_0_0_0_N_light)
+create noAngle(doorIntlTransom_0_1S_0_S_light)
+create noAngle(doorIntlTransomDiagonal_0_0_0_NW_light)
+create noAngle(doorIntlTransomDiagonal_0_0_0_SE_light)
+
+create WFive(doorIntlTransom2Tile_0_1S_0_S_light)
+create WFive(doorIntlTransom2Tile_1E_1S_0_S_light)
+create WFive(doorIntlTransom2Tile_0_0_0_N_light)
+create WFive(doorIntlTransom2Tile_1E_0_0_N_light)
+create WFive(doorIntlTransom2TileDiagonal_0_0_0_SE_light)
+create WFive(doorIntlTransom2TileDiagonal_1E_1N_0_SE_light)
+create WFive(doorIntlTransom2TileDiagonal_0_0_0_NW_light)
+create WFive(doorIntlTransom2TileDiagonal_1E_1N_0_NW_light)
+
+create NS(doorIntlTransom2Tile_0_1S_0_S_light)
+create NS(doorIntlTransom2Tile_1E_1S_0_S_light)
+create NS(doorIntlTransom2Tile_0_0_0_N_light)
+create NS(doorIntlTransom2Tile_1E_0_0_N_light)
+create EW(doorIntlTransom2TileDiagonal_0_0_0_SE_light)
+create EW(doorIntlTransom2TileDiagonal_1E_1N_0_SE_light)
+create EW(doorIntlTransom2TileDiagonal_0_0_0_NW_light)
+create EW(doorIntlTransom2TileDiagonal_1E_1N_0_NW_light)
+
+create noAngle(doorIntlTransom2Tile_0_1S_0_S_light)
+create noAngle(doorIntlTransom2Tile_1E_1S_0_S_light)
+create noAngle(doorIntlTransom2Tile_0_0_0_N_light)
+create noAngle(doorIntlTransom2Tile_1E_0_0_N_light)
+create noAngle(doorIntlTransom2TileDiagonal_0_0_0_SE_light)
+create noAngle(doorIntlTransom2TileDiagonal_1E_1N_0_SE_light)
+create noAngle(doorIntlTransom2TileDiagonal_0_0_0_NW_light)
+create noAngle(doorIntlTransom2TileDiagonal_1E_1N_0_NW_light)
+
+create WFive(doorStorybookOrnate_0_1S_0_S_light)
+create WFive(doorStorybookOrnate_0_0_0_N_light)
+create WFive(doorStorybookOrnateDiagonal_0_0_0_SE_light)
+create WFive(doorStorybookOrnateDiagonal_0_0_0_NW_light)
+
+create NS(doorStorybookOrnate_0_1S_0_S_light)
+create NS(doorStorybookOrnate_0_0_0_N_light)
+create EW(doorStorybookOrnateDiagonal_0_0_0_SE_light)
+create EW(doorStorybookOrnateDiagonal_0_0_0_NW_light)
+
+create noAngle(doorStorybookOrnate_0_1S_0_S_light)
+create noAngle(doorStorybookOrnate_0_0_0_N_light)
+create noAngle(doorStorybookOrnateDiagonal_0_0_0_SE_light)
+create noAngle(doorStorybookOrnateDiagonal_0_0_0_NW_light)

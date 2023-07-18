@@ -1,0 +1,307 @@
+
+define GoboWide(lightName)
+	lightAttribOverride &lightName intensity 9.5
+	lightAttribOverride &lightName falloffRate 6
+	lightAttribOverride &lightName diffusionSourceIntensity 2.5
+	lightAttribOverride &lightName diffusionSourceFalloff 2
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+	lightAttribOverride &lightName coneAngle 60
+	lightAttribOverride &lightName conePenumbra 10
+enddef
+
+define GoboBall(lightName)
+	lightAttribOverride &lightName intensity 2.5
+	lightAttribOverride &lightName color (.5,.7,1)
+	lightAttribOverride &lightName falloffRate 1
+	lightAttribOverride &lightName diffusionSourceIntensity 1
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .65
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+	lightAttribOverride &lightName coneAngle 180
+	lightAttribOverride &lightName conePenumbra 3
+enddef
+
+define BarLight(lightName)
+	lightAttribOverride &lightName coneAngle 80
+	lightAttribOverride &lightName conePenumbra 0
+	lightAttribOverride &lightName intensity 4.5
+	lightAttribOverride &lightName falloffRate 12
+	lightAttribOverride &lightName diffusionSourceIntensity .5
+	lightAttribOverride &lightName diffusionSourceMin (-.5, 0)
+	lightAttribOverride &lightName diffusionSourceMax (.5,1)
+	lightAttribOverride &lightName diffusionSourceFalloff 5
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+	lightAttribOverride &lightName diffusionSourceDirectionalFalloff 0
+enddef
+define NeonFive(lightName)
+	lightAttribOverride &lightName intensity 1.5
+	lightAttribOverride &lightName falloffRate .7
+	lightAttribOverride &lightName diffusionSourceIntensity 1.75
+	lightAttribOverride &lightName diffusionSourceMin (-.5, -.5)
+	lightAttribOverride &lightName diffusionSourceMax (.5, .5)
+	lightAttribOverride &lightName diffusionSourceFalloff 1.75
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .6
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+	lightAttribOverride &lightName diffusionSourceDirectionalFalloff 0
+enddef
+
+define NeonFour(lightName)
+	lightAttribOverride &lightName intensity 1
+	lightAttribOverride &lightName falloffRate .5
+	lightAttribOverride &lightName diffusionSourceIntensity 1.25
+	lightAttribOverride &lightName diffusionSourceMin (-.5, -.5)
+	lightAttribOverride &lightName diffusionSourceMax (.5, .5)
+	lightAttribOverride &lightName diffusionSourceFalloff 1.25
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .5
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+	lightAttribOverride &lightName diffusionSourceDirectionalFalloff 0
+enddef
+
+define NeonThree(lightName)
+	lightAttribOverride &lightName intensity .75
+	lightAttribOverride &lightName falloffRate .5
+	lightAttribOverride &lightName diffusionSourceIntensity 1
+	lightAttribOverride &lightName diffusionSourceMin (-.5, -.5)
+	lightAttribOverride &lightName diffusionSourceMax (.5, .5)
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .5
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+	lightAttribOverride &lightName diffusionSourceDirectionalFalloff 0
+enddef
+
+define NeonFlamingo(lightName)
+	lightAttribOverride &lightName intensity .6
+	lightAttribOverride &lightName falloffRate .5
+	lightAttribOverride &lightName diffusionSourceIntensity .85
+	lightAttribOverride &lightName diffusionSourceMin (-.5, -.5)
+	lightAttribOverride &lightName diffusionSourceMax (.5, .5)
+	lightAttribOverride &lightName diffusionSourceFalloff 1.75
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .5
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+	lightAttribOverride &lightName diffusionSourceDirectionalFalloff 0
+enddef
+
+define NeonTwo(lightName)
+	lightAttribOverride &lightName intensity .5
+	lightAttribOverride &lightName falloffRate .65
+	lightAttribOverride &lightName color (1, 0,.5)
+	lightAttribOverride &lightName diffusionSourceIntensity .75
+	lightAttribOverride &lightName diffusionSourceColor (1,1,1)
+	lightAttribOverride &lightName diffusionSourceMin (-.5, -.5)
+	lightAttribOverride &lightName diffusionSourceMax (.5, .5)
+	lightAttribOverride &lightName diffusionSourceFalloff 1.5
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .5
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+	lightAttribOverride &lightName diffusionSourceDirectionalFalloff 0
+enddef
+
+
+define DBBlue(lightName)
+ lightAttribOverride &lightName color (0.5,0.65,1)
+ lightAttribOverride &lightName diffusionSourceColor (.5,.65,1)
+enddef
+define DBGreen(lightName)
+ lightAttribOverride &lightName color (.5,1,.5)
+ lightAttribOverride &lightName diffusionSourceColor (.6,1,.6)
+enddef
+define DBPink(lightName)
+ lightAttribOverride &lightName color (.9,.5,.7)
+ lightAttribOverride &lightName diffusionSourceColor (.9,.6,.8)
+enddef
+define DBRed(lightName)
+ lightAttribOverride &lightName color (1,.55,.6)
+ lightAttribOverride &lightName diffusionSourceColor (1,.6,.6)
+enddef
+define DBCheck(lightName)
+ lightAttribOverride &lightName color (.72,.72,.72)
+ lightAttribOverride &lightName diffusionSourceColor (.72,.72,.72)
+enddef
+
+define NCViolet(lightName)
+ lightAttribOverride &lightName color (0.79,0,.79)
+ lightAttribOverride &lightName diffusionSourceColor (.79,0,.79)
+enddef
+define NCGreen(lightName)
+ lightAttribOverride &lightName color (.35,1,.35)
+ lightAttribOverride &lightName diffusionSourceColor (.35,1,.35)
+enddef
+define NCBlue(lightName)
+ lightAttribOverride &lightName color (.35,.35,1)
+ lightAttribOverride &lightName diffusionSourceColor (.35,.35,1)
+enddef
+define NCOrange(lightName)
+ lightAttribOverride &lightName color (.85,.675,.25)
+ lightAttribOverride &lightName diffusionSourceColor (.85,.675,.25)
+enddef
+define NCRed(lightName)
+ lightAttribOverride &lightName color (1,.35,.35)
+ lightAttribOverride &lightName diffusionSourceColor (1,.35,.35)
+enddef
+define NCWhite(lightName)
+ lightAttribOverride &lightName color (.65,.65,.65)
+ lightAttribOverride &lightName diffusionSourceColor (.65,.65,.65)
+enddef
+
+create NeonThree(lightingWallDinerSmall_glass_PinkAndWhite_lit_designModeLight)
+create NeonThree(lightingWallDinerSmall_glass_GreenAndWhite_lit_designModeLight) 
+create NeonThree(lightingWallDinerSmall_glass_RedAndWhite_lit_designModeLight) 
+create NeonThree(lightingWallDinerSmall_glass_BlueAndYellow_lit_designModeLight) 
+create NeonThree(lightingWallDinerSmall_glass_BlackAndWhite_lit_designModeLight)
+
+create DBPink(lightingWallDinerSmall_glass_PinkAndWhite_lit_designModeLight)
+create DBGreen(lightingWallDinerSmall_glass_GreenAndWhite_lit_designModeLight) 
+create DBRed(lightingWallDinerSmall_glass_RedAndWhite_lit_designModeLight) 
+create DBBlue(lightingWallDinerSmall_glass_BlueAndYellow_lit_designModeLight)
+create DBCheck(lightingWallDinerSmall_glass_BlackAndWhite_lit_designModeLight)
+
+create NeonFour(lightingWallDiner_glass_PinkAndWhite_lit_designModeLight)
+create NeonFour(lightingWallDiner_glass_GreenAndWhite_lit_designModeLight) 
+create NeonFour(lightingWallDiner_glass_RedAndWhite_lit_designModeLight) 
+create NeonFour(lightingWallDiner_glass_BlueAndYellow_lit_designModeLight) 
+create NeonFour(lightingWallDiner_glass_BlackAndWhite_lit_designModeLight)
+
+create DBPink(lightingWallDiner_glass_PinkAndWhite_lit_designModeLight)
+create DBGreen(lightingWallDiner_glass_GreenAndWhite_lit_designModeLight) 
+create DBRed(lightingWallDiner_glass_RedAndWhite_lit_designModeLight) 
+create DBBlue(lightingWallDiner_glass_BlueAndYellow_lit_designModeLight)
+create DBCheck(lightingWallDiner_glass_BlackAndWhite_lit_designModeLight)
+
+create NeonFive(lightingWallNightClub3x1_shade_whiteOpaqueLucite_lit_designModeLight)
+create NeonFive(lightingWallNightClub3x1_shade_red_lit_designModeLight) 
+create NeonFive(lightingWallNightClub3x1_shade_green_lit_designModeLight) 
+create NeonFive(lightingWallNightClub3x1_shade_stainless_lit_designModeLight) 
+create NeonFive(lightingWallNightClub3x1_shade_orange_lit_designModeLight) 
+create NeonFive(lightingWallNightClub3x1_shade_violet_lit_designModeLight) 
+
+create NCWhite(lightingWallNightClub3x1_shade_whiteOpaqueLucite_lit_designModeLight)
+create NCWhite(lightingWallNightClub3x1_shade_stainless_lit_designModeLight)
+create NCRed(lightingWallNightClub3x1_shade_red_lit_designModeLight) 
+create NCGreen(lightingWallNightClub3x1_shade_green_lit_designModeLight) 
+create NCOrange(lightingWallNightClub3x1_shade_orange_lit_designModeLight)
+create NCViolet(lightingWallNightClub3x1_shade_violet_lit_designModeLight)
+
+
+create NeonFour(lightingWallNightClub2x1_shade_whiteOpaqueLucite_lit_designModeLight)
+create NeonFour(lightingWallNightClub2x1_shade_red_lit_designModeLight) 
+create NeonFour(lightingWallNightClub2x1_shade_green_lit_designModeLight) 
+create NeonFour(lightingWallNightClub2x1_shade_stainless_lit_designModeLight) 
+create NeonFour(lightingWallNightClub2x1_shade_orange_lit_designModeLight) 
+create NeonFour(lightingWallNightClub2x1_shade_violet_lit_designModeLight) 
+
+create NCWhite(lightingWallNightClub2x1_shade_whiteOpaqueLucite_lit_designModeLight)
+create NCWhite(lightingWallNightClub2x1_shade_stainless_lit_designModeLight)
+create NCRed(lightingWallNightClub2x1_shade_red_lit_designModeLight) 
+create NCGreen(lightingWallNightClub2x1_shade_green_lit_designModeLight) 
+create NCOrange(lightingWallNightClub2x1_shade_orange_lit_designModeLight)
+create NCViolet(lightingWallNightClub2x1_shade_violet_lit_designModeLight)
+
+create BarLight(counterIslandBarNightClub_lucite_green_designModeLight)
+create BarLight(counterIslandBarNightClub_lucite_red_designModeLight)
+create BarLight(counterIslandBarNightClub_lucite_blue_designModeLight)
+create BarLight(counterIslandBarNightClub_lucite_violet_designModeLight)
+create BarLight(counterIslandBarNightClub_lucite_orange_designModeLight)
+
+create BarLight(islandNightClub_lucite_green_designModeLight)
+create BarLight(islandNightClub_lucite_red_designModeLight)
+create BarLight(islandNightClub_lucite_blue_designModeLight)
+create BarLight(islandNightClub_lucite_violet_designModeLight)
+create BarLight(islandNightClub_lucite_orange_designModeLight)
+
+create NCGreen(islandNightClub_lucite_green_designModeLight)
+create NCRed(islandNightClub_lucite_red_designModeLight)
+create NCBlue(islandNightClub_lucite_blue_designModeLight)
+create NCViolet(islandNightClub_lucite_violet_designModeLight)
+create NCOrange(islandNightClub_lucite_orange_designModeLight)
+
+create Five(lightWallNightClubDisk_disk_red_lit_designModeLight)
+create Five(lightWallNightClubDisk_disk_amber_lit_designModeLight) 
+create Five(lightWallNightClubDisk_disk_green_lit_designModeLight) 
+create Five(lightWallNightClubDisk_disk_blue_lit_designModeLight) 
+create Five(lightWallNightClubDisk_disk_violet_lit_designModeLight) 
+
+create NCRed(lightWallNightClubDisk_disk_red_lit_designModeLight)
+create NCOrange(lightWallNightClubDisk_disk_amber_lit_designModeLight) 
+create NCGreen(lightWallNightClubDisk_disk_green_lit_designModeLight) 
+create NCBlue(lightWallNightClubDisk_disk_blue_lit_designModeLight) 
+create NCViolet(lightWallNightClubDisk_disk_violet_lit_designModeLight) 
+
+create NeonTwo(lightingWallNeonTubeWave_neon_red_lit_designModeLight)
+create NeonTwo(lightingWallNeonTubeWave_neon_blueViolet_lit_designModeLight)
+create NeonTwo(lightingWallNeonTubeWave_neon_amberRed_lit_designModeLight)
+create NeonTwo(lightingWallNeonTubeWave_neon_violet_lit_designModeLight)
+create NeonTwo(lightingWallNeonTubeWave_neon_greenYellow_lit_designModeLight)
+
+create NCRed(lightingWallNeonTubeWave_neon_red_lit_designModeLight)
+create NCBlue(lightingWallNeonTubeWave_neon_blueViolet_lit_designModeLight)
+create NCOrange(lightingWallNeonTubeWave_neon_amberRed_lit_designModeLight)
+create NCViolet(lightingWallNeonTubeWave_neon_violet_lit_designModeLight)
+create NCGreen(lightingWallNeonTubeWave_neon_greenYellow_lit_designModeLight)
+
+create NeonFlamingo(lightingWallNeonFlamingo_neon_blue_lit_designModeLight)
+create NeonFlamingo(lightingWallNeonFlamingo_neon_pink_lit_designModeLight)
+create NeonFlamingo(lightingWallNeonFlamingo_neon_yellow_lit_designModeLight)
+create NeonFlamingo(lightingWallNeonFlamingo_neon_green_lit_designModeLight)
+create NeonFlamingo(lightingWallNeonFlamingo_neon_teal_lit_designModeLight)
+
+create DBBlue(lightingWallNeonFlamingo_neon_blue_lit_designModeLight)
+create DBPink(lightingWallNeonFlamingo_neon_pink_lit_designModeLight)
+create DBGreen(lightingWallNeonFlamingo_neon_green_lit_designModeLight)
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight color(.25,.8,.9)
+lightAttribOverride lightingWallNeonFlamingo_neon_teal_lit_designModeLight diffusionSourceColor (.25,.8,.9)
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight color(.9,.8,.25)
+lightAttribOverride lightingWallNeonFlamingo_neon_yellow_lit_designModeLight diffusionSourceColor (.9,.8,.25)
+
+create Four(lightingWallBrasserie_light)
+create SoftAmber(lightingWallBrasserie_light)
+
+create SThree(djBooth_light)
+create Red(djBooth_light)
+
+create GoboBall(lightingCeilingBall_smoke_redBlueYellow_lit_designModeLight) 
+create GoboBall(lightingCeilingBall_smoke_purpBlueTeal_lit_designModeLight) 
+create GoboBall(lightingCeilingBall_smoke_greenRedOrange_lit_designModeLight) 
+create GoboBall(lightingCeilingBall_smoke_gray_lit_designModeLight) 
+create NCRed(lightingCeilingBall_smoke_redBlueYellow_lit_designModeLight) 
+create NCBlue(lightingCeilingBall_smoke_purpBlueTeal_lit_designModeLight) 
+create NCOrange(lightingCeilingBall_smoke_greenRedOrange_lit_designModeLight) 
+create NCWhite(lightingCeilingBall_smoke_gray_lit_designModeLight) 
+
+create GoboWide(lightingCeilingGobo_smoke_style1_lit_designModeLight) 
+create GoboWide(lightingCeilingGobo_smoke_style2_lit_designModeLight)
+create GoboWide(lightingCeilingGobo_smoke_style3_lit_designModeLight)
+create GoboWide(lightingCeilingGobo_smoke_style4_lit_designModeLight) 
+
+create NCBlue(lightingCeilingGobo_smoke_style1_lit_designModeLight) 
+create NCRed(lightingCeilingGobo_smoke_style2_lit_designModeLight)
+create NCOrange(lightingCeilingGobo_smoke_style3_lit_designModeLight)
+create NCWhite(lightingCeilingGobo_smoke_style4_lit_designModeLight) 
+
+create GoboWide(lightingCeilingGoboCorner_smoke_style1_lit_designModeLight)
+create GoboWide(lightingCeilingGoboCorner_smoke_style2_lit_designModeLight)
+create GoboWide(lightingCeilingGoboCorner_smoke_style3_lit_designModeLight)
+create GoboWide(lightingCeilingGoboCorner_smoke_style4_lit_designModeLight)
+
+create NCBlue(lightingCeilingGoboCorner_smoke_style1_lit_designModeLight)
+create NCRed(lightingCeilingGoboCorner_smoke_style2_lit_designModeLight)
+create NCOrange(lightingCeilingGoboCorner_smoke_style3_lit_designModeLight)
+create NCWhite(lightingCeilingGoboCorner_smoke_style4_lit_designModeLight)
+
+create Ten(electroDanceSphere_light)
+lightAttribOverride electroDanceSphere_light falloffRate 2
+lightAttribOverride electroDanceSphere_light diffusionSourceIntensity 1.7
+lightAttribOverride electroDanceSphere_light diffusionSourceFloorIntensityScale .65
+create ElectricBlue(electroDanceSphere_light)
+
+create SSix(tvWallTavern_light) 
+
+

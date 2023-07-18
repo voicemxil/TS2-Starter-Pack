@@ -1,0 +1,15 @@
+### tvWallTavern ####################################
+
+
+lightAttribOverride tvWallTavern_light intensity 1
+lightAttribOverride tvWallTavern_light color (.2, .6, .9)
+lightAttribOverride tvWallTavern_light falloffRate 1.3
+lightAttribOverride tvWallTavern_light diffusionSourceIntensity 1
+lightAttribOverride tvWallTavern_light diffusionSourceColor (.2, .6 , .9)
+lightAttribOverride tvWallTavern_light diffusionSourceMin (-.5, -.5)
+lightAttribOverride tvWallTavern_light diffusionSourceMax (.5, .5)
+lightAttribOverride tvWallTavern_light diffusionSourceFalloff 2
+lightAttribOverride tvWallTavern_light diffusionSourceWallIntensityScale 1
+lightAttribOverride tvWallTavern_light diffusionSourceFloorIntensityScale 0.45
+lightAttribOverride tvWallTavern_light diffusionSourceIsDirectional 1
+lightAttribOverride tvWallTavern_light diffusionSourceDirectionalFalloff 0
