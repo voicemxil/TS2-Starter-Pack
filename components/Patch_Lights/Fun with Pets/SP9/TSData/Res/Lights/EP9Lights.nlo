@@ -1,0 +1,177 @@
+######### LIGHTS ####################
+
+######## Ceiling Lights ###############
+
+create Eleven(lightingChandelierNew_light)
+create SoftWhite(lightingChandelierNew_light)
+
+########### Floor lights ############
+
+
+######### OUTDOOR lights ##########
+
+create Seven(lightingStreetDeco_light)
+create SoftWhite(lightingStreetDeco_light)
+
+######### Table lights ###########
+
+
+######### Wall lights ##########
+
+create Five(lightingWallDeco_light)
+create SoftWhite(lightingWallDeco_light)
+
+######## Special Objects ############### diffusionSourceColor (1, .7, 1)
+
+##### FirePlaces #####
+
+
+########## Windows ##############
+
+create WFour(windowBayDeco_0_0_0_N_light)
+create WFour(windowBayDeco_2E_0_0_N_light)
+create WFour(windowBayDeco_0_1S_0_S_light)
+create WFour(windowBayDeco_2E_1S_0_S_light)
+
+create NS(windowBayDeco_0_0_0_N_light)
+create NS(windowBayDeco_2E_0_0_N_light)
+create NS(windowBayDeco_0_1S_0_S_light)
+create NS(windowBayDeco_2E_1S_0_S_light)
+
+
+create WFour(windowBayDecoDiagonal_0_0_0_NW_light)
+create WFour(windowBayDecoDiagonal_2E_2N_0_NW_light)
+create WFour(windowBayDecoDiagonal_0_0_0_SE_light)
+create WFour(windowBayDecoDiagonal_2E_2N_0_SE_light)
+
+create EW(windowBayDecoDiagonal_0_0_0_NW_light)
+create EW(windowBayDecoDiagonal_2E_2N_0_NW_light)
+create EW(windowBayDecoDiagonal_0_0_0_SE_light)
+create EW(windowBayDecoDiagonal_2E_2N_0_SE_light)
+
+
+
+create WFour(windowBayEmpire_0_0_0_N_light)
+create WFour(windowBayEmpire_2E_0_0_N_light)
+create WFour(windowBayEmpire_0_1S_0_S_light)
+create WFour(windowBayEmpire_2E_1S_0_S_light)
+
+create NS(windowBayEmpire_0_0_0_N_light)
+create NS(windowBayEmpire_2E_0_0_N_light)
+create NS(windowBayEmpire_0_1S_0_S_light)
+create NS(windowBayEmpire_2E_1S_0_S_light)
+
+
+create WFour(windowBayEmpireDiagonal_0_0_0_NW_light)
+create WFour(windowBayEmpireDiagonal_2E_2N_0_NW_light)
+create WFour(windowBayEmpireDiagonal_0_0_0_SE_light)
+create WFour(windowBayEmpireDiagonal_2E_2N_0_SE_light)
+
+create EW(windowBayEmpireDiagonal_0_0_0_NW_light)
+create EW(windowBayEmpireDiagonal_2E_2N_0_NW_light)
+create EW(windowBayEmpireDiagonal_0_0_0_SE_light)
+create EW(windowBayEmpireDiagonal_2E_2N_0_SE_light)
+
+
+
+create WFour(windowBayEmpire_0_0_0_N_light)
+create WFour(windowBayEmpire_0_1S_0_S_light)
+
+create NS(windowBayEmpire_0_0_0_N_light)
+create NS(windowBayEmpire_0_1S_0_S_light)
+
+create WFour(windowBayEmpireDiagonal_0_0_0_NW_light)
+create WFour(windowBayEmpireDiagonal_0_0_0_SE_light)
+
+create EW(windowBayEmpireDiagonal_0_0_0_NW_light)
+create EW(windowBayEmpireDiagonal_0_0_0_SE_light)
+
+
+
+create WFour(windowSmallMoroccan_0_0_0_N_light)
+create WFour(windowSmallMoroccan_0_1S_0_S_light)
+
+create NS(windowSmallMoroccan_0_0_0_N_light)
+create NS(windowSmallMoroccan_0_1S_0_S_light)
+
+create WFour(windowSmallMoroccanDiagonal_0_0_0_NW_light)
+create WFour(windowSmallMoroccanDiagonal_0_0_0_SE_light)
+
+create EW(windowSmallMoroccanDiagonal_0_0_0_NW_light)
+create EW(windowSmallMoroccanDiagonal_0_0_0_SE_light)
+
+
+
+create WFour(windowMoroccan_0_0_0_N_light)
+create WFour(windowMoroccan_0_1S_0_S_light)
+
+create NS(windowMoroccan_0_0_0_N_light)
+create NS(windowMoroccan_0_1S_0_S_light)
+
+create WFour(windowMoroccanDiagonal_0_0_0_NW_light)
+create WFour(windowMoroccanDiagonal_0_0_0_SE_light)
+
+create EW(windowMoroccanDiagonal_0_0_0_NW_light)
+create EW(windowMoroccanDiagonal_0_0_0_SE_light)
+
+
+
+create WFour(windowTwoTileEmpire_0_0_0_N_light)
+create WFour(windowTwoTileEmpiren_0_1S_0_S_light)
+
+create NS(windowTwoTileEmpire_0_0_0_N_light)
+create NS(windowTwoTileEmpire_0_1S_0_S_light)
+
+create WFour(windowTwoTileEmpireDiagonal_0_0_0_NW_light)
+create WFour(windowTwoTileEmpireDiagonal_0_0_0_SE_light)
+
+create EW(windowTwoTileEmpireDiagonal_0_0_0_NW_light)
+create EW(windowTwoTileEmpireDiagonal_0_0_0_SE_light)
+
+
+
+create WFour(windowSmallRoundEmpire_0_0_0_N_light)
+create WFour(windowSmallRoundEmpire_0_1S_0_S_light)
+
+create NS(windowSmallRoundEmpire_0_0_0_N_light)
+create NS(windowSmallRoundEmpire_0_1S_0_S_light)
+
+create WFour(windowSmallRoundEmpireDiagonal_0_0_0_NW_light)
+create WFour(windowSmallRoundEmpireDiagonal_0_0_0_SE_light)
+
+create EW(windowSmallRoundEmpireDiagonal_0_0_0_NW_light)
+create EW(windowSmallRoundEmpireDiagonal_0_0_0_SE_light)
+
+
+
+create WFour(windowResidentialDecoTwoTile_0_0_0_N_light)
+create WFour(windowResidentialDecoTwoTile_0_1S_0_S_light)
+
+create NS(windowResidentialDecoTwoTile_0_0_0_N_light)
+create NS(windowResidentialDecoTwoTile_0_1S_0_S_light)
+
+create WFour(windowResidentialDecoTwoTileDiagonal_0_0_0_NW_light)
+create WFour(windowResidentialDecoTwoTileDiagonal_0_0_0_SE_light)
+
+create EW(windowResidentialDecoTwoTileDiagonal_0_0_0_NW_light)
+create EW(windowResidentialDecoTwoTileDiagonal_0_0_0_SE_light)
+
+
+
+create WFour(windowMansardEmpireDormer_0_0_0_N_light)
+create WFour(windowMansardEmpireDormer_0_1S_0_S_light)
+
+create NS(windowMansardEmpireDormer_0_0_0_N_light)
+create NS(windowMansardEmpireDormer_0_1S_0_S_light)
+
+
+
+create WFour(windowMansardEmpireRound_0_0_0_N_light)
+create WFour(windowMansardEmpireRound_0_1S_0_S_light)
+
+create NS(windowMansardEmpireRound_0_0_0_N_light)
+create NS(windowMansardEmpireRound_0_1S_0_S_light)
+
+
+########## Doors ##############
+

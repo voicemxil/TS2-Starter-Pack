@@ -1,0 +1,34 @@
+######### LIGHTS ####################
+
+######## Ceiling Lights ###############
+
+
+create Six(lightingCeilingSurfer_light)
+create SoftWhite(lightingCeilingSurfer_light)
+
+create Six(lightingCeilingVictorian_light)
+create SoftWhite(lightingCeilingVictorian_light)
+
+########### Floor lights ############
+
+######### OUTDOOR lights ##########
+
+######### Table lights ###########
+
+
+create Four(lightingTableCandleGoth_light)
+create Amber(lightingTableCandleGoth_light)
+
+create Four(lightingTableVictorian_light)
+create Fire(lightingTableVictorian_light)
+
+######### Wall lights ##########
+
+create Four(lightingWallVictorian_light)
+create SoftAmber(lightingWallVictorian_Light)
+
+########## Windows ##############
+
+
+########## Doors ##############
+

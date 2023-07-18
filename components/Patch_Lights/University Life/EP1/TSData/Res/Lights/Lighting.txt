@@ -1,0 +1,9 @@
+####################################################
+# EP1 Lighting Manager settings
+#
+
+
+# Lighting override (.nlo) files for specific EP1 objects should be placed in this directory.
+# The following command triggers the game to parse all such files.
+# wildInclude "*.nlo"
+

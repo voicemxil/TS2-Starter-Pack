@@ -1,0 +1,257 @@
+
+###################### BEST USED FOR OUTDOOR #####################################
+define Eleven(lightName)
+	lightAttribOverride &lightName intensity 3.5
+	lightAttribOverride &lightName falloffRate 1
+	lightAttribOverride &lightName diffusionSourceIntensity 3.5
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .65
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+enddef
+define Ten(lightName)
+	lightAttribOverride &lightName intensity 3
+	lightAttribOverride &lightName falloffRate 1
+	lightAttribOverride &lightName diffusionSourceIntensity 3
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .65
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+enddef
+define Nine(lightName)
+	lightAttribOverride &lightName intensity 2.5
+	lightAttribOverride &lightName falloffRate 1
+	lightAttribOverride &lightName diffusionSourceIntensity 2.5
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .65
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+
+enddef
+define Eight(lightName)
+	lightAttribOverride &lightName intensity 2
+	lightAttribOverride &lightName falloffRate 1
+	lightAttribOverride &lightName diffusionSourceIntensity 2
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .65
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+enddef
+define Seven(lightName)
+	lightAttribOverride &lightName intensity 1.75
+	lightAttribOverride &lightName falloffRate 1
+	lightAttribOverride &lightName diffusionSourceIntensity 1.75
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .65
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+enddef
+################# BEST USED FOR INDOOR ##########################################
+define Six(lightName)
+	lightAttribOverride &lightName intensity 1.5
+	lightAttribOverride &lightName falloffRate 1
+	lightAttribOverride &lightName diffusionSourceIntensity 1.5
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .65
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+enddef
+define Five(lightName)
+	lightAttribOverride &lightName intensity 1.25
+	lightAttribOverride &lightName falloffRate 1
+	lightAttribOverride &lightName diffusionSourceIntensity 1.25
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .65
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+enddef
+define Four(lightName)
+	lightAttribOverride &lightName intensity 1
+	lightAttribOverride &lightName falloffRate 1
+	lightAttribOverride &lightName diffusionSourceIntensity 1
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .65
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+enddef
+define Three(lightName)
+	lightAttribOverride &lightName intensity .75
+	lightAttribOverride &lightName falloffRate 1
+	lightAttribOverride &lightName diffusionSourceIntensity .75
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .65
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+enddef
+define Two(lightName)
+	lightAttribOverride &lightName intensity 0.5
+	lightAttribOverride &lightName falloffRate 1
+	lightAttribOverride &lightName diffusionSourceIntensity 0.5
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .65
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+enddef
+define One(lightName)
+	lightAttribOverride &lightName intensity 0.33
+	lightAttribOverride &lightName falloffRate 1
+	lightAttribOverride &lightName diffusionSourceIntensity 0.33
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .65
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+enddef
+define Bounce(lightName)
+	lightAttribOverride &lightName intensity 0.2
+	lightAttribOverride &lightName falloffRate 1
+	lightAttribOverride &lightName diffusionSourceIntensity 0.2
+	lightAttribOverride &lightName diffusionSourceFalloff 1
+	lightAttribOverride &lightName diffusionSourceWallIntensityScale 1
+	lightAttribOverride &lightName diffusionSourceFloorIntensityScale .65
+	lightAttribOverride &lightName diffusionSourceIsDirectional 0
+enddef
+
+define Zero(lightName)
+	lightAttribOverride &lightName intensity 0
+	lightAttribOverride &lightName diffusionSourceIntensity 0
+enddef
+
+
+
+############ Table Lights ########################
+create Three(lightingTableLoftShoji_light)
+create Three(lightingTableBigBulbRed_light)
+create Three(lightingTableBigBulbGreen_light)
+create Three(lightingTableBigBulb_light)  #Blue one
+create Four(lightingTableCentralAsian1_light)
+create Four(lightingTableCentralAsian2_light)
+create Four(lightingTableClubLamp_light)
+create Four(lightingTableColonial2_light)
+create Four(lightingTableDesigner_light)
+create Four(lightingTableMoroccan_light)
+create Four(lightingTableQuaint_light)
+create Four(lightingTableValue1_light)
+create Four(lightingTableValue2_light)
+create Three(lightingTableArtNouveau_light)
+create Zero (OLD_lightingTableBigBulb_toplight)
+
+create SoftAmber(lightingTableLoftShoji_light)
+create Red(lightingTableBigBulbRed_light)
+create Green(lightingTableBigBulbGreen_light)
+create Blue(lightingTableBigBulb_light)
+create SoftBlue(lightingTableCentralAsian2_light)
+create SoftAmber(lightingTableCentralAsian1_light)
+create SoftAmber(lightingTableClubLamp_light)
+create SoftWhite(lightingTableDesigner_light)
+create SoftBlue(lightingTableMoroccan_light)
+create SoftWhite(lightingTableValue1_light)
+create SoftWhite(lightingTableValue2_light)
+create SoftPink(lightingTableArtNouveau_light)
+
+############ FLOOR LIGHTS #########################
+create Five(lightingFloorClubLampSwingArm_light)
+create Five(lightingFloorClubLampTorch_light)
+create Five(lightingFloorLoftLamp_light)
+create Four(lightingFloorQuaint_light)
+create Four(lightingFloorDesigner_light)
+create Four(lightingFloorMoroccan_light)
+create Five(lightingFloorValue_light)
+create Five(lightingFloorUM_light)
+
+create SoftAmber(lightingFloorClubLampSwingArm_light)
+create SoftAmber(lightingFloorClubLampTorch_light)
+create SoftAmber(lightingFloorLoftLamp_light)
+create SoftAmber(lightingFloorQuaint_light)
+create SoftAmber(lightingFloorDesigner_light)
+create SoftBlue(lightingFloorMoroccan_light)
+create SoftWhite(lightingFloorValue_light)
+create Florescent(lightingFloorUM_light)
+
+############ WALL LIGHTS    ######################
+create Four(wallDeckSconce_point)
+create Four(lightingWallClubSconce_light)
+create Four(lightingWallSconceWave_light)
+create Four(lightingWallArtNouveau_light)
+create Four(lightingWallSconceClamshell_light)
+create Four(lightinglWallQuaint_light)
+create Four(lightingWallValue_light)
+create Four(lightingWallValue2_light)
+create Four(lightingWallMoroccan_light)
+create Three(lightingWallColonial_light)
+
+create SoftAmber(wallDeckSconce_point)
+create Amber(lightingWallClubSconce_light)
+create SoftAmber(lightingWallSconceWave_light)
+create SoftWhite(lightingWallArtNouveau_light)
+create SoftWhite(lightingWallSconceClamshell_light)
+create SoftWhite(lightingWallValue_light)
+create SoftWhite(lightingWallValue2_light)
+create SoftAmber(lightingWallMoroccan_light)
+create Amber(lightingWallColonial_light)
+create SoftAmber(lightinglWallQuaint_light)
+############ CEILING LIGHTS    ######################
+create Six(lightingCeilingChandelierModern_light)  
+create Six(lightingCeilingPaperShade_bulb) 
+create Five(lightingCeilingCanister_light)
+lightAttribOverride lightingCeilingCanister_light coneAngle 50
+lightAttribOverride lightingCeilingCanister_light conePenumbra 55
+create Six(lightingCeilingClubGlass_light)
+create Five(lightingCeilingArtNouveau_light)
+create Six(lightingCeilingDesigner_light)  
+create Five(lightingCeilingCentralAsian_light) 
+create Five(lightingCeilingMoroccan_light)
+create Six(lightingCeilingQuaint_light)
+create Six(lightingCeilingValue_light)
+create Five(lightingCeilingHangingFluorescent_light)
+
+create SoftBlue(lightingCeilingChandelierModern_light)
+create SoftAmber(lightingCeilingPaperShade_bulb) 
+create SoftWhite(lightingCeilingCanister_light)
+create SoftAmber(lightingCeilingClubGlass_light)
+create SoftWhite(lightingCeilingArtNouveau_light)
+create SoftWhite(lightingCeilingDesigner_light) 
+create SoftBlue(lightingCeilingCentralAsian_light)
+create SoftAmber(lightingCeilingMoroccan_light)
+create SoftWhite(lightingCeilingQuaint_light)
+create SoftWhite(lightingCeilingValue_light)
+create Florescent(lightingCeilingHangingFluorescent_light)
+
+
+############ OUTDOOR LIGHTS #######################
+create Zero(streetlightTriple_left)
+create Zero(streetlightTriple_right)
+create Ten(streetlightTriple_middle)
+create Ten(lightingStreetlight_light)
+create Ten(lightingStreetlightWooden_light)
+create Seven(gardenUplight)
+lightAttribOverride gardenUplight coneAngle 35
+lightAttribOverride gardenUplight conePenumbra 25
+create Seven(gardenUplight_tree)
+create Seven(lightingFloorGardenBollard_light)
+create Seven(lightingFloorGardenTier_light)
+create Eight(lightingFenceCentralAsian_light)
+create Eight(lightingFencePostValue_light)
+create Eight(lightingFenceBrickWallLamp_light)
+create Six(deckPostLamp_point)
+create Zero(deckPostLamp_spot)
+create Six(phoneBooth_light)
+
+
+create SoftWhite(streetlightTriple_left)
+create SoftWhite(streetlightTriple_middle)
+create SoftWhite(lightingStreetlight_light)
+create SoftWhite(lightingStreetlightWooden_light)
+create SoftWhite(gardenUplight)
+create SoftWhite(gardenUplight_tree)
+lightAttribOverride gardenUplight_tree diffusionSourceIntensity 0
+lightAttribOverride gardenUplight_tree falloffRate 0.4
+create SoftWhite(lightingFloorGardenBollard_light)
+create SoftWhite(lightingFloorGardenTier_light)
+create SoftWhite(lightingFenceCentralAsian_light)
+create SoftWhite(lightingFencePostValue_light)
+create SoftWhite(lightingFenceBrickWallLamp_light)
+create SoftWhite(deckPostLamp_point)
+create SoftWhite(deckPostLamp_spot)
+create SoftWhite(phoneBooth_light)
+
+

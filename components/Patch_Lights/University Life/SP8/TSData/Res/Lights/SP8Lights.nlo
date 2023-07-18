@@ -1,0 +1,118 @@
+######### LIGHTS ####################
+
+######## Ceiling Lights ###############
+
+
+create Six(lightingCeilingBaskis_light)
+create SoftWhite(lightingCeilingBaskis_light)
+
+
+create Six(lightingCeilingLyra_light)
+create SoftWhite(lightingCeilingLyra_light)
+
+
+create Six(lightingCeilingSphereRegolit_light)
+create SoftWhite(lightingCeilingSphereRegolit_light)
+
+
+
+########### Floor lights ############
+
+create Six(lightingFloorOrgelVreten_light)
+create SoftWhite(lightingFloorOrgelVreten_light)
+
+create Four(lightingTableTealightIkeaPS_light)
+create Fire(lightingTableTealightIkeaPS_light)
+
+create Five(lightingFloorMarek_light)
+create SoftWhite(lightingFloorMarek_light)
+
+create Six(lightingFloorStorm_light)
+create SoftWhite(lightingFloorStorm_light)
+
+
+
+
+######### OUTDOOR lights ##########
+
+######### Table lights ###########
+
+create Six(lightingTableOrgel_light)
+create SoftWhite(lightingTableOrgel_light)
+
+create Six(lightingTableSkimra_light)
+create SoftWhite(lightingTableSkimra_light)
+
+create Five(lightingTableMylonit_light)
+create SoftWhite(lightingTableMylonit_light)
+
+create Four(lightingTableLampan_light)
+create SoftWhite(lightingTableLampan_light)
+
+create Five(lightingTableKila_light)
+create SoftWhite(lightingTableKila_light)
+
+
+######### Wall lights ##########
+
+######## Special Objects ###############
+
+create Six(tvCenterExpedit_light)
+create ElectricBlue(tvCenterExpedit_light)
+
+########## Windows ##############
+
+create WSix(doorBrasserie_0_0_0_N_light)
+create WSix(doorBrasserie_0_1S_0_S_light)
+create WSix(doorBrasserieDiagonal_0_0_0_NW_light)
+create WSix(doorBrasserieDiagonal_0_0_0_SE_light)
+create NS(doorBrasserie_0_0_0_N_light)
+create NS(doorBrasserie_0_1S_0_S_light)
+create EW(doorBrasserieDiagonal_0_0_0_NW_light)
+create EW(doorBrasserieDiagonal_0_0_0_SE_light)
+create noAngle(doorBrasserie_0_0_0_N_light)
+create noAngle(doorBrasserie_0_1S_0_S_light)
+create noAngle(doorBrasserieDiagonal_0_0_0_NW_light)
+create noAngle(doorBrasserieDiagonal_0_0_0_SE_light)
+
+create WSix(doorBrasserieArch_0_0_0_N_light)
+create WSix(doorBrasserieArch_0_1S_0_S_light)
+create WSix(doorBrasserieArchDiagonal_0_0_0_NW_light)
+create WSix(doorBrasserieArchDiagonal_0_0_0_SE_light)
+create NS(doorBrasserieArch_0_0_0_N_light)
+create NS(doorBrasserieArch_0_1S_0_S_light)
+create EW(doorBrasserieArchDiagonal_0_0_0_NW_light)
+create EW(doorBrasserieArchDiagonal_0_0_0_SE_light)
+create noAngle(doorBrasserieArch_0_0_0_N_light)
+create noAngle(doorBrasserieArch_0_1S_0_S_light)
+create noAngle(doorBrasserieArchDiagonal_0_0_0_NW_light)
+create noAngle(doorBrasserieArchDiagonal_0_0_0_SE_light)
+
+create WFive(windowBrasserie_0_0_0_N_light)
+create WFive(windowBrasserie_0_1S_0_S_light)
+create WFive(windowBrasserieDiagonal_0_0_0_NW_light)
+create WFive(windowBrasserieDiagonal_0_0_0_SE_light)
+create NS(windowBrasserie_0_0_0_N_light)
+create NS(windowBrasserie_0_1S_0_S_light)
+create EW(windowBrasserieDiagonal_0_0_0_NW_light)
+create EW(windowBrasserieDiagonal_0_0_0_SE_light)
+
+create WFive(windowTwoTileWideBrasserie_0_0_0_N_light)
+create WFive(windowTwoTileWideBrasserie_0_1S_0_S_light)
+create WFive(windowTwoTileWideBrasserie_1E_0_0_N_light)
+create WFive(windowTwoTileWideBrasserie_1E_1S_0_S_light)
+create WFive(windowTwoTileWideBrasserieDiagonal_0_0_0_NW_light)
+create WFive(windowTwoTileWideBrasserieDiagonal_1E_1N_0_NW_light)
+create WFive(windowTwoTileWideBrasserieDiagonal_0_0_0_SE_light)
+create WFive(windowTwoTileWideBrasserieDiagonal_1E_1N_0_SE_light)
+create NS(windowTwoTileWideBrasserie_0_0_0_N_light)
+create NS(windowTwoTileWideBrasserie_0_1S_0_S_light)
+create NS(windowTwoTileWideBrasserie_1E_0_0_N_light)
+create NS(windowTwoTileWideBrasserie_1E_1S_0_S_light)
+create EW(windowTwoTileWideBrasserieDiagonal_0_0_0_NW_light)
+create EW(windowTwoTileWideBrasserieDiagonal_1E_1N_0_NW_light)
+create EW(windowTwoTileWideBrasserieDiagonal_0_0_0_SE_light)
+create EW(windowTwoTileWideBrasserieDiagonal_1E_1N_0_SE_light)
+
+########## Doors ##############
+
