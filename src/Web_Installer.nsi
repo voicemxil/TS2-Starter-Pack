@@ -128,7 +128,7 @@ Section "TS2 Starter Pack" Section1
 	Delete "$INSTDIR\temp\Sims2RPC.7z"
 	
 	# LdDarcy Pie Menu Text Strings Fix
-	NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/LdDarcy_PieMenuTextStringsFix.package" "$INSTDIR\Fun with Pets\TSData\Res\UI" /BACKGROUND /END
+	NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/LdDarcy_PieMenuTextStringsFix.package" "$INSTDIR\Fun with Pets\SP9\TSData\Res\UI\LdDarcy_PieMenuTextStringsFix.package" /BACKGROUND /END
 
 	# Downloads Folder
 	DetailPrint "Creating Downloads folder..."
@@ -183,15 +183,17 @@ Section "TS2 Starter Pack" Section1
 	SetFileAttributes "$INSTDIR\University Life\SP8\TSData\Res\Objects\objects.package" READONLY
 
 	# CEP Color Enable Package
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/_EnableColorOptionsGMND.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/_EnableColorOptionsMMAT.package" "$INSTDIR\Double Deluxe\Base\TSData\Res\Sims3D" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/zCEP-EXTRA_Documents.7z" "$INSTDIR\temp" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/_EnableColorOptionsGMND.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\_EnableColorOptionsGMND.package" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/_EnableColorOptionsMMAT.package" "$INSTDIR\Double Deluxe\Base\TSData\Res\Sims3D\_EnableColorOptionsMMAT.package" /BACKGROUND /END
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/zCEP-EXTRA_Documents.7z" "$INSTDIR\temp\zCEP-EXTRA_Documents.7z" /BACKGROUND /END
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection"
-	Nsis7z::ExtractWithDetails "zCEP-EXTRA_Documents.7z" "%s"
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/zCEP-EXTRA_ProgramFiles.7z" "$INSTDIR\temp" /BACKGROUND /END
+	Nsis7z::ExtractWithDetails "$INSTDIR\temp\zCEP-EXTRA_Documents.7z" "%s"
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/zCEP-EXTRA_ProgramFiles.7z" "$INSTDIR\temp\zCEP-EXTRA_ProgramFiles.7z" /BACKGROUND /END
 	SetOutPath "$INSTDIR\Double Deluxe\Base\TSData\Res\Catalog"
-	Nsis7z::ExtractWithDetails "zCEP-EXTRA_ProgramFiles.7z" "%s"
-
+	Nsis7z::ExtractWithDetails "$INSTDIR\temp\zCEP-EXTRA_ProgramFiles.7z" "%s"
+	Delete "$INSTDIR\temp\zCEP-EXTRA_Documents.7z"
+	Delete "$INSTDIR\temp\zCEP-EXTRA_ProgramFiles.7z"
+	
 	# Create Uninstaller
 	SetOutPath $INSTDIR
 	WriteUninstaller "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
@@ -259,7 +261,7 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 	Section "LD Bright CAS Fix" Section6	
 		SectionInstType ${IT_FULL} ${IT_AMD}
 		DetailPrint "Donwloading Bright CAS Fix..."
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/ld_BrightCASFix.package" "$INSTDIR\Fun with Pets\SP9\TSData\Res" /BACKGROUND /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/ld_BrightCASFix.package" "$INSTDIR\Fun with Pets\SP9\TSData\Res\ld_BrightCASFix.package" /BACKGROUND /END
 	SectionEnd
 SectionGroupEnd
 
@@ -298,12 +300,12 @@ SectionGroupEnd
 Section "Store & Preorder/Bonus Content" Section9
 	AddSize 360000
 	SetOutPath $INSTDIR
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Install_Folder.7z" "$INSTDIR\temp" /BACKGROUND /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Install_Folder.7z" "$INSTDIR\temp\Install_Folder.7z" /BACKGROUND /END
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Install_Folder.7z" "%s"
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Downloads.7z" "$INSTDIR\temp" /BACKGROUND /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Downloads.7z" "$INSTDIR\temp\Downloads.7z" /BACKGROUND /END
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Downloads.7z" "%s"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Collections.7z" "$INSTDIR\temp" /BACKGROUND /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Collections.7z" "$INSTDIR\temp\Collections.7z" /BACKGROUND /END
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Collections.7z" "%s"
 	Delete "$INSTDIR\temp\Install_Folder.7z"
 	Delete "$INSTDIR\temp\Downloads.7z"
@@ -313,25 +315,25 @@ SectionEnd
 SectionGroup "Extra: Clean Hood Templates"
 	Section /o "Main Hood Templates" Section10
 		SetOutPath $INSTDIR
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/BG_Hoods.7z" "$INSTDIR\temp" /BACKGROUND /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/BG_Hoods.7z" "$INSTDIR\temp\BG_Hoods.7z" /BACKGROUND /END
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\BG_Hoods.7z" "%s"
 		Delete "$INSTDIR\temp\BG_Hoods.7z"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/FT_SSNS_Hoods.7z" "$INSTDIR\temp" /BACKGROUND /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/FT_SSNS_Hoods.7z" "$INSTDIR\temp\FT_SSNS_Hoods.7z" /BACKGROUND /END
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\FT_SSNS_Hoods.7z" "%s"
 		Delete "$INSTDIR\temp\FT_SSNS_Hoods.7z"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/BelladonnaCove.7z" "$INSTDIR\temp" /BACKGROUND /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/BelladonnaCove.7z" "$INSTDIR\temp\BelladonnaCove.7z" /BACKGROUND /END
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\BelladonnaCove.7z" "%s"
 		Delete "$INSTDIR\temp\BelladonnaCove.7z"
 	SectionEnd
 	Section /o "Subhood Templates" Section11
 		SetOutPath $INSTDIR
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/Subhoods.7z" "$INSTDIR\temp" /BACKGROUND /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/Subhoods.7z" "$INSTDIR\temp\Subhoods.7z" /BACKGROUND /END
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Subhoods.7z" "%s"
 		Delete "$INSTDIR\temp\Subhoods.7z" 
 	SectionEnd
 	Section /o "Stealth Hood Templates" Section12
 		SetOutPath $INSTDIR
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/Stealth_Hoods.7z" "$INSTDIR\temp" /BACKGROUND /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/Stealth_Hoods.7z" "$INSTDIR\temp\Stealth_Hoods.7z" /BACKGROUND /END
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Stealth_Hoods.7z" "%s"
 		Delete "$INSTDIR\temp\Stealth_Hoods.7z"
 	SectionEnd
