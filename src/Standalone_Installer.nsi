@@ -14,7 +14,7 @@ Target amd64-unicode
 
 
 Name "The Sims 2 Starter Pack - Standalone"
-OutFile "..\bin\Standalone Installer\TS2-StandaloneInstaller.x64.exe"
+OutFile "..\bin\Standalone Installer\TS2StarterPack-StandaloneInstaller.x64.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
