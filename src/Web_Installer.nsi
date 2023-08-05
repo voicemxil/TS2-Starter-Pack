@@ -316,7 +316,7 @@ SectionGroupEnd
 
 Section "Store & Preorder/Bonus Content" Section9
 	AddSize 360000
-	SetOutPath "$INSTDIR/temp"
+	SetOutPath "$INSTDIR\temp"
 		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Install_Folder.7z" "$INSTDIR\temp\Install_Folder.7z" /RESUME /END
 		Pop $0
 		DetailPrint "Install_Folder.7z download result: $0"		
@@ -424,6 +424,7 @@ SectionEnd
 
 Section
 	RMDir /r "$INSTDIR\temp"
+	sleep 20000
 	ExecShell "open" "$INSTDIR\Fun with Pets\SP9\TSBin"
 SectionEnd
 

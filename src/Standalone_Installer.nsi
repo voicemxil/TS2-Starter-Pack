@@ -227,17 +227,10 @@ SectionGroup /e "Graphical Fixes\Tweaks"
 		SectionInstType ${IT_FULL} ${IT_AMD}
 
 		SetOutPath "$INSTDIR\temp"
-		${If} ${RunningX64}
 			File "..\components\GraphicsRulesMaker-2.3.0-win64.exe"
 			Pop $0 # return value = exit code, "OK" means OK
 			Rename GraphicsRulesMaker-2.3.0-win64.exe grm_install.exe
 			DetailPrint "GRM extract status: $0. Executing installer..." 
-		${Else}
-			File "..\components\GraphicsRulesMaker-2.3.0-win32.exe"
-			Pop $0 
-			Rename GraphicsRulesMaker-2.3.0-win32.exe grm_install.exe
-			DetailPrint "GRM extract status: $0. Executing installer..." 
-		${EndIf}
 		Execwait $INSTDIR\temp\grm_install.exe
 		Delete $INSTDIR\temp\grm_install.exe
 	SectionEnd
