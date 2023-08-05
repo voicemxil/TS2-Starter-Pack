@@ -206,12 +206,12 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 		SetOutPath "$INSTDIR\temp"
 		${If} ${RunningX64}
 			DetailPrint "Downloading Graphics Rules Maker..."
-			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/graphicsrulesmaker-2.3.0-win64.exe" "$INSTDIR\temp\grm_install.exe" /RESUME /INSIST /CANCEL /END
+			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/GraphicsRulesMaker-2.3.0-win64.exe" "$INSTDIR\temp\grm_install.exe" /RESUME /INSIST /CANCEL /END
 			Pop $0 # return value = exit code, "OK" means OK
 			DetailPrint "GRM download status: $0. Executing installer..." 
 		${Else}
 			DetailPrint "Downloading Graphics Rules Maker.."
-			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/graphicsrulesmaker-2.3.0-win32.exe" "$INSTDIR\temp\grm_install.exe" /RESUME /INSIST /CANCEL /END
+			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/GraphicsRulesMaker-2.3.0-win32.exe" "$INSTDIR\temp\grm_install.exe" /RESUME /INSIST /CANCEL /END
 			Pop $0 # return value = exit code, "OK" means OK
 			DetailPrint "GRM download status: $0. Executing installer..." 
 		${EndIf}
