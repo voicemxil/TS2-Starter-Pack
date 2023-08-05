@@ -183,17 +183,34 @@ Section "TS2 Starter Pack" Section1
 	SetFileAttributes "$INSTDIR\University Life\SP8\TSData\Res\Objects\objects.package" READONLY
 
 	# CEP Color Enable Package
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/_EnableColorOptionsGMND.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\_EnableColorOptionsGMND.package" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/_EnableColorOptionsMMAT.package" "$INSTDIR\Double Deluxe\Base\TSData\Res\Sims3D\_EnableColorOptionsMMAT.package" /BACKGROUND /END
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/zCEP-EXTRA_Documents.7z" "$INSTDIR\temp\zCEP-EXTRA_Documents.7z" /BACKGROUND /END
+	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/_EnableColorOptionsGMND.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\_EnableColorOptionsGMND.package" /RESUME /END
+	Pop $0
+	DetailPrint "_EnableColorOptionsGMND.package download status: $0"
+	SetOutPath "$INSTDIR\Double Deluxe\Base\TSData\Res\Sims3D"
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/_EnableColorOptionsMMAT.package" "$INSTDIR\Double Deluxe\Base\TSData\Res\Sims3D\_EnableColorOptionsMMAT.package" /RESUME /END
+	Pop $0
+	DetailPrint "_EnableColorOptionsMMAT.package download status: $0"
+	SetOutPath "$INSTDIR\temp"
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/zCEP-EXTRA_Documents.7z" "$INSTDIR\temp\zCEP-EXTRA_Documents.7z" /RESUME /END
+	Pop $0
+	DetailPrint "zCEP-EXTRA_Documents.7z download status: $0"
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection"
 	Nsis7z::ExtractWithDetails "$INSTDIR\temp\zCEP-EXTRA_Documents.7z" "%s"
-	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/zCEP-EXTRA_ProgramFiles.7z" "$INSTDIR\temp\zCEP-EXTRA_ProgramFiles.7z" /BACKGROUND /END
+	Pop $0
+	DetailPrint "zCEP-EXTRA_Documents.7z extract status: $0"	
+	SetOutPath "$INSTDIR\temp"
+	NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/CEP/zCEP-EXTRA_ProgramFiles.7z" "$INSTDIR\temp\zCEP-EXTRA_ProgramFiles.7z" /RESUME /END
+	Pop $0
+	DetailPrint "zCEP-EXTRA_ProgramFiles.7z download status: $0"	
 	SetOutPath "$INSTDIR\Double Deluxe\Base\TSData\Res\Catalog"
 	Nsis7z::ExtractWithDetails "$INSTDIR\temp\zCEP-EXTRA_ProgramFiles.7z" "%s"
+	Pop $0
+	DetailPrint "zCEP-EXTRA_ProgramFiles.7z extract status: $0"	
+
 	Delete "$INSTDIR\temp\zCEP-EXTRA_Documents.7z"
 	Delete "$INSTDIR\temp\zCEP-EXTRA_ProgramFiles.7z"
-	
+
 	# Create Uninstaller
 	SetOutPath $INSTDIR
 	WriteUninstaller "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
@@ -225,7 +242,7 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 		SetOutPath $INSTDIR\temp
 
 		DetailPrint "Downloading Vulkan-Test to check for DXVK support..."
-		NScurl::http GET "https://github.com/skeeto/vulkan-test/releases/download/1.0.2/vulkan_test.exe" "vulkan_test.exe" /RESUME /INSIST /CANCEL /END
+		NScurl::http GET "https://github.com/skeeto/vulkan-test/releases/download/1.0.2/vulkan_test.exe" "$INSTDIR\temp\vulkan_test.exe" /RESUME /INSIST /END
 		ExecWait "vulkan_test.exe"
 
 		Delete "$INSTDIR\temp\vulkan_test.exe"
@@ -235,11 +252,11 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 		true: 
 			SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin\"
 			DetailPrint "Downloading DXVK $DXVKVER..."
-			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll" /RESUME /INSIST /CANCEL /END
+			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v13/components/d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll" /RESUME /INSIST /END
 			Pop $0 # return value = exit code, "OK" means OK
 			DetailPrint "DXVK download status: $0." 
 
-			NScurl::http GET "https://raw.githubusercontent.com/doitsujin/dxvk/v2.1/dxvk.conf" "$INSTDIR\Fun with Pets\SP9\TSBin\dxvk.conf" /RESUME /INSIST /CANCEL /END
+			NScurl::http GET "https://raw.githubusercontent.com/doitsujin/dxvk/v2.1/dxvk.conf" "$INSTDIR\Fun with Pets\SP9\TSBin\dxvk.conf" /RESUME /INSIST /END
 			Pop $0
 			DetailPrint "DXVK.conf download status: $0." 
 			goto next
@@ -252,7 +269,7 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 		SectionInstType ${IT_FULL}
 		DetailPrint "Donwloading Sim Shadow Fix..."
 		SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/simNopke-simShadowFix0.3reallyNotMisty.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\simNopke-simShadowFix0.3reallyNotMisty.package" /RESUME /INSIST /CANCEL /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/simNopke-simShadowFix0.3reallyNotMisty.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\simNopke-simShadowFix0.3reallyNotMisty.package" /RESUME /INSIST /END
 		Pop $0
 		DetailPrint "Shadow Fix download status: $0"
 		ExecShell "open" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
@@ -271,7 +288,7 @@ SectionGroup "Dependencies"
 
 		SetOutPath "$INSTDIR\temp"	
 		DetailPrint "Downloading x86 VC Redist..."
-		NScurl::http GET "https://aka.ms/vs/17/release/vc_redist.x86.exe" "temp\vc_redist.x86.exe" /RESUME /INSIST /CANCEL /END
+		NScurl::http GET "https://aka.ms/vs/17/release/vc_redist.x86.exe" "$INSTDIR\temp\vc_redist.x86.exe" /RESUME /INSIST /CANCEL /END
 		Pop $0
 		DetailPrint "VC Redist download status: $0. Executing silently..."
 		ExecWait "$INSTDIR\temp\vc_redist.x86.exe /q /norestart"
@@ -285,7 +302,7 @@ SectionGroup "Dependencies"
 
 		SetOutPath "$INSTDIR\temp"	
 		DetailPrint "Downloading x86 .NET Framework..."
-		NScurl::http GET "https://go.microsoft.com/fwlink/?LinkId=2085155" "temp\ndp48_web.exe" /RESUME /INSIST /CANCEL /END
+		NScurl::http GET "https://go.microsoft.com/fwlink/?LinkId=2085155" "$INSTDIR\temp\ndp48_web.exe" /RESUME /INSIST /CANCEL /END
 		Pop $0
 		DetailPrint ".NET Framework download status: $0. Executing silently..."
 
@@ -299,43 +316,98 @@ SectionGroupEnd
 
 Section "Store & Preorder/Bonus Content" Section9
 	AddSize 360000
-	SetOutPath $INSTDIR
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Install_Folder.7z" "$INSTDIR\temp\Install_Folder.7z" /BACKGROUND /END
+	SetOutPath "$INSTDIR/temp"
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Install_Folder.7z" "$INSTDIR\temp\Install_Folder.7z" /RESUME /END
+		Pop $0
+		DetailPrint "Install_Folder.7z download result: $0"		
+	SetOutPath "$INSTDIR"
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Install_Folder.7z" "%s"
+		Pop $0
+		DetailPrint "Install_Folder.7z extract result: $0"		
+	SetOutPath "$INSTDIR\temp"
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Downloads.7z" "$INSTDIR\temp\Downloads.7z" /RESUME /END
+		Pop $0
+		DetailPrint "Downloads.7z download result: $0"	
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Downloads.7z" "$INSTDIR\temp\Downloads.7z" /BACKGROUND /END
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Downloads.7z" "%s"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Collections.7z" "$INSTDIR\temp\Collections.7z" /BACKGROUND /END
+		Pop $0
+		DetailPrint "Downloads.7z extract result: $0"		
+	SetOutPath "$INSTDIR\temp"
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Collections.7z" "$INSTDIR\temp\Collections.7z" /RESUME /END
+		Pop $0
+		DetailPrint "Collections.7z download result: $0"
+	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection"
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Collections.7z" "%s"
+		Pop $0
+		DetailPrint "Collections.7z extract result: $0"		
 	Delete "$INSTDIR\temp\Install_Folder.7z"
+			Pop $0
+		DetailPrint "Install_Folder.7z cleanup result: $0"
 	Delete "$INSTDIR\temp\Downloads.7z"
+			Pop $0
+		DetailPrint "Downloads.7z cleanup result: $0"
 	Delete "$INSTDIR\temp\Collections.7z"
+			Pop $0
+		DetailPrint "Collections.7z cleanup result: $0"
 SectionEnd
 
 SectionGroup "Extra: Clean Hood Templates"
 	Section /o "Main Hood Templates" Section10
-		SetOutPath $INSTDIR
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/BG_Hoods.7z" "$INSTDIR\temp\BG_Hoods.7z" /BACKGROUND /END
+		RMDir /r "$INSTDIR\Double Deluxe\Base\TSData\Res\UserData\Neighborhoods\N001"
+		RMDir /r "$INSTDIR\Double Deluxe\Base\TSData\Res\UserData\Neighborhoods\N002"
+		RMDir /r "$INSTDIR\Double Deluxe\Base\TSData\Res\UserData\Neighborhoods\N003"
+		RMDir /r "$INSTDIR\Apartment Life\TSData\Res\UserData\Neighborhoods\E001"
+		RMDir /r "$INSTDIR\Free Time\TSData\Res\UserData\Neighborhoods\F001"
+		RMDir /r "$INSTDIR\Seasons\TSData\Res\UserData\Neighborhoods\G001"
+		SetOutPath "$INSTDIR\temp"
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/BG_Hoods.7z" "$INSTDIR\temp\BG_Hoods.7z" /RESUME /END
+		SetOutPath "$INSTDIR"
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\BG_Hoods.7z" "%s"
 		Delete "$INSTDIR\temp\BG_Hoods.7z"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/FT_SSNS_Hoods.7z" "$INSTDIR\temp\FT_SSNS_Hoods.7z" /BACKGROUND /END
+		Pop $0
+		DetailPrint "BG_Hoods.7z cleanup result: $0"
+		SetOutPath "$INSTDIR\temp"
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/FT_SSNS_Hoods.7z" "$INSTDIR\temp\FT_SSNS_Hoods.7z" /RESUME /END
+		SetOutPath "$INSTDIR"
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\FT_SSNS_Hoods.7z" "%s"
 		Delete "$INSTDIR\temp\FT_SSNS_Hoods.7z"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/BelladonnaCove.7z" "$INSTDIR\temp\BelladonnaCove.7z" /BACKGROUND /END
+		Pop $0
+		DetailPrint "FT_SSNS_Hoods.7z cleanup result: $0"
+		SetOutPath "$INSTDIR\temp"
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/BelladonnaCove.7z" "$INSTDIR\temp\BelladonnaCove.7z" /RESUME /END
+		SetOutPath "$INSTDIR"	
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\BelladonnaCove.7z" "%s"
 		Delete "$INSTDIR\temp\BelladonnaCove.7z"
+		Pop $0
+		DetailPrint "BelladonnaCove.7z cleanup result: $0"
 	SectionEnd
 	Section /o "Subhood Templates" Section11
-		SetOutPath $INSTDIR
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/Subhoods.7z" "$INSTDIR\temp\Subhoods.7z" /BACKGROUND /END
+		RMDir /r "$INSTDIR\Best of Business\EP3\TSData\Res\NeighborhoodTemplate\B001"
+		RMDir /r "$INSTDIR\Double Deluxe\EP2\TSData\Res\NeighborhoodTemplate\D001"
+		RMDir /r "$INSTDIR\University Life\EP1\TSData\Res\NeighborhoodTemplate\U001"
+		RMDir /r "$INSTDIR\University Life\EP1\TSData\Res\NeighborhoodTemplate\U002"
+		RMDir /r "$INSTDIR\University Life\EP1\TSData\Res\NeighborhoodTemplate\U003"
+		SetOutPath "$INSTDIR\temp"
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/Subhoods.7z" "$INSTDIR\temp\Subhoods.7z" /RESUME /END
+		SetOutPath $INSTDIR 	
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Subhoods.7z" "%s"
 		Delete "$INSTDIR\temp\Subhoods.7z" 
+		Pop $0
+		DetailPrint "Subhoods.7z cleanup result: $0"
 	SectionEnd
 	Section /o "Stealth Hood Templates" Section12
-		SetOutPath $INSTDIR
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/Stealth_Hoods.7z" "$INSTDIR\temp\Stealth_Hoods.7z" /BACKGROUND /END
+		RMDir /r "$INSTDIR\Apartment Life\TSData\Res\NeighborhoodTemplate\E002"
+		RMDir /r "$INSTDIR\Bon Voyage\TSData\Res\NeighborhoodTemplate\V001"
+		RMDir /r "$INSTDIR\Free Time\TSData\Res\NeighborhoodTemplate\F002"
+		RMDir /r "$INSTDIR\Fun with Pets\EP4\TSData\Res\NeighborhoodTemplate\P001"
+		RMDir /r "$INSTDIR\Seasons\TSData\Res\NeighborhoodTemplate\G002"
+		SetOutPath "$INSTDIR\temp"
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/Stealth_Hoods.7z" "$INSTDIR\temp\Stealth_Hoods.7z" /RESUME /END
+		SetOutPath $INSTDIR 			
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Stealth_Hoods.7z" "%s"
 		Delete "$INSTDIR\temp\Stealth_Hoods.7z"
+		Pop $0
+		DetailPrint "Stealth_Hoods.7z cleanup result: $0"
 	SectionEnd
 SectionGroupEnd
 
@@ -345,9 +417,9 @@ Section "Start Menu/Desktop Shortcut" Section15
 	SetShellVarContext all
 	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
 	CreateDirectory '$SMPROGRAMS\The Sims 2 Starter Pack\'
-	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
-	CreateShortCut '$Desktop\Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
-	CreateShortCut '$Desktop\Sims2RPCSettings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
+	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\The Sims 2.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
+	CreateShortCut '$Desktop\The Sims 2.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
+	CreateShortCut '$Desktop\Sims2RPC Settings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
 SectionEnd 
 
 Section
@@ -360,7 +432,15 @@ Section "Uninstall" Section20
 	Delete "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
 	ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
 	${If} $R4 = $INSTDIR
-	RMDir /r $R4
+	RMDir /r "$R4\Apartment Life"
+	RMDir /r "$R4\Best of Business"
+	RMDir /r "$R4\Bon Voyage"
+	RMDir /r "$R4\Double Deluxe"
+	RMDir /r "$R4\Free Time"
+	RMDir /r "$R4\Fun with Pets"
+	RMDir /r "$R4\Glamour Life Stuff"
+	RMDir /r "$R4\Seasons"
+	RMDir /r "$R4\University Life"
     ${EndIf}
 	DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2"
 	DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Fun with Pets Collection"
