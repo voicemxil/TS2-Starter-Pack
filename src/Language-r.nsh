@@ -37,7 +37,7 @@
 	${OrIf} $7 == 14348
 	${OrIf} $7 == 15372
 	${OrIf} $7 == 58380
-		DetailPrint "Game Language = Fremch"
+		DetailPrint "Game Language = French"
 		WriteRegDWORD HKLM32 "Software\${gameKey}\1.0" "Language" "2"
 		WriteRegStr HKLM32 "Software\${gameKey}\1.0" "LanguageName" "French"
 	${ElseIf} $7 == 1031 ; German

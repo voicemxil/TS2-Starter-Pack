@@ -424,7 +424,6 @@ SectionEnd
 
 Section
 	RMDir /r "$INSTDIR\temp"
-	sleep 20000
 	ExecShell "open" "$INSTDIR\Fun with Pets\SP9\TSBin"
 SectionEnd
 
@@ -469,9 +468,9 @@ SectionEnd
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${Section1} "Installs The Sims 2 Ultimate Collection w/ fixes and Sims2RPC v1.15."
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs Graphics Rules Maker 2.0.0."
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs Graphics Rules Maker 2.3.0."
   !insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs DXVK $DXVKVER. It's useful on modern AMD graphics cards (RX 400+) to prevent a long loading screen bug. Otherwise, only select if you know you have capable hardware and a specific reason to use it. (When using this option, you do not need the Sim Shadow Fix. If it causes graphical issues, remove d3d9.dll from $\"Fun with Pets\SP9\TSBin.$\")"
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs SimNopke's Sim Shadow Fix to your Downloads folder. (Not needed if installing DXVK)"
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs SimNopke's Sim Shadow Fix to your Downloads folder for Windows 8 or higher. (Not needed if installing DXVK)"
   !insertmacro MUI_DESCRIPTION_TEXT ${Section6} "Installs Lazy Duchess's Bright CAS Fix to your install folder."
   !insertmacro MUI_DESCRIPTION_TEXT ${Section7} "Installs Visual C++ Redist (x86) if not already installed. (Required by the game)"
   !insertmacro MUI_DESCRIPTION_TEXT ${Section8} "Installs .NET Framework if not already installed. (Required for Sims2RPC)"

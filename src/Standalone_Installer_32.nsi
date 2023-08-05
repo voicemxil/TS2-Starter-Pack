@@ -319,7 +319,15 @@ Section "Uninstall" Section8
 	Delete "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
 	ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
 	${If} $R4 = $INSTDIR
-	RMDir /r $R4
+	RMDir /r "$R4\Apartment Life"
+	RMDir /r "$R4\Best of Business"
+	RMDir /r "$R4\Bon Voyage"
+	RMDir /r "$R4\Double Deluxe"
+	RMDir /r "$R4\Free Time"
+	RMDir /r "$R4\Fun with Pets"
+	RMDir /r "$R4\Glamour Life Stuff"
+	RMDir /r "$R4\Seasons"
+	RMDir /r "$R4\University Life"
     ${EndIf}
 	DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2"
 	DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Fun with Pets Collection"
@@ -347,9 +355,9 @@ SectionEnd
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 !insertmacro MUI_DESCRIPTION_TEXT ${Section1} "Touches up your local copy of The Sims 2 Ultimate Collection and installs Sims2RPC v1.15."
-!insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs Graphics Rules Maker 2.0.0."
+!insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs Graphics Rules Maker 2.3.0."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs DXVK 2.1. (Not recommended for beginners.)"
-!insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs SimNopke's Sim Shadow Fix to your downloads folder. *Don't Use With DXVK*."
+!insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs SimNopke's Sim Shadow Fix to your downloads folder for Windows 8 or higher. *Don't Use With DXVK*."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section6} "Installs Lazy Duchess's Bright CAS Fix to your Downloads folder."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section11} "Installs Visual C++ Redist (x86) if not already installed."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section12} "Installs .NET Framework if not already installed."
