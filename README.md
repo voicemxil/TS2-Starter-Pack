@@ -14,7 +14,7 @@ Choose your favorite **flavor** from the [latest release](https://github.com/voi
 - Downloads The Sims 2 Ultimate Collection with Sims2RPC by Lazy Duchess & fixes via GitHub
 - Automates Touchup process based on the install directory
 
-## [Standalone Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/v10) (Offline Version) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Standalone%20Installer/TS2-StandaloneInstaller.v12.x64.exe?branch=v12)
+## [Standalone Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Offline Version) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Standalone%20Installer/TS2-StandaloneInstaller.v12.x64.exe?branch=v12)
 - Lightweight NSIS-based installer 
 - Intended for offline use with Ultimate Collection game files (works with G4tW)
 - Automates Touchup process based on the install directory, includes same fixes
