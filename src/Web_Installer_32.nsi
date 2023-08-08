@@ -333,10 +333,10 @@ Section "Store & Preorder/Bonus Content" Section9
 		Pop $0
 		DetailPrint "Downloads.7z extract result: $0"		
 	SetOutPath "$INSTDIR\temp"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13.1/components/Store_Content/Collections.7z.001" "$INSTDIR\temp\Collections.7z" /RESUME /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13.1/components/Store_Content/Collections.7z.001" "$INSTDIR\temp\Collections.7z.001" /RESUME /END
 		Pop $0
 		DetailPrint "Collections.7z.001 download result: $0"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13.1/components/Store_Content/Collections.7z.002" "$INSTDIR\temp\Collections.7z" /RESUME /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13.1/components/Store_Content/Collections.7z.002" "$INSTDIR\temp\Collections.7z.002" /RESUME /END
 		Pop $0
 		DetailPrint "Collections.7z.002 download result: $0"
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection"
