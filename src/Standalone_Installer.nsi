@@ -19,14 +19,14 @@ RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
 ManifestDPIAware True
-VIProductVersion 13.0.0.0
+VIProductVersion 13.1.0.0
 VIAddVersionKey "CompanyName" "osab"
-VIAddVersionKey "FileVersion" "13.0.0"
+VIAddVersionKey "FileVersion" "13.1.0"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
-VIAddVersionKey "ProductVersion" "13.0"
+VIAddVersionKey "ProductVersion" "13.1"
 
 # MUI SETUP
-brandingText "osab Standalone Installer v13"
+brandingText "osab Standalone Installer v13.1"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
 !define MUI_HEADERIMAGE
@@ -49,8 +49,8 @@ brandingText "osab Standalone Installer v13"
 !define MUI_FINISHPAGE_LINK_COLOR "5865F2"
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "..\LICENSE.txt"
-!insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
+!insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
 !insertmacro MUI_UNPAGE_WELCOME
@@ -167,6 +167,10 @@ Section "Touchup & Sims2RPC" Section1
 	DetailPrint "Cleaning up RPC zip file..."
 	Delete "Sims2RPC_1.15.7z"
 
+	# Unlocked Pet Breeds
+	SetOutPath $INSTDIR 
+	File /r "..\components\Patch_PetBreeds\Fun with Pets"
+
 	# LdDarcy Pie Menu Text Strings Fix
 	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSData\Res\UI"
 	FIle "..\components\LdDarcy_PieMenuTextStringsFix.package"
@@ -228,7 +232,7 @@ SectionGroup /e "Graphical Fixes\Tweaks"
 
 		SetOutPath "$INSTDIR\temp"
 			File "..\components\GraphicsRulesMaker-2.3.0-win64.exe"
-			Pop $0 # return value = exit code, "OK" means OK
+			Pop $0 
 			Rename GraphicsRulesMaker-2.3.0-win64.exe grm_install.exe
 			DetailPrint "GRM extract status: $0. Executing installer..." 
 		Execwait $INSTDIR\temp\grm_install.exe
@@ -319,7 +323,15 @@ Section "Uninstall" Section8
 	Delete "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
 	ReadRegStr $R4 HKLM32 "SOFTWARE\EA GAMES\The Sims 2" "Folder" 
 	${If} $R4 = $INSTDIR
-	RMDir /r $R4
+	RMDir /r "$R4\Apartment Life"
+	RMDir /r "$R4\Best of Business"
+	RMDir /r "$R4\Bon Voyage"
+	RMDir /r "$R4\Double Deluxe"
+	RMDir /r "$R4\Free Time"
+	RMDir /r "$R4\Fun with Pets"
+	RMDir /r "$R4\Glamour Life Stuff"
+	RMDir /r "$R4\Seasons"
+	RMDir /r "$R4\University Life"
     ${EndIf}
 	DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2"
 	DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Fun with Pets Collection"
@@ -347,9 +359,9 @@ SectionEnd
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 !insertmacro MUI_DESCRIPTION_TEXT ${Section1} "Touches up your local copy of The Sims 2 Ultimate Collection and installs Sims2RPC v1.15."
-!insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs Graphics Rules Maker 2.0.0."
+!insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs Graphics Rules Maker 2.3.0."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs DXVK 2.1. (Not recommended for beginners.)"
-!insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs SimNopke's Sim Shadow Fix to your downloads folder. *Don't Use With DXVK*."
+!insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs SimNopke's Sim Shadow Fix to your downloads folder for Windows 8 or higher. *Don't Use With DXVK*."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section6} "Installs Lazy Duchess's Bright CAS Fix to your Downloads folder."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section11} "Installs Visual C++ Redist (x86) if not already installed."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section12} "Installs .NET Framework if not already installed."

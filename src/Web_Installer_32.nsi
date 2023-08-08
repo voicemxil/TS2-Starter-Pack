@@ -48,8 +48,8 @@ brandingText "osab Web Installer v13.1"
 !define MUI_FINISHPAGE_LINK_COLOR "5865F2"
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "..\LICENSE.txt"
-!insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
+!insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
 !insertmacro MUI_UNPAGE_WELCOME
@@ -127,7 +127,16 @@ Section "TS2 Starter Pack" Section1
 	!insertmacro downloadPack "Sims2RPC" "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Sims2RPC_1.15.7z" "$INSTDIR\temp\Sims2RPC.7z" "f3091ab315252425c742edb6c6635b3f67105c60cba164d096db11359e4283eb"
 	Delete "$INSTDIR\temp\Sims2RPC.7z"
 	
+	# Unlocked Pet Breeds
+	SetOutPath "$INSTDIR\temp"
+	Delete "$INSTDIR\Fun with Pets\EP4\TSData\Res\UserData\LockedBins\kissingpoints.package"
+	NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Patch_PetBreeds/Install_Folder.7z" "$INSTDIR\temp\Install_Folder.7z" /BACKGROUND /END
+	SetOutPath "$INSTDIR"
+	Nsis7z::ExtractWithDetails "$INSTDIR\temp\Install_Folder.7z" "Extracting Unlocked Pet Breeds %s"
+	Delete "$INSTDIR\temp\Install_Folder.7z"
+
 	# LdDarcy Pie Menu Text Strings Fix
+	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSData\Res\UI"
 	NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/LdDarcy_PieMenuTextStringsFix.package" "$INSTDIR\Fun with Pets\SP9\TSData\Res\UI\LdDarcy_PieMenuTextStringsFix.package" /BACKGROUND /END
 
 	# Downloads Folder
@@ -196,7 +205,7 @@ Section "TS2 Starter Pack" Section1
 	Pop $0
 	DetailPrint "zCEP-EXTRA_Documents.7z download status: $0"
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection"
-	Nsis7z::ExtractWithDetails "$INSTDIR\temp\zCEP-EXTRA_Documents.7z" "%s"
+	Nsis7z::ExtractWithDetails "$INSTDIR\temp\zCEP-EXTRA_Documents.7z" "Extracting CEP-EXTRA_Documents %s"
 	Pop $0
 	DetailPrint "zCEP-EXTRA_Documents.7z extract status: $0"	
 	SetOutPath "$INSTDIR\temp"
@@ -204,7 +213,7 @@ Section "TS2 Starter Pack" Section1
 	Pop $0
 	DetailPrint "zCEP-EXTRA_ProgramFiles.7z download status: $0"	
 	SetOutPath "$INSTDIR\Double Deluxe\Base\TSData\Res\Catalog"
-	Nsis7z::ExtractWithDetails "$INSTDIR\temp\zCEP-EXTRA_ProgramFiles.7z" "%s"
+	Nsis7z::ExtractWithDetails "$INSTDIR\temp\zCEP-EXTRA_ProgramFiles.7z" "Extracting CEP-EXTRA_ProgramFiles %s"
 	Pop $0
 	DetailPrint "zCEP-EXTRA_ProgramFiles.7z extract status: $0"	
 
@@ -317,21 +326,13 @@ SectionGroupEnd
 Section "Store & Preorder/Bonus Content" Section9
 	AddSize 360000
 	SetOutPath "$INSTDIR\temp"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Install_Folder.7z" "$INSTDIR\temp\Install_Folder.7z" /RESUME /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13.1/components/Store_Content/Install_Folder.7z" "$INSTDIR\temp\Install_Folder.7z" /RESUME /END
 		Pop $0
 		DetailPrint "Install_Folder.7z download result: $0"		
 	SetOutPath "$INSTDIR"
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Install_Folder.7z" "%s"
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Install_Folder.7z" "Extracting Preorder+Exclusive Content %s"
 		Pop $0
-		DetailPrint "Install_Folder.7z extract result: $0"		
-	SetOutPath "$INSTDIR\temp"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Downloads.7z" "$INSTDIR\temp\Downloads.7z" /RESUME /END
-		Pop $0
-		DetailPrint "Downloads.7z download result: $0"	
-	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection"
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Downloads.7z" "%s"
-		Pop $0
-		DetailPrint "Downloads.7z extract result: $0"		
+		DetailPrint "Install_Folder.7z extract result: $0"			
 	SetOutPath "$INSTDIR\temp"
 		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13.1/components/Store_Content/Collections.7z.001" "$INSTDIR\temp\Collections.7z.001" /RESUME /END
 		Pop $0
@@ -340,15 +341,12 @@ Section "Store & Preorder/Bonus Content" Section9
 		Pop $0
 		DetailPrint "Collections.7z.002 download result: $0"
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection"
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Collections.7z.001" "%s"
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Collections.7z.001" "Extracting Store/Bonus Content %s"
 		Pop $0
 		DetailPrint "Collections.7z extract result: $0"		
 	Delete "$INSTDIR\temp\Install_Folder.7z"
 			Pop $0
 		DetailPrint "Install_Folder.7z cleanup result: $0"
-	Delete "$INSTDIR\temp\Downloads.7z"
-			Pop $0
-		DetailPrint "Downloads.7z cleanup result: $0"
 	Delete "$INSTDIR\temp\Collections.7z"
 			Pop $0
 		DetailPrint "Collections.7z cleanup result: $0"
@@ -365,21 +363,21 @@ SectionGroup "Extra: Clean Hood Templates"
 		SetOutPath "$INSTDIR\temp"
 		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/BG_Hoods.7z" "$INSTDIR\temp\BG_Hoods.7z" /RESUME /END
 		SetOutPath "$INSTDIR"
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\BG_Hoods.7z" "%s"
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\BG_Hoods.7z" "Extracting Base Game Clean Hoods %s"
 		Delete "$INSTDIR\temp\BG_Hoods.7z"
 		Pop $0
 		DetailPrint "BG_Hoods.7z cleanup result: $0"
 		SetOutPath "$INSTDIR\temp"
 		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/FT_SSNS_Hoods.7z" "$INSTDIR\temp\FT_SSNS_Hoods.7z" /RESUME /END
 		SetOutPath "$INSTDIR"
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\FT_SSNS_Hoods.7z" "%s"
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\FT_SSNS_Hoods.7z" "Extracting FT & Seasons Clean Hoods %s"
 		Delete "$INSTDIR\temp\FT_SSNS_Hoods.7z"
 		Pop $0
 		DetailPrint "FT_SSNS_Hoods.7z cleanup result: $0"
 		SetOutPath "$INSTDIR\temp"
 		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/BelladonnaCove.7z" "$INSTDIR\temp\BelladonnaCove.7z" /RESUME /END
 		SetOutPath "$INSTDIR"	
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\BelladonnaCove.7z" "%s"
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\BelladonnaCove.7z" "Extracting AL Clean Hoods %s"
 		Delete "$INSTDIR\temp\BelladonnaCove.7z"
 		Pop $0
 		DetailPrint "BelladonnaCove.7z cleanup result: $0"
@@ -393,7 +391,7 @@ SectionGroup "Extra: Clean Hood Templates"
 		SetOutPath "$INSTDIR\temp"
 		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13.1/components/Clean_Templates/Subhoods.7z" "$INSTDIR\temp\Subhoods.7z" /RESUME /END
 		SetOutPath $INSTDIR 	
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Subhoods.7z" "%s"
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Subhoods.7z" "Extracting Clean Subhoods %s"
 		Delete "$INSTDIR\temp\Subhoods.7z" 
 		Pop $0
 		DetailPrint "Subhoods.7z cleanup result: $0"
@@ -407,7 +405,7 @@ SectionGroup "Extra: Clean Hood Templates"
 		SetOutPath "$INSTDIR\temp"
 		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/Stealth_Hoods.7z" "$INSTDIR\temp\Stealth_Hoods.7z" /RESUME /END
 		SetOutPath $INSTDIR 			
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Stealth_Hoods.7z" "%s"
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Stealth_Hoods.7z" "Extracting Clean Stealth Hoods %s"
 		Delete "$INSTDIR\temp\Stealth_Hoods.7z"
 		Pop $0
 		DetailPrint "Stealth_Hoods.7z cleanup result: $0"

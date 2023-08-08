@@ -49,8 +49,8 @@ brandingText "osab Standalone Installer v13.1"
 !define MUI_FINISHPAGE_LINK_COLOR "5865F2"
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "..\LICENSE.txt"
-!insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_DIRECTORY
+!insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
 !insertmacro MUI_UNPAGE_WELCOME
@@ -166,6 +166,10 @@ Section "Touchup & Sims2RPC" Section1
 	DetailPrint "RPC extraction status: $0."
 	DetailPrint "Cleaning up RPC zip file..."
 	Delete "Sims2RPC_1.15.7z"
+
+	# Unlocked Pet Breeds
+	SetOutPath $INSTDIR 
+	File /r "..\components\Patch_PetBreeds\Fun with Pets"
 
 	# LdDarcy Pie Menu Text Strings Fix
 	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSData\Res\UI"
