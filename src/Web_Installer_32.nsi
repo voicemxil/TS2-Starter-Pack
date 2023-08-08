@@ -19,14 +19,14 @@ RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
 SetCompressor /SOLID LZMA
 ManifestDPIAware True
-VIProductVersion 13.0.0.0
+VIProductVersion 13.1.0.0
 VIAddVersionKey "CompanyName" "osab"
-VIAddVersionKey "FileVersion" "13.0.0"
+VIAddVersionKey "FileVersion" "13.1.0"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
-VIAddVersionKey "ProductVersion" "13.0"
+VIAddVersionKey "ProductVersion" "13.1"
 
 # MUI SETUP
-brandingText "osab Web Installer v13"
+brandingText "osab Web Installer v13.1"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
 !define MUI_HEADERIMAGE
@@ -288,7 +288,7 @@ SectionGroup "Dependencies"
 
 		SetOutPath "$INSTDIR\temp"	
 		DetailPrint "Downloading x86 VC Redist..."
-		NScurl::http GET "https://aka.ms/vs/17/release/vc_redist.x86.exe" "$INSTDIR\temp\vc_redist.x86.exe" /RESUME /INSIST /CANCEL /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/VC_redist.x86.exe" "$INSTDIR\temp\vc_redist.x86.exe" /RESUME /INSIST /CANCEL /END
 		Pop $0
 		DetailPrint "VC Redist download status: $0. Executing silently..."
 		ExecWait "$INSTDIR\temp\vc_redist.x86.exe /q /norestart"
@@ -302,7 +302,7 @@ SectionGroup "Dependencies"
 
 		SetOutPath "$INSTDIR\temp"	
 		DetailPrint "Downloading x86 .NET Framework..."
-		NScurl::http GET "https://go.microsoft.com/fwlink/?LinkId=2085155" "$INSTDIR\temp\ndp48_web.exe" /RESUME /INSIST /CANCEL /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/ndp48-web.exe" "$INSTDIR\temp\ndp48_web.exe" /RESUME /INSIST /CANCEL /END
 		Pop $0
 		DetailPrint ".NET Framework download status: $0. Executing silently..."
 
@@ -333,11 +333,14 @@ Section "Store & Preorder/Bonus Content" Section9
 		Pop $0
 		DetailPrint "Downloads.7z extract result: $0"		
 	SetOutPath "$INSTDIR\temp"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Store_Content/Collections.7z" "$INSTDIR\temp\Collections.7z" /RESUME /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13.1/components/Store_Content/Collections.7z.001" "$INSTDIR\temp\Collections.7z" /RESUME /END
 		Pop $0
-		DetailPrint "Collections.7z download result: $0"
+		DetailPrint "Collections.7z.001 download result: $0"
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13.1/components/Store_Content/Collections.7z.002" "$INSTDIR\temp\Collections.7z" /RESUME /END
+		Pop $0
+		DetailPrint "Collections.7z.002 download result: $0"
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection"
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Collections.7z" "%s"
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Collections.7z.001" "%s"
 		Pop $0
 		DetailPrint "Collections.7z extract result: $0"		
 	Delete "$INSTDIR\temp\Install_Folder.7z"
@@ -388,7 +391,7 @@ SectionGroup "Extra: Clean Hood Templates"
 		RMDir /r "$INSTDIR\University Life\EP1\TSData\Res\NeighborhoodTemplate\U002"
 		RMDir /r "$INSTDIR\University Life\EP1\TSData\Res\NeighborhoodTemplate\U003"
 		SetOutPath "$INSTDIR\temp"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/Subhoods.7z" "$INSTDIR\temp\Subhoods.7z" /RESUME /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13.1/components/Clean_Templates/Subhoods.7z" "$INSTDIR\temp\Subhoods.7z" /RESUME /END
 		SetOutPath $INSTDIR 	
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Subhoods.7z" "%s"
 		Delete "$INSTDIR\temp\Subhoods.7z" 

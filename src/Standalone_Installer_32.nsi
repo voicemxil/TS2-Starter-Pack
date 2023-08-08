@@ -19,14 +19,14 @@ RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
 ManifestDPIAware True
-VIProductVersion 13.0.0.0
+VIProductVersion 13.1.0.0
 VIAddVersionKey "CompanyName" "osab"
-VIAddVersionKey "FileVersion" "13.0.0"
+VIAddVersionKey "FileVersion" "13.1.0"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
-VIAddVersionKey "ProductVersion" "13.0"
+VIAddVersionKey "ProductVersion" "13.1"
 
 # MUI SETUP
-brandingText "osab Standalone Installer v13"
+brandingText "osab Standalone Installer v13.1"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
 !define MUI_HEADERIMAGE
