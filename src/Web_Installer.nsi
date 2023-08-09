@@ -325,14 +325,16 @@ SectionGroupEnd
 
 Section "Store & Preorder/Bonus Content" Section9
 	AddSize 360000
+
 	SetOutPath "$INSTDIR\temp"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13.1/components/Store_Content/Install_Folder.7z" "$INSTDIR\temp\Install_Folder.7z" /RESUME /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13.1/components/Store_Content/FunwithPets.7z" "$INSTDIR\temp\FunwithPets.7z" /RESUME /END
 		Pop $0
-		DetailPrint "Install_Folder.7z download result: $0"		
+		DetailPrint "FunwithPets.7z download result: $0"		
 	SetOutPath "$INSTDIR"
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Install_Folder.7z" "Extracting Preorder+Exclusive Content %s"
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\FunwithPets.7z" "Extracting Preorder/Exclusive Content %s"
 		Pop $0
-		DetailPrint "Install_Folder.7z extract result: $0"			
+		DetailPrint "FunwithPets.7z extract result: $0"		
+
 	SetOutPath "$INSTDIR\temp"
 		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13.1/components/Store_Content/Collections.7z.001" "$INSTDIR\temp\Collections.7z.001" /RESUME /END
 		Pop $0
@@ -343,10 +345,11 @@ Section "Store & Preorder/Bonus Content" Section9
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection"
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Collections.7z.001" "Extracting Store/Bonus Content %s"
 		Pop $0
-		DetailPrint "Collections.7z extract result: $0"		
-	Delete "$INSTDIR\temp\Install_Folder.7z"
+		DetailPrint "Collections.7z extract result: $0"	
+
+	Delete "$INSTDIR\temp\FunwithPets.7z"
 			Pop $0
-		DetailPrint "Install_Folder.7z cleanup result: $0"
+		DetailPrint "FunwithPets.7z cleanup result: $0"
 	Delete "$INSTDIR\temp\Collections.7z"
 			Pop $0
 		DetailPrint "Collections.7z cleanup result: $0"
@@ -370,7 +373,7 @@ SectionGroup "Extra: Clean Hood Templates"
 		SetOutPath "$INSTDIR\temp"
 		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v13/components/Clean_Templates/FT_SSNS_Hoods.7z" "$INSTDIR\temp\FT_SSNS_Hoods.7z" /RESUME /END
 		SetOutPath "$INSTDIR"
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\FT_SSNS_Hoods.7z" "Extracting FT & Seasons Clean Hoods %s"
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\FT_SSNS_Hoods.7z" "Extracting FT/Seasons Clean Hoods %s"
 		Delete "$INSTDIR\temp\FT_SSNS_Hoods.7z"
 		Pop $0
 		DetailPrint "FT_SSNS_Hoods.7z cleanup result: $0"
