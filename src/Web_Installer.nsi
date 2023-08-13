@@ -115,7 +115,7 @@ Section "TS2 Starter Pack" Section1
 	!insertmacro downloadPack "Fun with Pets" "$FwP" "temp\FunwithPets.7z" "50f4900d54a2fa0bff3009f68d4bf736bb92d7bec60bd4f917a203d95e0fb8db"
 	!insertmacro downloadPack "Glamour Life Stuff" "$GLS" "temp\GlamourLifeStuff.7z" "5ea2885695715e8b3493de560c38b5c10844f90ad52fb57270ed851c2441dd80"
 	!insertmacro downloadPack "Seasons" "$SS" "temp\Seasons.7z" "6218ca83fe1c323e3e34351a2230bcb5b83b91399c52fdc91eb472c30d959bbc"
-	!insertmacro downloadPack "University Life" "$UNI" "temp\UniversityLife.7z" "674dad74c6c8c643c3d14fbe7ad9736dea3ae3fff8b8636ec403eef68539d2e1"
+	!insertmacro downloadPack "University Life" "$UNI" "temp\UniversityLife.7z" "d771cf8f9265bdf854e1a685b33ca07adda62ca4782050be67f374096be59ffc"
 
 	# Touchup
 	DetailPrint "Touching Up..."
