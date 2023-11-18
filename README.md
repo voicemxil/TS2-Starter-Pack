@@ -32,7 +32,7 @@ The Ultimate Collection is the free 2014 Origin release, which includes the base
   - Localized Music Unlocked by spockthewok (Web Installer)
 - Optional:
   - DXVK (not toggled by default)
-  - Clean Hood Templates: [zachjohnunlimited](https://modthesims.info/m/10269790) (PV, VV, RH, DV, Universities, Bluewater Village), [Dorsal Axe](https://modthesims.info/m/6990975) (ST), [MeetMe2TheRiver](https://meetme2theriver.livejournal.com/) (Downtown, Stealth Hoods), and [TheNeonPlumb](https://theneonplumb.tumblr.com/post/656712498541723648/clean-template-belladonna-cove-with-townies) (BC)
+  - Clean Hood Templates: [CroconawSims](https://modthesims.info/m/10269790) (PV, VV, RH, DV, Universities, Bluewater Village), [Dorsal Axe](https://modthesims.info/m/6990975) (ST), [MeetMe2TheRiver](https://meetme2theriver.livejournal.com/) (Downtown, Stealth Hoods), and [TheNeonPlumb](https://theneonplumb.tumblr.com/post/656712498541723648/clean-template-belladonna-cove-with-townies) (BC)
   - Store/Pre-order Content
  
 
