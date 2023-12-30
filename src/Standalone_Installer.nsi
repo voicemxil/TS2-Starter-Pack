@@ -8,10 +8,9 @@ Target amd64-unicode
 !include "ModernXL.nsh"
 !include "MUI2.nsh"
 !include "x64.nsh"
+!include "WinVer.nsh"
 !include ".\Language-r.nsh"
 !include ".\Touchup-er.nsh"
-
-
 
 Name "The Sims 2 Starter Pack - Standalone"
 OutFile "..\bin\Standalone Installer\TS2StarterPack-StandaloneInstaller.x64.exe"
@@ -19,14 +18,14 @@ RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
 ManifestDPIAware True
-VIProductVersion 13.1.0.0
+VIProductVersion 14.0.0.0
 VIAddVersionKey "CompanyName" "osab"
-VIAddVersionKey "FileVersion" "13.1.0"
+VIAddVersionKey "FileVersion" "14.0.0"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
-VIAddVersionKey "ProductVersion" "13.1"
+VIAddVersionKey "ProductVersion" "14.0"
 
 # MUI SETUP
-brandingText "osab Standalone Installer v13.1"
+brandingText "osab Standalone Installer v14"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
 !define MUI_HEADERIMAGE
@@ -37,7 +36,7 @@ brandingText "osab Standalone Installer v13.1"
 !define MUI_PAGE_HEADER_TEXT "TS2: Starter Pack - Standalone"
 !define MUI_PAGE_HEADER_SUBTEXT "Touchup installer for Standalone TS2:UC, by osab."
 !define MUI_WELCOMEPAGE_TITLE "Install The Sims 2 Starter Pack (Standalone)"
-!define MUI_WELCOMEPAGE_TEXT "This installer is for the standalone download of The Sims 2: Ultimate Collection - it does NOT include/download the game files for you like the Web Installer. $\nFor an all-in-one download and installation, use the Web Installer instead. $\n$\nThe installer sets the game language automatically, however you can change it if needed via the included registry files in the $\"_Language Selection$\" folder. $\n$\nPlease set the install directory to your Sims 2 root folder where you've extracted the game files."
+!define MUI_WELCOMEPAGE_TEXT "This installer is for the standalone download of The Sims 2: Ultimate Collection - it does NOT include/download the game files for you like the Web Installer. $\nFor an all-in-one download and installation, use the Web Installer instead. $\n$\nThe installer sets the game language automatically, however you can change it if needed via the included registry files in the $\"_Language Selection$\" folder. $\n$\nPlease set the install directory to your $\"The Sims 2 Starter Pack$\" root folder where you've extracted the game files."
 !define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. The game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
 !define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
 !define MUI_DIRECTORYPAGE_TEXT_DESTINATION "The folder you choose should contain the game packs such as $\"Fun with Pets.$\""
@@ -229,7 +228,13 @@ SectionEnd
 SectionGroup /e "Graphical Fixes\Tweaks"
 	Section "Graphics Rules Maker" Section3
 		SectionInstType ${IT_FULL} ${IT_AMD}
-
+		${If} ${IsWin8.1}
+		${OrIf} ${IsWin8}
+		${OrIf} ${IsWin7}
+		${OrIf} ${IsWinVista}
+		${OrIf} ${IsWinXP}
+			MessageBox MB_OK "Your current Windows version may not be compatible with the Graphics Rules Maker included. If you encounter issues, reinstall GRM with version 2.0.0 from SimsNetwork.com."
+		${EndIf}
 		SetOutPath "$INSTDIR\temp"
 			File "..\components\GraphicsRulesMaker-2.3.0-win64.exe"
 			Pop $0 
@@ -251,7 +256,7 @@ SectionGroup /e "Graphical Fixes\Tweaks"
 		MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
 		true: 
 			SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
-			DetailPrint "Extracting DXVK 2.1..."
+			DetailPrint "Extracting DXVK 2.3..."
 			File "..\components\d3d9.dll"
 			Pop $0 # return value = exit code, "OK" means OK
 			DetailPrint "DXVK extract status: $0."
@@ -267,9 +272,15 @@ SectionGroup /e "Graphical Fixes\Tweaks"
 
 	Section "Sim Shadow Fix" Section5
 		SectionInstType ${IT_FULL}
+		${If} ${IsWin7}
+		${OrIf} ${IsWinVista}
+		${OrIf} ${IsWinXP}
+			DetailPrint "Shadow Fix skipped due to being unnecessary for this Windows version."
+		${Else}
 		SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
 		File "..\components\simNopke-simShadowFix0.3reallyNotMisty.package"
 		ExecShell "open" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
+		${EndIf}
 	SectionEnd
 
 	Section "LD Bright CAS Fix" Section6
@@ -310,7 +321,11 @@ Section "Start Menu/Desktop Shortcut" Section13
 	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
 	CreateDirectory '$SMPROGRAMS\The Sims 2 Starter Pack\'
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
-	CreateShortCut '$Desktop\Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
+	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPCSettings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
+
+	CreateShortCut '$Desktop\The Sims 2.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
+	CreateShortCut '$Desktop\Sims2RPCSettings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
+
 SectionEnd 
 
 Section
