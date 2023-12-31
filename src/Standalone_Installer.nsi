@@ -1,6 +1,6 @@
 Unicode true
-Target amd64-unicode
-; Target x86-unicode
+Target x86-unicode
+; Target amd64-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
@@ -13,7 +13,7 @@ Target amd64-unicode
 !include ".\Touchup-er.nsh"
 
 Name "The Sims 2 Starter Pack - Standalone"
-OutFile "..\bin\Standalone Installer\TS2StarterPack-StandaloneInstaller.x64.exe"
+OutFile "..\bin\Standalone Installer\TS2StarterPack-StandaloneInstaller.x32.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
@@ -236,9 +236,9 @@ SectionGroup /e "Graphical Fixes\Tweaks"
 			MessageBox MB_OK "Your current Windows version may not be compatible with the Graphics Rules Maker included. If you encounter issues, reinstall GRM with version 2.0.0 from SimsNetwork.com."
 		${EndIf}
 		SetOutPath "$INSTDIR\temp"
-			File "..\components\GraphicsRulesMaker-2.3.0-win64.exe"
+			File "..\components\graphicsrulesmaker-2.0.0-32bit.exe"
 			Pop $0 
-			Rename GraphicsRulesMaker-2.3.0-win64.exe grm_install.exe
+			Rename graphicsrulesmaker-2.0.0-32bit.exe grm_install.exe
 			DetailPrint "GRM extract status: $0. Executing installer..." 
 		Execwait $INSTDIR\temp\grm_install.exe
 		Delete $INSTDIR\temp\grm_install.exe

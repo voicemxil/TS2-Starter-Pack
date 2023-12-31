@@ -9,6 +9,7 @@ Target amd64-unicode
 !include "MUI2.nsh"
 !include "x64.nsh"
 !include "WinVer.nsh"
+!include "LogicLib.nsh"
 !include ".\Downloader.nsh"
 !include ".\Language-r.nsh"
 !include ".\Touchup-er.nsh"
@@ -20,14 +21,14 @@ RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
 SetCompressor /SOLID LZMA
 ManifestDPIAware True
-VIProductVersion 13.2.0.0
+VIProductVersion 14.0.0.0
 VIAddVersionKey "CompanyName" "osab"
-VIAddVersionKey "FileVersion" "13.2.0"
+VIAddVersionKey "FileVersion" "14.0.0"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
-VIAddVersionKey "ProductVersion" "13.2"
+VIAddVersionKey "ProductVersion" "14.0"
 
 # MUI SETUP
-brandingText "osab Web Installer v13.2"
+brandingText "osab Web Installer v14"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
 !define MUI_HEADERIMAGE
@@ -38,7 +39,7 @@ brandingText "osab Web Installer v13.2"
 !define MUI_PAGE_HEADER_TEXT "TS2: Starter Pack - Web Installer"
 !define MUI_PAGE_HEADER_SUBTEXT "TS2 Ultimate Collection repacked by osab!"
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the Sims 2 Starter Pack Web Installer (v13.2). This installer automatically downloads/installs The Sims 2 Ultimate Collection and dependencies/fixes for modern systems. $\n$\nPlease ensure you have downloaded the latest version from the GitHub! $\n$\nHelpful log messages will be shown in the 'More Details' box. $\n$\nThe installer sets the game language automatically, however you can change it if needed via the included registry files in the $\"_Language Selection$\" folder."
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the Sims 2 Starter Pack Web Installer (v14). This installer automatically downloads/installs The Sims 2 Ultimate Collection and dependencies/fixes for modern systems. $\n$\nPlease ensure you have downloaded the latest version from the GitHub! $\n$\nHelpful log messages will be shown in the 'More Details' box. $\n$\nThe installer sets the game language automatically, however you can change it if needed via the included registry files in the $\"_Language Selection$\" folder."
 !define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. $\n$\nThe game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
 !define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
 !define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
@@ -84,7 +85,9 @@ FunctionEnd
 InstType "Full" IT_FULL
 
 SectionGroup /e "TS2 Starter Pack"
-	Section "TS2 Starter Pack" Section1
+	Section /o "Cleanup Script Game Files" Section1
+	SectionEnd
+	Section "TS2 Starter Pack" Section2
 		SectionInstType ${IT_FULL}
 		SetOutPath $INSTDIR
 		SetOverwrite on
@@ -94,7 +97,7 @@ SectionGroup /e "TS2 Starter Pack"
 
 		!insertmacro RemovePreviousInstall
 
-		${If} ${SectionIsSelected} ${Section2}	
+		${If} ${SectionIsSelected} ${Section1}	
 		StrCpy $AL "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v13.2/ApartmentLife.7z"
 		StrCpy $BoB "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v13.2/BestofBusiness.7z"
 		StrCpy $BV "https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/download/v13.2/BonVoyage.7z"
@@ -263,7 +266,6 @@ SectionGroup /e "TS2 Starter Pack"
 		SetOutPath $INSTDIR
 		WriteUninstaller "$INSTDIR\Uninstall The Sims 2 Starter Pack.exe"
 	SectionEnd
-	Section /o "Cleanup Script Game Files" Section2
 SectionGroupEnd
 	
 SectionGroup /e "Graphical Fixes/Tweaks"
@@ -484,7 +486,7 @@ SectionGroup "Extra: Clean Hood Templates"
 SectionGroupEnd
 
 Section "Start Menu/Desktop Shortcut" Section15
-	SectionInstType ${IT_FULL} ${IT_DXVK}
+	SectionInstType ${IT_FULL}
 	
 	SetShellVarContext all
 	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
@@ -540,8 +542,8 @@ Section "Uninstall" Section20
 SectionEnd
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section1} "Installs The Sims 2 Ultimate Collection w/ fixes and Sims2RPC v1.15."
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section2} "Installs alternate version of the game files with cleanup script by lingeringwillx. Reduces game file size by 2.44GB by removing duplicate files. However, be warned: this version may have issues not present in the original version such as issues with SimPE/TS2Hook."
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section2} "Installs The Sims 2 Ultimate Collection w/ fixes and Sims2RPC v1.15."
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section1} "Installs alternate version of the game files with cleanup script by lingeringwillx. Reduces game file size by 2.44GB by removing duplicate files. However, be warned: this version may have issues not present in the original version such as issues with SimPE/TS2Hook."
   !insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs Graphics Rules Maker 2.3.0 (2.0.0 for lower than Windows 10)."
   !insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs DXVK $DXVKVER. Recommended on modern AMD graphics cards (RX 400+) to prevent a long loading screen bug. Otherwise, only select if you know you have Vulkan-capable hardware and a specific reason to use it. (When using this option, you do not need the Sim Shadow Fix. If it causes graphical issues, remove d3d9.dll from $\"Fun with Pets\SP9\TSBin.$\")"
   !insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs SimNopke's Sim Shadow Fix to your Downloads folder for Windows 8 or higher. (Not needed if installing DXVK)"
