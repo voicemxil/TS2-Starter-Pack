@@ -1,6 +1,6 @@
 Unicode true
-Target x86-unicode
-; Target amd64-unicode
+; Target x86-unicode
+Target amd64-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
@@ -13,7 +13,7 @@ Target x86-unicode
 !include ".\Touchup-er.nsh"
 
 Name "The Sims 2 Starter Pack - Standalone"
-OutFile "..\bin\Standalone Installer\TS2StarterPack-StandaloneInstaller.x32.exe"
+OutFile "..\bin\Standalone Installer\TS2StarterPack-StandaloneInstaller.x64.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
@@ -130,6 +130,9 @@ Section "Touchup & Sims2RPC" Section1
 
 	# Touchup
 	!insertmacro touchup "The Sims 2 Ultimate Collection" "EA GAMES\The Sims 2" "{04450C18-F039-4B81-A621-70C3B0F523D5}" "Sims2EP9.exe"
+
+	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
+	File "/oname=Sims2EP9RPC.exe" "..\components\Sims2EP9.exe"
 
 	# Patch missing items from Holiday pack
 	SetOutPath "$INSTDIR\Double Deluxe\Base\TSData\Res\Catalog\Bins"

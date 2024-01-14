@@ -164,6 +164,8 @@ SectionGroup /e "TS2 Starter Pack"
 		DetailPrint "Touching Up..."
 		!insertmacro touchup "The Sims 2 Ultimate Collection" "EA GAMES\The Sims 2" "{04450C18-F039-4B81-A621-70C3B0F523D5}" "Sims2EP9.exe"
 
+		# EP9RPC
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v14/components/Sims2EP9.exe" "$INSTDIR\Fun with Pets\SP9\TSBin\Sims2EP9RPC.exe"/END
 
 		# Install Sims2RPC
 		!insertmacro downloadPack "Sims2RPC" "https://github.com/voicemxil/TS2-Starter-Pack/raw/v14/components/Sims2RPC_1.15.7z" "$INSTDIR\temp\Sims2RPC.7z" "f3091ab315252425c742edb6c6635b3f67105c60cba164d096db11359e4283eb"
