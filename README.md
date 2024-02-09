@@ -1,4 +1,4 @@
-<h1>The Sims 2 Starter Pack - by osab </h1> 
+<h1 align="center">The Sims 2 Starter Pack</h1> 
 
 ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total?label=total%20downloads) ![Current Version](https://img.shields.io/github/v/release/voicemxil/TS2-Starter-Pack?label=current%20version) [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20TS2%20Community%20Discord%20Server&logo=Discord&logoColor=white)](https://discord.com/servers/ts2-community-912700195249197086)
 
@@ -20,7 +20,7 @@ Download your chosen installer from the [latest release](https://github.com/voic
 [<img align="left" width="40" height="40" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/4f869b5b-9e36-40c8-9704-d135e55f12bc" alt="Standalone Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-StandaloneInstaller.x64.exe)
 ### [Standalone Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Offline Version) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Standalone%20Installer/TS2StarterPack-StandaloneInstaller.x64.exe?branch=v13)
 - Lightweight NSIS-based installer 
-- Performs offline install on existing Ultimate Collection game files (works with G4tW)
+- Performs offline install on manually extracted Ultimate Collection game files (works with G4tW)
 - Automates Touchup/install process based on the install directory, includes same fixes as Web Installer
 
 ## Featured Fixes/Dependencies 
