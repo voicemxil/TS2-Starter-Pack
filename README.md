@@ -1,4 +1,6 @@
-<h1 align="center">The Sims 2 Starter Pack</h1> 
+<img align="left" width="60" height="60" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/a9e022b0-277d-45ce-adb9-9bf210cc970a" alt="SP icon">
+
+<h1>The Sims 2 Starter Pack</h1> 
 
 ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total?label=total%20downloads) ![Current Version](https://img.shields.io/github/v/release/voicemxil/TS2-Starter-Pack?label=current%20version) [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20TS2%20Community%20Discord%20Server&logo=Discord&logoColor=white)](https://discord.com/servers/ts2-community-912700195249197086)
 
