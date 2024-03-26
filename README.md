@@ -22,7 +22,7 @@ Download your chosen installer from the [latest release](https://github.com/voic
 [<img align="left" width="40" height="40" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/4f869b5b-9e36-40c8-9704-d135e55f12bc" alt="Standalone Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-StandaloneInstaller.x64.exe)
 ### [Standalone Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Offline Version) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Standalone%20Installer/TS2StarterPack-StandaloneInstaller.x64.exe?branch=v13)
 - Lightweight NSIS-based installer 
-- Performs offline install on manually extracted Ultimate Collection game files (works with G4tW)
+- Game files not included. Performs offline install on manually extracted Ultimate Collection game files (works with G4tW)
 - Automates Touchup/install process based on the install directory, includes same fixes as Web Installer
 
 ## Featured Fixes/Dependencies 
