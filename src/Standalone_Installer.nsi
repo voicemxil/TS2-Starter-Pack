@@ -3,8 +3,8 @@ Unicode true
 Target amd64-unicode
 
 # Installer SETUP
-!define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\StandaloneInstallerImage.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "..\assets\StandaloneInstallerImage.bmp"
 !include "ModernXL.nsh"
 !include "MUI2.nsh"
 !include "x64.nsh"
@@ -13,26 +13,26 @@ Target amd64-unicode
 !include ".\Touchup-er.nsh"
 
 Name "The Sims 2 Starter Pack - Standalone"
-OutFile "..\bin\Standalone Installer\TS2StarterPack-StandaloneInstaller.x64.exe"
+OutFile "..\bin\Standalone Installer\TS2StarterPack-StandaloneInstaller.x32.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
 ManifestDPIAware True
-VIProductVersion 14.0.0.0
+VIProductVersion 14.1.0.0
 VIAddVersionKey "CompanyName" "osab"
-VIAddVersionKey "FileVersion" "14.0.0"
+VIAddVersionKey "FileVersion" "14.1.0"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
-VIAddVersionKey "ProductVersion" "14.0"
+VIAddVersionKey "ProductVersion" "14.1"
 
 # MUI SETUP
-brandingText "osab Standalone Installer v14"
+brandingText "osab Standalone Installer v14.1"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
 !define MUI_HEADERIMAGE_BITMAP "..\assets\header.bmp"
 !define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
-!define MUI_ICON "..\assets\NewInstaller.ico"
+!define MUI_ICON "..\assets\StandaloneInstaller.ico"
 !define MUI_PAGE_HEADER_TEXT "TS2: Starter Pack - Standalone"
 !define MUI_PAGE_HEADER_SUBTEXT "Touchup installer for Standalone TS2:UC, by osab."
 !define MUI_WELCOMEPAGE_TITLE "Install The Sims 2 Starter Pack (Standalone)"
@@ -91,6 +91,7 @@ si:
             DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 University Life Collection"
             DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Fun with Pets Collection"
             DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\The Sims 2 Starter Pack"
+			DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\The Sims 2 Ulitmate Collection"
             DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2.exe"	
             DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP1.exe"	
             DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP2.exe"	
@@ -116,11 +117,9 @@ keydontexist:
 noo:
 !macroend
 
-InstType "Full (Choose if unsure)" IT_FULL
-InstType "DXVK - Only recommended for modern AMD Graphics (RX 400+) on Windows" IT_AMD
-	
+InstType "Full (Choose if unsure)" IT_FULL	
 Section "Touchup & Sims2RPC" Section1
-	SectionInstType ${IT_FULL} ${IT_AMD}
+	SectionInstType ${IT_FULL}
 	SectionIn RO 
 	SetOutPath $INSTDIR
 	InitPluginsDir
@@ -163,7 +162,7 @@ Section "Touchup & Sims2RPC" Section1
 	DetailPrint "Installing Sims2RPC..."
 	File "..\components\Sims2RPC_1.15.7z"
 	SetOutPath "$INSTDIR"
-	Nsis7z::ExtractWithDetails "Sims2RPC_1.15.7z" "%s"
+	Nsis7z::ExtractWithDetails "$INSTDIR\temp\Sims2RPC_1.15.7z" "%s"
 	Pop $0
 	DetailPrint "RPC extraction status: $0."
 	DetailPrint "Cleaning up RPC zip file..."
@@ -230,25 +229,16 @@ SectionEnd
 
 SectionGroup /e "Graphical Fixes\Tweaks"
 	Section "Graphics Rules Maker" Section3
-		SectionInstType ${IT_FULL} ${IT_AMD}
-		${If} ${IsWin8.1}
-		${OrIf} ${IsWin8}
-		${OrIf} ${IsWin7}
-		${OrIf} ${IsWinVista}
-		${OrIf} ${IsWinXP}
-			MessageBox MB_OK "Your current Windows version may not be compatible with the Graphics Rules Maker included. If you encounter issues, reinstall GRM with version 2.0.0 from SimsNetwork.com."
-		${EndIf}
 		SetOutPath "$INSTDIR\temp"
-			File "..\components\graphicsrulesmaker-2.0.0-32bit.exe"
-			Pop $0 
-			Rename graphicsrulesmaker-2.0.0-32bit.exe grm_install.exe
-			DetailPrint "GRM extract status: $0. Executing installer..." 
+		File "..\components\GraphicsRulesMaker-2.3.0-win64.exe"
+		Pop $0 
+		Rename GraphicsRulesMaker-2.3.0-win64.exe grm_install.exe
+		DetailPrint "GRM extract status: $0. Executing installer..." 
 		Execwait $INSTDIR\temp\grm_install.exe
 		Delete $INSTDIR\temp\grm_install.exe
 	SectionEnd
 
 	Section /o "DXVK" Section4
-		SectionInstType ${IT_AMD} 
 
 		SetOutPath "$INSTDIR\temp"
 
@@ -259,7 +249,7 @@ SectionGroup /e "Graphical Fixes\Tweaks"
 		MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
 		true: 
 			SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
-			DetailPrint "Extracting DXVK 2.3..."
+			DetailPrint "Extracting DXVK 2.3.1..."
 			File "..\components\d3d9.dll"
 			Pop $0 # return value = exit code, "OK" means OK
 			DetailPrint "DXVK extract status: $0."
@@ -287,7 +277,7 @@ SectionGroup /e "Graphical Fixes\Tweaks"
 	SectionEnd
 
 	Section "LD Bright CAS Fix" Section6
-		SectionInstType ${IT_FULL} ${IT_AMD}
+		SectionInstType ${IT_FULL}
 		SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
 		File /r "..\components\ld_BrightCASFix.package"
 	SectionEnd
@@ -295,7 +285,7 @@ SectionGroupEnd
 
 SectionGroup "Dependencies"
 	Section "Visual C++ Redist" Section11
-		SectionInstType ${IT_FULL} ${IT_AMD}
+		SectionInstType ${IT_FULL}
 
 		SetOutPath "$INSTDIR\temp"
 		File "..\components\vc_redist.x86.exe"
@@ -306,7 +296,7 @@ SectionGroup "Dependencies"
 	SectionEnd
 		
 	Section ".NET Framework" Section12
-		SectionInstType ${IT_FULL} ${IT_AMD}
+		SectionInstType ${IT_FULL}
 
 		SetOutPath "$INSTDIR\temp"
 		File "..\components\ndp48-web.exe"
@@ -318,7 +308,7 @@ SectionGroup "Dependencies"
 SectionGroupEnd
 
 Section "Start Menu/Desktop Shortcut" Section13
-	SectionInstType ${IT_FULL} ${IT_AMD}
+	SectionInstType ${IT_FULL}
 
 	SetShellVarContext all
 	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"

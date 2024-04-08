@@ -1,6 +1,6 @@
 Unicode true 
-Target amd64-unicode
-; Target x86-unicode
+;Target amd64-unicode
+Target x86-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
@@ -21,14 +21,14 @@ RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
 SetCompressor /SOLID LZMA
 ManifestDPIAware True
-VIProductVersion 14.0.0.0
+VIProductVersion 14.1.0.0
 VIAddVersionKey "CompanyName" "osab"
-VIAddVersionKey "FileVersion" "14.0.0"
+VIAddVersionKey "FileVersion" "14.1.0"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
-VIAddVersionKey "ProductVersion" "14.0"
+VIAddVersionKey "ProductVersion" "14.1"
 
 # MUI SETUP
-brandingText "osab Web Installer v14"
+brandingText "osab Web Installer v14.1"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
 !define MUI_HEADERIMAGE
@@ -79,7 +79,7 @@ Var DXVKVER
 
 Function .OnInit
 	Dialer::AttemptConnect
-	StrCpy $DXVKVER "2.3"
+	StrCpy $DXVKVER "2.3.1"
 FunctionEnd
 
 InstType "Full" IT_FULL
@@ -327,7 +327,7 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 			Pop $0 # return value = exit code, "OK" means OK
 			DetailPrint "DXVK download status: $0." 
 
-			NScurl::http GET "https://raw.githubusercontent.com/doitsujin/dxvk/v2.3/dxvk.conf" "$INSTDIR\Fun with Pets\SP9\TSBin\dxvk.conf" /RESUME /INSIST /END
+			NScurl::http GET "https://raw.githubusercontent.com/doitsujin/dxvk/v2.3.1/dxvk.conf" "$INSTDIR\Fun with Pets\SP9\TSBin\dxvk.conf" /RESUME /INSIST /END
 			Pop $0
 			DetailPrint "DXVK.conf download status: $0." 
 			goto next
@@ -355,7 +355,7 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 	Section "LD Bright CAS Fix" Section6	
 		SectionInstType ${IT_FULL}
 		DetailPrint "Donwloading Bright CAS Fix..."
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v14/components/ld_BrightCASFix.package" "$INSTDIR\Fun with Pets\SP9\TSData\Res\ld_BrightCASFix.package" /BACKGROUND /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v14/components/ld_BrightCASFix.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\ld_BrightCASFix.package" /BACKGROUND /END
 	SectionEnd
 SectionGroupEnd
 
@@ -521,7 +521,6 @@ Section "Uninstall" Section20
     ${EndIf}
 	DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2"
 	DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Fun with Pets Collection"
-	DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\The Sims 2 Starter Pack"
 	DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2.exe"	
 	DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP1.exe"	
 	DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2EP2.exe"	
@@ -539,6 +538,9 @@ Section "Uninstall" Section20
 	DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP6.exe"	
 	DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP7.exe"
 	DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP8.exe"	
+
+	DeleteRegKey HKLM32 "Software\Microsoft\Windows\CurrentVersion\Uninstall\The Sims 2 Starter Pack"
+	DeleteRegKey HKLM32 "Software\Microsoft\Windows\CurrentVersion\Uninstall\The Sims 2 Ultimate Collection"
 	RMDir /r "$SMPROGRAMS\The Sims 2 Starter Pack"
 	Delete "$Desktop\Sims2RPC.lnk"
 SectionEnd
