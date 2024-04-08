@@ -7,9 +7,6 @@
 The Starter Pack is an all-in-one source for obtaining, installing, and optimizing TS2 Ultimate Collection on modern hardware! 
 The Ultimate Collection is the free 2014 Origin release, which includes the base game & all packs/updates.
 
-## Usage:
-Download your chosen installer from the [latest release](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) and follow the [Full Installation Guide](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) to begin!
-
 ## Flavors:
 
 [<img align="left" width="40" height="40" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/e5233181-2abd-4c40-a9f5-e4ba4ce76b68" alt="Web Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-WebInstaller.x64.exe)
@@ -18,12 +15,26 @@ Download your chosen installer from the [latest release](https://github.com/voic
 - Downloads The Sims 2 Ultimate Collection with Sims2RPC & fixes via GitHub
 - Automates Touchup/install process based on the install directory
 
-
 [<img align="left" width="40" height="40" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/4f869b5b-9e36-40c8-9704-d135e55f12bc" alt="Standalone Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-StandaloneInstaller.x64.exe)
 ### [Standalone Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Offline Version) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Standalone%20Installer/TS2StarterPack-StandaloneInstaller.x64.exe?branch=v13)
 - Lightweight NSIS-based installer 
 - Game files not included. Performs offline install on manually extracted Ultimate Collection game files (works with G4tW)
 - Automates Touchup/install process based on the install directory, includes same fixes as Web Installer
+
+  
+# Usage/Instructions:
+- _(**Standalone only**)_ Before proceeding, obtain the [Ultimate Collection game files](https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/tag/v12) and extract them to a new folder for the game called "The Sims 2 Starter Pack" (usually `C:\Program Files (x86)\The Sims 2 Starter Pack`). Make sure to direct the installer to this folder.
+- 🐧 Linux/Steam Deck users should follow these steps in conjunction with the [Linux-specific setup steps](https://github.com/voicemxil/TS2-Starter-Pack/wiki/Linux-Specifc-Setup-Steps).
+1. Download your chosen installer from the latest Release (64-bit or 32-bit). Run using an administrator user account.
+    - When opening you may be prompted that "Windows protected your PC" due to the installer not having a paid signature. To proceed, click "More details" followed by "Run Anyway." If antivirus interferes for some reason, try temporarily disabling it to launch the installer and make an exception for your game folder.
+1. Follow the prompts in the installer to proceed, selecting the location for your game folder & choosing desired components. 
+   - The default location of "The Sims 2 Starter Pack" folder in Program Files (x86) is recommended.
+   - On modern AMD graphics card generations such as RX 400 (Polaris) series and later, enabling the DXVK component is recommended to resolve bugs such as an extremely long launch wait time and loading screen.
+1. After Installation, you must correctly configure Graphics Rules Maker and Sims2RPCSettings to set up the game for your system. Full detailed instructions are in the Google Doc guide below.
+1. You can then run the game using Sims2RPC.exe or "The Sims 2" shortcuts in the Start Menu/Desktop, if enabled. 
+    - Once in-game you will be prompted with a custom content dialog due to included fixes and features, such as the CEP - this doesn't indicate any issue with the game. It's recommended that you choose "Enable Custom Content" to take advantage of these included features. You then can disable the prompt from showing up via the in-game settings.
+
+### The [Full Installation Guide on Google Docs](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) is available for detailed instructions.
 
 ## Featured Fixes/Dependencies 
 - Included:
