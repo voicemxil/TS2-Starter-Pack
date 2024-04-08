@@ -22,7 +22,7 @@ The Ultimate Collection is the free 2014 Origin release, which includes the base
 - Automates Touchup/install process based on the install directory, includes same fixes as Web Installer
 
   
-# Usage/Instructions:
+## Usage/Instructions:
 ### The [Full Guide on Google Docs](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) is available for detailed instructions.
 
 ### Basic steps:
