@@ -2,7 +2,7 @@
 
 <h1>The Sims 2 Starter Pack</h1> 
 
-![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total?label=total%20downloads) ![Current Version](https://img.shields.io/github/v/release/voicemxil/TS2-Starter-Pack?label=current%20version) [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20TS2%20Community%20Discord%20Server&logo=Discord&logoColor=white)](https://discord.com/servers/ts2-community-912700195249197086)
+![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total?label=total%20downloads) ![Current Version](https://img.shields.io/github/v/release/voicemxil/TS2-Starter-Pack?label=current%20version) [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20TS2%20Community%20Discord%20Server&logo=Discord&logoColor=white)](https://discord.com/servers/ts2community)
 
 The Starter Pack is an all-in-one source for obtaining, installing, and optimizing TS2 Ultimate Collection on modern hardware! 
 The Ultimate Collection is the free 2014 Origin release, which includes the base game & all packs/updates.
@@ -58,7 +58,7 @@ The Ultimate Collection is the free 2014 Origin release, which includes the base
 
 
 ## Resources & Support:
-- For help with your TS2 game, there are various resources such as our #ts2-faq and #ts2-help forums in the [TS2 Community Discord](https://discord.gg/ts2-community-912700195249197086), or the [r/Sims2Help Reddit](reddit.com/r/sims2help)! 
+- For help with your TS2 game, there are various resources such as our #ts2-faq and #ts2-help forums in the [TS2 Community Discord](https://discord.gg/ts2community), or the [r/Sims2Help Reddit](reddit.com/r/sims2help)! 
 - Our members also share gameplay, CC/Mods, and plenty of other useful resources.
 ### Join TS2 Community here:
-[<img src="https://discordapp.com/api/guilds/912700195249197086/widget.png?style=banner3" alt="">](https://discord.gg/ts2-community-912700195249197086)
+[<img src="https://discordapp.com/api/guilds/912700195249197086/widget.png?style=banner3" alt="">](https://discord.gg/ts2community)
