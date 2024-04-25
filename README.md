@@ -26,6 +26,7 @@ The Ultimate Collection is the free 2014 Origin release, which includes the base
 ### The [Full Guide on Google Docs](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) is available for detailed instructions.
 
 ### Basic steps:
+- Some antivirus suites may detect a false positive from the Installers, and may need to be temporarily disabled or have an exception made in order for you to download/run them.
 - _(**Standalone only**)_ Before proceeding, obtain the [Ultimate Collection game files](https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/tag/v12) and extract them to a new folder for the game called "The Sims 2 Starter Pack" (usually `C:\Program Files (x86)\The Sims 2 Starter Pack`). Make sure to direct the installer to this folder.
 - 🐧 Linux/Steam Deck users should follow these steps in conjunction with the [Linux-specific setup steps](https://github.com/voicemxil/TS2-Starter-Pack/wiki/Linux-Specifc-Setup-Steps).
 1. Download your chosen installer from the latest Release (64-bit or 32-bit). Run using an administrator user account.
