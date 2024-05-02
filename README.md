@@ -38,6 +38,7 @@ The Ultimate Collection is the free 2014 Origin release, which includes the base
 1. After Installation, you must correctly configure Graphics Rules Maker and Sims2RPCSettings to set up the game for your system. Full detailed instructions are in the Google Doc guide.
 1. You can then run the game using Sims2RPC.exe or "The Sims 2" shortcuts in the Start Menu/Desktop, if enabled. 
     - Once in-game you will be prompted with a custom content dialog due to included fixes and features, such as the CEP - this doesn't indicate any issue with the game. It's recommended that you choose "Enable Custom Content" to take advantage of these included features. You then can disable the prompt from showing up via the in-game settings.
+    - If you'd like to change the in-game language, double click the associated .reg file for yours under "_Language_Selection" in The Sims 2 Starter Pack folder.
 
 
 ## Featured Fixes/Dependencies 
