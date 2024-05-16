@@ -12,7 +12,7 @@ The Ultimate Collection is the free 2014 Origin release, which includes the base
 [<img align="left" width="40" height="40" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/e5233181-2abd-4c40-a9f5-e4ba4ce76b68" alt="Web Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-WebInstaller.x64.exe)
 ### [Web Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Recommended) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Web%20Installer/TS2StarterPack-WebInstaller.x64.exe?branch=v13)
 - Lightweight NSIS-based web installer
-- Downloads The Sims 2 Ultimate Collection with Sims2RPC & fixes via GitHub
+- Download The Sims 2 Ultimate Collection with Sims2RPC & fixes via GitHub
 - Automates Touchup/install process based on the install directory
 
 [<img align="left" width="40" height="40" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/4f869b5b-9e36-40c8-9704-d135e55f12bc" alt="Standalone Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-StandaloneInstaller.x64.exe)
