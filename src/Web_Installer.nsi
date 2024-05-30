@@ -1,6 +1,6 @@
 Unicode true 
-Target amd64-unicode
-;Target x86-unicode
+;Target amd64-unicode
+Target x86-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
@@ -16,19 +16,19 @@ Target amd64-unicode
 !include ".\RemovePriorInstallation.nsh"
 
 Name "The Sims 2 Starter Pack"
-OutFile "..\bin\Web Installer\TS2StarterPack-WebInstaller.x64.exe"
+OutFile "..\bin\Web Installer\TS2StarterPack-WebInstaller.x86.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
 SetCompressor /SOLID LZMA
 ManifestDPIAware True
-VIProductVersion 14.1.0.0
+VIProductVersion 14.2.0.0
 VIAddVersionKey "CompanyName" "osab"
-VIAddVersionKey "FileVersion" "14.1.0"
+VIAddVersionKey "FileVersion" "14.2.0"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
-VIAddVersionKey "ProductVersion" "14.1"
+VIAddVersionKey "ProductVersion" "14.2"
 
 # MUI SETUP
-brandingText "osab Web Installer v14.1"
+brandingText "osab Web Installer v14.2"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
 !define MUI_HEADERIMAGE
@@ -39,7 +39,7 @@ brandingText "osab Web Installer v14.1"
 !define MUI_PAGE_HEADER_TEXT "TS2: Starter Pack - Web Installer"
 !define MUI_PAGE_HEADER_SUBTEXT "TS2 Ultimate Collection repacked by osab!"
 !define MUI_WELCOMEPAGE_TITLE "osab's Sims 2 Starter Pack"
-!define MUI_WELCOMEPAGE_TEXT "Welcome to the Sims 2 Starter Pack Web Installer (v14). This installer automatically downloads/installs The Sims 2 Ultimate Collection and dependencies/fixes for modern systems. $\n$\nPlease ensure you have downloaded the latest version from the GitHub! $\n$\nHelpful log messages will be shown in the 'More Details' box. $\n$\nThe installer sets the game language automatically, however you can change it if needed via the included registry files in the $\"_Language Selection$\" folder."
+!define MUI_WELCOMEPAGE_TEXT "Welcome to the Sims 2 Starter Pack Web Installer (v14.2). This installer automatically downloads/installs The Sims 2 Ultimate Collection and dependencies/fixes for modern systems. $\n$\nPlease ensure you have downloaded the latest version from the GitHub! $\n$\nHelpful log messages will be shown in the 'More Details' box. $\n$\nThe installer sets the game language automatically, however you can change it if needed via the included registry files in the $\"_Language Selection$\" folder."
 !define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. $\n$\nThe game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
 !define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
 !define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
