@@ -1,6 +1,6 @@
 Unicode true 
-;Target amd64-unicode
-Target x86-unicode
+Target amd64-unicode
+;Target x86-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
@@ -396,19 +396,19 @@ Section "Store & Preorder/Bonus Content" Section9
 	SectionInstType ${IT_FULL}
 
 	SetOutPath "$INSTDIR\temp"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v14/components/Store_Content/FunwithPets.7z" "$INSTDIR\temp\FunwithPets.7z" /RESUME /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v14.2/components/Store_Content/Preorder-Bonus.7z" "$INSTDIR\temp\FunwithPets.7z" /RESUME /END
 		Pop $0
-		DetailPrint "FunwithPets.7z download result: $0"		
-	SetOutPath "$INSTDIR"
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\FunwithPets.7z" "Extracting Preorder/Exclusive Content %s"
+		DetailPrint "Preorder-Bonus.7z download result: $0"		
+	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Preorder-Bonus\FunwithPets.7z" "Extracting Preorder/Exclusive Content %s"
 		Pop $0
-		DetailPrint "FunwithPets.7z extract result: $0"		
+		DetailPrint "Preorder-Bonus.7z extract result: $0"		
 
 	SetOutPath "$INSTDIR\temp"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v14/components/Store_Content/Downloads.7z.001" "$INSTDIR\temp\Downloads.7z.001" /RESUME /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v14.2/components/Store_Content/Downloads.7z.001" "$INSTDIR\temp\Downloads.7z.001" /RESUME /END
 		Pop $0
 		DetailPrint "Downloads.7z.001 download result: $0"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v14/components/Store_Content/Downloads.7z.002" "$INSTDIR\temp\Downloads.7z.002" /RESUME /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v14.2/components/Store_Content/Downloads.7z.002" "$INSTDIR\temp\Downloads.7z.002" /RESUME /END
 		Pop $0
 		DetailPrint "Downloads.7z.002 download result: $0"
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection"
@@ -416,9 +416,9 @@ Section "Store & Preorder/Bonus Content" Section9
 		Pop $0
 		DetailPrint "Downloads.7z extract result: $0"	
 
-	Delete "$INSTDIR\temp\FunwithPets.7z"
+	Delete "$INSTDIR\temp\Preorder-Bonus.7z"
 		Pop $0
-		DetailPrint "FunwithPets.7z cleanup result: $0"
+		DetailPrint "Preorder-Bonus.7z cleanup result: $0"
 	Delete "$INSTDIR\temp\Downloads.7z.001"
 		Pop $0
 		DetailPrint "Downloads.7z.001 cleanup result: $0"
