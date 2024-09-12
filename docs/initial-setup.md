@@ -25,6 +25,6 @@ nav_order: 2
 ## 4. Disable OneDrive Documents syncing (Windows):
    - Having OneDrive backup the Documents can result in disk space errors, conflicts, save-file corruption, missing hoods, etc. as it tries to sync before and during gameplay. You don’t have to get rid of OneDrive entirely, you can still use the main OneDrive folder - but at the very least the Documents folder itself should be local to your user folder/excluded to ensure the game’s folder does not get synced.
 
-### Next step: [Installation](/Installation)
+### Next step: [Installation](/TS2-Starter-Pack/Installation)
 
 ---
