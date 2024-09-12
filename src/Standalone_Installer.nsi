@@ -1,6 +1,6 @@
 Unicode true
-Target x86-unicode
-;Target amd64-unicode
+;Target x86-unicode
+Target amd64-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\StandaloneInstallerImage.bmp"
@@ -13,7 +13,7 @@ Target x86-unicode
 !include ".\Touchup-er.nsh"
 
 Name "The Sims 2 Starter Pack - Standalone Touchup Installer"
-OutFile "..\bin\Standalone Installer\Touchup-StandaloneInstaller.x32.exe"
+OutFile "..\bin\Standalone Installer\Touchup-StandaloneInstaller.x64.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
@@ -221,12 +221,12 @@ SectionEnd
 SectionGroup /e "Graphical Fixes\Tweaks"
 	Section "Graphics Rules Maker" Section3
 		SetOutPath "$INSTDIR\temp"
-		File "..\components\GRM-legacy-win32.7z"
-		Nsis7z::ExtractWithDetails "GRM-legacy-win32.7z" "Extracting GRM."
+		File "..\components\GRM-win64.7z"
+		Nsis7z::ExtractWithDetails "GRM-win64.7z" "Extracting GRM."
 		Pop $0
 		DetailPrint "GRM extract status: $0." 
-		Delete "GRM-legacy-win32.7z"
-		MessageBox MB_OK "Graphics Rules Maker will now open. Please choose the $\"Auto-Detect$\" option in Graphics Rules Maker, then $\"Save Files...$\" and exit the program to continue."
+		Delete "GRM-win64.7z"
+		MessageBox MB_OK "Graphics Rules Maker will now open. Select $\"The Sims 2$\" from the $\"Game$\" dropdown and choose the $\"Auto-detect$\" option, then $\"Save Files.$\" Repeat the process for $\"The Sims 2 Body Shop$\" and then exit the program to continue."
 		Execwait "$INSTDIR\Graphics Rules Maker\bin\GraphicsRulesMakerUi.exe"
 
 	SectionEnd

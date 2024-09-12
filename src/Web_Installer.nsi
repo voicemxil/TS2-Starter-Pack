@@ -1,6 +1,6 @@
 Unicode true 
-Target amd64-unicode
-; Target x86-unicode
+;Target amd64-unicode
+Target x86-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
@@ -16,7 +16,7 @@ Target amd64-unicode
 !include ".\RemovePriorInstallation.nsh"
 
 Name "The Sims 2 Starter Pack"
-OutFile "..\bin\Web Installer\TS2StarterPack-WebInstaller.x64.exe"
+OutFile "..\bin\Web Installer\TS2StarterPack-WebInstaller.x32.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
 SetCompressor /SOLID LZMA
@@ -295,7 +295,7 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 				!insertmacro downloadPack "Graphics Rules Maker (Legacy x32)" "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15/components/GRM-legacy-win32.7z" "temp\GraphicsRulesMaker.7z" "70e065e042d12c2de8303f7b86661443704d464dbc4adb07c7bd84372a246d1f"
 			${EndIf}
 		${EndIf}
-		MessageBox MB_OK "Graphics Rules Maker will now open. Please choose the $\"Auto-Detect$\" option in Graphics Rules Maker, then $\"Save Files...$\" and exit the program to continue."
+		MessageBox MB_OK "Graphics Rules Maker will now open. Select $\"The Sims 2$\" from the $\"Game$\" dropdown and choose the $\"Auto-detect$\" option, then $\"Save Files.$\" Repeat the process for $\"The Sims 2 Body Shop$\" and then exit the program to continue."
 		Execwait "$INSTDIR\Graphics Rules Maker\bin\GraphicsRulesMakerUi.exe"
 	SectionEnd
 
