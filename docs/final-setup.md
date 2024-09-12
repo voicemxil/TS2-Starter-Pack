@@ -26,11 +26,12 @@ The first time you open Sims2RPC, be sure to run it as Administrator so it can s
 
 Configure your RPC Settings:
 1. Set the window mode:
-  - Borderless: A modern fullscreen mode using a borderless window. 
-  - Windowed: Runs the game as a window on the desktop. The in-game resolution setting affects the size of the game window. This mode can be upscaled to borderless from a lower resolution using tools like Magpie, giving the effect of a bigger UI without losing too much clarity.
-  - Fullscreen: This mode fills the screen, even if lowering the screen resolution. This mode may cause the DirectX 9.0c error or have issues with alt-tabbing, if so please try windowed/borderless.
+   - Borderless: A modern fullscreen mode using a borderless window. 
+   - Windowed: Runs the game as a window on the desktop. The in-game resolution setting affects the size of the game window. This mode can be upscaled to borderless from a lower resolution using tools like Magpie, giving the effect of a bigger UI without losing too much clarity.
+   - Fullscreen: This mode fills the screen, even if lowering the screen resolution. This mode may cause the DirectX 9.0c error or have issues with alt-tabbing, if so please try windowed/borderless.
 1. Check “Apply 4GB Patch” if you have 8GB or more of total RAM. (To check how much RAM you have, open Task Manager and choose “Memory” under the “Performance” tab.)
-- The rest of the options on the main page depend largely on personal preference, so set them however you like. Enabling Discord Rich Presence will share your TS2 game status on Discord!
+
+The rest of the options on the main page depend largely on personal preference, so set them however you like. Enabling Discord Rich Presence will share your TS2 game status on Discord!
 
 Do not start the game with “Sims2EP9.exe." If you need to bypass Sims2RPC, you can run the “Sims2EP9RPC.exe” instead, which is always cracked/patched. 
 
