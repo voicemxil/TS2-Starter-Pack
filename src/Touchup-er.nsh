@@ -57,7 +57,7 @@ WriteRegStr HKLM32 "Software\EA GAMES\The Sims 2 Fun with Pets Collection" "" ""
 	WriteRegStr HKLM32 "Software\Microsoft\Windows\CurrentVersion\App Paths\${gameEXE}" "Game Registry" "Software\EA GAMES\The Sims 2 Fun with Pets Collection"
 	WriteRegDWORD HKLM32 "Software\Microsoft\Windows\CurrentVersion\App Paths\${gameEXE}" "Installed" "1"
 	WriteRegDWORD HKLM32 "Software\Microsoft\Windows\CurrentVersion\App Paths\${gameEXE}" "Restart" "0"
-	WriteRegStr HKLM32 "Software\Microsoft\Windows\CurrentVersion\App Paths\${gameEXE}" "Path" "$INSTDIR\${gameTitle}\SP9"
+	WriteRegStr HKLM32 "Software\Microsoft\Windows\CurrentVersion\App Paths\${gameEXE}" "Path" "$INSTDIR\Fun with Pets\SP9"
 
 	WriteRegStr HKLM32 "Software\Microsoft\Windows\CurrentVersion\App Paths\Sims2.exe" "" "$INSTDIR\Double Deluxe\Base\TSBin\Sims2.exe"
 	WriteRegStr HKLM32 "Software\Microsoft\Windows\CurrentVersion\App Paths\Sims2.exe" "Game Registry" "Software\${gameKey}"

@@ -1,6 +1,6 @@
 Unicode true
-; Target x86-unicode
-Target amd64-unicode
+Target x86-unicode
+;Target amd64-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\StandaloneInstallerImage.bmp"
@@ -12,20 +12,20 @@ Target amd64-unicode
 !include ".\Language-r.nsh"
 !include ".\Touchup-er.nsh"
 
-Name "The Sims 2 Starter Pack - Standalone"
-OutFile "..\bin\Standalone Installer\TS2StarterPack-StandaloneInstaller.x32.exe"
+Name "The Sims 2 Starter Pack - Standalone Touchup Installer"
+OutFile "..\bin\Standalone Installer\Touchup-StandaloneInstaller.x32.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
 ManifestDPIAware True
-VIProductVersion 14.1.0.0
+VIProductVersion 15.0.0.0
 VIAddVersionKey "CompanyName" "osab"
-VIAddVersionKey "FileVersion" "14.1.0"
+VIAddVersionKey "FileVersion" "15"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
-VIAddVersionKey "ProductVersion" "14.1"
+VIAddVersionKey "ProductVersion" "15"
 
 # MUI SETUP
-brandingText "osab Standalone Installer v14.1"
+brandingText "osab Standalone Installer v15"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
 !define MUI_HEADERIMAGE
@@ -33,18 +33,21 @@ brandingText "osab Standalone Installer v14.1"
 !define MUI_HEADERIMAGE_BITMAP "..\assets\header.bmp"
 !define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
 !define MUI_ICON "..\assets\StandaloneInstaller.ico"
-!define MUI_PAGE_HEADER_TEXT "TS2: Starter Pack - Standalone"
+!define MUI_PAGE_HEADER_TEXT "TS2 Starter Pack: Standalone Touchup Installer"
 !define MUI_PAGE_HEADER_SUBTEXT "Touchup installer for Standalone TS2:UC, by osab."
-!define MUI_WELCOMEPAGE_TITLE "Install The Sims 2 Starter Pack (Standalone)"
-!define MUI_WELCOMEPAGE_TEXT "This installer is for the standalone download of The Sims 2: Ultimate Collection - it does NOT include/download the game files for you like the Web Installer. $\nFor an all-in-one download and installation, use the Web Installer instead. $\n$\nThe installer sets the game language automatically, however you can change it if needed via the included registry files in the $\"_Language Selection$\" folder. $\n$\nPlease set the install directory to your $\"The Sims 2 Starter Pack$\" root folder where you've extracted the game files."
+!define MUI_WELCOMEPAGE_TITLE "The Sims 2 Starter Pack: Standalone Touchup Installer"
+!define MUI_WELCOMEPAGE_TEXT "This is the standalone Starter Pack install script for use with the separate download of The Sims 2: Ultimate Collection. It does NOT download the game files for you. $\n$\nFor the best first-time install experience wth all-in-one download and installation, use the Web Installer instead. $\n$\nThis installer guesses the game language based on your system locale, however you can change it if needed by applying the registry files in the included $\"_Language Selection$\" folder. $\n$\nPlease set the install directory to your $\"The Sims 2 Starter Pack$\" root folder where you've extracted the game files."
 !define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. The game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
 !define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
 !define MUI_DIRECTORYPAGE_TEXT_DESTINATION "The folder you choose should contain the game packs such as $\"Fun with Pets.$\""
 !define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
-!define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the next step of the guide (Graphics Setup)?"
+!define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the guide for post-install instructions/tips?"
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
+!define MUI_FINISHPAGE_TEXT "The installation has completed. To run the game, launch Sims2RPC or use the desktop/Start menu shortcut."
 !define MUI_FINISHPAGE_LINK "TS2 Community Discord Server!"
-!define MUI_FINISHPAGE_LINK_LOCATION "https://discord.gg/invite/ts2-community-912700195249197086"
+!define MUI_FINISHPAGE_LINK_LOCATION "https://discord.gg/ts2community"
+!define MUI_FINISHPAGE_RUN "$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe"
+!define MUI_FINISHPAGE_RUN_TEXT "Configure Sims2RPC Settings?"
 !define MUI_FINISHPAGE_LINK_COLOR "5865F2"
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "..\LICENSE.txt"
@@ -139,18 +142,6 @@ Section "Touchup & Sims2RPC" Section1
 	SetOutPath "$INSTDIR\Double Deluxe\Base\TSData\Res\Catalog\Skins"
 	File "..\components\Patch_HolidayFix\Skins.package"
 
-	# Patch wrong lighting files included in standalone MediaFire download
-	SetOutPath $INSTDIR
-	File /r "..\components\Patch_Lights\Apartment Life"
-	File /r "..\components\Patch_Lights\Best of Business"
-	File /r "..\components\Patch_Lights\Bon Voyage"
-	File /r "..\components\Patch_Lights\Double Deluxe"
-	File /r "..\components\Patch_Lights\Free Time"
-	File /r "..\components\Patch_Lights\Fun with Pets"
-	File /r "..\components\Patch_Lights\Glamour Life Stuff"
-	File /r "..\components\Patch_Lights\Seasons"
-	File /r "..\components\Patch_Lights\University Life"
-
 	# Patch AL/MG UI Text
 	SetOutPath "$INSTDIR"
 	File /r "..\components\Patch_UITextFix\Apartment Life"
@@ -230,12 +221,14 @@ SectionEnd
 SectionGroup /e "Graphical Fixes\Tweaks"
 	Section "Graphics Rules Maker" Section3
 		SetOutPath "$INSTDIR\temp"
-		File "..\components\GraphicsRulesMaker-2.3.0-win64.exe"
-		Pop $0 
-		Rename GraphicsRulesMaker-2.3.0-win64.exe grm_install.exe
-		DetailPrint "GRM extract status: $0. Executing installer..." 
-		Execwait $INSTDIR\temp\grm_install.exe
-		Delete $INSTDIR\temp\grm_install.exe
+		File "..\components\GRM-legacy-win32.7z"
+		Nsis7z::ExtractWithDetails "GRM-legacy-win32.7z" "Extracting GRM."
+		Pop $0
+		DetailPrint "GRM extract status: $0." 
+		Delete "GRM-legacy-win32.7z"
+		MessageBox MB_OK "Graphics Rules Maker will now open. Please choose the $\"Auto-Detect$\" option in Graphics Rules Maker, then $\"Save Files...$\" and exit the program to continue."
+		Execwait "$INSTDIR\Graphics Rules Maker\bin\GraphicsRulesMakerUi.exe"
+
 	SectionEnd
 
 	Section /o "DXVK" Section4
@@ -249,7 +242,7 @@ SectionGroup /e "Graphical Fixes\Tweaks"
 		MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
 		true: 
 			SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
-			DetailPrint "Extracting DXVK 2.3.1..."
+			DetailPrint "Extracting DXVK 2.4..."
 			File "..\components\d3d9.dll"
 			Pop $0 # return value = exit code, "OK" means OK
 			DetailPrint "DXVK extract status: $0."
@@ -313,11 +306,13 @@ Section "Start Menu/Desktop Shortcut" Section13
 	SetShellVarContext all
 	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
 	CreateDirectory '$SMPROGRAMS\The Sims 2 Starter Pack\'
-	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPC.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
-	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPCSettings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
-
-	CreateShortCut '$Desktop\The Sims 2.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
-	CreateShortCut '$Desktop\Sims2RPCSettings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
+	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\The Sims 2 (Sims2RPC).lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
+	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPC Settings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
+	${If} ${SectionIsSelected} ${Section3}
+		CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Graphics Rules Maker.lnk' '$INSTDIR\Graphics Rules Maker\Bin\GraphicsRulesMakerUi.exe' "" '$INSTDIR\Graphics Rules Maker\Bin\GraphicsRulesMakerUi.exe' 0 
+	${EndIf}
+	CreateShortCut '$Desktop\The Sims 2 (Sims2RPC).lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
+	CreateShortCut '$Desktop\Sims2RPC Settings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
 
 SectionEnd 
 
@@ -340,6 +335,8 @@ Section "Uninstall" Section8
 	RMDir /r "$R4\Glamour Life Stuff"
 	RMDir /r "$R4\Seasons"
 	RMDir /r "$R4\University Life"
+	RMDir /r "$R4\Graphics Rules Maker"
+
     ${EndIf}
 	DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2"
 	DeleteRegKey HKLM32 "SOFTWARE\EA GAMES\The Sims 2 Fun with Pets Collection"
@@ -362,13 +359,14 @@ Section "Uninstall" Section8
 	DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP7.exe"
 	DeleteRegKey HKLM32 "SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\Sims2SP8.exe"	
 	RMDir /r "$SMPROGRAMS\The Sims 2 Starter Pack"
-	Delete "$Desktop\Sims2RPC.lnk"
+	Delete "$Desktop\The Sims 2 (Sims2RPC).lnk"
+	Delete "$Desktop\Sims2RPC Settings.lnk"
 SectionEnd
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 !insertmacro MUI_DESCRIPTION_TEXT ${Section1} "Touches up your local copy of The Sims 2 Ultimate Collection and installs Sims2RPC v1.15."
-!insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs Graphics Rules Maker 2.3.0."
-!insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs DXVK 2.1. (Not recommended for beginners.)"
+!insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs Graphics Rules Maker."
+!insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs DXVK 2.4. (Not recommended for beginners.)"
 !insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs SimNopke's Sim Shadow Fix to your downloads folder for Windows 8 or higher. *Don't Use With DXVK*."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section6} "Installs Lazy Duchess's Bright CAS Fix to your Downloads folder."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section11} "Installs Visual C++ Redist (x86) if not already installed."
