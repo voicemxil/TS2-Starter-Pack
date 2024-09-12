@@ -1,1 +1,14 @@
-remote_theme: just-the-docs
+title: TS2 Starter Pack
+description: The Sims 2 Starter Pack Docs
+theme: just-the-docs
+
+color_scheme: darkcustom
+callouts:
+  warning:
+    title: Warning
+    color: red
+  note:
+    title: Note
+    color: yellow
+logo: https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/main/assets/StarterPack.png
+url: https://voicemxil.github.io/Doc-Template
