@@ -1,5 +1,5 @@
 Unicode true
-;Target x86-unicode
+; Target x86-unicode
 Target amd64-unicode
 
 # Installer SETUP
@@ -222,13 +222,16 @@ SectionGroup /e "Graphical Fixes\Tweaks"
 	Section "Graphics Rules Maker" Section3
 		SetOutPath "$INSTDIR\temp"
 		File "..\components\GRM-win64.7z"
-		Nsis7z::ExtractWithDetails "GRM-win64.7z" "Extracting GRM."
+
+		SetOutPath "$INSTDIR"
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\GRM-win64.7z" "Extracting GRM."
 		Pop $0
 		DetailPrint "GRM extract status: $0." 
-		Delete "GRM-win64.7z"
+
+		Delete "$INSTDIR\temp\GRM-win64.7z"
+
 		MessageBox MB_OK "Graphics Rules Maker will now open. Select $\"The Sims 2$\" from the $\"Game$\" dropdown and choose the $\"Auto-detect$\" option, then $\"Save Files.$\" Repeat the process for $\"The Sims 2 Body Shop$\" and then exit the program to continue."
 		Execwait "$INSTDIR\Graphics Rules Maker\bin\GraphicsRulesMakerUi.exe"
-
 	SectionEnd
 
 	Section /o "DXVK" Section4
