@@ -27,6 +27,6 @@ If you do not have a working connection to the GitHub server, you must use the [
 {: .note }
 If your installation is incomplete due to a download error or missing packs, either run the installer again with a better Internet connection or download & extract the missing packs from [here](https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/v12). In situations without a stable connection to GitHub or continued download errors, it may be better to use the standalone download+[Standalone/Touchup Installer](/standalone) instead.
 
-### Next step: Graphics Setup
+### Next step: [Graphics Setup](/TS2-Starter-Pack/graphics-setup)
 
 ---
