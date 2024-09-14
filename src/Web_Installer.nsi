@@ -1,6 +1,6 @@
 Unicode true 
-;Target amd64-unicode
-Target x86-unicode
+Target amd64-unicode
+; Target x86-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
@@ -16,7 +16,7 @@ Target x86-unicode
 !include ".\RemovePriorInstallation.nsh"
 
 Name "The Sims 2 Starter Pack"
-OutFile "..\bin\Web Installer\TS2StarterPack-WebInstaller.x32.exe"
+OutFile "..\bin\Web Installer\TS2StarterPack-WebInstaller.x64.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
 SetCompressor /SOLID LZMA
@@ -488,12 +488,13 @@ Section "Start Menu/Desktop Shortcut" Section15
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\The Sims 2 (Sims2RPC).lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPC Settings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
 
-	${If} ${SectionIsSelected} ${Section3}
-		CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Graphics Rules Maker.lnk' '$INSTDIR\Graphics Rules Maker\Bin\GraphicsRulesMakerUi.exe' "" '$INSTDIR\Graphics Rules Maker\Bin\GraphicsRulesMakerUi.exe' 0 
-	${EndIf}
-
 	CreateShortCut '$Desktop\The Sims 2 (Sims2RPC).lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	CreateShortCut '$Desktop\Sims2RPC Settings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
+
+	${If} ${SectionIsSelected} ${Section3}
+		SetOutPath "$INSTDIR\Graphics Rules Maker\Bin"
+		CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Graphics Rules Maker.lnk' '$INSTDIR\Graphics Rules Maker\Bin\GraphicsRulesMakerUi.exe' "" '$INSTDIR\Graphics Rules Maker\Bin\GraphicsRulesMakerUi.exe' 0 
+	${EndIf}
 SectionEnd 
 
 Section

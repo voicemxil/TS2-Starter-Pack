@@ -1,6 +1,6 @@
 Unicode true
-Target x86-unicode
-;Target amd64-unicode
+;Target x86-unicode
+Target amd64-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\StandaloneInstallerImage.bmp"
@@ -13,7 +13,7 @@ Target x86-unicode
 !include ".\Touchup-er.nsh"
 
 Name "The Sims 2 Starter Pack - Standalone Touchup Installer"
-OutFile "..\bin\Standalone Installer\UCTouchup-StandaloneInstaller.x32.exe"
+OutFile "..\bin\Standalone Installer\UCTouchup-StandaloneInstaller.x64.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
@@ -221,14 +221,14 @@ SectionEnd
 SectionGroup /e "Graphical Fixes\Tweaks"
 	Section "Graphics Rules Maker" Section3
 		SetOutPath "$INSTDIR\temp"
-		File "..\components\GRM-legacy-win32.7z"
+		File "..\components\GRM-win64.7z"
 
 		SetOutPath "$INSTDIR"
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\GRM-legacy-win32.7z" "Extracting GRM."
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\GRM-win64.7z" "Extracting GRM."
 		Pop $0
 		DetailPrint "GRM extract status: $0." 
 
-		Delete "$INSTDIR\temp\GRM-legacy-win32.7z"
+		Delete "$INSTDIR\temp\GRM-win64.7z"
 
 		MessageBox MB_OK "Graphics Rules Maker will now open. Select $\"The Sims 2$\" from the $\"Game$\" dropdown and choose the $\"Auto-detect$\" option, then $\"Save Files.$\" Repeat the process for $\"The Sims 2 Body Shop$\" and then exit the program to continue."
 		SetOutPath "$INSTDIR\Graphics Rules Maker\bin"
@@ -306,18 +306,20 @@ SectionGroupEnd
 
 Section "Start Menu/Desktop Shortcut" Section13
 	SectionInstType ${IT_FULL}
-
 	SetShellVarContext all
+
 	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
 	CreateDirectory '$SMPROGRAMS\The Sims 2 Starter Pack\'
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\The Sims 2 (Sims2RPC).lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPC Settings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
-	${If} ${SectionIsSelected} ${Section3}
-		CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Graphics Rules Maker.lnk' '$INSTDIR\Graphics Rules Maker\Bin\GraphicsRulesMakerUi.exe' "" '$INSTDIR\Graphics Rules Maker\Bin\GraphicsRulesMakerUi.exe' 0 
-	${EndIf}
+
 	CreateShortCut '$Desktop\The Sims 2 (Sims2RPC).lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	CreateShortCut '$Desktop\Sims2RPC Settings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
 
+	${If} ${SectionIsSelected} ${Section3}
+		SetOutPath "$INSTDIR\Graphics Rules Maker\Bin"
+		CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Graphics Rules Maker.lnk' '$INSTDIR\Graphics Rules Maker\Bin\GraphicsRulesMakerUi.exe' "" '$INSTDIR\Graphics Rules Maker\Bin\GraphicsRulesMakerUi.exe' 0 
+	${EndIf}
 SectionEnd 
 
 Section
