@@ -11,7 +11,8 @@ nav_order: 3
 
      [Download](https://github.com/voicemxil/ts2-starter-pack/releases/latest){: .btn .btn-green }
 
-If you do not have a working connection to the GitHub server, you must use the [Standalone/Touchup Installer](/standalone), the offline installer script, which requires downloading the game files separately.
+If you do not have a working connection to the GitHub server, you must use the [Standalone/Touchup Installer](/standalone), the offline installer script, which requires downloading the game files to the game folder separately. They are avaialable [here](https://github.com/mintalien/The-Puppets-2-Definitive-Edition/releases/tag/v12).
+
 # Installation:
    - 🐧 Linux/Steam Deck users should follow these steps in conjunction with the Linux-specific setup steps.
    1. Download your chosen installer from the "Assets" section of the latest release.
