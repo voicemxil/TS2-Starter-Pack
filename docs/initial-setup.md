@@ -20,7 +20,7 @@ nav_order: 2
 "Microsoft Basic Render Driver" and pre-installed drivers from Microsoft/Windows Update cause issues. Make sure to use the latest drivers for your GPU directly from the manufacturer.
 
 ## 3. Install an archive manager (Windows) 📚:
-   - You’ll need this to extract various kinds of files for the game, especially if you want CC/mods! I recommend 7-Zip.
+   - You’ll need this to extract various kinds of files for the game, especially if you want CC/mods! I recommend [7-Zip](https://7-zip.org/).
      
 ## 4. Disable OneDrive Documents syncing (Windows):
    - Having OneDrive backup the Documents can result in disk space errors, conflicts, save-file corruption, missing hoods, etc. as it tries to sync before and during gameplay. You don’t have to get rid of OneDrive entirely, you can still use the main OneDrive folder - but at the very least the Documents folder itself should be local to your user folder/excluded to ensure the game’s folder does not get synced.
