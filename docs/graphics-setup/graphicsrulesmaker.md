@@ -26,7 +26,7 @@ If you use the Starter Pack, GRM will already be pre-installed into to your Star
 
 ## Instructions:
 
-1. Run GRM as Administrator. (The installer should run the program automatically once it’s been downloaded).
+1. Run Graphics Rules Maker as Administrator. (The Starter Pack Installer does this automatically once it’s been downloaded).
 1. In the “Game:” dropdown box, select “The Sims 2.” 
   - The folder path should be set to “C:\Program Files (x86)\The Sims 2 Starter Pack” [or equivalent]. It should say in green that the game has been successfully located. 
      - If you don’t have the Starter Pack, it’ll usually be “EA GAMES\The Sims 2.” If you chose a custom folder location in the installer, set it to that instead. 
