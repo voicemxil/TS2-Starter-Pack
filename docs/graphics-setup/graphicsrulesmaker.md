@@ -8,9 +8,8 @@ nav_order: 1
 # Graphics Rules Maker (GRM) Setup
 
 This tool is used to patch the game’s Graphics Rules & Video Cards databases for your system.
-If you use the Starter Pack, GRM will be pre-installed into to your Starter Pack folder and will open up during the installation.
 
-If you don’t have GRM or have an older version, download here:
+If you use the Starter Pack, GRM will already be pre-installed into to your Starter Pack folder and will open up during the installation. If you don’t have GRM or have an older version, download here:
 
 ### Windows 10+
 
