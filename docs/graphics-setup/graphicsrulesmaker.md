@@ -43,6 +43,6 @@ If you don’t have GRM or have an older version, download here:
 1. To apply the fixes to The Sims 2 Body Shop, select it from the “Game” dropdown and repeat the same steps.
 
 ### Next Steps:
-If you have **modern AMD Graphics (RX 400+)**, [DXVK setup](TS2-Starter-Pack/graphics-setup/dxvk) is recommended to prevent AMD issues with the loading screen as well as generally better performance.
+If you have **modern AMD Graphics (RX 400+)**, [DXVK setup](/dxvk) is recommended to prevent AMD issues with the loading screen as well as generally better performance.
 For any others, DXVK is **optional/experimental**, and can have either benefits or downsides depending on your hardware. You can read more details or otherwise move on to [Sims2RPCSettings and running the game](/TS2-Starter-Pack/final-setup).
 ---
