@@ -15,8 +15,7 @@ If you do not have an active working connection to the GitHub server on the devi
 
 # Installation:
 - 🐧 Linux/Steam Deck users should follow these steps in conjunction with the Linux-specific setup steps.
-1. Download your chosen installer from the "Assets" section of the latest release.
-   ![image](https://github.com/user-attachments/assets/09af425a-e4e2-4aca-af67-eeb890c40fe6)
+1. Download your chosen installer from the "Assets" section at the bottom of the [latest release page](https://github.com/voicemxil/TS2-Starter-Pack).
 1. Run the installer .exe using an administrator user account.
    - When opening you may be prompted that "Windows protected your PC" due to the installer not having a paid signature. To proceed, click the "More details" link and then "Run Anyway."
    - If antivirus interferes further for some reason, try temporarily disabling it to launch the installer and/or make an exception for your game folder.
