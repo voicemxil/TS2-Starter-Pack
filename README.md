@@ -44,18 +44,18 @@ The Ultimate Collection is the free 2014 Origin release, which includes the base
 ## Featured Fixes/Dependencies 
 - Included:
   - [Sims2RPC Launcher & Bright CAS Fix by Lazy Duchess](lazyduchess.tumblr.com)
-  - Visual C++ Redist (x86)
-  - .NET Framework (required for RPC)
   - [Graphics Rules Maker from SimsNetwork](https://www.simsnetwork.com/tools/graphics-rules-maker)
   - [Sim Shadow Fix by SimNopke](https://simnopke.tumblr.com/post/136184612377/sim-shadow-fix)
+  - Store/Pre-order Content
   - CEP (Color Enable Package) by Numenor
   - Pie Menu Text String Fix by LdDarcy
   - AL/MG UI Font Fix by DanTheMann15 patched in
   - Localized Music Unlocked by spockthewok (Web Installer)
+  - Visual C++ Redist (x86)
+  - .NET Framework (required for RPC)
 - Optional:
   - DXVK (not toggled by default)
   - Clean Hood Templates: [CroconawSims](https://modthesims.info/m/10269790) (PV, VV, RH, DV, Universities, Bluewater Village), [Dorsal Axe](https://modthesims.info/m/6990975) (ST), [MeetMe2TheRiver](https://meetme2theriver.livejournal.com/) (Downtown, Stealth Hoods), and [TheNeonPlumb](https://theneonplumb.tumblr.com/post/656712498541723648/clean-template-belladonna-cove-with-townies) (BC)
-  - Store/Pre-order Content
  
 
 
