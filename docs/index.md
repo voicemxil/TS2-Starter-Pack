@@ -23,7 +23,7 @@ The Ultimate Collection is the free 2014 Origin release, which includes the base
 - Automates Touchup/install process based on the install directory
   
 [<img align="left" width="48" height="48" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/4f869b5b-9e36-40c8-9704-d135e55f12bc" alt="Standalone Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-StandaloneInstaller.x64.exe)
-### [Standalone Installer Script](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Offline Version) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Standalone%20Installer/TS2StarterPack-StandaloneInstaller.x64.exe?branch=v15.0.1)
+### [Standalone Installer Script](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Offline Version) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Standalone%20Installer/UCTouchup-StandaloneInstaller.x64.exe?branch=v15.0.1)
 - Lightweight NSIS-based installer 
 - Game files not included.
 - Performs offline install on manually extracted Ultimate Collection game files
