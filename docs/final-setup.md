@@ -6,10 +6,6 @@ nav_order: 5
 
 # Final Setup 
 
-{: .note }
-> RPC NOTICE: The Sims2RPC launcher has a false trojan flag in certain antivirus suites due to the way it injects code into TS2. 
-> If when installing or launching the game, you find out your Sims2RPC files are mysteriously missing/quarantined, temporarily disable your antivirus (including Windows Defender) and create an exception for your Sims 2 folder, then reinstall Sims2RPC from [here](https://lazyduchess.tumblr.com/post/631915230388158464/sims2rpc-mod-launcher-for-mansion-garden).
-
 The Starter Pack comes with Sims2RPC by Lazy Duchess as both its no-CD patch and launcher. 
 Non-Starter-Pack users who own Mansion & Garden Stuff can install RPC via auto installer or by manually extracting to \Fun with Pets\SP9\TSBin, or alternatively use “George” (a.k.a. no-CD version of Sims2EP9.exe) with the 4GB patch tool.
 
@@ -21,6 +17,10 @@ Sims2RPC provides:
 
 To launch the game, use Sims2RPC.exe located in “The Sims 2 Starter Pack\Fun with Pets\SP9\TSBin.” You will see RPC’s terminal window pop up and start loading, then the game should launch. 
 If you choose to create shortcuts in the Web or Standalone Installers, a shortcut to the game will be made on both the Desktop and the Start Menu so you can launch it easily.
+
+{: .note }
+> RPC NOTICE: The Sims2RPC launcher has a false trojan flag in certain antivirus suites due to the way it injects code into TS2. 
+> If when installing or launching the game, you find out your Sims2RPC files are mysteriously missing/quarantined, temporarily disable your antivirus (including Windows Defender) and create an exception for your Sims 2 folder, then reinstall Sims2RPC from [here](https://lazyduchess.tumblr.com/post/631915230388158464/sims2rpc-mod-launcher-for-mansion-garden).
 
 The first time you open Sims2RPC, be sure to run it as Administrator so it can set up properly. You should also run its settings app (Sims2RPCSettings.exe) and check for updates if it doesn’t do so automatically.
 
