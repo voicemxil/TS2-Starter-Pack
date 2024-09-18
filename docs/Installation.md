@@ -18,7 +18,7 @@ If you don't have a working connection to the GitHub server on the device you're
 
 1. Download your chosen installer from the "Assets" section at the bottom of the [latest release page](https://github.com/voicemxil/TS2-Starter-Pack).
 1. Run the installer .exe using an administrator user account.
-   - When opening you may be prompted that "Windows protected your PC" due to the installer not having a paid signature. To proceed, click the "More details" link and then "Run Anyway."
+   - When opening you may be prompted that "Windows protected your PC" due to the installer not having a paid signature. If this happens, click the "More details" link and then "Run Anyway" to proceed.
    - If antivirus interferes further for some reason, try temporarily disabling it to launch the installer and/or make an exception for your game folder.
 1. Follow the prompts in the installer to proceed, then select the location your "The Sims 2 Starter Pack" folder & choose desired components.
    - The default location of "The Sims 2 Starter Pack" folder in Program Files (x86) is recommended. 
