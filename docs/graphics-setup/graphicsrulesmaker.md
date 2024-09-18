@@ -32,7 +32,7 @@ If you use the Starter Pack, GRM will already be pre-installed into to your Star
      - If you don’t have the Starter Pack, it’ll usually be “EA GAMES\The Sims 2.” If you chose a custom folder location in the installer, set it to that instead. 
 1. Click the “Auto-detect” button to automatically input the correct texture memory and tweaks for your system.
 1. If you have integrated graphics from Intel/AMD CPUs’ onboard, GRM may overestimate the texture memory to 4096. It's a good idea to lower it to a value like 512 or 1024 to avoid crashing, as shared memory on integrated cards will count towards the game’s memory limit.
-1. Uncheck 🚫 “Disable Sim shadows” - we will be using either the Sim Shadow Fix or DXVK.
+1. Uncheck 🚫 “Disable Sim shadows” if it is checked, since we will be using either the Sim Shadow Fix or DXVK.
 1. Check ✅ “Disable Dirty Rectangle optimizations.” Resolves cases of transparent flickering graphics and fixes the depth buffer for Reshade support.
 1. Set both the “Default Resolution” and “Max Resolution” dropdowns to match your monitor (typically the largest resolution on the list).
   - 🛈 The larger you make the resolution, the smaller the in-game UI will appear. You can resolve this by lowering it in-game or upscaling with tools such as Magpie, Borderless Gaming, or Lossless Scaling.
