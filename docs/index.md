@@ -9,7 +9,7 @@ permalink: /
 Download, install, and optimize TS2 with essential fixes for modern Windows (10/11) or Linux.
 
 [Download Now](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest){: .btn .btn-green .mr-2 }
-[Start Guide](https://voicemxil.github.io/Doc-Template/docs/initial-setup.html){: .btn .btn-blue .mr-2 }
+[Start Guide](https://voicemxil.github.io/TS2-Starter-Pack/initial-setup.html){: .btn .btn-blue .mr-2 }
 [OG Google Docs Guide](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit){: .btn .btn-purple }
 
 The Starter Pack is an all-in-one source for obtaining, installing, and optimizing TS2 Ultimate Collection on modern hardware! 
