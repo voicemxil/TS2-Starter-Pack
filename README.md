@@ -1,4 +1,4 @@
-<img align="left" width="50" height="50" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/a9e022b0-277d-45ce-adb9-9bf210cc970a" alt="SP icon">
+<img align="left" width="64" height="64" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/a9e022b0-277d-45ce-adb9-9bf210cc970a" alt="SP icon">
 
 <h1>The Sims 2 Starter Pack</h1> 
 
