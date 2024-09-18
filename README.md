@@ -1,4 +1,4 @@
-<img align="left" width="60" height="60" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/a9e022b0-277d-45ce-adb9-9bf210cc970a" alt="SP icon">
+<img align="left" width="50" height="50" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/a9e022b0-277d-45ce-adb9-9bf210cc970a" alt="SP icon">
 
 <h1>The Sims 2 Starter Pack</h1> 
 
@@ -17,8 +17,8 @@ The Ultimate Collection is the free 2014 Origin release, which includes the base
 
 [<img align="left" width="40" height="40" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/4f869b5b-9e36-40c8-9704-d135e55f12bc" alt="Standalone Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-StandaloneInstaller.x64.exe)
 ### [Standalone Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Offline Version) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Standalone%20Installer/TS2StarterPack-StandaloneInstaller.x64.exe?branch=v13)
-- Lightweight NSIS-based installer 
-- Game files not included. Performs offline install on manually extracted Ultimate Collection game files (works with G4tW)
+- NSIS-based registry/touchup installer script (game files not included)
+- Performs offline install on manually extracted Ultimate Collection game files
 - Automates Touchup/install process based on the install directory, includes same fixes as Web Installer
 
   
