@@ -2,7 +2,7 @@ Unicode true
 Target amd64-unicode
 ; Target x86-unicode
 
-# Installer SETUP
+# includes ----------------------------------------------------------------
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
 !include "ModernXL.nsh"
@@ -11,10 +11,23 @@ Target amd64-unicode
 !include "WinVer.nsh"
 !include "LogicLib.nsh"
 !include ".\Downloader.nsh"
-!include ".\Language-r.nsh"
-!include ".\Touchup-er.nsh"
+!include ".\Language.nsh"
+!include ".\Touchup.nsh"
 !include ".\RemovePriorInstallation.nsh"
 
+; Links to Packs
+Var AL
+Var BoB
+Var BV
+Var Base
+Var DD
+Var FT
+Var FwP
+Var GLS
+Var SS
+Var UNI
+
+# installer setup ----------------------------------------------------------------
 Name "The Sims 2 Starter Pack"
 OutFile "..\bin\Web Installer\TS2StarterPack-WebInstaller.x64.exe"
 RequestExecutionLevel admin
@@ -27,7 +40,7 @@ VIAddVersionKey "FileVersion" "15.0.0"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
 VIAddVersionKey "ProductVersion" "15.0"
 
-# MUI SETUP
+# MUI setup ----------------------------------------------------------------
 brandingText "osab Web Installer v15"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
@@ -38,10 +51,9 @@ brandingText "osab Web Installer v15"
 !define MUI_ICON "..\assets\NewInstaller.ico"
 !define MUI_PAGE_HEADER_TEXT "TS2 Starter Pack: Web Installer"
 !define MUI_PAGE_HEADER_SUBTEXT "TS2 Origin Ultimate Collection repacked by osab!"
-!define MUI_WELCOMEPAGE_TITLE "The Sims 2 Starter Pack: Web Installer "
+!define MUI_WELCOMEPAGE_TITLE "The Sims 2 Starter Pack: Web Installer"
 !define MUI_WELCOMEPAGE_TEXT "Welcome to The Sims 2 Starter Pack Web Installer. This installer automatically downloads/installs The Sims 2 Ultimate Collection and dependencies/fixes for modern systems. $\n$\nPlease ensure you are using the latest version directly from the GitHub! $\n$\nThis installer guesses the game language based on your system locale, however you can change it if needed by applying the registry files in the included $\"_Language Selection$\" folder."
 !define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. $\n$\nThe game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
-!define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
 !define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the guide for post-install instructions/tips?"
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
@@ -52,7 +64,6 @@ brandingText "osab Web Installer v15"
 !define MUI_FINISHPAGE_RUN_TEXT "Configure Sims2RPC Settings?"
 !define MUI_FINISHPAGE_LINK_COLOR "5865F2"
 !insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_LICENSE "..\LICENSE.txt"
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_INSTFILES
@@ -64,18 +75,7 @@ brandingText "osab Web Installer v15"
 !insertmacro MUI_UNPAGE_FINISH
 !insertmacro MUI_LANGUAGE "English"
 
-# Begin Installation
-# Links to Packs
-Var AL
-Var BoB
-Var BV
-Var Base
-Var DD
-Var FT
-Var FwP
-Var GLS
-Var SS
-Var UNI
+# Begin Installation ----------------------------------------------------------------
 
 # Current DXVK Version
 Var DXVKVER
@@ -87,7 +87,7 @@ FunctionEnd
 
 InstType "Full" IT_FULL
 
-SectionGroup /e "TS2 Starter Pack"
+SectionGroup "TS2 Starter Pack"
 	Section /o "Cleanup Script Game Files" Section1
 	SectionEnd
 	Section "TS2 Starter Pack" Section2
@@ -96,7 +96,7 @@ SectionGroup /e "TS2 Starter Pack"
 		SetOverwrite on
 		SectionIn RO
 		InitPluginsDir
-		AddSize 9600000
+		AddSize 12700000
 
 		!insertmacro RemovePreviousInstall
 
@@ -274,7 +274,23 @@ SectionGroup /e "TS2 Starter Pack"
 SectionGroupEnd
 	
 SectionGroup /e "Graphical Fixes/Tweaks"
-	Section "Graphics Rules Maker" Section3
+	Section "Sim Shadow Fix" Section3
+		SectionInstType ${IT_FULL}
+		${If} ${IsWin7}
+		${OrIf} ${IsWinVista}
+		${OrIf} ${IsWinXP}
+			DetailPrint "Shadow Fix skipped due to being unnecessary for this Windows version."
+		${Else}
+		DetailPrint "Donwloading Sim Shadow Fix..."
+		SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15/components/simNopke-simShadowFix0.3reallyNotMisty.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\simNopke-simShadowFix0.3reallyNotMisty.package" /RESUME /INSIST /END
+		Pop $0
+		DetailPrint "Shadow Fix download status: $0"
+		ExecShell "open" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
+		${EndIf}
+	SectionEnd
+
+	Section "Graphics Rules Maker" Section4
 		SectionInstType ${IT_FULL}
 
 		SetOutPath "$INSTDIR"
@@ -299,8 +315,15 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 		SetOutPath "$INSTDIR\Graphics Rules Maker\bin"
 		Execwait "$INSTDIR\Graphics Rules Maker\bin\GraphicsRulesMakerUi.exe"
 	SectionEnd
+	
+		
+	Section "LD Bright CAS Fix" Section5
+		SectionInstType ${IT_FULL}
+		DetailPrint "Donwloading Bright CAS Fix..."
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15/components/ld_BrightCASFix.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\ld_BrightCASFix.package" /BACKGROUND /END
+	SectionEnd
 
-	Section /o "DXVK" Section4
+	Section /o "DXVK" Section6
 
 		SetOutPath $INSTDIR\temp
 
@@ -319,35 +342,13 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 			Pop $0 # return value = exit code, "OK" means OK
 			DetailPrint "DXVK download status: $0." 
 
-			NScurl::http GET "https://raw.githubusercontent.com/doitsujin/dxvk/v2.4/dxvk.conf" "$INSTDIR\Fun with Pets\SP9\TSBin\dxvk.conf" /RESUME /INSIST /END
+			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15/components/dxvk.conf" "$INSTDIR\Fun with Pets\SP9\TSBin\dxvk.conf" /RESUME /INSIST /END
 			Pop $0
 			DetailPrint "DXVK.conf download status: $0." 
 			goto next
 		false:
 			DetailPrint "Vulkan is unsupported, DXVK will be skipped."
 		next:
-	SectionEnd
-
-	Section "Sim Shadow Fix" Section5
-		SectionInstType ${IT_FULL}
-		${If} ${IsWin7}
-		${OrIf} ${IsWinVista}
-		${OrIf} ${IsWinXP}
-			DetailPrint "Shadow Fix skipped due to being unnecessary for this Windows version."
-		${Else}
-		DetailPrint "Donwloading Sim Shadow Fix..."
-		SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15/components/simNopke-simShadowFix0.3reallyNotMisty.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\simNopke-simShadowFix0.3reallyNotMisty.package" /RESUME /INSIST /END
-		Pop $0
-		DetailPrint "Shadow Fix download status: $0"
-		ExecShell "open" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
-		${EndIf}
-	SectionEnd
-		
-	Section "LD Bright CAS Fix" Section6	
-		SectionInstType ${IT_FULL}
-		DetailPrint "Donwloading Bright CAS Fix..."
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15/components/ld_BrightCASFix.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\ld_BrightCASFix.package" /BACKGROUND /END
 	SectionEnd
 SectionGroupEnd
 
@@ -388,19 +389,19 @@ Section "Store & Preorder/Bonus Content" Section9
 	SectionInstType ${IT_FULL}
 
 	SetOutPath "$INSTDIR\temp"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15.0/components/Store_Content/Preorder-Bonus.7z" "$INSTDIR\temp\Preorder-Bonus.7z" /RESUME /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15.0.1/components/Store_Content/Preorder-Bonus.7z" "$INSTDIR\temp\Preorder-Bonus.7z" /RESUME /END
 		Pop $0
 		DetailPrint "Preorder-Bonus.7z download result: $0"		
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads"
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Preorder-Bonus\Preorder-Bonus.7z" "Extracting Preorder/Exclusive Content %s"
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\Preorder-Bonus.7z" "Extracting Preorder/Exclusive Content %s"
 		Pop $0
 		DetailPrint "Preorder-Bonus.7z extract result: $0"		
 
 	SetOutPath "$INSTDIR\temp"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15.0/components/Store_Content/Downloads.7z.001" "$INSTDIR\temp\Downloads.7z.001" /RESUME /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15.0.1/components/Store_Content/Downloads.7z.001" "$INSTDIR\temp\Downloads.7z.001" /RESUME /END
 		Pop $0
 		DetailPrint "Downloads.7z.001 download result: $0"
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15.0/components/Store_Content/Downloads.7z.002" "$INSTDIR\temp\Downloads.7z.002" /RESUME /END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15.0.1/components/Store_Content/Downloads.7z.002" "$INSTDIR\temp\Downloads.7z.002" /RESUME /END
 		Pop $0
 		DetailPrint "Downloads.7z.002 download result: $0"
 	SetOutPath "$Documents\EA Games\The Sims 2 Ultimate Collection"
@@ -549,10 +550,10 @@ SectionEnd
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${Section2} "Installs The Sims 2 Ultimate Collection w/ fixes and Sims2RPC v1.15."
   !insertmacro MUI_DESCRIPTION_TEXT ${Section1} "Installs alternate version of the game files with cleanup script by lingeringwillx. Reduces game file size by 2.44GB by removing duplicate files. However, be warned: this version may have issues not present in the original version such as issues with SimPE/TS2Hook."
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs Graphics Rules Maker."
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs DXVK $DXVKVER. Recommended on modern AMD graphics cards (RX 400+) to prevent a long loading screen bug. Otherwise, only select if you know you have Vulkan-capable hardware and a specific reason to use it. (When using this option, you do not need the Sim Shadow Fix. If it causes graphical issues, remove d3d9.dll from $\"Fun with Pets\SP9\TSBin.$\")"
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs SimNopke's Sim Shadow Fix to your Downloads folder for Windows 8 or higher. (Not needed if installing DXVK)"
-  !insertmacro MUI_DESCRIPTION_TEXT ${Section6} "Installs Lazy Duchess's Bright CAS Fix to your install folder."
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs SimNopke's Sim Shadow Fix to your Downloads folder for Windows 8 or higher. (Not needed if installing DXVK)"
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs Graphics Rules Maker."
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs Lazy Duchess's Bright CAS Fix to your install folder."
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section6} "Installs DXVK $DXVKVER. Recommended on modern AMD graphics cards (RX 400+) to prevent a long loading screen bug. Otherwise, only select if you know you have Vulkan-capable hardware and a specific reason to use it. (When using this option, you do not need the Sim Shadow Fix. If it causes graphical issues, remove d3d9.dll from $\"Fun with Pets\SP9\TSBin.$\")"
   !insertmacro MUI_DESCRIPTION_TEXT ${Section7} "Installs Visual C++ Redist (x86) if not already installed. (Required by the game)"
   !insertmacro MUI_DESCRIPTION_TEXT ${Section8} "Installs .NET Framework if not already installed. (Required for Sims2RPC)"
   !insertmacro MUI_DESCRIPTION_TEXT ${Section9} "Installs the Sims 2 Store and pre-order/bonus content."

@@ -1,6 +1,6 @@
 Unicode true
-;Target x86-unicode
-Target amd64-unicode
+Target x86-unicode
+; Target amd64-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\StandaloneInstallerImage.bmp"
@@ -9,11 +9,11 @@ Target amd64-unicode
 !include "MUI2.nsh"
 !include "x64.nsh"
 !include "WinVer.nsh"
-!include ".\Language-r.nsh"
-!include ".\Touchup-er.nsh"
+!include ".\Language.nsh"
+!include ".\Touchup.nsh"
 
 Name "The Sims 2 Starter Pack - Standalone Touchup Installer"
-OutFile "..\bin\Standalone Installer\UCTouchup-StandaloneInstaller.x64.exe"
+OutFile "..\bin\Standalone Installer\UCTouchup-StandaloneInstaller.x32.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
@@ -50,7 +50,6 @@ brandingText "osab Standalone Installer v15"
 !define MUI_FINISHPAGE_RUN_TEXT "Configure Sims2RPC Settings?"
 !define MUI_FINISHPAGE_LINK_COLOR "5865F2"
 !insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_LICENSE "..\LICENSE.txt"
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_COMPONENTS
 !insertmacro MUI_PAGE_INSTFILES
