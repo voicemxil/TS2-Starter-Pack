@@ -8,12 +8,11 @@ The Starter Pack is an all-in-one source for obtaining, installing, and optimizi
 The Ultimate Collection is the free 2014 Origin release, which includes the base game & all packs/updates.
 
 
-## Usage:
-**New guide for beginners: [TS2.crd.co](https://ts2.crd.co)**
+## Instructions:
+#### **(New!)** Install/setup guide for beginners: [TS2.crd.co](https://ts2.crd.co)
 
-More detailed documentation on [voicemxil.github.io/TS2-Starter-Pack](voicemxil.github.io/TS2-Starter-Pack)
+The [OG Guide on Google Docs](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) is also still available. More detailed documentation on [voicemxil.github.io/TS2-Starter-Pack](voicemxil.github.io/TS2-Starter-Pack)
 
-The [OG Guide on Google Docs](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) is also still available.
 
 
 ## Flavors:
@@ -25,8 +24,8 @@ The [OG Guide on Google Docs](https://docs.google.com/document/d/1UT0HX3cO4xLft2
 - Automates Touchup/install process based on the install directory
 
 [<img align="left" width="40" height="40" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/4f869b5b-9e36-40c8-9704-d135e55f12bc" alt="Standalone Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-StandaloneInstaller.x64.exe)
-### [Standalone Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Offline Version) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Standalone%20Installer/UCTouchup-StandaloneInstaller.x64.exe?branch=v15.0.1)
-- NSIS-based registry/touchup installer script (game files not included)
+### [Standalone Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Standalone%20Installer/UCTouchup-StandaloneInstaller.x64.exe?branch=v15.0.1)
+- NSIS-based registry/touchup installer script (game files **not** included)
 - Performs offline install on manually extracted Ultimate Collection game files
 - Automated Touchup/install process based on the install directory, includes same fixes as Web Installer
 
