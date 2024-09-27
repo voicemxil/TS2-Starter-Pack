@@ -34,14 +34,14 @@ RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
 SetCompressor /SOLID LZMA
 ManifestDPIAware True
-VIProductVersion 15.0.0.0
+VIProductVersion 15.0.2.0
 VIAddVersionKey "CompanyName" "osab"
-VIAddVersionKey "FileVersion" "15.0.0"
+VIAddVersionKey "FileVersion" "15.0.2"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
-VIAddVersionKey "ProductVersion" "15.0"
+VIAddVersionKey "ProductVersion" "15.0.2"
 
 # MUI setup ----------------------------------------------------------------
-brandingText "osab Web Installer v15"
+brandingText "osab Web Installer v15.0.2"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
 !define MUI_HEADERIMAGE
@@ -82,7 +82,7 @@ Var DXVKVER
 
 Function .OnInit
 	Dialer::AttemptConnect
-	StrCpy $DXVKVER "2.4"
+	StrCpy $DXVKVER "2.4.1"
 FunctionEnd
 
 InstType "Full" IT_FULL
@@ -292,7 +292,6 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 
 	Section "Graphics Rules Maker" Section4
 		SectionInstType ${IT_FULL}
-
 		SetOutPath "$INSTDIR"
 		${If} ${IsWin8.1}
 		${OrIf} ${IsWin8}
@@ -324,7 +323,6 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 	SectionEnd
 
 	Section /o "DXVK" Section6
-
 		SetOutPath $INSTDIR\temp
 
 		DetailPrint "Downloading Vulkan-Test to check for DXVK support..."
@@ -338,11 +336,11 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 		true: 
 			SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin\"
 			DetailPrint "Downloading DXVK $DXVKVER..."
-			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15/components/d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll" /RESUME /INSIST /END
+			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15.0.2/components/d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll" /RESUME /INSIST /END
 			Pop $0 # return value = exit code, "OK" means OK
 			DetailPrint "DXVK download status: $0." 
 
-			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15/components/dxvk.conf" "$INSTDIR\Fun with Pets\SP9\TSBin\dxvk.conf" /RESUME /INSIST /END
+			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15.0.2/components/dxvk.conf" "$INSTDIR\Fun with Pets\SP9\TSBin\dxvk.conf" /RESUME /INSIST /END
 			Pop $0
 			DetailPrint "DXVK.conf download status: $0." 
 			goto next

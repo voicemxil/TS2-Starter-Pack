@@ -18,11 +18,11 @@ RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
 ManifestDPIAware True
-VIProductVersion 15.0.0.0
+VIProductVersion 15.0.2.0
 VIAddVersionKey "CompanyName" "osab"
-VIAddVersionKey "FileVersion" "15"
+VIAddVersionKey "FileVersion" "15.0.2"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
-VIAddVersionKey "ProductVersion" "15"
+VIAddVersionKey "ProductVersion" "15.0.2"
 
 # MUI SETUP
 brandingText "osab Standalone Installer v15"
@@ -245,7 +245,7 @@ SectionGroup /e "Graphical Fixes\Tweaks"
 		MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
 		true: 
 			SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
-			DetailPrint "Extracting DXVK 2.4..."
+			DetailPrint "Extracting DXVK 2.4.1..."
 			File "..\components\d3d9.dll"
 			Pop $0 # return value = exit code, "OK" means OK
 			DetailPrint "DXVK extract status: $0."
@@ -371,7 +371,7 @@ SectionEnd
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 !insertmacro MUI_DESCRIPTION_TEXT ${Section1} "Touches up your local copy of The Sims 2 Ultimate Collection and installs Sims2RPC v1.15."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs Graphics Rules Maker."
-!insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs DXVK 2.4. (Not recommended for beginners.)"
+!insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs DXVK 2.4.1. (Not recommended for beginners.)"
 !insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs SimNopke's Sim Shadow Fix to your downloads folder for Windows 8 or higher. *Don't Use With DXVK*."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section6} "Installs Lazy Duchess's Bright CAS Fix to your Downloads folder."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section11} "Installs Visual C++ Redist (x86) if not already installed."
