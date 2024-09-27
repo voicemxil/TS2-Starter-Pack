@@ -7,6 +7,15 @@
 The Starter Pack is an all-in-one source for obtaining, installing, and optimizing TS2 Ultimate Collection on modern hardware! 
 The Ultimate Collection is the free 2014 Origin release, which includes the base game & all packs/updates.
 
+
+## Usage:
+**New guide for beginners: [TS2.crd.co](https://ts2.crd.co)**
+
+More detailed documentation on [voicemxil.github.io/TS2-Starter-Pack](voicemxil.github.io/TS2-Starter-Pack)
+
+The [OG Guide on Google Docs](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) is also still available.
+
+
 ## Flavors:
 
 [<img align="left" width="40" height="40" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/e5233181-2abd-4c40-a9f5-e4ba4ce76b68" alt="Web Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-WebInstaller.x64.exe)
@@ -19,14 +28,7 @@ The Ultimate Collection is the free 2014 Origin release, which includes the base
 ### [Standalone Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Offline Version) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Standalone%20Installer/UCTouchup-StandaloneInstaller.x64.exe?branch=v15.0.1)
 - NSIS-based registry/touchup installer script (game files not included)
 - Performs offline install on manually extracted Ultimate Collection game files
-- Automates Touchup/install process based on the install directory, includes same fixes as Web Installer
-
-  
-## Usage/Instructions:
-
-### New guide available on [voicemxil.github.io/TS2-Starter-Pack](voicemxil.github.io/TS2-Starter-Pack)
-### The [Full Guide on Google Docs](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) is also still available.
-
+- Automated Touchup/install process based on the install directory, includes same fixes as Web Installer
 
 ## Included Fixes/Dependencies
 - [Sims2RPC Launcher & Bright CAS Fix by Lazy Duchess](lazyduchess.tumblr.com)
