@@ -1,6 +1,6 @@
 Unicode true
 Target x86-unicode
-; Target amd64-unicode
+;Target amd64-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\StandaloneInstallerImage.bmp"
@@ -150,13 +150,13 @@ Section "Touchup & Sims2RPC" Section1
 	CreateDirectory "$INSTDIR\temp"
 	SetOutPath "$INSTDIR\temp"
 	DetailPrint "Installing Sims2RPC..."
-	File "..\components\Sims2RPC_1.15.7z"
+	File "..\components\Sims2RPC_1.15.1.7z"
 	SetOutPath "$INSTDIR"
-	Nsis7z::ExtractWithDetails "$INSTDIR\temp\Sims2RPC_1.15.7z" "%s"
+	Nsis7z::ExtractWithDetails "$INSTDIR\temp\Sims2RPC_1.15.1.7z" "%s"
 	Pop $0
 	DetailPrint "RPC extraction status: $0."
 	DetailPrint "Cleaning up RPC zip file..."
-	Delete "Sims2RPC_1.15.7z"
+	Delete "Sims2RPC_1.15.1.7z"
 
 	# Unlocked Pet Breeds
 	SetOutPath $INSTDIR 

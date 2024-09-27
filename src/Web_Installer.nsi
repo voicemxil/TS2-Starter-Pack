@@ -1,6 +1,6 @@
 Unicode true 
 Target amd64-unicode
-; Target x86-unicode
+;Target x86-unicode
 
 # includes ----------------------------------------------------------------
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
@@ -171,7 +171,7 @@ SectionGroup "TS2 Starter Pack"
 		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15/components/Sims2EP9.exe" "$INSTDIR\Fun with Pets\SP9\TSBin\Sims2EP9RPC.exe"/END
 
 		# Install Sims2RPC
-		!insertmacro downloadPack "Sims2RPC" "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15/components/Sims2RPC_1.15.7z" "$INSTDIR\temp\Sims2RPC.7z" "f3091ab315252425c742edb6c6635b3f67105c60cba164d096db11359e4283eb"
+		!insertmacro downloadPack "Sims2RPC" "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15.0.2/components/Sims2RPC_1.15.1.7z" "$INSTDIR\temp\Sims2RPC.7z" "1d54ae7ecd63a165e36b982aa59bb472b84f852ca401e1ec6d728f0fe69db28a"
 		Delete "$INSTDIR\temp\Sims2RPC.7z"
 		
 		# Unlocked Pet Breeds
