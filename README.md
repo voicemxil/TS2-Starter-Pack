@@ -4,8 +4,9 @@
 
 ![GitHub all releases](https://img.shields.io/github/downloads/voicemxil/TS2-Starter-Pack/total?label=total%20downloads) ![Current Version](https://img.shields.io/github/v/release/voicemxil/TS2-Starter-Pack?label=current%20version) [![Discord](https://img.shields.io/discord/912700195249197086?color=fa807a&label=osab%27s%20TS2%20Community%20Discord%20Server&logo=Discord&logoColor=white)](https://discord.gg/ts2community)
 
-The Starter Pack is an all-in-one source for installing, and optimizing TS2 Ultimate Collection on modern hardware! 
-The Ultimate Collection is the free 2014 Origin release, which includes the base game & all packs/updates.
+The all-in-one source for installing & optimizing TS2!
+
+Provides the full Ultimate Collection (free Origin version from 2014 with all packs/updates), bonus content, as well as necessary fixes for modern systems.
 
 
 ## Instructions:
@@ -20,7 +21,7 @@ The [OG Guide on Google Docs](https://docs.google.com/document/d/1UT0HX3cO4xLft2
 [<img align="left" width="40" height="40" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/e5233181-2abd-4c40-a9f5-e4ba4ce76b68" alt="Web Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-WebInstaller.x64.exe)
 ### [Web Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Recommended) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Web%20Installer/TS2StarterPack-WebInstaller.x64.exe?branch=v15.0.1)
 - Lightweight NSIS-based web installer
-- Download The Sims 2 Ultimate Collection with Sims2RPC & fixes via GitHub
+- Automatically download The Sims 2 Ultimate Collection with Sims2RPC & fixes via GitHub
 - Automates Touchup/install process based on the install directory
 
 [<img align="left" width="40" height="40" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/4f869b5b-9e36-40c8-9704-d135e55f12bc" alt="Standalone Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-StandaloneInstaller.x64.exe)
