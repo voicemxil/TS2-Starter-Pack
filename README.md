@@ -9,9 +9,9 @@ Provides the full Ultimate Collection (free Origin version from 2014 with all pa
 
 
 ## Instructions:
-### **(New!)** Updated install/setup guide: [TS2.crd.co](https://ts2.crd.co)
+### **(New!)** [Updated install/setup guide at TS2.crd.co](https://ts2.crd.co)
 
-The [OG Guide on Google Docs](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) is also still available. More detailed documentation on [voicemxil.github.io/TS2-Starter-Pack](voicemxil.github.io/TS2-Starter-Pack)
+The [OG Google Docs Guide](https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit) is also still available. More detailed documentation on [voicemxil.github.io/TS2-Starter-Pack](voicemxil.github.io/TS2-Starter-Pack)
 
 ## Flavors:
 
