@@ -14,12 +14,12 @@ The [OG Google Docs Guide](https://docs.google.com/document/d/1UT0HX3cO4xLft2Koz
 ## Flavors:
 
 [<img align="left" width="40" height="40" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/e5233181-2abd-4c40-a9f5-e4ba4ce76b68" alt="Web Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-WebInstaller.x64.exe)
-### [Web Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) (Recommended) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Web%20Installer/TS2StarterPack-WebInstaller.x64.exe?branch=v15.0.1)
+### [Web Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) **(Recommended)**
 - Installs The Sims 2 Ultimate Collection with Sims2RPC & fixes via GitHub direct download.
 - Automated Touchup process based on the install directory.
 
 [<img align="left" width="40" height="40" src="https://github.com/voicemxil/TS2-Starter-Pack/assets/69059862/4f869b5b-9e36-40c8-9704-d135e55f12bc" alt="Standalone Installer icon">](https://github.com/voicemxil/TS2-Starter-Pack/releases/download/v14/TS2StarterPack-StandaloneInstaller.x64.exe)
-### [Standalone ("Touchup") Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) ![GitHub file size in bytes](https://img.shields.io/github/size/voicemxil/TS2-Starter-Pack/bin/Standalone%20Installer/UCTouchup-StandaloneInstaller.x64.exe?branch=v15.0.1)
+### [Standalone ("Touchup") Installer](https://github.com/voicemxil/TS2-Starter-Pack/releases/latest) 
 - Offline registry install/repair for user-specified Ultimate Collection game path. Game files **not** included, requires separate download.
 - Includes same fixes as Web Installer without downloading function.
   
