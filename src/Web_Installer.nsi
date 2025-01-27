@@ -1,6 +1,6 @@
 Unicode true 
-Target amd64-unicode
-;Target x86-unicode
+;Target amd64-unicode
+Target x86-unicode
 
 # includes ----------------------------------------------------------------
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\InstallerImage.bmp"
@@ -34,14 +34,14 @@ RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
 SetCompressor /SOLID LZMA
 ManifestDPIAware True
-VIProductVersion 15.0.2.0
+VIProductVersion 15.1.0.0
 VIAddVersionKey "CompanyName" "osab"
-VIAddVersionKey "FileVersion" "15.0.2"
+VIAddVersionKey "FileVersion" "15.1.0"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
-VIAddVersionKey "ProductVersion" "15.0.2"
+VIAddVersionKey "ProductVersion" "15.1.0"
 
 # MUI setup ----------------------------------------------------------------
-brandingText "osab Web Installer v15.0.2"
+brandingText "osab Web Installer v15.1"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
 !define MUI_HEADERIMAGE
@@ -54,7 +54,7 @@ brandingText "osab Web Installer v15.0.2"
 !define MUI_WELCOMEPAGE_TITLE "The Sims 2 Starter Pack: Web Installer"
 !define MUI_WELCOMEPAGE_TEXT "Welcome to The Sims 2 Starter Pack Web Installer. This installer automatically downloads/installs The Sims 2 Ultimate Collection and dependencies/fixes for modern systems. $\n$\nPlease ensure you are using the latest version directly from the GitHub! $\n$\nThis installer guesses the game language based on your system locale, however you can change it if needed by applying the registry files in the included $\"_Language Selection$\" folder."
 !define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. $\n$\nThe game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
-!define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
+!define MUI_FINISHPAGE_SHOWREADME "https://ts2.crd.co"
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the guide for post-install instructions/tips?"
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
 !define MUI_FINISHPAGE_TEXT "The installation has completed. To run the game, launch Sims2RPC or use the desktop/Start menu shortcut."
@@ -82,7 +82,7 @@ Var DXVKVER
 
 Function .OnInit
 	Dialer::AttemptConnect
-	StrCpy $DXVKVER "2.4.1"
+	StrCpy $DXVKVER "2.5.3"
 FunctionEnd
 
 InstType "Full" IT_FULL
@@ -168,10 +168,15 @@ SectionGroup "TS2 Starter Pack"
 		!insertmacro touchup "The Sims 2 Ultimate Collection" "EA GAMES\The Sims 2" "{04450C18-F039-4B81-A621-70C3B0F523D5}" "Sims2EP9.exe"
 
 		# EP9RPC
-		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15/components/Sims2EP9.exe" "$INSTDIR\Fun with Pets\SP9\TSBin\Sims2EP9RPC.exe"/END
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15.1/components/Sims2EP9.exe" "$INSTDIR\Fun with Pets\SP9\TSBin\Sims2EP9RPC.exe"/END
 
 		# Install Sims2RPC
-		!insertmacro downloadPack "Sims2RPC" "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15.0.2/components/Sims2RPC_1.15.1.7z" "$INSTDIR\temp\Sims2RPC.7z" "1d54ae7ecd63a165e36b982aa59bb472b84f852ca401e1ec6d728f0fe69db28a"
+		!insertmacro downloadPack "Sims2RPC" "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15.1/components/Sims2RPC_1.15.1.7z" "$INSTDIR\temp\Sims2RPC.7z" "1d54ae7ecd63a165e36b982aa59bb472b84f852ca401e1ec6d728f0fe69db28a"
+		SetOutPath $Documents
+		CreateDirectory "$Documents\Sims2RPC"
+		SetOutPath "$Documents\Sims2RPC"
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15.1/components/settings.txt" "$Documents\Sims2RPC\settings.txt"
+		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15.1/components/version.txt" "$Documents\Sims2RPC\version.txt"
 		Delete "$INSTDIR\temp\Sims2RPC.7z"
 		
 		# Unlocked Pet Breeds
@@ -299,15 +304,15 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 		${OrIf} ${IsWinVista}
 		${OrIf} ${IsWinXP}
 			${If} ${RunningX64}
-				!insertmacro downloadPack "Graphics Rules Maker (Legacy x64)" "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15/components/GRM-legacy-win64.7z" "$INSTDIR\temp\GraphicsRulesMaker.7z" "e0ae78a5d9c1d747160eb6546486f203d3d86435ad4352ce81f9483e2dc86180"
+				!insertmacro downloadPack "Graphics Rules Maker (Legacy x64)" "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15.1/components/GRM/GRM-legacy-win64.7z" "$INSTDIR\temp\GraphicsRulesMaker.7z" "e0ae78a5d9c1d747160eb6546486f203d3d86435ad4352ce81f9483e2dc86180"
 			${Else}
-				!insertmacro downloadPack "Graphics Rules Maker (Legacy x32)" "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15/components/GRM-legacy-win32.7z" "$INSTDIR\temp\GraphicsRulesMaker.7z" "70e065e042d12c2de8303f7b86661443704d464dbc4adb07c7bd84372a246d1f"
+				!insertmacro downloadPack "Graphics Rules Maker (Legacy x32)" "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15.1/components/GRM/GRM-legacy-win32.7z" "$INSTDIR\temp\GraphicsRulesMaker.7z" "70e065e042d12c2de8303f7b86661443704d464dbc4adb07c7bd84372a246d1f"
 			${EndIf}
 		${Else}
 			${If} ${RunningX64}
-				!insertmacro downloadPack "Graphics Rules Maker (x64)" "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15/components/GRM-win64.7z" "$INSTDIR\temp\GraphicsRulesMaker.7z" "ff82645e099ce9d4f3f045ba6431f357bb9fd5011737b96aa84a6205bc18333e"
+				!insertmacro downloadPack "Graphics Rules Maker (x64)" "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15.1/components/GRM/GRM-win64.7z" "$INSTDIR\temp\GraphicsRulesMaker.7z" "ff82645e099ce9d4f3f045ba6431f357bb9fd5011737b96aa84a6205bc18333e"
 			${Else}
-				!insertmacro downloadPack "Graphics Rules Maker (Legacy x32)" "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15/components/GRM-legacy-win32.7z" "$INSTDIR\temp\GraphicsRulesMaker.7z" "70e065e042d12c2de8303f7b86661443704d464dbc4adb07c7bd84372a246d1f"
+				!insertmacro downloadPack "Graphics Rules Maker (Legacy x32)" "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15.1/components/GRM/GRM-legacy-win32.7z" "$INSTDIR\temp\GraphicsRulesMaker.7z" "70e065e042d12c2de8303f7b86661443704d464dbc4adb07c7bd84372a246d1f"
 			${EndIf}
 		${EndIf}
 		MessageBox MB_OK "Graphics Rules Maker will now open. Select $\"The Sims 2$\" from the $\"Game$\" dropdown and choose the $\"Auto-detect$\" option, then $\"Save Files.$\" Repeat the process for $\"The Sims 2 Body Shop$\" and then exit the program to continue."
@@ -322,7 +327,7 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 		NScurl::http GET "https://github.com/voicemxil/TS2-Starter-Pack/raw/v15/components/ld_BrightCASFix.package" "$Documents\EA Games\The Sims 2 Ultimate Collection\Downloads\ld_BrightCASFix.package" /BACKGROUND /END
 	SectionEnd
 
-	Section /o "DXVK" Section6
+	Section /o "DXVK (AMD GPU 2016+ - Performance)" Section6
 		SetOutPath $INSTDIR\temp
 
 		DetailPrint "Downloading Vulkan-Test to check for DXVK support..."
@@ -336,17 +341,21 @@ SectionGroup /e "Graphical Fixes/Tweaks"
 		true: 
 			SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin\"
 			DetailPrint "Downloading DXVK $DXVKVER..."
-			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15.0.2/components/d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll" /RESUME /INSIST /END
+			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15.1/components/DXVK/d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll" /RESUME /INSIST /END
 			Pop $0 # return value = exit code, "OK" means OK
 			DetailPrint "DXVK download status: $0." 
-
-			NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15.0.2/components/dxvk.conf" "$INSTDIR\Fun with Pets\SP9\TSBin\dxvk.conf" /RESUME /INSIST /END
-			Pop $0
-			DetailPrint "DXVK.conf download status: $0." 
 			goto next
 		false:
 			DetailPrint "Vulkan is unsupported, DXVK will be skipped."
 		next:
+	SectionEnd
+
+	Section /o "ForceD3d9on12 (Intel ARC/UHD/Iris Graphics - Shadow Crash Fix)" Section13
+		SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin\"
+		DetailPrint "Downloading DXWrapper... (Overrides DXVK)"
+		NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15.1/components/DXWrapper/dxwrapper.ini" "$INSTDIR\Fun with Pets\SP9\TSBin\dxwrapper.ini" /RESUME /INSIST /END
+		NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15.1/components/DXWrapper/dxwrapper.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\dxwrapper.dll" /RESUME /INSIST /END
+		NScurl::http GET "https://raw.githubusercontent.com/voicemxil/TS2-Starter-Pack/v15.1/components/DXWrapper/d3d9.dll" "$INSTDIR\Fun with Pets\SP9\TSBin\d3d9.dll" /INSIST /END
 	SectionEnd
 SectionGroupEnd
 
@@ -486,9 +495,10 @@ Section "Start Menu/Desktop Shortcut" Section15
 	CreateDirectory '$SMPROGRAMS\The Sims 2 Starter Pack\'
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\The Sims 2 (Sims2RPC).lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPC Settings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
-
 	CreateShortCut '$Desktop\The Sims 2 (Sims2RPC).lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	CreateShortCut '$Desktop\Sims2RPC Settings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
+	SetOutPath "$INSTDIR\Fun with Pets\SP9\CSBin"
+	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\The Sims 2 Body Shop.lnk' '$INSTDIR\Fun with Pets\SP9\CSBin\TS2BodyShop.exe'
 
 	${If} ${SectionIsSelected} ${Section3}
 		SetOutPath "$INSTDIR\Graphics Rules Maker\Bin"
@@ -498,6 +508,7 @@ SectionEnd
 
 Section
 	RMDir /r "$INSTDIR\temp"
+	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
 SectionEnd
 
 Section "Uninstall" Section20
@@ -558,5 +569,6 @@ SectionEnd
   !insertmacro MUI_DESCRIPTION_TEXT ${Section10} "Installs cleaned versions of the main neighborhoods. Pleasantview, Veronaville, Riverblossom Hills, Desiderata Valley, & Belladonna Cove by zachjohnunlimited on MTS, Strangetown by Dorsal Axe on MTS."
   !insertmacro MUI_DESCRIPTION_TEXT ${Section11} "Installs cleaned Subhoods - this includes Downtown by @meetmetotheriver and Shopping Districts/Universities by zachjohnunlimited on MTS."
   !insertmacro MUI_DESCRIPTION_TEXT ${Section12} "Installs cleaned Stealth Hoods by @meetmetotheriver."
+  !insertmacro MUI_DESCRIPTION_TEXT ${Section13} "Installs DXWrapper, ForceD3d9on12: in order to support shadows without crashing on the latest Intel graphics (Arc, UHD, Iris) which lack full DX9 support."
   !insertmacro MUI_DESCRIPTION_TEXT ${Section15} "Create a shortuct to launch the game in your Start Menu/Desktop."
 !insertmacro MUI_FUNCTION_DESCRIPTION_END

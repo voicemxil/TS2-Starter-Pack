@@ -1,6 +1,6 @@
 Unicode true
-Target x86-unicode
-;Target amd64-unicode
+;Target x86-unicode
+Target amd64-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\StandaloneInstallerImage.bmp"
@@ -13,19 +13,19 @@ Target x86-unicode
 !include ".\Touchup.nsh"
 
 Name "The Sims 2 Starter Pack - Standalone Touchup Installer"
-OutFile "..\bin\Standalone Installer\UCTouchup-StandaloneInstaller.x32.exe"
+OutFile "..\bin\Standalone Installer\UCTouchup-StandaloneInstaller.x64.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
 ManifestDPIAware True
-VIProductVersion 15.0.2.0
+VIProductVersion 15.1.0.0
 VIAddVersionKey "CompanyName" "osab"
-VIAddVersionKey "FileVersion" "15.0.2"
+VIAddVersionKey "FileVersion" "15.1.0"
 VIAddVersionKey "ProductName" "The Sims 2 Starter Pack"
-VIAddVersionKey "ProductVersion" "15.0.2"
+VIAddVersionKey "ProductVersion" "15.1.0"
 
 # MUI SETUP
-brandingText "osab Standalone Installer v15"
+brandingText "osab Standalone Installer v15.1"
 !define MUI_ABORTWARNING
 !define MUI_INSTFILESPAGE_COLORS "FFFFFF 000000"
 !define MUI_HEADERIMAGE
@@ -40,7 +40,7 @@ brandingText "osab Standalone Installer v15"
 !define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. The game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
 !define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
 !define MUI_DIRECTORYPAGE_TEXT_DESTINATION "The folder you choose should contain the game packs such as $\"Fun with Pets.$\""
-!define MUI_FINISHPAGE_SHOWREADME "https://docs.google.com/document/d/1UT0HX3cO4xLft2KozGypU_N7ZcGQVr-54QD9asFsx5U/edit#heading=h.6jnaz4t6d3vx"
+!define MUI_FINISHPAGE_SHOWREADME "https://ts2.crd.co"
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Open the guide for post-install instructions/tips?"
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
 !define MUI_FINISHPAGE_TEXT "The installation has completed. To run the game, launch Sims2RPC or use the desktop/Start menu shortcut."
@@ -152,11 +152,15 @@ Section "Touchup & Sims2RPC" Section1
 	DetailPrint "Installing Sims2RPC..."
 	File "..\components\Sims2RPC_1.15.1.7z"
 	SetOutPath "$INSTDIR"
-	Nsis7z::ExtractWithDetails "$INSTDIR\temp\Sims2RPC_1.15.1.7z" "%s"
+	Nsis7z::ExtractWithDetails "$INSTDIR\temp\Sims2RPC_1.15.1.7z" "Extracting Sims2RPC %s"
 	Pop $0
 	DetailPrint "RPC extraction status: $0."
 	DetailPrint "Cleaning up RPC zip file..."
 	Delete "Sims2RPC_1.15.1.7z"
+	CreateDirectory "$Documents\Sims2RPC"
+	SetOutPath "$Documents\Sims2RPC"
+	File "..\components\settings.txt"
+	File "..\components\version.txt"
 
 	# Unlocked Pet Breeds
 	SetOutPath $INSTDIR 
@@ -220,21 +224,21 @@ SectionEnd
 SectionGroup /e "Graphical Fixes\Tweaks"
 	Section "Graphics Rules Maker" Section3
 		SetOutPath "$INSTDIR\temp"
-		File "..\components\GRM-win64.7z"
+		File "/oname=GRM.7z" "..\components\GRM\GRM-win64.7z"
 
 		SetOutPath "$INSTDIR"
-		Nsis7z::ExtractWithDetails "$INSTDIR\temp\GRM-win64.7z" "Extracting GRM."
+		Nsis7z::ExtractWithDetails "$INSTDIR\temp\GRM.7z" "Extracting GRM."
 		Pop $0
 		DetailPrint "GRM extract status: $0." 
 
-		Delete "$INSTDIR\temp\GRM-win64.7z"
+		Delete "$INSTDIR\temp\GRM.7z"
 
 		MessageBox MB_OK "Graphics Rules Maker will now open. Select $\"The Sims 2$\" from the $\"Game$\" dropdown and choose the $\"Auto-detect$\" option, then $\"Save Files.$\" Repeat the process for $\"The Sims 2 Body Shop$\" and then exit the program to continue."
 		SetOutPath "$INSTDIR\Graphics Rules Maker\bin"
 		Execwait "$INSTDIR\Graphics Rules Maker\bin\GraphicsRulesMakerUi.exe"
 	SectionEnd
 
-	Section /o "DXVK" Section4
+	Section /o "DXVK (AMD GPU 2016+ - Performance)" Section4
 
 		SetOutPath "$INSTDIR\temp"
 
@@ -245,19 +249,23 @@ SectionGroup /e "Graphical Fixes\Tweaks"
 		MessageBox MB_YESNO "DXVK requires Vulkan support. If the message box said it successfully created a Vulkan instance, click Yes. Otherwise, click NO." IDYES true IDNO false
 		true: 
 			SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
-			DetailPrint "Extracting DXVK 2.4.1..."
-			File "..\components\d3d9.dll"
+			DetailPrint "Extracting DXVK 2.5.3..."
+			File "..\components\DXVK\d3d9.dll"
 			Pop $0 # return value = exit code, "OK" means OK
 			DetailPrint "DXVK extract status: $0."
-
-			File "..\components\dxvk.conf"
-			Pop $0
-			DetailPrint "DXVK.conf extrtact status: $0." 
 			goto next
 		false:
 			DetailPrint "Vulkan is unsupported, DXVK will be skipped."
 		next:
 	SectionEnd
+
+	Section /o "ForceD3d9on12 (Intel ARC/UHD/Iris Graphics - Shadow Crash Fix)" Section13
+		SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
+		File "..\components/DXWrapper/dxwrapper.ini"
+		File "..\components/DXWrapper/dxwrapper.dll"
+		File "..\components/DXWrapper/d3d9.dll"
+	SectionEnd
+
 
 	Section "Sim Shadow Fix" Section5
 		SectionInstType ${IT_FULL}
@@ -303,7 +311,7 @@ SectionGroup "Dependencies"
 	SectionEnd
 SectionGroupEnd
 
-Section "Start Menu/Desktop Shortcut" Section13
+Section "Start Menu/Desktop Shortcut" Section15
 	SectionInstType ${IT_FULL}
 	SetShellVarContext all
 
@@ -311,9 +319,11 @@ Section "Start Menu/Desktop Shortcut" Section13
 	CreateDirectory '$SMPROGRAMS\The Sims 2 Starter Pack\'
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\The Sims 2 (Sims2RPC).lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\Sims2RPC Settings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
-
 	CreateShortCut '$Desktop\The Sims 2 (Sims2RPC).lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPC.exe' 0
 	CreateShortCut '$Desktop\Sims2RPC Settings.lnk' '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' "" '$INSTDIR\Fun with Pets\SP9\TSBin\Sims2RPCSettings.exe' 0
+	# Body Shop Shortcut
+	SetOutPath "$INSTDIR\Fun with Pets\SP9\CSBin"
+	CreateShortCut '$SMPROGRAMS\The Sims 2 Starter Pack\The Sims 2 Body Shop.lnk' '$INSTDIR\Fun with Pets\SP9\CSBin\TS2BodyShop.exe'
 
 	${If} ${SectionIsSelected} ${Section3}
 		SetOutPath "$INSTDIR\Graphics Rules Maker\Bin"
@@ -322,7 +332,7 @@ Section "Start Menu/Desktop Shortcut" Section13
 SectionEnd 
 
 Section
-	ExecShell "open" "$INSTDIR\Fun with Pets\SP9\TSBin"
+	SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
 	RMDir /r "$INSTDIR\temp"
 SectionEnd
 
@@ -371,10 +381,11 @@ SectionEnd
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
 !insertmacro MUI_DESCRIPTION_TEXT ${Section1} "Touches up your local copy of The Sims 2 Ultimate Collection and installs Sims2RPC v1.15."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section3} "Installs Graphics Rules Maker."
-!insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs DXVK 2.4.1. (Not recommended for beginners.)"
+!insertmacro MUI_DESCRIPTION_TEXT ${Section4} "Installs DXVK 2.5.3. (Not recommended for beginners.)"
 !insertmacro MUI_DESCRIPTION_TEXT ${Section5} "Installs SimNopke's Sim Shadow Fix to your downloads folder for Windows 8 or higher. *Don't Use With DXVK*."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section6} "Installs Lazy Duchess's Bright CAS Fix to your Downloads folder."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section11} "Installs Visual C++ Redist (x86) if not already installed."
 !insertmacro MUI_DESCRIPTION_TEXT ${Section12} "Installs .NET Framework if not already installed."
-!insertmacro MUI_DESCRIPTION_TEXT ${Section13} "Create a shortuct to launch the game in your Start Menu/Desktop."
+!insertmacro MUI_DESCRIPTION_TEXT ${Section13} "Installs DXWrapper, ForceD3d9on12: in order to support shadows without crashing on the latest Intel graphics (Arc, UHD, Iris) which lack full DX9 support."
+!insertmacro MUI_DESCRIPTION_TEXT ${Section15} "Create a shortuct to launch the game in your Start Menu/Desktop."
 !insertmacro MUI_FUNCTION_DESCRIPTION_END

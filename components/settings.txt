@@ -1,0 +1,23 @@
+do4gbPatch=true
+singleCore=false
+richPresence=true
+customCamera=false
+useRefreshRate=true
+screenshots=true
+cleanCache=false
+updates=true
+
+# This can be either windowed, borderless or fullscreen
+mode=borderless
+
+# Keys. Key codes can be found at https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes 
+# Custom camera is set to the middle mouse button by default, replacing the vanilla camera rotation.
+screenshotKey=2C
+customCameraKey=4
+
+# Custom camera settings.
+cameraSensitivity=0.004
+
+# Engine nonsense
+sleep=15
+sleepCustomCamera=8
