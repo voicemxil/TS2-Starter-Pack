@@ -1,6 +1,6 @@
 Unicode true
-;Target x86-unicode
-Target amd64-unicode
+Target x86-unicode
+;Target amd64-unicode
 
 # Installer SETUP
 !define MUI_WELCOMEFINISHPAGE_BITMAP "..\assets\StandaloneInstallerImage.bmp"
@@ -13,7 +13,7 @@ Target amd64-unicode
 !include ".\Touchup.nsh"
 
 Name "The Sims 2 Starter Pack - Standalone Touchup Installer"
-OutFile "..\bin\Standalone Installer\UCTouchup-StandaloneInstaller.x64.exe"
+OutFile "..\bin\Standalone Installer\UCTouchup-StandaloneInstaller.x32.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack\"
 SetCompressor /SOLID LZMA
@@ -36,7 +36,7 @@ brandingText "osab Standalone Installer v15.1"
 !define MUI_PAGE_HEADER_TEXT "TS2 Starter Pack: Standalone Touchup Installer"
 !define MUI_PAGE_HEADER_SUBTEXT "Touchup installer for Standalone TS2:UC, by osab."
 !define MUI_WELCOMEPAGE_TITLE "The Sims 2 Starter Pack: Standalone Touchup Installer"
-!define MUI_WELCOMEPAGE_TEXT "This is the standalone Starter Pack install script for use with the separate download of The Sims 2: Ultimate Collection. It does NOT download the game files for you. $\n$\nFor the best first-time install experience wth all-in-one download and installation, use the Web Installer instead. $\n$\nThis installer guesses the game language based on your system locale, however you can change it if needed by applying the registry files in the included $\"_Language Selection$\" folder. $\n$\nPlease set the install directory to your $\"The Sims 2 Starter Pack$\" root folder where you've extracted the game files."
+!define MUI_WELCOMEPAGE_TEXT "This is the standalone Touchup install script for use with the separate download of The Sims 2: Ultimate Collection. It does NOT download the game files for you. $\n$\nFor the best first-time install experience wth all-in-one download and installation, use the Web Installer instead. $\n$\nThis installer guesses the game language based on your system locale, however you can change it if needed by applying the registry files in the included $\"_Language Selection$\" folder. $\n$\nPlease set the install directory to your $\"The Sims 2 Starter Pack$\" root folder where you've extracted the game files."
 !define MUI_UNCONFIRMPAGE_TEXT_TOP "WARNING: Before uninstalling, make sure the folder you chose contains ONLY the uninstaller and game files. The game files MUST be in their own separate folder with no other essential data! I am not responsible for any data loss!"
 !define MUI_LICENSEPAGE_TEXT_TOP "License Information:"
 !define MUI_DIRECTORYPAGE_TEXT_DESTINATION "The folder you choose should contain the game packs such as $\"Fun with Pets.$\""
@@ -224,7 +224,7 @@ SectionEnd
 SectionGroup /e "Graphical Fixes\Tweaks"
 	Section "Graphics Rules Maker" Section3
 		SetOutPath "$INSTDIR\temp"
-		File "/oname=GRM.7z" "..\components\GRM\GRM-win64.7z"
+		File "/oname=GRM.7z" "..\components\GRM\GRM-legacy-win32.7z"
 
 		SetOutPath "$INSTDIR"
 		Nsis7z::ExtractWithDetails "$INSTDIR\temp\GRM.7z" "Extracting GRM."
@@ -261,9 +261,9 @@ SectionGroup /e "Graphical Fixes\Tweaks"
 
 	Section /o "ForceD3d9on12 (Intel ARC/UHD/Iris Graphics - Shadow Crash Fix)" Section13
 		SetOutPath "$INSTDIR\Fun with Pets\SP9\TSBin"
-		File "..\components/DXWrapper/dxwrapper.ini"
-		File "..\components/DXWrapper/dxwrapper.dll"
-		File "..\components/DXWrapper/d3d9.dll"
+		File "..\components/DXWrapper\dxwrapper.ini"
+		File "..\components/DXWrapper\dxwrapper.dll"
+		File "..\components/DXWrapper\d3d9.dll"
 	SectionEnd
 
 

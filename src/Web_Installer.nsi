@@ -29,7 +29,7 @@ Var UNI
 
 # installer setup ----------------------------------------------------------------
 Name "The Sims 2 Starter Pack"
-OutFile "..\bin\Web Installer\TS2StarterPack-WebInstaller.x64.exe"
+OutFile "..\bin\Web Installer\TS2StarterPack-WebInstaller.x86.exe"
 RequestExecutionLevel admin
 InstallDir "$PROGRAMFILES32\The Sims 2 Starter Pack"
 SetCompressor /SOLID LZMA
