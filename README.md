@@ -27,7 +27,7 @@ Download installers via the Assets of the [latest Release](https://github.com/vo
 
 
 ## Included Fixes/Dependencies
-- [Sims2RPC Launcher & Bright CAS Fix by Lazy Duchess](lazyduchess.tumblr.com)
+- [Sims2RPC Launcher & Bright CAS Fix by Lazy Duchess](https://lazyduchess.tumblr.com)
 - [Graphics Rules Maker from SimsNetwork](https://www.simsnetwork.com/tools/graphics-rules-maker)
 - [Sim Shadow Fix by SimNopke](https://simnopke.tumblr.com/post/136184612377/sim-shadow-fix)
 - Store/Pre-order Content
